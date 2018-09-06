@@ -63,8 +63,16 @@ gem 'spree_auth_devise', '~> 3.3'
 gem 'spree_gateway', '~> 3.3'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
-
+gem 'spree_editor', github: 'spree-contrib/spree_editor'
 
 group :production do
   gem 'unicorn'
 end
+
+# gem 'fastercsv'
+gem 'geokit'
+gem 'geokit-rails'
+# gem 'ym4r'
+# gem 'ym4r_gm', path: 'http://svn://rubyforge.org/var/svn/ym4r/Plugins/GM/trunk/ym4r_gm'
+gem 'geocoder'
+#gem 'gmaps4rails'

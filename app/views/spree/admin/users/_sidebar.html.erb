@@ -13,9 +13,16 @@
 		  <%= link_to_with_icon 'copyright-mark', Spree.t(:"admin.user.seller"), spree.seller_admin_user_path(@user) %>
 		</li>
 	<% end %>
+   <% if @user.spree_role_ids.include?(3)%>
+    <li<%== ' class="active"' if current == :deliveries %>>
+      <%= link_to_with_icon 'user', Spree.t(:"admin.user.deliveries"), spree.admin_user_deliveries_path(@user) %>
+    </li>
+  <% end %>  
     <li<%== ' class="active"' if current == :address %>>
       <%= link_to_with_icon 'user', Spree.t(:"admin.user.addresses"), spree.addresses_admin_user_path(@user) %>
-    </li>	
+    </li>
+
+    	
     <li<%== ' class="active"' if current == :orders %>>
       <%= link_to_with_icon 'shopping-cart', Spree.t(:"admin.user.orders"), spree.orders_admin_user_path(@user) %>
     </li>

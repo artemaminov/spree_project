@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180818160430) do
+ActiveRecord::Schema.define(version: 20180828003223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses_sellers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "address_id"
+    t.bigint "seller_id"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_addresses_sellers_on_address_id"
+    t.index ["seller_id"], name: "index_addresses_sellers_on_seller_id"
+    t.index ["user_id"], name: "index_addresses_sellers_on_user_id"
+  end
 
   create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
@@ -46,10 +58,14 @@ ActiveRecord::Schema.define(version: 20180818160430) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.datetime "deleted_at"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["country_id"], name: "index_spree_addresses_on_country_id"
     t.index ["deleted_at"], name: "index_spree_addresses_on_deleted_at"
     t.index ["firstname"], name: "index_addresses_on_firstname"
     t.index ["lastname"], name: "index_addresses_on_lastname"
+    t.index ["latitude"], name: "index_spree_addresses_on_latitude"
+    t.index ["longitude"], name: "index_spree_addresses_on_longitude"
     t.index ["state_id"], name: "index_spree_addresses_on_state_id"
     t.index ["user_id"], name: "index_spree_addresses_on_user_id"
   end
@@ -664,8 +680,8 @@ ActiveRecord::Schema.define(version: 20180818160430) do
     t.text "company_kors"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "spree_users_id"
-    t.index ["spree_users_id"], name: "index_spree_sellers_on_spree_users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_spree_sellers_on_spree_users_id"
   end
 
   create_table "spree_shipments", id: :serial, force: :cascade do |t|
@@ -1076,5 +1092,17 @@ ActiveRecord::Schema.define(version: 20180818160430) do
     t.index ["kind"], name: "index_spree_zones_on_kind"
   end
 
-  add_foreign_key "spree_sellers", "spree_users", column: "spree_users_id"
+  create_table "store_events", force: :cascade do |t|
+    t.string "name"
+    t.integer "event_type"
+    t.text "content"
+    t.bigint "store_id"
+    t.date "happens_at"
+    t.string "event_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_store_events_on_store_id"
+  end
+
+  add_foreign_key "spree_sellers", "spree_users", column: "user_id"
 end

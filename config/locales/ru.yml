@@ -1,3 +1,4 @@
+
 ru:
   activerecord:
     attributes:
@@ -11,6 +12,7 @@ ru:
         phone: "Телефон"
         state: "Область/Регион"
         zipcode: "Почтовый индекс"
+        comment: "Дополнительная информация"
       spree/calculator/tiered_flat_rate:
         preferred_base_amount:
         preferred_tiers:
@@ -83,7 +85,7 @@ ru:
         name: "Название"
         on_hand: "На складе"
         shipping_category: "Категория доставки"
-        tax_category: "Категория налогов"
+        tax_category: "Категория товаров"
       spree/promotion:
         advertise: "Рекламировать"
         code: "Код"
@@ -204,6 +206,10 @@ ru:
         many: "Адресов"
         one: "Адрес"
         other: "Адреса"
+      spree/delivery:
+        many: "Адресов доставки"
+        one: "Адрес доставки"
+        other: "Адреса доставки"  
       spree/seller:
         many: "Продавцов"
         one: "Продавец"
@@ -313,9 +319,9 @@ ru:
         one: "Перемещение по складам"
         other: "Перемещения по складам"
       spree/tax_category:
-        many: "Категорий налогов"
-        one: "Категория налогов"
-        other: "Категории налогов"
+        many: "Категорий товаров"
+        one: "Категория товаров"
+        other: "Категории товаров"
       spree/tax_rate:
         many: "Ставок налога"
         one: "Ставка налога"
@@ -428,7 +434,7 @@ ru:
     add_rule_of_type: "Добавить правило типа"
     add_state: "Добавить регион/область"
     add_stock: "Добавить склад"
-    add_stock_management: "Добавить управление запасами"
+    add_stock_management: "Добавить управление запасами"     
     add_to_cart: "Добавить в корзину"
     add_variant: "Добавить вариант"
     additional_item: "Ставка для дополнительных наименований"
@@ -462,7 +468,7 @@ ru:
       user:
         account: "Учетная запись"
         seller: "Компания"
-        addresses: "Адреса"
+        addresses: "Адреса покупателя"
         items: "Товары"
         items_purchased: "Купленные товары"
         order_history: "История заказов"
@@ -470,8 +476,11 @@ ru:
         orders: "Заказы"
         user_information: "Информация"
         store_credits: "Баланс"
+        deliveries: "Адреса доставки"  
     administration: "Администрирование"
     advertise:
+    add_store_credit: "Добавить кредитов"
+    add_delivery: "Добавить адрес доставки" 
     agree_to_privacy_policy: "Согласиться с Политикой Конфиденциальности"
     agree_to_terms_of_service: "Согласиться с Уловиями обслуживания"
     all: "все"
@@ -901,7 +910,7 @@ ru:
     new_stock_movement: "Новое движение товара"
     new_stock_transfer: "Новое перемещение по складу"
     new_store_credit_category: "Новая программа лояльности"
-    new_tax_category: "Новая категория налогов"
+    new_tax_category: "Новая категория товаров"
     new_tax_rate: "Новая ставка налога"
     new_taxon: "Новый таксон"
     new_taxonomy: "Новая таксономия"
@@ -1469,6 +1478,17 @@ ru:
     your_cart_is_empty: "Ваша корзина пуста"
     your_order_is_empty_add_product: "Ваша корзина пуста, найдите и добавьте продукты, пожалуйста"
     zip: "Индекс"
+    comment: "Дополнительная информация"
     zipcode: "Почтовый индекс"
     zone: "Торговая зона"
     zones: "Торговые зоны"
+    stores: "Stores"
+    listing_stores: "Stores"
+    new_store: "New Store"
+    store_events: "Store Events"
+    editing_store: "Edit Store"
+    creating_store: "Create Store"
+    listing_store_events: "Store Events"
+    new_store_event: "New Store Event"
+    creating_store_event: "Create Store Event"
+    editing_store_event: "Edit Store Event"

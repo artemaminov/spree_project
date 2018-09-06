@@ -7,6 +7,17 @@ GIT
       spree_core (>= 3.1.0, < 4.0)
 
 GIT
+  remote: https://github.com/spree-contrib/spree_editor.git
+  revision: c3d147ac19bae1080e442f3002becafe71f0cdac
+  specs:
+    spree_editor (3.3.2)
+      ckeditor (~> 4.2.0)
+      spree_backend (>= 3.1.0, < 4.0)
+      spree_core (>= 3.1.0, < 4.0)
+      spree_extension
+      tinymce-rails (~> 4.2.5)
+
+GIT
   remote: https://github.com/spree-contrib/spree_i18n.git
   revision: 5021782dacb25c906b52925cec25494fbdd78dea
   specs:
@@ -70,13 +81,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    autoprefixer-rails (9.1.1)
+    autoprefixer-rails (9.1.3)
       execjs
     awesome_nested_set (3.1.4)
       activerecord (>= 4.0.0, < 5.3)
     awesome_print (1.8.0)
     bcrypt (3.1.12)
-    better_errors (2.4.0)
+    better_errors (2.5.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -103,8 +114,13 @@ GEM
       activesupport (>= 3.0.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    ckeditor (4.2.4)
+      cocaine
+      orm_adapter (~> 0.5.0)
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.2.0)
+    cocaine (0.6.0)
+      terrapin (= 0.6.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -137,6 +153,11 @@ GEM
     ffi (1.9.25)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
+    geocoder (1.5.0)
+    geokit (1.13.1)
+    geokit-rails (2.3.1)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     highline (1.6.21)
@@ -203,7 +224,7 @@ GEM
       terrapin (~> 0.6.0)
     paranoia (2.4.1)
       activerecord (>= 4.0, < 5.3)
-    pg (1.0.0)
+    pg (1.1.1)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -369,9 +390,11 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    turbolinks (5.1.1)
-      turbolinks-source (~> 5.1)
-    turbolinks-source (5.1.0)
+    tinymce-rails (4.2.8)
+      railties (>= 3.1.1)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     twitter_cldr (4.4.3)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
@@ -411,6 +434,9 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  geocoder
+  geokit
+  geokit-rails
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
@@ -421,6 +447,7 @@ DEPENDENCIES
   spree (~> 3.5.0)
   spree_address_book!
   spree_auth_devise (~> 3.3)
+  spree_editor!
   spree_gateway (~> 3.3)
   spree_i18n!
   spring
