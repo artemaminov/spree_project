@@ -667,6 +667,32 @@ ru:
       format: "%d.%m.%Y"
       js_format: dd.mm.yy
     date_range: "Временной период"
+    datashift_import:
+      reset_message:
+        users: All Non-Admins destroyed successfully.
+        orders: These orders - "%{order_numbers}" destroyed successfully.
+        exception_detail: Got Exception while destroying data - "%{exception_detail}"
+      sample_file_not_present: No Sample File Found.
+      successfull_import: "%{resource} data imported successfully. Please Verify!"
+      file_invalid_error: Please upload a valid file and try again.
+      model_not_found: "%{model} not found."
+      model_reset_successfully: "%{model} reset successfully."
+      records_not_deleted: "Got error '%{error}' while reseting %{model} model."
+      imports: Импорт товаров
+      import: Импорт
+      import_headings:        
+        product_import_headings:
+          product_import: Импорт товаров
+          clear_product_data: clear product related data
+          clear_products: Clear Products
+          import_products: Импорт товаров
+          product_reset_confirmation: This will destroy all the products and their associated data like images, shipping categories, stock location, variants etc from the system. Are you sure?
+          verify_products: Verify Product (%{product_count})
+          verify: Verify %{resource}
+          import_with_sample_data: Import with Sample data
+          transform_to_spree_format: Transform to Spree Format        
+      download_sample_file: Download Sample File
+      download_shopify_file: Download Shopify Export File
     default: "По умолчанию"
     default_refund_amount: "Стандартный размер возврата"
     default_tax: "Стандартный налог"
@@ -1492,3 +1518,4 @@ ru:
     new_store_event: "New Store Event"
     creating_store_event: "Create Store Event"
     editing_store_event: "Edit Store Event"
+

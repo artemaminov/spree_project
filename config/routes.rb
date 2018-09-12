@@ -11,6 +11,18 @@ Rails.application.routes.draw do
 				end
 				resources :deliveries						
 			end
+
+			 resources :product_imports, only: [:index] do
+		      collection do
+		        delete :reset
+		        get :sample_import
+		        post :sample_csv_import
+		        post :user_csv_import
+		        get :download_sample_csv
+		        post :shopify_csv_import
+		        get :download_sample_shopify_export_csv
+		      end
+		    end
 			
 		end
 	end

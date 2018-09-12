@@ -76,3 +76,6 @@ gem 'geokit-rails'
 # gem 'ym4r_gm', path: 'http://svn://rubyforge.org/var/svn/ym4r/Plugins/GM/trunk/ym4r_gm'
 gem 'geocoder'
 #gem 'gmaps4rails'
+
+#gem 'roo'
+gem 'spree_drop_ship', github: 'spree-contrib/spree_drop_ship'
