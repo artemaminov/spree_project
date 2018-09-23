@@ -77,5 +77,5 @@ gem 'geokit-rails'
 gem 'geocoder'
 #gem 'gmaps4rails'
 
-#gem 'roo'
+gem 'roo'
 gem 'spree_drop_ship', github: 'spree-contrib/spree_drop_ship'
