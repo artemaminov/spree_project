@@ -1,0 +1,57 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:product_import) %>
+<% end %>
+
+<div class="row">
+  <h3 class='text-center'><b>Инструкция</b></h3>
+  <div class="panel panel-default">
+    <div class="panel-heading">Данная форма предназначена для загрузки товаров в систему</div>
+    <div class="panel-body">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-md-12">          
+          <%=form_for :product_imports,  :url => {:action => "import"},   method: :post do |f| %>
+          <% if @data_import.present? %>
+            <% if @data_import.first.size.present? %>
+            <p><strong>Назначьте тип колонкам</strong><br />
+              Для удобства настройки колонок на экран выводятся 50 первых строк вашего прайс-листа
+             <!--  Мы автоматически попытались определить тип полей в вашем прайс-листе.
+              Были найдены следующие значения: Наименование, Цена.
+              Пожалуйста, проверьте настройки и откорректируйте их при необходимости. -->
+            </p>
+            <%=f.hidden_field 'csv_file', :value => @uniq_file%>
+            <div><%= submit_tag 'Импорт' %></div>            
+            <div class='table-responsive'>              
+                <table class="table table-striped table-hover">                        
+                  <thead>
+                    <tr>
+                      <% for i in 1..@data_import.first.size-1 %>
+                        <td>                                           
+                          <%=f.select 'columns_define[' + i.to_s + ']' , 
+                          options_for_select(@options, @columns_define[i-1]),
+                          prompt: 'Выберите соответствие столбцу'
+                          %>                          
+                        </td>
+                      <% end%>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @data_import.each do |d|%>
+                      <tr>
+                        <% d.each do |t|%>
+                          <td><%=t%></td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                  </tbody>              
+                </table>             
+            </div>  
+            <% end %> 
+          <% end %>
+        </div>        
+      <% end %>  
+      </div>
+    </div>
+  </div>
+</div>

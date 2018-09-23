@@ -1,0 +1,38 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:product_import) %>
+<% end %>
+
+<div class="row">
+  <h3 class='text-center'><b>Инструкция</b></h3>
+  <div class="panel panel-default">
+    <div class="panel-heading">Данная форма предназначена для загрузки товаров в систему</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-info">
+            <div class="panel-heading">Шаг1. Выберите файл</div>
+            <div class="panel-body">
+              <%= form_tag(preparse_admin_product_imports_path, multipart: true, class: 'form-horizontal') do %>
+                <fieldset>
+                  <div class="form-group">
+                    <%= label_tag :csv_file, Spree.t(:filename), class: 'col-md-2 control-label', required: true   %>
+                    <div class="col-md-10">
+                      <%= file_field_tag :csv_file, accept: 'text/csv' %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-10 col-md-offset-1">
+                      <%= submit_tag 'Загрузить', class: 'btn btn-primary' %>
+                    </div>
+                  </div>
+                </fieldset>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

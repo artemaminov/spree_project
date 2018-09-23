@@ -1,0 +1,5 @@
+<% if can?(:admin, Spree::Admin::ProductImportsController) %>
+  <ul class="nav nav-sidebar">
+    <%= tab *Spree.t(:imports, scope: :datashift_import), icon: "download-alt", sub_menu: "import", url: spree.admin_product_imports_path %>
+  </ul>
+<% end %>
