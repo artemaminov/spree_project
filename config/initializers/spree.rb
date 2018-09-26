@@ -13,8 +13,10 @@ Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
-  config.default_country_id = 190
+ 	config.default_country_id = 190
+ 	# config.orders_per_page = 20
 end
 
 Spree.user_class = "Spree::User"
 Spree::PermittedAttributes.address_attributes.push :lat, :lng
+

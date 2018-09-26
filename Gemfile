@@ -64,6 +64,20 @@ gem 'spree_gateway', '~> 3.3'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
 gem 'spree_editor', github: 'spree-contrib/spree_editor'
+gem 'spree_drop_ship', github: 'spree-contrib/spree_drop_ship'
+gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
+gem 'spree_active_shipping', github: 'spree-contrib/spree_active_shipping'
+
+gem 'globalize', github: 'globalize/globalize'
+gem 'spree_globalize', github: 'spree-contrib/spree_globalize', branch: 'master'
+gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
+gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed'
+
+
+
+gem 'spree_print_invoice', github: 'spree-contrib/spree_print_invoice', branch: 'master'
+
+
 
 group :production do
   gem 'unicorn'
@@ -77,5 +91,13 @@ gem 'geokit-rails'
 gem 'geocoder'
 #gem 'gmaps4rails'
 
+
+gem 'charlock_holmes'
+gem 'spreadsheet'
 gem 'roo'
-gem 'spree_drop_ship', github: 'spree-contrib/spree_drop_ship'
+gem 'roo-xls'
+
+
+
+# gem 'spree_sellers'
+# gem 'spree_worldtrade', github: 'diiner/spree_worldtrade'

@@ -9,3 +9,6 @@
 //= require spree/backend
 
 //= require_tree .
+//= require spree/backend/spree_drop_ship
+//= require spree/backend/spree_globalize
+//= require spree/backend/spree_print_invoice

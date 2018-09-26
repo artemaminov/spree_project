@@ -1404,6 +1404,9 @@ ru:
     successfully_signed_up_for_analytics: "Успешно авторизованы в Spree Analytics"
     successfully_updated: "%{resource} был успешно обновлен!"
     summary: "Сводка"
+    suppliers: 'Продавцы'
+    supplier_details: 'Информация о продавце'
+    new_supplier: 'Новый продавец'
     tax: "Налог"
     tags: "Тэги"
     tags_placeholder: "Введите тэги"

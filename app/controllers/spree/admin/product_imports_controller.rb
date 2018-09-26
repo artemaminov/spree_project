@@ -1,4 +1,4 @@
-class Spree::Admin::ProductImportsController < Spree::Admin::BaseController
+﻿class Spree::Admin::ProductImportsController < Spree::Admin::BaseController
   
   before_action :ensure_valid_file,  only: [:preparse]
   before_action :get_property_name, :get_category_name, :set_loader_options,  only: [:preparse, :import]
@@ -17,17 +17,67 @@ class Spree::Admin::ProductImportsController < Spree::Admin::BaseController
   def preparse
     begin           
       ext = get_file_type params[:csv_file].path 
-
-      ap '******ext******'
-      ap ext 
+      @data_import = []                
+      @columns_define = [] 
+      header = [] 
+      rows = []
 
       if ext == ".csv"  
         require 'csv'      
         file = CSV.open(params[:csv_file].path , { :col_sep => ","} )                 
-        @data_import = []                
-        @columns_define = [] 
-        header = []      
-        file.readlines[0..50].each_with_index do |row, num|                  
+           
+        file.readlines[0..50].each_with_index do |row, num|     
+          rows[num] = row
+        end
+      end 
+      
+      if ext == ".xls"      
+        ap '******import xls *******'
+        require 'roo'
+        require 'charlock_holmes/string'
+
+        book = Roo::Spreadsheet.open(params[:csv_file].path, extension: :xls)      
+        
+        ap '********'
+        max_row = 0
+
+        book.sheets.each do |sheet|
+          book.default_sheet = sheet
+          0.upto(book.last_row) do |index|
+            z = book.row(index)
+            ap z
+            
+            ap '******encode'
+
+            ap z.map{|str| str.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) if str.present? } 
+          end        
+        end
+
+        # require 'spreadsheet'
+        # source_encoding = "UTF-8" 
+        # ap '******encoding******'
+        # ap params[:csv_file].external_encoding
+
+       
+        # book = Spreadsheet.open $file
+        
+
+        # max_row = 0
+        # book.worksheets.each do |sheet|
+        #   sheet.each_with_index do |row, num|
+        #     max_row +=1
+        #     break if max_row > 50 
+        #     rows[num] = row
+        #   end
+        # end  
+      end
+
+      ap '****** rows ******'
+      ap rows
+
+
+      if rows.present?
+        rows.each_with_index do |row, num|
           row.each_with_index do |ceil, ind|            
             if @columns_define[ind].blank? && ceil.present?
               ap ceil
@@ -37,20 +87,13 @@ class Spree::Admin::ProductImportsController < Spree::Admin::BaseController
                 header << num
               end 
             end
-          end  
+          end            
           @data_import << row                              
-        end
-      end 
-      
-      if ext == ".xls"      
-        ap '******import xls *******'
-        require 'roo'
-        book =  Roo::Spreadsheet.open params[:csv_file].path
-        sheet = book.sheet(0)
-        sheet.each_with_index do |row, index|
-            ap index
-        end          
-      end
+        end  
+      end  
+          
+          
+
 
       # if ext == ".xlsx"
       # end     
@@ -161,6 +204,10 @@ class Spree::Admin::ProductImportsController < Spree::Admin::BaseController
 
 
     #  прдзагрузка 
+    def manipulate_row row
+    end
+
+
     def ensure_valid_file          
       unless params[:csv_file].try(:respond_to?, :path)
         flash[:error] = Spree.t(:file_invalid_error, scope: :datashift_import)
@@ -206,6 +253,8 @@ class Spree::Admin::ProductImportsController < Spree::Admin::BaseController
       @properties.each do |t|
         @options << [t.presentation, 'property::'+t.id.to_s]
       end
+
+      return 
 
       @options << ['---- Цена зависящая от свойств ----', '']  
 
