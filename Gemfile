@@ -72,7 +72,7 @@ gem 'globalize', github: 'globalize/globalize'
 gem 'spree_globalize', github: 'spree-contrib/spree_globalize', branch: 'master'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
 gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed'
-gem 'spree_blogging_spree', github: 'stefansenk/spree-blogging-spree'
+# gem 'spree_blogging_spree', github: 'stefansenk/spree-blogging-spree'
 
 
 gem 'spree_print_invoice', github: 'spree-contrib/spree_print_invoice', branch: 'master'

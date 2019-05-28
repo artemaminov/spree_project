@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Ruby version 2.5.1
+
+After bundle
+`bundle exec rails db:migrate`
+
+After install translation migrations `rails g spree_globalize:install`
+
+Install pages migrations `bundle exec rails g spree_static_content:install`
+
