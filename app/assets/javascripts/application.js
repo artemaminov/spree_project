@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require slick
+//= require old/script
+//= require old/imagesloaded.pkgd.min
+//= require old/jquery.colorbox-min
+//= require old/jquery.masonry.min
 //= require_tree .

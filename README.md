@@ -30,5 +30,6 @@ Rails -v `5.2.3`
 
 First run:
 Run migration: `rails db:migrate`
+Run seeds : `rails db:seed`
 
 Add Admin User - create admin user `bundle exec rake spree_auth:admin:create`

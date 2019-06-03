@@ -25,6 +25,14 @@ GIT
       spree_core (>= 3.1.0, < 5.0)
       spree_extension
 
+GIT
+  remote: https://github.com/spree-contrib/spree_static_content.git
+  revision: 017b411b6d16964f84de519c9fa3e9f0b4a219b6
+  specs:
+    spree_static_content (3.4.0)
+      spree_core (>= 3.1.0, < 5.0)
+      spree_extension
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -308,6 +316,9 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    slim (4.0.1)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
     spree (3.7.3)
       spree_api (= 3.7.3)
       spree_backend (= 3.7.3)
@@ -394,6 +405,7 @@ GEM
       activerecord (>= 4.1)
       state_machines-activemodel (>= 0.5.0)
     stringex (2.8.5)
+    temple (0.8.1)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (0.20.3)
@@ -444,11 +456,13 @@ DEPENDENCIES
   rails (~> 5.2.2)
   sass-rails (~> 5.0)
   selenium-webdriver
+  slim
   spree (~> 3.7)
   spree_auth_devise (~> 3.5)
   spree_gateway (~> 3.4)
   spree_globalize!
   spree_i18n!
+  spree_static_content!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

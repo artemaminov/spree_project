@@ -1,0 +1,57 @@
+section class="first"
+  div class="first__bg-slider slick-initialized slick-slider slick-dotted" role="toolbar"
+
+  - if (@body_id == "home-page")
+    div class="first__wrap"
+      div class="first__contacts-wrap"
+        img class="first__logo" src="/assets/logo.png"
+          div class="first__contacts"
+            a href="#" class="contacts__address"
+              = INFO_CONSTANTS[:address]
+            a href="#" class="contacts__phone icon-phone-call"
+              = INFO_CONSTANTS[:tel]
+            a href="#form_send_call" class="contacts__button button_form cboxElement"
+              | Связаться
+      nav class="first__nav"
+        ul class="nav nav__list"
+          li id="home-link" class="nav__item"
+            = link_to Spree.t(:home), spree.root_path, class:(['nav-link', 'nav__item', request.fullpath.gsub('//','/') == '/' ? 'nav__item--active' : ''].compact.join(' '))
+          = render partial: 'spree/static_content/static_content_header'
+
+  div class=(["fixed-nav", @body_id == "home-page" ? "" : "fixed-nav--fixed"].compact.join(' '))
+    div class="fixed-nav__contacts" style=(@body_id == "home-page" ? "" : "display: block;")
+      a href="/" class="small__logo" title="Лофт кирпич в Тюмени. На главную"
+        img alt="Лофт кирпич в Тюмени. На главную" src="/assets/logo_small.png"
+      a href="#" class="fixed-nav__phone icon-phone-call" = INFO_CONSTANTS[:tel]
+      span class="fixed-nav__hours icon-clock"
+        = INFO_CONSTANTS[:working_time]
+      a href="#" class="fixed-nav__address icon-placeholder"
+        = INFO_CONSTANTS[:address]
+      div class="fixed__user"
+        a href="#" class="fixed-nav__basket"
+          | корзина
+        a href="#" class="fixed-nav__cabinet"
+          | кабинет
+      a href="#form_send_call" class="fixed-nav__button button_form"
+        | связаться
+
+    div class="first__filter"
+      div class="filter__wrap"
+        ul class="filter__list"
+          li id="menu_about" class="filter__item"
+            span О заводе
+          li class="filter__item" data-id="14"
+            a href="#category14"
+              | Ригель-кирпич
+        div id="div_about" style="display: none;"
+          nav id="main-nav-bar" class="navbar about__nav"
+            ul class="nav nav__list" data-hook=""
+              li id="home-link" class="nav__item" data-hook=""
+                = link_to Spree.t(:home), spree.root_path, class:(['nav-link', 'nav__item', request.fullpath.gsub('//','/') == '/' ? 'nav__item--active' : ''].compact.join(' '))
+            ul class="nav navbar-right" data-hook=""
+              li id="link-to-cart" class="nav-item" data-hook=""
+                noscript
+                  = link_to_cart
+              javascript
+                Spree.fetch_cart()
+

@@ -1,0 +1,13 @@
+= form_with(url: '/spasibo.php') do |f|
+  = f.text_field :ftype, type: 'hidden', value: "#{type}"
+  div class="telo"
+    p class="input_block"
+      span class="err"
+      = f.text_field :fname, class: "input", value: "", placeholder: "Введите Ваше имя", 'data-err': "Введите имя", required: true
+
+    p class="input_block"
+      span class="err"
+      = f.text_field :fphone, class: "phone input", value: "", placeholder: "+7(999)999-99-99", 'data-err': "Введите телефон", required: true
+
+    p class="submit_block"
+      = f.submit :fbutton, class: "submit disabled", value: "#{button}", disabled: true

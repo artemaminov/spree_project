@@ -1,0 +1,27 @@
+.fixed-nav {
+  position: relative;
+  z-index: 1006;
+
+  &.fixed-nav--fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.first__nav {
+  .nav {
+    display: flex;
+  }
+}
+
+#div_about {
+  .nav {
+    color: black;
+
+    &.nav__list {
+      display: flex;
+    }
+  }
+}
