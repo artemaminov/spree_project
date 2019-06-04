@@ -1,0 +1,33 @@
+div class="ajax-overlay"
+div class="ajax-quickview-overlay"
+  span class="ajax-quickview-overlay__preloader"
+
+div class="novisible"
+  div class="modal form_send" id="form_send_call"
+      div class="zag3"
+        p class="line"
+        p class="modal_caption"
+          | Заказ звонка
+        p class="doptext"
+          |Оставьте свои координаты, и мы обязательно перезвоним вам в течение 5-15 минут
+      
+      == render partial: 'spree/shared/form', locals: { button: 'Заказать звонок', type: 5 }
+  
+
+
+  div class="modal form_send" id="form_send"
+    div class="zag3"
+      p class="line"
+      p class="modal_caption"
+        | Заказать
+          span class="aname"
+    
+    p class="doptext"
+      | Оставьте свои координаты, и мы обязательно перезвоним вам в течение 5-15 минут
+    div class="top"
+      a href="#myModal" class="atitle" title="" 
+        img class="asrc" src="" 
+      a href="#myModal" class="atitle" title="" Увеличить изображение
+    
+    == render partial: 'spree/shared/form', locals: { button: 'Отправить заявку', type: 6 }
+  

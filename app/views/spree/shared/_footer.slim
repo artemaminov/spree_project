@@ -1,0 +1,11 @@
+footer class="footer"
+  div class="footer__wrap"
+    div class="footer_message"
+      p
+        | Все сведения, указанные на данном сайте не являются публичной офертой.
+    div class="footer__contacts"
+      a class="footer__address" href="#"
+        = INFO_CONSTANTS[:address]
+      a class="footer__phone flaticon-phone-call" href="#"
+        = INFO_CONSTANTS[:tel]
+== render partial: 'spree/metrics/yandex'

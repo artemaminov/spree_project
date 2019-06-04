@@ -1,0 +1,6 @@
+<% if page.foreign_link.present? %>
+  <li><%= link_to page.title, page.foreign_link, target: '_blank', rel: 'nofollow' %></li>
+<% else %>
+  <% page_uri = Rails.application.routes.named_routes[:spree].path.spec.to_s == '/' ? page.slug : Rails.application.routes.named_routes[:spree].path.spec.to_s + page.slug %>
+  <li class="<%= 'nav__item--active' if (request.fullpath.gsub('//','/') == page_uri) %> nav__item"><%= link_to page.title, page_uri %></li>
+<% end %>
