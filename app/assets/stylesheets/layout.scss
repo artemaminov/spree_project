@@ -1,3 +1,6 @@
+@import "breadcrumbs/index";
+@import "menu/section_menu/index";
+
 .fixed-nav {
   position: relative;
   z-index: 1006;
@@ -24,4 +27,8 @@
       display: flex;
     }
   }
+}
+
+.first__wrap {
+  background-color: #bebebe;
 }

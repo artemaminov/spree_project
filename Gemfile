@@ -69,3 +69,10 @@ gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
 gem 'slim'
 
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
+gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
+gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
+gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed'
+
+gem 'spree_print_invoice', github: 'spree-contrib/spree_print_invoice', branch: 'master'
+gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
+gem 'spree_editor', github: 'spree-contrib/spree_editor'
