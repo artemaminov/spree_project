@@ -13,7 +13,6 @@
 //= require activestorage
 //= require turbolinks
 //= require slick
-//= require old/script
 //= require old/imagesloaded.pkgd.min
 //= require old/jquery.colorbox-min
 //= require old/jquery.masonry.min

@@ -6,6 +6,6 @@ footer class="footer"
     div class="footer__contacts"
       a class="footer__address" href="#"
         = INFO_CONSTANTS[:address]
-      a class="footer__phone flaticon-phone-call" href="#"
+      a class="footer__phone flaticon-phone-call" href="tel:#{INFO_CONSTANTS[:tel]}"
         = INFO_CONSTANTS[:tel]
 == render partial: 'spree/metrics/yandex'
