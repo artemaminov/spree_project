@@ -1,0 +1,25 @@
+= content_for :page_title
+  | #{Spree.t(:editing_retailer)}
+  span class="green"
+    | #{@retailer.region}
+
+
+= content_for :page_actions
+  = button_link_to Spree.t(:back_to_retailer_list), spree.admin_retailers_path, :icon => 'icon-arrow-left'
+
+
+== render :partial => 'spree/shared/error_messages', :locals => { :target => @retailer }
+
+div class="row"
+  fieldset class="no-border-top translations"
+
+    == render 'settings'
+    = form_for [:admin, @resource] do |f|
+      div class="row translations"
+        div class="col-md-8"
+          = form_for [:admin, @resource] do |f|
+            == render 'form_fields', f: f
+            == render 'spree/admin/shared/edit_resource_links'
+
+        div class="col-md-4"
+          == render 'fields'

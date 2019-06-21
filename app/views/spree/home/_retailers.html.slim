@@ -1,0 +1,16 @@
+- if retailers.any?
+  section class="network"
+    h2 class="network__caption"
+      | Сеть продаж
+    ul class="network__states"
+      - retailers.each do |retailer|
+        li class="network__state#{retailer[:active_on_home] ? " network__state--active" : ""}"
+          a data-lat=retailer[:lat] data-lng=retailer[:lng] href="##{retailer[:id]}" data-turbolinks="false"
+            | #{retailer[:region]}
+
+    div class="bx-yandex-view-layout"
+      div class="bx-yandex-view-map"
+        div class="bx-yandex-map" id="BX_YMAP_MyMap" style="height: 500px; width: 100%;" data-points=retailers.to_json
+    i class="network__stick"
+
+  == render partial: 'spree/home/map.scripts'

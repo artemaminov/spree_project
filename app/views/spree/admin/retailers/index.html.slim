@@ -1,0 +1,56 @@
+= content_for :page_title, Spree.t(plural_resource_name(Spree::Retailer))
+- if can?(:create, Spree::Retailer)
+  = content_for :page_actions
+    = button_link_to Spree.t(:new_retailer, scope: :retailer), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_retailer' }
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }
+
+- if @retailers.any?
+  table class="table" id="listing_retailers" data-hook=""
+    colgroup
+      col style="width: 40%"
+      col style="width: 20%"
+      col style="width: 7.5%"
+      col style="width: 7.5%"
+      col style="width: 10%"
+      col style="width: 15%"
+    thead
+      tr data-hook="admin_retailers_index_headers"
+        th
+          | Регион
+        th
+          | Имя
+        th
+          | Широта
+        th
+          | Долгота
+        th
+          | Отключен
+        th data-hook="admin_retailers_index_header_actions" class="actions"
+    tbody
+      - @retailers.each do |retailer|
+        tr data-hook="admin_retailers_index_rows" class="#{cycle('odd', 'even')}" id="#{dom_id retailer}"
+          td
+            | #{retailer.region}
+          td
+            | #{retailer.name}
+          td
+            | #{retailer.lat}
+          td
+            | #{retailer.lng}
+          td class="text-center"
+            - if retailer.disabled
+              = content_tag(:i, '', class: 'icon icon-ok')
+          td class="actions text-right" data-hook="admin_retailers_index_row_actions"
+            = link_to_edit retailer, no_text: true
+
+            = link_to '', spree.admin_translations_path('retailer', retailer.id), class: 'btn btn-primary btn-sm icon icon-translate with-tip', data: { 'original-title' => Spree.t(:'i18n.translations') }
+
+            = link_to_delete retailer, no_text: true
+
+- else
+    div class="alert alert-warning no-objects-found"
+      | #{Spree.t(:no_resource_found, resource: Spree::Retailer.model_name.human)},
+        #{link_to Spree.t(:add_one), spree.new_admin_retailer_path}!
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }

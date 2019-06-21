@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_140912) do
+ActiveRecord::Schema.define(version: 2019_06_20_114601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -840,6 +840,33 @@ ActiveRecord::Schema.define(version: 2019_06_13_140912) do
     t.datetime "updated_at"
     t.decimal "discount_amount", precision: 8, scale: 2, default: "0.0"
     t.integer "position"
+  end
+
+  create_table "spree_retailer_translations", force: :cascade do |t|
+    t.integer "spree_retailer_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "region"
+    t.string "name"
+    t.string "address"
+    t.index ["locale"], name: "index_spree_retailer_translations_on_locale"
+    t.index ["spree_retailer_id"], name: "index_spree_retailer_translations_on_spree_retailer_id"
+  end
+
+  create_table "spree_retailers", id: :serial, force: :cascade do |t|
+    t.float "lng", default: 0.0, null: false
+    t.float "lat", default: 0.0, null: false
+    t.string "region", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "address", default: ""
+    t.string "web_site", default: ""
+    t.string "email", default: ""
+    t.string "phone", default: ""
+    t.boolean "disabled", default: false
+    t.boolean "active_on_home", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_return_authorization_reasons", id: :serial, force: :cascade do |t|

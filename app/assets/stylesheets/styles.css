@@ -1099,7 +1099,7 @@ a {
   padding-top: 8.875em;
   padding-bottom: 11.875em;
   padding-left: 5em;
-  background-image: url("./img/bg_lightgrey.jpg");
+  background-image: url("./bg_lightgrey.jpg");
   background-size: cover;
   color: #2F3841;
 }
@@ -1277,7 +1277,7 @@ a {
 }
 .products {
   position: relative;
-  background-image: url("./img/bg_lightgrey.jpg");
+  background-image: url("./bg_lightgrey.jpg");
   background-size: cover;
   color: #2F3841;
 }
@@ -1734,7 +1734,7 @@ a {
 .network {
   padding-bottom: 2%;
   text-align: center;
-  background-image: url("./img/bg_lightgrey.jpg");
+  background-image: url("./bg_lightgrey.jpg");
   background-size: cover;
   color: #2F3841;
 }
@@ -2068,7 +2068,7 @@ a {
 .news {
   position: relative;
   text-align: center;
-  background-image: url("./img/bg_lightgrey.jpg");
+  background-image: url("./bg_lightgrey.jpg");
   background-size: cover;
 }
 .news__stick {
@@ -2257,7 +2257,7 @@ a {
 .gallery {
   padding-bottom: 8.125em;
   text-align: center;
-  background-image: url("./img/bg_lightgrey.jpg");
+  background-image: url("./bg_lightgrey.jpg");
   background-size: cover;
 }
 .gallery__stick {
@@ -2607,7 +2607,7 @@ a {
 }
 
 .modal {
-	background:url("./img/bg_lightgrey.jpg") repeat center center;
+	background:url("./bg_lightgrey.jpg") repeat center center;
 	padding:1em;
 	text-transform: none;
 
@@ -2698,7 +2698,7 @@ a, input, button{outline: none;}
   padding-bottom: 11.875em;
   padding-left: 7em;
 	padding-right:9em;
-  background-image: url("bg_lightgrey.jpg");
+  background-image: url("./bg_lightgrey.jpg");
   /*background-size: cover;*/
   color: #2F3841;
 }
@@ -2895,7 +2895,7 @@ margin-bottom:1em;
     border-bottom: none;
     max-height: 80%;
     backface-visibility: hidden;
-	  background-image: url(./img/bg_lightgrey.jpg);
+	  background-image: url(./bg_lightgrey.jpg);
 }
 
 
@@ -2958,7 +2958,7 @@ margin-bottom:1em;
 
 a:hover, a:focus {
    text-decoration: none;
-   color: white;
+   /*color: white;*/
 }
 
 .black_button{
@@ -2996,7 +2996,7 @@ a:hover, a:focus {
 }
 
 .news__item-body{
-	background:url(./img/bg_lightgrey.jpg) repeat center center;
+	background:url(./bg_lightgrey.jpg) repeat center center;
 
 }
 .news-detail .site_content{float:left;}

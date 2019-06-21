@@ -1,0 +1,73 @@
+- content_for :retailer_actions
+  = button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::Retailer)), spree.admin_retailers_path, icon: 'arrow-left', class: 'btn-primary'
+
+= form_for [:admin, resource] do |f|
+  div class="row" data-hook="admin_resource_form_fields"
+    div class="col-md-6"
+      div class="form-group"
+        = f.label :region
+        span class="required"
+          | *
+        = f.text_field :region, class: 'form-control', required: true
+        = f.error_message_on :region
+
+      div class="form-group"
+        = f.field_container :image do
+          = f.label :image
+          = f.file_field :image
+          = image_tag main_app.url_for(resource.image.url(:small)) if resource.image
+
+      div class="form-group"
+        = f.label :name
+        span class="required"
+          | *
+        = f.text_field :name, class: 'form-control', required: true
+        = f.error_message_on :name
+
+      div class="form-group"
+        = f.label :web_site
+        = f.text_field :web_site, class: 'form-control'
+        = f.error_message_on :web_site
+
+      div class="form-group"
+        = f.label :email
+        = f.text_field :email, class: 'form-control'
+        = f.error_message_on :email
+
+      div class="form-group"
+        = f.label :phone
+        = f.text_field :phone, class: 'form-control'
+        = f.error_message_on :phone
+
+    div class="col-md-6"
+      div class="form-group"
+        = f.label :address
+        = f.text_field :address, class: 'form-control'
+        = f.error_message_on :address
+
+      div class="form-group"
+        = f.label :lat
+        span class="required"
+          | *
+        = f.text_field :lat, class: 'form-control', required: true
+        = f.error_message_on :lat
+
+      div class="form-group"
+        = f.label :lng
+        span class="required"
+          | *
+        = f.text_field :lng, class: 'form-control', required: true
+        = f.error_message_on :lng
+
+      div class="checkbox"
+        = f.label :disabled do
+          = f.check_box :disabled
+          = Spree::Retailer.human_attribute_name(:disabled)
+
+      div class="checkbox"
+        = f.label :active_on_home do
+          = f.check_box :active_on_home
+          = Spree::Retailer.human_attribute_name(:active_on_home)
+
+
+  == render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links"
