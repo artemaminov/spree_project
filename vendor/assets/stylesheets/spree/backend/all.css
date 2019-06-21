@@ -10,3 +10,9 @@
  *= require spree/backend/spree_globalize
  *= require spree/backend/spree_editor
 */
+
+tbody tr td.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

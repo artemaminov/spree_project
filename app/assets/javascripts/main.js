@@ -1,4 +1,4 @@
-$( document ).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
     $("#menu_about").on("click", function() {
         $(this).toggleClass("show");
         $("#div_about").toggle("slow");
