@@ -10,7 +10,6 @@ module Spree
     validates_associated :image
     validates :notification_email, email: true, allow_blank: true
 
-
     before_validation :normalize_slug
 
     validates :name,

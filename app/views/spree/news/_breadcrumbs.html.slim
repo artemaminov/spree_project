@@ -1,0 +1,20 @@
+div class="module-breadcrumbs"
+  ul class="breadcrumb-navigation"
+    li class="first"
+      a href="/"
+        | БКЗ
+    li class="separator"
+      | >
+    - if show_parent
+      li
+        a href=@parent.slug title="#{@parent.title ? @parent.title : 'Новости'}"
+          | #{@parent.title ? @parent.title : 'Новости'}
+      li class="separator"
+        | >
+      li
+        a href="#{@parent ? @parent.slug : '/news'}" title=@news.name
+          | #{@news.name}
+    - else
+      li
+        a href="/news" title="Новости"
+          | Новости

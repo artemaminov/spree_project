@@ -194,24 +194,24 @@ $(document).on('turbolinks:load', function() {
         }
     });
 
-    // novelty desc slider
-    $(".novelty__desc-slider").slick({
-        slidesToShow: 1,
-        fade: true,
-        arrows: false
-    });
-
-    // novelty image slider
-    $(".novelty__slider").slick({
-        dots: true,
-        dotsClass: "slider-dot",
-        appendDots: ".novelty__dots",
-        arrows: true,
-        prevArrow: $(".novelty__nav > .left-arrow"),
-        nextArrow: $(".novelty__nav > .right-arrow"),
-        focusOnSelect: true,
-        asNavFor: ".novelty__desc-slider"
-    });
+    // // novelty desc slider
+    // $(".novelty__desc-slider").slick({
+    //     slidesToShow: 1,
+    //     fade: true,
+    //     arrows: false
+    // });
+    //
+    // // novelty image slider
+    // $(".novelty__slider").slick({
+    //     dots: true,
+    //     dotsClass: "slider-dot",
+    //     appendDots: ".novelty__dots",
+    //     arrows: true,
+    //     prevArrow: $(".novelty__nav > .left-arrow"),
+    //     nextArrow: $(".novelty__nav > .right-arrow"),
+    //     focusOnSelect: true,
+    //     asNavFor: ".novelty__desc-slider"
+    // });
 
     //копируем слайдеры для фильтра
 
@@ -269,13 +269,13 @@ $(document).on('turbolinks:load', function() {
         arrows: false
     });
 
-    // news slider
-    $(".news__slider").slick({
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        prevArrow: $(".news__left-arrow"),
-        nextArrow: $(".news__right-arrow")
-    });
+    // // news slider
+    // $(".news__slider").slick({
+    //     slidesToShow: 2,
+    //     slidesToScroll: 1,
+    //     prevArrow: $(".news__left-arrow"),
+    //     nextArrow: $(".news__right-arrow")
+    // });
 
     // gallery slider
     $(".gallery__slider").slick({
@@ -451,6 +451,7 @@ $(document).on('turbolinks:load', function() {
     }
 
     $(window).on("scroll", function(event) {
+        console.log('scrolled');
         if (section_menu.length > 0) {
             top_section_menu =
                 $(".second_page .products__block").offset().top -
@@ -472,6 +473,8 @@ $(document).on('turbolinks:load', function() {
             $("#div_about").hide();
         }
     });
+
+
 
     $(".filter__list .filter__item a").on("click", function() {
         $("div.select-styled").each(function() {

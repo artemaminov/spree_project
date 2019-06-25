@@ -3,12 +3,9 @@ module Spree
     class RetailersController < ResourceController
 
       def create
-        p 1
-        p permitted_resource_params
         if permitted_resource_params[:image]
           @retailer.build_image(attachment: permitted_resource_params.delete(:image))
         end
-        p @retailer
 
         super
       end
@@ -30,7 +27,7 @@ module Spree
       private
 
       def find_resource
-        Retailer.find(params[:id])
+        Spree::Retailer.find(params[:id])
       end
 
       def collection

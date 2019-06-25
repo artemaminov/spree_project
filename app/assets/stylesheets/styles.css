@@ -1217,7 +1217,7 @@ a {
   z-index: -1;
   position: absolute;
   right: -3.125em;
-  top: 3.625em;
+  top: 3.6em;
   display: block;
   width: 6.25em;
   height: 2px;
@@ -2123,7 +2123,7 @@ a {
 }
 .news__slide {
   position: relative;
-  width: 31.25em;
+  width: 31.25em !important;
   margin-left: 1em;
   margin-right: 1em;
   padding-bottom: 10em;
@@ -2809,6 +2809,7 @@ a, input, button{outline: none;}
 }
 #div_about .list_stat{
 	margin:1.5em 1em;
+  display: flex;
 }
 #div_about .list_stat li{
 	display:inline-block;

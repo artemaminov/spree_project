@@ -1,14 +1,21 @@
 Spree::HomeController.class_eval do
+  include Rails.application.routes.url_helpers
+
   def index
     @searcher = build_searcher(params.merge(include_images: true))
     @products = @searcher.retrieve_products
     @products = @products.includes(:possible_promotions) if @products.respond_to?(:includes)
     @taxonomies = Spree::Taxonomy.includes(root: :children)
     @retailers = collected_retailers_info
+    @standard_news = news_collection
+    @latest_news = @standard_news.latest
   end
 
-
   private
+
+    def news_collection
+      Spree::News.visible
+    end
 
     def collected_retailers_info
       retailers = Spree::Retailer.enabled
