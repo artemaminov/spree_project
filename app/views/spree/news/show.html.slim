@@ -1,0 +1,28 @@
+- if !@news
+  h2
+    | Новость не найдена
+- else
+  = content_for :title, @news.name
+  = content_for :head
+    - if @news.meta_title.present?
+      meta name="title" content="#{@news.meta_title}"
+    - else
+      meta name="title" content="#{@news.name}"
+    meta name="keywords" content="#{@news.meta_keywords}"
+    meta name="description" content="#{@news.meta_description}"
+
+  == render partial: 'spree/news/breadcrumbs', locals: { show_parent: true }
+
+  div class="news region"
+    div class="news-column1"
+      div class="news news-detail"
+        h1
+          | #{@news.name}
+        img class="detail_picture" alt=@news.name style="width:200px;" src="#{@news.image ? rails_representation_url(@news.image.attachment.variant(resize: "200x200").processed, only_path: true) : nil}"
+        div class="site_content"
+          div class="news-date-time"
+            | #{I18n.localize(@news.publication_date, format: "%d %B %Y")}
+          == raw @news.body
+      p
+        a href="/news/"
+          | Возврат к списку

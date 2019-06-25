@@ -38,9 +38,7 @@
             | #{retailer.lat}
           td
             | #{retailer.lng}
-          td class="text-center"
-            - if retailer.disabled
-              = content_tag(:i, '', class: 'icon icon-ok')
+          == render partial: 'spree/shared/booleant_table_field', locals: { field: retailer.disabled }
           td class="actions text-right" data-hook="admin_retailers_index_row_actions"
             = link_to_edit retailer, no_text: true
 

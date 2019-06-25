@@ -33,3 +33,12 @@ Run migration: `rails db:migrate`
 Run seeds : `rails db:seed`
 
 Add Admin User - create admin user `bundle exec rake spree_auth:admin:create`
+
+
+Don't forget to add in admin CMS (http://localhost:3000/admin/editor_settings/edit) id of:
+news_body
+
+Осталось:
+1. Товары и категории
+2. Модель фото для страниц и новостей
+3. Шаринг блок для новостей

@@ -1,14 +1,14 @@
 = content_for :page_title
-  | #{Spree.t(:editing_retailer, scope: :retailer)}
+  | #{Spree.t(:editing_news, scope: :news)}
   span class="green"
-    |  #{@retailer.region}
+    |  #{@news.name}
 
 
 = content_for :page_actions
-  = button_link_to Spree.t(:back_to_retailers_list, scope: :retailer), spree.admin_retailers_path, :icon => 'icon-arrow-left'
+  = button_link_to Spree.t(:back_to_news_list, scope: :news), spree.admin_news_index_path, :icon => 'icon-arrow-left'
 
 
-== render :partial => 'spree/shared/error_messages', :locals => { :target => @retailer }
+== render :partial => 'spree/shared/error_messages', :locals => { :target => @news }
 
 div class="row"
   fieldset class="no-border-top translations"

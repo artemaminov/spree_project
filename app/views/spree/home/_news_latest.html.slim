@@ -1,0 +1,51 @@
+section class="novelty"
+  div class="novelty__slider-wrapp"
+    div class="novelty__desc"
+      h2 class="novelty__caption"
+        | Новинки
+      div class="novelty__desc-slider"
+        - news.each do |nnews|
+          div class="novelty__desc-slide"
+            div class="novelty__text site_content"
+              | #{nnews.short_info.truncate(350)}
+              a href="/news/post/#{nnews.slug}" class="more"
+                |  [>>]
+            a href="#form_send" class="novelty__button" data-turbolinks="false"
+              | Заказать
+
+    div class="novelty__slider"
+      - news.each do |nnews|
+        div class="novelty__slide-wrap"
+          div class="novelty__slide"
+            img class="slide__img" src="#{nnews.image ? rails_representation_url(nnews.image.attachment.variant(resize: "783x365").processed, only_path: true) : nil}" alt=nnews.name
+            div class="slide__signature"
+              | #{nnews.name}
+
+
+  - if news.length > 1
+    div class="novelty__nav"
+      i class="left-arrow"
+      div class="novelty__dots"
+      i class="right-arrow"
+
+    i class="novelty__stick"
+
+javascript:
+    // novelty desc slider
+    $(".novelty__desc-slider").slick({
+        slidesToShow: 1,
+        fade: true,
+        arrows: false
+    });
+
+    // novelty image slider
+    $(".novelty__slider").slick({
+        dots: true,
+        dotsClass: "slider-dot",
+        appendDots: ".novelty__dots",
+        arrows: true,
+        prevArrow: $(".novelty__nav > .left-arrow"),
+        nextArrow: $(".novelty__nav > .right-arrow"),
+        focusOnSelect: true,
+        asNavFor: ".novelty__desc-slider"
+    });

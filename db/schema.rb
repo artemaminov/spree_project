@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_114601) do
+ActiveRecord::Schema.define(version: 2019_06_24_110400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -259,6 +259,36 @@ ActiveRecord::Schema.define(version: 2019_06_20_114601) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["source_id", "source_type"], name: "index_spree_log_entries_on_source_id_and_source_type"
+  end
+
+  create_table "spree_news", id: :serial, force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "short_info", limit: 300, default: ""
+    t.text "body", default: ""
+    t.boolean "show_on_site", default: true
+    t.boolean "latest", default: true
+    t.datetime "publication_date", default: "2019-06-24 11:02:23"
+    t.string "meta_title", default: ""
+    t.string "meta_description", default: ""
+    t.string "meta_keywords", default: ""
+    t.string "slug", default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spree_news_translations", force: :cascade do |t|
+    t.integer "spree_news_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "short_info", limit: 300
+    t.text "body"
+    t.string "meta_title"
+    t.string "meta_description"
+    t.string "meta_keywords"
+    t.index ["locale"], name: "index_spree_news_translations_on_locale"
+    t.index ["spree_news_id"], name: "index_spree_news_translations_on_spree_news_id"
   end
 
   create_table "spree_oauth_access_grants", force: :cascade do |t|

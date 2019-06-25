@@ -28,10 +28,8 @@ section class="first"
       a href="#" class="fixed-nav__address icon-placeholder"
         | #{INFO_CONSTANTS[:address]}
       div class="fixed__user"
-        a href="#" class="fixed-nav__basket"
-          | корзина
-        a href="#" class="fixed-nav__cabinet"
-          | кабинет
+        a href="#" class="fixed-nav__basket" data-turbolinks="false"
+        a href="#" class="fixed-nav__cabinet" data-turbolinks="false"
       a href="#form_send_call" class="fixed-nav__button button_form"
         | связаться
 
@@ -55,3 +53,17 @@ section class="first"
               javascript
                 Spree.fetch_cart()
 
+
+          ul class="list_stat"
+            li
+              img src="/assets/5dc96344db8233a1cdff817669b6c69f.png"
+              span
+                | Кирпич ручной формовки - сделан с любовью
+            li
+              img src="/assets/c8abf3ffe89afb907a0cf3bbb68c9b36.png"
+              span
+                | Руководство ЗАО БКЗ
+            li
+              img src="/assets/20f407ed1be7a7b86a5996f74de2d610.jpg"
+              span
+                | Всё о стоительном кирпиче
