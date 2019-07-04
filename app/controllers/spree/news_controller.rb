@@ -1,7 +1,5 @@
 module Spree
   class NewsController < StoreController
-    include Rails.application.routes.url_helpers
-    
     before_action :set_pagination_params, only: [:index]
     before_action :get_parent, only: [:index, :show]
 

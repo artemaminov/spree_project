@@ -3,7 +3,7 @@ module Spree
   class Retailer < Spree::Base
     validates :name, :region, :lat, :lng, :presence => true
 
-    has_one :image, as: :viewable, dependent: :destroy, class_name: 'Spree::RetailerImage'
+    has_one :image, as: :viewable, dependent: :destroy, class_name: 'Spree::SharedImage'
 
     translates :region, :name, :address, fallbacks_for_empty_translations: true
 

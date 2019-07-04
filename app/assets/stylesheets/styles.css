@@ -2069,7 +2069,7 @@ a {
   position: relative;
   text-align: center;
   background-image: url("./bg_lightgrey.jpg");
-  background-size: cover;
+  /*background-size: cover;*/
 }
 .news__stick {
   position: relative;

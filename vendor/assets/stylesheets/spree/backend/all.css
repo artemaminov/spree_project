@@ -16,3 +16,101 @@ tbody tr td.actions {
   align-items: center;
   justify-content: space-around;
 }
+
+.video-js > .vjs-tech {
+  width: 400px;
+  height: 300px;
+  outline: none;
+  margin: 2em;
+  margin-left: 0;
+}
+
+.gallery-images, .attachments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-images > .image {
+  width: 400px;
+  height: 200px;
+  position: relative;
+  margin: 0 1em 1em 0;
+}
+
+.gallery-images > .image > a {
+  display: none;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: red;
+  background-color: #fdfdfdad;
+}
+
+.gallery-images > .image:hover > a {
+  display: flex;
+}
+
+.attachments > .attachment {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 0 1em 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e2e245;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.attachments > .attachment > .name {
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attachments > .attachment > .remove {
+  background: #ff7b7b;
+  padding: 0.5em;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.attachments > .attachment > .remove:hover {
+  background: red;
+}
+
+.formError {
+  color: red;
+}
+
+.file-attachments {
+  list-style: none;
+  padding: 0;
+}
+
+.file-attachments  > li {
+  padding: 1em;
+}
+
+.file-attachment > .checkbox > input {
+  margin-left: 0;
+}
+
+.file-attachments  > li:nth-child(odd) {
+  background-color: #e2e2e2;
+}
+
+.file-attachments  > li > .form-group {
+  flex-direction: column;
+  display: flex;
+  max-width: 400px;
+  width: 100%;
+}

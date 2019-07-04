@@ -12,8 +12,8 @@
               h1
                 | Новости
             - @news.each do |news|
-              div class="news__item" data-href="/news/post/#{news.slug}"
-                div class="news__item-img" style="background-image: url('#{news.image ? rails_representation_url(news.image.attachment.variant(resize: "783x365").processed, only_path: true) : nil}');"
+              div class="news__item" data-href="#{news_post_path(news.slug)}"
+                div class="news__item-img" style="background-image: url('#{news.image ? main_app.url_for(news.image.url(:news_large)) : nil}');"
 
                 div class="news__item-body"
                   p class="news__item-data"
@@ -22,7 +22,8 @@
                     | #{news.name}
                   p class="news__item-anons"
                     | #{news.short_info}
-                  a class="more" href="/news/post/1015-the-certificate-of-conformity-2019/"
+
+                  a class="more" href="#{news_post_path(news.slug)}"
                     span class="icon-wrap"
                       svg class="icon" width="32" height="32" viewBox="0 0 64 64"
                         path id="arrow-right-3" d="M19.203 17.28l-0.003 29.44 25.6-14.72z"

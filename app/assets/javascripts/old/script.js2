@@ -253,7 +253,7 @@ jQuery(function($) {
       focusOnSelect: true
     });
 
-    // feedback images slider
+    // feedback attachments slider
     $(".feedback__pics").slick({
       slidesToShow: 3,
       slidesToScroll: 1,
