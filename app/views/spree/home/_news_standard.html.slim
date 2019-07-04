@@ -1,24 +1,25 @@
-section class="news"
-  i class="news__stick"
-  h2 class="news__caption"
-    | Новости
-  div class="news__slider"
-    - news.each do |nnews|
-      a class="news__slide" href="/news/post/#{nnews.slug}"
-        img src="#{nnews.image ? rails_representation_url(nnews.image.attachment.variant(resize: "500x300").processed, only_path: true) : nil}" alt=nnews.name
-        div class="news__signature"
-          span class="news__name"
-            | #{nnews.name}
-          span class="news__about"
-            | #{nnews.short_info}
-  - if news.length > 2
-    i class="news__left-arrow"
-    i class="news__right-arrow"
+- if news.length > 0
+  section class="news"
+    i class="news__stick"
+    h2 class="news__caption"
+      | Новости
+    div class="news__slider"
+      - news.each do |nnews|
+        a class="news__slide" href="#{main_app.url_for(news_post_path(nnews.slug))}"
+          img src="#{nnews.image ? main_app.url_for(nnews.image.url(:news_standard)) : nil}" alt=nnews.name
+          div class="news__signature"
+            span class="news__name"
+              | #{nnews.name}
+            span class="news__about"
+              | #{nnews.short_info}
+    - if news.length > 2
+      i class="news__left-arrow"
+      i class="news__right-arrow"
 
-javascript:
-  $(".news__slider").slick({
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    prevArrow: $(".news__left-arrow"),
-    nextArrow: $(".news__right-arrow")
-  });
+  javascript:
+    $(".news__slider").slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      prevArrow: $(".news__left-arrow"),
+      nextArrow: $(".news__right-arrow")
+    });

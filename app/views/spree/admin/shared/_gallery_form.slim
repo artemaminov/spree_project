@@ -1,0 +1,20 @@
+div class="col-md-12"
+  div class="form-group"
+    = form.label :gallery_images
+    = form.file_field :gallery_images, multiple: true, accept: 'image/*'
+
+  div class="form-group"
+    h2
+      | #{Spree.t(:gallery)}
+    div class="gallery-images"
+      - if (resource.gallery_images.length == 0)
+        h4
+          | Нет загруженных изображений
+      - else
+        - resource.gallery_images.each do |img|
+
+          div class="image" id="attachment-#{img.id}" style="background: url('#{main_app.url_for(img)}') 50%;"
+            = link_to 'Удалить', delete_attachment_url(img.id),
+                    method: :delete,
+                    data: { confirm: Spree.t(:are_you_sure_delete) },
+                    remote: true

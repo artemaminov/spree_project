@@ -14,6 +14,10 @@ $(document).on('turbolinks:load', function() {
         }
     );
 
+    $('.gallery-image').colorbox({rel: '.gallery-image'});
+    $('.masonry-image').colorbox();
+
+
     $(".news__item").on("click", function() {
         location.href = $(this).data("href");
     });
@@ -252,7 +256,7 @@ $(document).on('turbolinks:load', function() {
         focusOnSelect: true
     });
 
-    // feedback images slider
+    // feedback attachments slider
     $(".feedback__pics").slick({
         slidesToShow: 3,
         slidesToScroll: 1,

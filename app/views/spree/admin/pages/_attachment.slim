@@ -1,0 +1,27 @@
+li class="file-attachment"
+  = form.fields_for :file_attachments, file, child_index: file.new_record? ? "index_to_replace_with_js" : nil do |ff|
+    div class="form-group"
+      = ff.label :name
+      = ff.text_field :name, class: 'form-control', required: true
+      = error_message_on ff.object, :name
+
+    div class="form-group"
+      = ff.label :published_at
+      = ff.text_field :published_at, value: datepicker_field_value(ff.object.new_record? ? Time.now : ff.object.published_at), class: 'datepicker form-control', id: "index_to_replace_with_js"
+      = error_message_on ff.object, :published_at
+
+    div class="form-group"
+      = ff.label :file
+      = ff.file_field :file, multiple: false, required: ff.object.file.attachment ? false : true
+      = error_message_on ff.object, :file
+      = link_to 'Скачать', main_app.url_for(ff.object.file), target: '_blank' if ff.object.file.attachment
+
+    br
+    - if ff.object.new_record?
+      div class="form-group"
+        a href="#" onclick="jQuery(this).parent('.file_attachment').remove(); return false;"
+          | #{Spree.t(:remove_attachment, scope: :attachments)}
+    - else
+      div class="checkbox"
+        = ff.check_box '_destroy'
+        = ff.label '_destroy', Spree.t(:remove, scope: :attachments)

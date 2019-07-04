@@ -1,0 +1,10 @@
+div class="col-md-12"
+  h2
+   | #{Spree.t(:attachments, scope: :attachments)}
+  div class="form-group"
+    ul class="file-attachments" id="file-attachments"
+      - if resource.file_attachments.count > 0
+        - resource.file_attachments.each do |file|
+          = render partial: 'attachment', locals: { form: form, file: file }
+
+    = add_object_link(Spree.t(:new_attachment, scope: :attachments), form, Spree::FileAttachment.new, "attachment", "#file-attachments")

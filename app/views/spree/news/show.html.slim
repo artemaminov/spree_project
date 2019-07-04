@@ -18,11 +18,23 @@
       div class="news news-detail"
         h1
           | #{@news.name}
-        img class="detail_picture" alt=@news.name style="width:200px;" src="#{@news.image ? rails_representation_url(@news.image.attachment.variant(resize: "200x200").processed, only_path: true) : nil}"
+        img class="detail_picture" alt=@news.name src="#{@news.image ? main_app.url_for(@news.image.url(:news_small)) : nil}"
         div class="site_content"
           div class="news-date-time"
             | #{I18n.localize(@news.publication_date, format: "%d %B %Y")}
           == raw @news.body
+        div style="clear: both;"
+
+        - if @news.gallery_images.count > 0
+          div class="gallery-photos gallery-photos-single-item"
+            div class="gallery-photos-items"
+              - @news.gallery_images.each_with_index do |img, index|
+                a href="#{main_app.url_for(img)}" data-id="#{index}" class='gallery-image'
+                  = image_tag main_app.url_for(img.variant(resize: '100x100')), style: "width: 100px;height: 80px;"
+
+        - if @news.video.attachment
+          div class="video-js"
+            = video_tag main_app.url_for(@news.video), class: "vjs-tech", controls: true
       p
         a href="/news/"
           | Возврат к списку

@@ -1,0 +1,9 @@
+-if(@page.gallery_images.count > 0)
+  section class="gallery"
+    h2 class="news__caption"
+      | #{Spree.t(:gallery)}
+    div class="masonry-container" id="masonry-container "
+      - @page.gallery_images.each do |img|
+        div class="masonry_item"
+          a class="masonry-image cboxElement" rel="gal" href="#{main_app.url_for(img)}"
+            img src="#{main_app.url_for(img)}"

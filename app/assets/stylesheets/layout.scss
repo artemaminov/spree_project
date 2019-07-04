@@ -289,3 +289,124 @@
   }
 
 }
+
+.video-js {
+  .vjs-tech {
+    width: 400px;
+    height: 300px;
+    outline: none;
+    margin: 2em;
+  }
+}
+
+.gallery-photos-single-item {
+  margin: 2em 0 2em 0;
+
+  a {
+    display: inline-block;
+    margin: 3px;
+    vertical-align: top;
+  }
+
+  img {
+    border: 1px solid #c2845e;
+    display: block;
+  }
+}
+
+section {
+  &:first-child {
+    padding-top: 2em;
+  }
+}
+
+.certificates {
+  margin: 1em 0 0 0;
+
+  .item {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    -webkit-box-shadow: 1px 1px 1px 0px #c9c9c9;
+    -moz-box-shadow: 1px 1px 1px 0px #c9c9c9;
+    box-shadow: 1px 1px 1px 0px #c9c9c9;
+    display: inline-block;
+    font-size: 80%;
+    margin: 0 2% 3% 0;
+    vertical-align: top;
+    width: 201px;
+  }
+
+  .item-head {
+    min-height: 20px;
+    padding: 1em 0 0 .7em;
+    position: relative;
+  }
+
+  .item-hr {
+    background: #f4f4f4;
+    height: 1px;
+    margin: .5em .7em .3em;
+    padding: 0;
+    width: auto;
+  }
+
+  .item-corner {
+    background: transparent url('corner.png') right top no-repeat;
+    height: 22px;
+    position: absolute;
+    right: -5px;
+    top: -2px;
+    width: 24px;
+    z-index: 1;
+  }
+
+  .item-date {
+    color: #b6b6b6;
+    margin: 0 8px 0 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 85%;
+  }
+
+  .item-picture {
+    margin: -1em 0 0 -.7em;
+    padding: 1px 0 0 1px;
+    min-height: 4em;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .item-footer {
+    background: #f6f6f6;
+    background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f6f6f6));
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 100%);
+    background: -o-linear-gradient(top, #ffffff 0%,#f6f6f6 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%,#f6f6f6 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 100%);
+    padding: .25em .55em .85em;
+  }
+
+  .item-file-new-window {
+    background: transparent url('new-window.gif') center center no-repeat;
+    display: block;
+    float: right;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px 0 0;
+  }
+
+  .item-file-link {
+    font-size: 80%;
+    line-height: 120%;
+  }
+
+  .item-file-size {
+    color: #b2ae94;
+    font-size: 80%;
+    font-style: italic;
+    line-height: 120%;
+    white-space: nowrap;
+  }
+}

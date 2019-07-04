@@ -1,4 +1,5 @@
-# name, short_info, body, image, show_on_site, publication_date, latest, meta_title, meta_description, meta_keywords, slug
+# name, short_info, body, image, sho
+# w_on_site, publication_date, latest, meta_title, meta_description, meta_keywords, slug
 module Spree
   class News < Spree::Base
     extend FriendlyId
@@ -6,7 +7,7 @@ module Spree
 
     validates :name, :body, :presence => true
 
-    has_one :image, as: :viewable, dependent: :destroy, class_name: 'Spree::NewsImage'
+    has_one :image, as: :viewable, dependent: :destroy, class_name: 'Spree::SharedImage'
 
     translates :name, :short_info, :body, :meta_title, :meta_description, :meta_keywords,
                fallbacks_for_empty_translations: true
@@ -19,6 +20,9 @@ module Spree
     before_validation :normalize_slug
 
     validates :slug, uniqueness: true
+
+    has_one_attached :video
+    has_many_attached :gallery_images
 
     def normalize_slug
       self.slug = normalize_friendly_id(name)

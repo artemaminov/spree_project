@@ -1,6 +1,4 @@
 Spree::HomeController.class_eval do
-  include Rails.application.routes.url_helpers
-
   def index
     @searcher = build_searcher(params.merge(include_images: true))
     @products = @searcher.retrieve_products

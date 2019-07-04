@@ -1,3 +1,4 @@
-= content_for :page_title, Spree.t(:editing_resource, resource: Spree::News.model_name.human)
+= content_for :page_title do
+  | #{Spree.t(:editing_resource, resource: Spree::News.model_name.human)}
 
 == render 'form', resource: @news
