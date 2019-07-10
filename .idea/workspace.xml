@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c782a19-d629-4ac0-84e3-1b010de40189" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2c782a19-d629-4ac0-84e3-1b010de40189" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/log/" />
@@ -20,13 +18,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log/capistrano.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+            <state relative-caret-position="599">
+              <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="30" column="93" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/storage.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/cable.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/tinymce.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -77,9 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/spree/gallery_image.rb" />
-        <option value="$PROJECT_DIR$/app/models/spree/shared_image.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles.css" />
         <option value="$PROJECT_DIR$/app/controllers/spree/images_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/spree/admin/news_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/spree/admin/images/destroy.js.erb" />
@@ -125,9 +152,12 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/Capfile" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/config/deploy/staging.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/log/capistrano.log" />
+        <option value="$PROJECT_DIR$/config/storage.yml" />
+        <option value="$PROJECT_DIR$/config/cable.yml" />
+        <option value="$PROJECT_DIR$/config/deploy/staging.rb" />
       </list>
     </option>
   </component>
@@ -187,12 +217,6 @@
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
               <item name="deploy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
@@ -391,12 +415,12 @@
       <workItem from="1562181597330" duration="8824000" />
       <workItem from="1562237393831" duration="8006000" />
       <workItem from="1562747508194" duration="4251000" />
-      <workItem from="1562787885915" duration="80000" />
+      <workItem from="1562787885915" duration="1180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165520000" />
+    <option name="totallyTimeSpent" value="166620000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,18 +461,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/overrides/pages_in_header.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/vendors_decorator.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/gallery_image.rb" />
-    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/pages/_gallery_form.slim" />
     <entry file="file://$PROJECT_DIR$/app/views/spree/admin/pages/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -729,20 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/capistrano.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="3713" column="51" lean-forward="true" selection-start-line="3713" selection-start-column="51" selection-end-line="3713" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="69" lean-forward="true" selection-start-line="1" selection-start-column="69" selection-end-line="1" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Capfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -768,6 +766,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
           <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/capistrano.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/tinymce.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cable.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/storage.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="30" column="93" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
         </state>
       </provider>
     </entry>
