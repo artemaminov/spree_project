@@ -15,8 +15,8 @@ Spree.config do |config|
   # config.track_inventory_levels = false
   #config.default_country_id = 169
   config.currency = :RUB
-  country = Spree::Country.find_by_name('Russian Federation')
-  config.default_country_id = country.id if country.present?
+  #country = Spree::Country.find_by_name('Russian Federation')
+  config.default_country_id = 168
 end
 
 # Configure Spree Dependencies
