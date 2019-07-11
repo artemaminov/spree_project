@@ -4,7 +4,7 @@ section class="first"
   - if (@body_id == "home-page")
     div class="first__wrap"
       div class="first__contacts-wrap"
-        img class="first__logo" src="/assets/logo.png"
+        img class="first__logo" src="#{asset_path('logo.png')}"
           div class="first__contacts"
             a href="#" class="contacts__address"
               = INFO_CONSTANTS[:address]
@@ -21,7 +21,7 @@ section class="first"
   div class=(["fixed-nav", @body_id == "home-page" ? "" : "fixed-nav--fixed"].compact.join(' '))
     div class="fixed-nav__contacts"
       a href="/" class="small__logo" title="Лофт кирпич в Тюмени. На главную"
-        img alt="Лофт кирпич в Тюмени. На главную" src="/assets/logo_small.png"
+        img alt="Лофт кирпич в Тюмени. На главную" src="#{asset_path('logo_small.png')}"
       a href="tel:#{INFO_CONSTANTS[:tel]}" class="fixed-nav__phone icon-phone-call" = INFO_CONSTANTS[:tel]
       span class="fixed-nav__hours icon-clock"
         | #{INFO_CONSTANTS[:working_time]}
@@ -56,14 +56,14 @@ section class="first"
 
           ul class="list_stat"
             li
-              img src="/assets/5dc96344db8233a1cdff817669b6c69f.png"
+              img src="#{asset_path('5dc96344db8233a1cdff817669b6c69f.png')}"
               span
                 | Кирпич ручной формовки - сделан с любовью
             li
-              img src="/assets/c8abf3ffe89afb907a0cf3bbb68c9b36.png"
+              img src="#{asset_path('c8abf3ffe89afb907a0cf3bbb68c9b36.png')}"
               span
                 | Руководство ЗАО БКЗ
             li
-              img src="/assets/20f407ed1be7a7b86a5996f74de2d610.jpg"
+              img src="#{asset_path('20f407ed1be7a7b86a5996f74de2d610.jpg')}"
               span
                 | Всё о стоительном кирпиче

@@ -139,25 +139,25 @@ a {
 }
 @font-face {
   font-family: 'akzidenz-grotesk_prolight';
-  src: url('./fonts/akzidgrtskprolig-webfont.woff2') format('woff2'), url('./fonts/akzidgrtskprolig-webfont.woff') format('woff');
+  src: url(<%= asset_path('fonts/akzidgrtskprolig-webfont.woff2') %>) format('woff2'), url(<%= asset_path('fonts/akzidgrtskprolig-webfont.woff') %>) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'akzidenz-grotesk_proRgCn';
-  src: url('./fonts/akzidgrtskprocnd-webfont.woff2') format('woff2'), url('./fonts/akzidgrtskprocnd-webfont.woff') format('woff');
+  src: url(<%= asset_path('fonts/akzidgrtskprocnd-webfont.woff2') %>) format('woff2'), url(<%= asset_path ('fonts/akzidgrtskprocnd-webfont.woff')%>) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'akzidenz-grotesk_proBdCn';
-  src: url('./fonts/akzidgrtskprobolcnd-webfont.woff2') format('woff2'), url('./fonts/akzidgrtskprobolcnd-webfont.woff') format('woff');
+  src: url(<%= asset_path('fonts/akzidgrtskprobolcnd-webfont.woff2') %>) format('woff2'), url(<%= asset_path('fonts/akzidgrtskprobolcnd-webfont.woff') %>) format('woff');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'akzidenz-grotesk_proLtCn';
-  src: url('./fonts/akzidgrtskproligcnd-webfont.woff2') format('woff2'), url('./fonts/akzidgrtskproligcnd-webfont.woff') format('woff');
+  src: url(<%= asset_path('fonts/akzidgrtskproligcnd-webfont.woff2') %>) format('woff2'), url(<%= asset_path('fonts/akzidgrtskproligcnd-webfont.woff') %>) format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -226,11 +226,11 @@ a {
 /**iconMoon**/
 @font-face {
   font-family: 'icomoon';
-  src:  url('./fonts/icomoon.eot?8dscpt');
-  src:  url('./fonts/icomoon.eot?8dscpt#iefix') format('embedded-opentype'),
-    url('./fonts/icomoon.ttf?8dscpt') format('truetype'),
-    url('./fonts/icomoon.woff?8dscpt') format('woff'),
-    url('./fonts/icomoon.svg?8dscpt#icomoon') format('svg');
+  src:  url(<%= asset_path ('fonts/icomoon.eot?8dscpt') %>);
+  src:  url(<%= asset_path ('fonts/icomoon.eot?8dscpt#iefix') %>) format('embedded-opentype'),
+    url(<%= asset_path ('fonts/icomoon.ttf?8dscpt') %>) format('truetype'),
+    url(<%= asset_path ('fonts/icomoon.woff?8dscpt') %>) format('woff'),
+    url(<%= asset_path ('fonts/icomoon.svg?8dscpt#icomoon') %>) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -396,18 +396,18 @@ a {
   	*/
 @font-face {
   font-family: "Flaticon";
-  src: url("./fonts/Flaticon.eot");
-  src: url("./fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
-	url("./fonts/Flaticon.woff") format("woff"),
-	url("./fonts/Flaticon.ttf") format("truetype"),
-	url("./fonts/Flaticon.svg#Flaticon") format("svg");
+  src: url(<%= asset_path ("fonts/Flaticon.eot") %>);
+  src: url(<%= asset_path ("fonts/Flaticon.eot?#iefix") %>) format("embedded-opentype"),
+	url(<%= asset_path ("fonts/Flaticon.woff") %>) format("woff"),
+	url(<%= asset_path ("fonts/Flaticon.ttf") %>) format("truetype"),
+	url(<%= asset_path ("fonts/Flaticon.svg#Flaticon") %>) format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("./fonts/Flaticon.svg#Flaticon") format("svg");
+    src: url(<%= asset_path  ("fonts/Flaticon.svg#Flaticon") %>) format("svg");
   }
 }
 [class^="flaticon-"]:before,
@@ -1099,7 +1099,7 @@ a {
   padding-top: 8.875em;
   padding-bottom: 11.875em;
   padding-left: 5em;
-  background-image: url("./bg_lightgrey.jpg");
+  background-image: url(<%= asset_path ("bg_lightgrey.jpg") %>);
   background-size: cover;
   color: #2F3841;
 }
@@ -1277,7 +1277,7 @@ a {
 }
 .products {
   position: relative;
-  background-image: url("./bg_lightgrey.jpg");
+  background-image: url(<%= asset_path ("bg_lightgrey.jpg") %>);
   background-size: cover;
   color: #2F3841;
 }
@@ -1603,7 +1603,7 @@ a {
 .slider-item__wall {
   position: relative;
   height: 19.5em;
-  background-image: url("./img/products_wall.jpg");
+  background-image: url(<%= asset_path ("products_wall.jpg") %>);
   background-size: cover;
   background-position: center;
 }
@@ -1734,7 +1734,7 @@ a {
 .network {
   padding-bottom: 2%;
   text-align: center;
-  background-image: url("./bg_lightgrey.jpg");
+  background-image: url(<%= asset_path  ("bg_lightgrey.jpg") %>);
   background-size: cover;
   color: #2F3841;
 }
@@ -1914,7 +1914,7 @@ a {
   text-transform: none;
   color: #2F3841;
   text-align: center;
-  background-image: url("./img/bg_feedback.jpg");
+  background-image: url(<%= asset_path ("bg_feedback.jpg") %>);
   background-size: cover;
 }
 .feedback__wrapper {
@@ -2068,7 +2068,7 @@ a {
 .news {
   position: relative;
   text-align: center;
-  background-image: url("./bg_lightgrey.jpg");
+  background-image: url(<%= asset_path ("bg_lightgrey.jpg") %>);
   /*background-size: cover;*/
 }
 .news__stick {
@@ -2257,7 +2257,7 @@ a {
 .gallery {
   padding-bottom: 8.125em;
   text-align: center;
-  background-image: url("./bg_lightgrey.jpg");
+  background-image: url(<%= asset_path ("bg_lightgrey.jpg") %>);
   background-size: cover;
 }
 .gallery__stick {
@@ -2359,7 +2359,7 @@ a {
   height: 13.75em;
   padding-left: 1.625em;
   padding-right: 1.625em;
-  background-image: url("./img/bg_feedback.jpg");
+  background-image: url(<%= asset_path ("bg_feedback.jpg") %>);
   background-size: cover;
 }
 .gallery__desc:before {
@@ -2607,7 +2607,7 @@ a {
 }
 
 .modal {
-	background:url("./bg_lightgrey.jpg") repeat center center;
+	background:url(<%= asset_path ("bg_lightgrey.jpg") %>) repeat center center;
 	padding:1em;
 	text-transform: none;
 
@@ -2698,7 +2698,7 @@ a, input, button{outline: none;}
   padding-bottom: 11.875em;
   padding-left: 7em;
 	padding-right:9em;
-  background-image: url("./bg_lightgrey.jpg");
+  background-image: url(<%= asset_path ("bg_lightgrey.jpg") %>);
   /*background-size: cover;*/
   color: #2F3841;
 }
@@ -2896,7 +2896,7 @@ margin-bottom:1em;
     border-bottom: none;
     max-height: 80%;
     backface-visibility: hidden;
-	  background-image: url(./bg_lightgrey.jpg);
+	  background-image: url(<%= asset_path ('bg_lightgrey.jpg') %>);
 }
 
 
@@ -2984,7 +2984,7 @@ a:hover, a:focus {
 	display:block;
 	width: 7.4em;
    height: 7.4em;
-	background:url(./img/photos.png) no-repeat center center;
+	background:url(<%= asset_path ('photos.png') %>) no-repeat center center;
 	background-size:contain;
 }
 
@@ -2997,7 +2997,7 @@ a:hover, a:focus {
 }
 
 .news__item-body{
-	background:url(./bg_lightgrey.jpg) repeat center center;
+	background:url(<%= asset_path ('bg_lightgrey.jpg') %>) repeat center center;
 
 }
 .news-detail .site_content{float:left;}

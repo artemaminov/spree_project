@@ -17,7 +17,7 @@ ul {
       &.first {
         padding-left:40px;
         position: relative;
-        background: url('breadcrumbs_icon.png') no-repeat top left;
+        background: url(asset_path('breadcrumbs_icon.png')) no-repeat top left;
       }
       &.separator {
         div {

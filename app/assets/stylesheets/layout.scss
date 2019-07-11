@@ -214,7 +214,7 @@
       -moz-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
       transition: all 0.3s ease;
-      background: url('/assets/bg_lightgrey.jpg') repeat center center;
+      background: url(asset_path('bg_lightgrey.jpg')) repeat center center;
 
       .news__item-data {
         font-weight: bold;
@@ -314,12 +314,6 @@
   }
 }
 
-section {
-  &:first-child {
-    padding-top: 2em;
-  }
-}
-
 .certificates {
   margin: 1em 0 0 0;
 
@@ -351,7 +345,7 @@ section {
   }
 
   .item-corner {
-    background: transparent url('corner.png') right top no-repeat;
+    background: transparent url(asset_path('corner.png')) right top no-repeat;
     height: 22px;
     position: absolute;
     right: -5px;
@@ -389,7 +383,7 @@ section {
   }
 
   .item-file-new-window {
-    background: transparent url('new-window.gif') center center no-repeat;
+    background: transparent url(asset_path('new-window.gif')) center center no-repeat;
     display: block;
     float: right;
     height: 12px;
