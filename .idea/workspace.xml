@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c782a19-d629-4ac0-84e3-1b010de40189" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/initializers/spree.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/spree.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/deploy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/deploy/staging.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy/staging.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -19,26 +21,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/application.rb">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="630">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/spring.rb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/initializers/spree.rb">
+        <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -47,7 +44,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nnews</find>
       <find>news__item-body</find>
       <find>nn</find>
       <find>collection</find>
@@ -77,6 +73,7 @@
       <find>sassc</find>
       <find>port</find>
       <find>start</find>
+      <find>make_</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/db/migrate</dir>
@@ -133,15 +130,15 @@
         <option value="$PROJECT_DIR$/vendor/assets/stylesheets/spree/backend/all.css" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/Capfile" />
-        <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/config/storage.yml" />
         <option value="$PROJECT_DIR$/config/cable.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/config/deploy/staging.rb" />
         <option value="$PROJECT_DIR$/log/capistrano.log" />
         <option value="$PROJECT_DIR$/config/environments/staging.rb" />
         <option value="$PROJECT_DIR$/config/initializers/spree.rb" />
+        <option value="$PROJECT_DIR$/config/deploy.rb" />
+        <option value="$PROJECT_DIR$/config/deploy/staging.rb" />
       </list>
     </option>
   </component>
@@ -158,6 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,6 +198,12 @@
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
               <item name="initializers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -212,7 +216,6 @@
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,12 +402,13 @@
       <workItem from="1562181597330" duration="8824000" />
       <workItem from="1562237393831" duration="8006000" />
       <workItem from="1562747508194" duration="4251000" />
-      <workItem from="1562787885915" duration="1657000" />
+      <workItem from="1562787885915" duration="2696000" />
+      <workItem from="1562838527550" duration="496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167097000" />
+    <option name="totallyTimeSpent" value="168632000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -419,7 +423,7 @@
     <frame x="0" y="23" width="1600" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.2856226" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.28883183" />
       <window_info id="Structure" order="1" sideWeight="0.50063694" side_tool="true" weight="0.2381258" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -697,13 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
@@ -718,13 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
           <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="30" selection-start-line="30" selection-start-column="2" selection-end-line="31" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -766,20 +756,34 @@
     <entry file="file://$PROJECT_DIR$/config/tinymce.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
+    <entry file="file://$PROJECT_DIR$/config/initializers/spree.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="435">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/spring.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/spree.rb">
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="450">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/deploy/staging.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
