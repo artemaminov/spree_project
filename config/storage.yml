@@ -8,7 +8,7 @@ local:
 
 staging:
   service: Disk
-  root: <%= File.dirname("/home/prog/www/newbkz/staging/storage-cache/") %>
+  root: <%= File.dirname("/home/prog/www/newbkz/staging/storage-cache/file") %>
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
