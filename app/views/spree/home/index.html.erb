@@ -12,6 +12,6 @@
   <%# end %>
 <!--</div>-->
 <%= render partial: 'spree/home/news_latest', locals: { news: @latest_news } %>
-<%= render partial: 'spree/home/retailers', locals: { retailers: @retailers } %>
+<%= render partial: 'spree/home/retailers', locals: { retailers: @retailers, regions: @regions } %>
 <%= render partial: 'spree/home/about' %>
 <%= render partial: 'spree/home/news_standard', locals: { news: @standard_news } %>

@@ -175,6 +175,12 @@ ru:
         disabled: "Отключен"
         image: "Логотип"
         active_on_home: "Активная точка на карте (по умолчанию)"
+      spree/retailer_region:
+        name: "Имя"
+        lat: "Широта"
+        lng: "Долгота"
+        disabled: "Отключен"
+        active_on_home: "Активная область на карте (по умолчанию)"
       spree/news:
         name: 'Название'
         short_info: 'Краткая информация'
@@ -402,6 +408,10 @@ ru:
         one: "Новость"
         many: "Новостей"
         other: "Новости"
+      spree/retailer_region:
+        one: "Область"
+        many: "Области"
+        other: "Области"
   devise:
     confirmations:
       confirmed: "Ваш аккаунт успешно активирован. Теперь вы авторизованы."
@@ -1606,3 +1616,9 @@ ru:
       new_attachment: "Новое Вложение"
       remove_attachment: "Удалить вложение"
       remove: "Удалить?"
+    map:
+      map: "Карта"
+    retailer_region:
+      new_retailer_region: "Новая область"
+      editing_retailer_region: "Редактировать область"
+      back_to_retailer_regions_list: "Назад к списку областей"

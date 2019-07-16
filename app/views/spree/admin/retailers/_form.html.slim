@@ -5,11 +5,14 @@
   div class="row" data-hook="admin_resource_form_fields"
     div class="col-md-6"
       div class="form-group"
-        = f.label :region
+        = f.label "Область"
         span class="required"
           | *
-        = f.text_field :region, class: 'form-control', required: true
-        = f.error_message_on :region
+        = f.select :retailer_region_id,
+          options_for_select(Spree::RetailerRegion.enabled.collect { |s| [s.name, s.id] }, selected: resource.retailer_region_id),
+            { include_blank: false }, class: 'select2'
+        = f.error_message_on :retailer_region_id
+
 
       div class="form-group"
         = f.field_container :image do
@@ -64,10 +67,10 @@
           = f.check_box :disabled
           = Spree::Retailer.human_attribute_name(:disabled)
 
-      div class="checkbox"
-        = f.label :active_on_home do
-          = f.check_box :active_on_home
-          = Spree::Retailer.human_attribute_name(:active_on_home)
+      / div class="checkbox"
+      /   = f.label :active_on_home do
+      /     = f.check_box :active_on_home
+      /     = Spree::Retailer.human_attribute_name(:active_on_home)
 
 
   == render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links"

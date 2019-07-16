@@ -11,7 +11,7 @@ module Spree
 
     translates :name, :short_info, :body, :meta_title, :meta_description, :meta_keywords,
                fallbacks_for_empty_translations: true
-
+    include SpreeGlobalize::Translatable
     default_scope  -> { order(publication_date: :desc) }
 
     scope :visible, -> { where(show_on_site: true) }

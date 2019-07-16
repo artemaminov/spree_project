@@ -3,7 +3,7 @@ javascript:
 
     function init() {
       var points = JSON.parse( $('#BX_YMAP_MyMap').attr('data-points')),
-        activePoint = $.grep(points, function(point){
+        activePoint = $.grep(JSON.parse( $('#BX_YMAP_MyMap').attr('data-active-region')), function(point){
             return point.active_on_home == true
         })[0],
         activePointCoordinates = [];

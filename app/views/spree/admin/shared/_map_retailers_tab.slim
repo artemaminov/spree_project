@@ -1,0 +1,3 @@
+- if current_spree_user.respond_to?(:has_spree_role?) && current_spree_user.has_spree_role?(:admin)
+  ul class="nav nav-sidebar"
+    = main_menu_tree t(:map, scope: [:spree, :map]), url: '#sidebar-map-retailers', icon: 'file', sub_menu: 'map_retailers_sub_menu'
