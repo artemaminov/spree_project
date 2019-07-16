@@ -8,8 +8,6 @@ Spree::HomeController.class_eval do
     @regions = collected_regions
     @standard_news = news_collection
     @latest_news = @standard_news.latest
-
-    p @regions
   end
 
   private

@@ -18,7 +18,7 @@
         - news.each do |nnews|
           div class="novelty__slide-wrap"
             div class="novelty__slide"
-              img class="slide__img" src="#{nnews.image ? main_app.url_for(nnews.image.url(:news_large)) : nil}" alt=nnews.name
+              img class="slide__img" src="#{nnews.image ? main_app.url_for(nnews.image.attachment.variant(resize: '600x600').processed) : nil}" alt=nnews.name
               div class="slide__signature"
                 | #{nnews.name}
 

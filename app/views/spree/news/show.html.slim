@@ -18,7 +18,7 @@
       div class="news news-detail"
         h1
           | #{@news.name}
-        img class="detail_picture" alt=@news.name src="#{@news.image ? main_app.url_for(@news.image.url(:news_small)) : nil}"
+        img class="detail_picture" alt=@news.name src="#{@news.image ? main_app.url_for(@news.image.attachment.variant(resize: '200x200').processed) : nil}"
         div class="site_content"
           div class="news-date-time"
             | #{I18n.localize(@news.publication_date, format: "%d %B %Y")}
@@ -30,7 +30,7 @@
             div class="gallery-photos-items"
               - @news.gallery_images.each_with_index do |img, index|
                 a href="#{main_app.url_for(img)}" data-id="#{index}" class='gallery-image'
-                  = image_tag main_app.url_for(img.variant(resize: '100x100')), style: "width: 100px;height: 80px;"
+                  = image_tag main_app.url_for(img.variant(resize: '100x100').processed), style: "width: 100px;height: 80px;"
 
         - if @news.video.attachment
           div class="video-js"

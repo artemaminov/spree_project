@@ -13,7 +13,7 @@
                 | Новости
             - @news.each do |news|
               div class="news__item" data-href="#{news_post_path(news.slug)}"
-                div class="news__item-img" style="background-image: url('#{news.image ? main_app.url_for(news.image.url(:news_large)) : nil}');"
+                div class="news__item-img" style="background-image: url('#{news.image ? main_app.url_for(news.image.attachment.variant(resize: '783x365').processed) : nil}');"
 
                 div class="news__item-body"
                   p class="news__item-data"
