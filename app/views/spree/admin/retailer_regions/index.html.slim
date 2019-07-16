@@ -1,0 +1,49 @@
+= content_for :page_title, Spree.t(plural_resource_name(Spree::RetailerRegion))
+- if can?(:create, Spree::RetailerRegion)
+  = content_for :page_actions
+    = button_link_to Spree.t(:new_retailer_region, scope: :retailer_region), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_retailer' }
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }
+
+- if @retailer_regions.any?
+  table class="table" id="listing_retailers" data-hook=""
+    colgroup
+      col style="width: 60%"
+      col style="width: 7.5%"
+      col style="width: 7.5%"
+      col style="width: 10%"
+      col style="width: 15%"
+    thead
+      tr data-hook="admin_retailers_index_headers"
+        th
+          | Имя
+        th
+          | Широта
+        th
+          | Долгота
+        th
+          | Отключен
+        th data-hook="admin_retailers_index_header_actions" class="actions"
+    tbody
+      - @retailer_regions.each do |region|
+        tr data-hook="admin_retailers_index_rows" class="#{cycle('odd', 'even')}" id="#{dom_id region}"
+          td
+            | #{region.name}
+          td
+            | #{region.lat}
+          td
+            | #{region.lng}
+          == render partial: 'spree/shared/booleant_table_field', locals: { field: region.disabled }
+          td class="actions text-right" data-hook="admin_retailers_index_row_actions"
+            = link_to_edit region, no_text: true
+
+            = link_to '', spree.admin_translations_path('retailer_region', region.id), class: 'btn btn-primary btn-sm icon icon-translate with-tip', data: { 'original-title' => Spree.t(:'i18n.translations') }
+
+            = link_to_delete region, no_text: true
+
+- else
+    div class="alert alert-warning no-objects-found"
+      | #{Spree.t(:no_resource_found, resource: Spree::RetailerRegion.model_name.human)},
+        #{link_to Spree.t(:add_one), spree.new_admin_retailer_region_path}!
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }

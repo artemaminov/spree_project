@@ -20,6 +20,10 @@ Rails.application.routes.draw do
       resources :news do
         patch :translate, on: :member
       end
+
+      resources :retailer_regions do
+        patch :translate, on: :member
+      end
     end
 
     resources :news, only: [:index]

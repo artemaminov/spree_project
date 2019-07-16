@@ -31,7 +31,7 @@
       - @retailers.each do |retailer|
         tr data-hook="admin_retailers_index_rows" class="#{cycle('odd', 'even')}" id="#{dom_id retailer}"
           td
-            | #{retailer.region}
+            | #{retailer.retailer_region.name}
           td
             | #{retailer.name}
           td
