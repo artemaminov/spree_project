@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c782a19-d629-4ac0-84e3-1b010de40189" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/views/spree/home/_news_latest.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/spree/home/_news_latest.html.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/storage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/storage.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -56,11 +56,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/spree/news/show.html.slim">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
               <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/storage.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -83,29 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/overrides/spree/admin/retailers/add_retailers_map_to_main_navigation.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/spree/home/_retailers.html.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="137" selection-start-line="13" selection-start-column="124" selection-end-line="13" selection-end-column="137" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>port</find>
       <find>start</find>
       <find>make_</find>
       <find>logo</find>
@@ -135,6 +143,7 @@
       <find>points</find>
       <find>image</find>
       <find>processed</find>
+      <find>local</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/db/migrate</dir>
@@ -152,10 +161,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/cable.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/log/capistrano.log" />
-        <option value="$PROJECT_DIR$/config/environments/staging.rb" />
         <option value="$PROJECT_DIR$/config/initializers/spree.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/config/deploy/staging.rb" />
@@ -203,6 +210,8 @@
         <option value="$PROJECT_DIR$/app/views/spree/news/index.html.slim" />
         <option value="$PROJECT_DIR$/app/views/spree/news/show.html.slim" />
         <option value="$PROJECT_DIR$/app/views/spree/home/_news_latest.html.slim" />
+        <option value="$PROJECT_DIR$/config/environments/staging.rb" />
+        <option value="$PROJECT_DIR$/config/storage.yml" />
       </list>
     </option>
   </component>
@@ -260,70 +269,18 @@
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="retailers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="static_content" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -525,12 +482,12 @@
       <workItem from="1562787885915" duration="2696000" />
       <workItem from="1562838527550" duration="6068000" />
       <workItem from="1563215122446" duration="388000" />
-      <workItem from="1563258622696" duration="10521000" />
+      <workItem from="1563258622696" duration="11567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185113000" />
+    <option name="totallyTimeSpent" value="186159000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -571,27 +528,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="320" column="21" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/slick-theme.css.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/slick.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -905,6 +841,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/storage.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
         </state>
       </provider>
     </entry>
