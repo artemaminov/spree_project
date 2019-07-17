@@ -17,4 +17,6 @@
 /yarn-error.log
 /storage
 .byebug_history
+.idea
 .idea/*
+.idea/workspace.xml
