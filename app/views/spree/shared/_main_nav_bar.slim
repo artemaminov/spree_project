@@ -10,7 +10,7 @@ section class="first"
               = INFO_CONSTANTS[:address]
             a href="tel:#{INFO_CONSTANTS[:tel]}" class="contacts__phone icon-phone-call"
               = INFO_CONSTANTS[:tel]
-            a href="#form_send_call" class="contacts__button button_form cboxElement"
+            a href="#form_send_call" class="contacts__button button_form cboxElement" data-turbolinks="false"
               | Связаться
       nav class="first__nav"
         ul class="nav nav__list"
@@ -25,12 +25,12 @@ section class="first"
       a href="tel:#{INFO_CONSTANTS[:tel]}" class="fixed-nav__phone icon-phone-call" = INFO_CONSTANTS[:tel]
       span class="fixed-nav__hours icon-clock"
         | #{INFO_CONSTANTS[:working_time]}
-      a href="#" class="fixed-nav__address icon-placeholder"
+      a href="#" class="fixed-nav__address icon-placeholder" data-turbolinks="false"
         | #{INFO_CONSTANTS[:address]}
       div class="fixed__user"
         a href="#" class="fixed-nav__basket" data-turbolinks="false"
         a href="#" class="fixed-nav__cabinet" data-turbolinks="false"
-      a href="#form_send_call" class="fixed-nav__button button_form"
+      a href="#form_send_call" class="fixed-nav__button button_form cboxElement" data-turbolinks="false"
         | связаться
 
     div class="first__filter"

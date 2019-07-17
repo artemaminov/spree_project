@@ -201,6 +201,10 @@ ru:
         name: "Имя"
         file: "Вложение"
         published_at: "Дата публикации"
+      spree/question:
+        name: "Имя"
+        phone: "Номер телефона"
+        email_send: "Емейл отправлен?"
     errors:
       models:
         spree/calculator/tiered_flat_rate:
@@ -347,9 +351,9 @@ ru:
         one: "Категория доставки"
         other: "Категории доставки"
       spree/shipping_method:
-        many: Cпособов доставки
-        one: Cпособ доставки
-        other: Cпособы доставки
+        many: "Cпособов доставки"
+        one: "Cпособ доставки"
+        other: "Cпособы доставки"
       spree/state:
         many: "Областей/Регионов"
         one: "Область/Регион"
@@ -412,6 +416,10 @@ ru:
         one: "Область"
         many: "Области"
         other: "Области"
+      spree/question:
+        one: "Вопрос"
+        many: "Вопросов"
+        other: "Вопрос"
   devise:
     confirmations:
       confirmed: "Ваш аккаунт успешно активирован. Теперь вы авторизованы."
@@ -1622,3 +1630,7 @@ ru:
       new_retailer_region: "Новая область"
       editing_retailer_region: "Редактировать область"
       back_to_retailer_regions_list: "Назад к списку областей"
+    question:
+      new_question: "Новый вопрос"
+      editing_question: "Редактировать вопрос"
+      back_to_questions_list: "Назад к списку вопросов"

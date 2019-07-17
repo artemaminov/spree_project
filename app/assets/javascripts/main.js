@@ -22,6 +22,61 @@ $(document).on('turbolinks:load', function() {
         location.href = $(this).data("href");
     });
 
+    $(".button_form").colorbox({
+        inline: true,
+        width: "500px",
+        height: "420px",
+        opacity: "0.6"
+    });
+
+
+    $(".modal .input").on("focus", function() {
+        $(this)
+            .parent()
+            .find("span.err")
+            .html("&nbsp;");
+        $(this)
+            .removeClass("err")
+            .removeClass("success");
+    });
+
+    $(".modal .input").on("input", function() {
+        $modal = $(this).parents(".modal");
+        if ($(this).val() == "") {
+            $(this).addClass("err");
+            $(this)
+                .parent()
+                .find("span.err")
+                .text($(this).data("err"));
+            $(this)
+                .parents(".modal")
+                .find(".submit")
+                .addClass("disabled")
+                .attr("disabled", "disabled");
+            return false;
+        } else {
+            $(this)
+                .removeClass("err")
+                .addClass("success");
+            $(this)
+                .parent()
+                .find("span.err")
+                .html("&nbsp;");
+        }
+
+        if (
+            $modal.find("input.input").length == $modal.find("input.success").length
+        ) {
+            $(this)
+                .parents(".modal")
+                .find(".submit")
+                .removeClass("disabled")
+                .removeAttr("disabled");
+        }
+    });
+
+    // bottom unsued partly code
+
     var z = $(".tovar__formats_format li")
         .first()
         .find("input");
@@ -438,12 +493,6 @@ $(document).on('turbolinks:load', function() {
         }
     );
 
-    $(".button_form").colorbox({
-        inline: true,
-        width: "500px",
-        opacity: "0.6"
-    });
-
     var menuContacts = $("section .fixed-nav__contacts"),
         menuFilter = $("section .first__filter"),
         menu = $("section .fixed-nav"),
@@ -555,49 +604,4 @@ $(document).on('turbolinks:load', function() {
             $("#arrow_product").css("top", -pos_a["top"] + "px");
         } else $("#arrow_product").css("top", -(pos_a["top"] * 2) + "px");
     }
-
-    $(".modal .input").on("focus", function() {
-        $(this)
-            .parent()
-            .find("span.err")
-            .html("&nbsp;");
-        $(this)
-            .removeClass("err")
-            .removeClass("success");
-    });
-
-    $(".modal .input").on("input", function() {
-        $modal = $(this).parents(".modal");
-        if ($(this).val() == "") {
-            $(this).addClass("err");
-            $(this)
-                .parent()
-                .find("span.err")
-                .text($(this).data("err"));
-            $(this)
-                .parents(".modal")
-                .find(".submit")
-                .addClass("disabled")
-                .attr("disabled", "disabled");
-            return false;
-        } else {
-            $(this)
-                .removeClass("err")
-                .addClass("success");
-            $(this)
-                .parent()
-                .find("span.err")
-                .html("&nbsp;");
-        }
-
-        if (
-            $modal.find("input.input").length == $modal.find("input.success").length
-        ) {
-            $(this)
-                .parents(".modal")
-                .find(".submit")
-                .removeClass("disabled")
-                .removeAttr("disabled");
-        }
-    });
 });

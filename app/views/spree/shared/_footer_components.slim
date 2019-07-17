@@ -11,23 +11,16 @@ div class="novisible"
         p class="doptext"
           |Оставьте свои координаты, и мы обязательно перезвоним вам в течение 5-15 минут
       
-      == render partial: 'spree/shared/form', locals: { button: 'Заказать звонок', type: 5 }
-  
-
+      == render partial: 'spree/shared/form', locals: { button: 'Заказать звонок', type: 5, form_id: 'form_send_call' }
 
   div class="modal form_send" id="form_send"
     div class="zag3"
       p class="line"
       p class="modal_caption"
         | Заказать
-          span class="aname"
     
     p class="doptext"
       | Оставьте свои координаты, и мы обязательно перезвоним вам в течение 5-15 минут
     div class="top"
-      a href="#myModal" class="atitle" title="" 
-        img class="asrc" src="" 
-      a href="#myModal" class="atitle" title="" Увеличить изображение
-    
-    == render partial: 'spree/shared/form', locals: { button: 'Отправить заявку', type: 6 }
+    == render partial: 'spree/shared/form', locals: { button: 'Отправить заявку', type: 6, form_id: 'form_send' }
   

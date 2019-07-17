@@ -1,13 +1,16 @@
-= form_with(url: '/spasibo.php') do |f|
+= form_with(url: '/questions') do |f|
   = f.text_field :ftype, type: 'hidden', value: "#{type}"
+  = f.text_field :form_id, type: 'hidden', value: "#{form_id}"
   div class="telo"
     p class="input_block"
       span class="err"
-      = f.text_field :fname, class: "input", value: "", placeholder: "Введите Ваше имя", 'data-err': "Введите имя", required: true
+        | &nbsp;
+      = f.text_field :name, class: "input", value: "", placeholder: "Введите Ваше имя", 'data-err': "Введите имя", required: true, name: 'question[name]'
 
     p class="input_block"
       span class="err"
-      = f.text_field :fphone, class: "phone input", value: "", placeholder: "+7(999)999-99-99", 'data-err': "Введите телефон", required: true
+        | &nbsp;
+      = f.text_field :phone, class: "phone input", value: "", placeholder: "+7(999)999-99-99", 'data-err': "Введите телефон", required: true, name: 'question[phone]'
 
     p class="submit_block"
-      = f.submit :fbutton, class: "submit disabled", value: "#{button}", disabled: true
+      = f.submit "#{button}", class: "submit disabled", value: "#{button}", disabled: true

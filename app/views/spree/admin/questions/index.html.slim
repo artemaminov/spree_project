@@ -1,0 +1,42 @@
+= content_for :page_title, Spree.t(plural_resource_name(Spree::Question))
+- if can?(:create, Spree::Question)
+  = content_for :page_actions
+    = button_link_to Spree.t(:new_question, scope: :question), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_question' }
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }
+
+- if @questions.any?
+  table class="table" id="listing_retailers" data-hook=""
+    colgroup
+      col style="width: 40%"
+      col style="width: 30%"
+      col style="width: 10%"
+      col style="width: 20%"
+    thead
+      tr data-hook="admin_retailers_index_headers"
+        th
+          | Имя
+        th
+          | Телефон
+        th
+          | Емейл отправлен?
+        th data-hook="admin_retailers_index_header_actions" class="actions"
+    tbody
+      - @questions.each do |question|
+        tr data-hook="admin_retailers_index_rows" class="#{cycle('odd', 'even')}" id="#{dom_id question}"
+          td
+            | #{question.name}
+          td
+            | #{question.phone}
+          == render partial: 'spree/shared/booleant_table_field', locals: { field: question.email_send }
+          td class="actions text-right" data-hook="admin_retailers_index_row_actions"
+            = link_to_edit question, no_text: true
+
+            = link_to_delete question, no_text: true
+
+- else
+    div class="alert alert-warning no-objects-found"
+      | #{Spree.t(:no_resource_found, resource: Spree::Question.model_name.human)},
+        #{link_to Spree.t(:add_one), spree.new_question_path}!
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }
