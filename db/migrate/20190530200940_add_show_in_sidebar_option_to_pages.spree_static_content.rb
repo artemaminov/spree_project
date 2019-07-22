@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_static_content (originally 20100323085528)
 class AddShowInSidebarOptionToPages < SpreeExtension::Migration[4.2]
   def self.up

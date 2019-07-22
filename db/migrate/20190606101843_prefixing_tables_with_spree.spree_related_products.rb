@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_related_products (originally 20111129044813)
 class PrefixingTablesWithSpree < SpreeExtension::Migration[4.2]
   def change

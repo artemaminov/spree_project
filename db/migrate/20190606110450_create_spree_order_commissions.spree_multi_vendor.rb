@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_multi_vendor (originally 20190312130754)
 class CreateSpreeOrderCommissions < SpreeExtension::Migration[4.2]
   def change
@@ -8,7 +10,7 @@ class CreateSpreeOrderCommissions < SpreeExtension::Migration[4.2]
 
       t.timestamps
     end
-    add_index :spree_order_commissions, [:order_id, :vendor_id], unique: true
+    add_index :spree_order_commissions, %i[order_id vendor_id], unique: true
     add_index :spree_order_commissions, :order_id
     add_index :spree_order_commissions, :vendor_id
   end

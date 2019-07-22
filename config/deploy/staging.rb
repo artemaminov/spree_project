@@ -1,4 +1,6 @@
-server '217.116.60.242', port: 10622, roles: [:web, :app, :db], primary: true
+# frozen_string_literal: true
+
+server '217.116.60.242', port: 10_622, roles: %i[web app db], primary: true
 set :repo_url,        'git@bitbucket.org:yegordanchenko/spree_ror.git'
 set :application,     'staging'
 set :user,            'prog'
@@ -10,20 +12,20 @@ set :stage,           :staging
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
-#set :deploy_via,      :remote_cache
+# set :deploy_via,      :remote_cache
 
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
+set :ssh_options,     forward_agent: true, user: fetch(:user), keys: %w[~/.ssh/id_rsa.pub]
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
-set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :puma_init_active_record, true # Change to false when not using ActiveRecord
 ## Defaults:
 # set :scm,           :git
-set :branch,        :develop
+set :branch, :develop
 # set :format,        :pretty
 # set :log_level,     :debug
 # set :keep_releases, 5

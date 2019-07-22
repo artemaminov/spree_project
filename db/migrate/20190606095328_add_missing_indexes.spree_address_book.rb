@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_address_book (originally 20170405133031)
 migration_superclass = if ActiveRecord::VERSION::MAJOR >= 5
-  ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
-else
-  ActiveRecord::Migration
+                         ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
+                       else
+                         ActiveRecord::Migration
 end
 
 class AddMissingIndexes < migration_superclass

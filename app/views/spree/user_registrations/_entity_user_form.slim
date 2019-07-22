@@ -1,0 +1,219 @@
+div class="entity_user_form" id="entity_user_form" style="display: none;"
+  = form_for resource, as: :spree_user, url: spree.registration_path, html: { id: "entity_spree_user_form" } do |f|
+    fieldset
+      = f.hidden_field :user_type, value: 'entity_user'
+
+      div class="flex-row"
+        div class="form-group"
+          = f.text_field :name,
+                  class: 'form-control input required standard_input',
+                  placeholder: Spree.t(:entity_name, scope: 'user_attributes') + '*',
+                  id: "entity_user_form_name",
+                  'data-type': 'name',
+                  autocomplete: 'name'
+          = f.label :name, "&nbsp;".html_safe
+
+        div class="form-group"
+          = f.hidden_field :user_organization_type, value: 'organization'
+          div class="organization-checkboxes"
+            - Spree::User.user_organization_types.map do |user|
+              - user_type = user[0]
+              div id="signup_#{user_type}"
+                = check_box_tag "checkbox_#{user_type}", user_type == 'organization', (user_type == 'organization' ? 'checked' : nil), class: 'checkbox small'
+                label for="checkbox_#{user_type}"
+                  | #{Spree.t(user_type, scope: "user_attributes.user_organization_types")}
+
+      div class="flex-row"
+        div class="form-group"
+          = f.email_field :email,
+                  class: 'form-control input required standard_input',
+                  placeholder: Spree.t(:email) + '*',
+                  'data-type': 'email',
+                  autocomplete: 'email',
+                  id: "entity_user_form_email"
+          = f.label :email, "&nbsp;".html_safe
+
+        div class="form-group"
+          = f.telephone_field :phone_number,
+                  class: 'form-control input required standard_input numeric',
+                  placeholder: Spree.t(:phone_number, scope: 'user_attributes') + '*',
+                  'data-length': 11,
+                  autocomplete: 'tel',
+                  id: "entity_user_form_phone_number"
+          = f.label :phone_number, "&nbsp;".html_safe
+
+
+      div class="flex-row"
+        div class="form-group"
+          div class="contact_person"
+            = f.text_field :contact_person,
+                    class: 'form-control input standard_input',
+                    placeholder: Spree.t(:contact_person, scope: 'user_attributes'),
+                    autocomplete: 'name',
+                    id: "entity_user_form_contact_person"
+            = f.label :contact_person, "&nbsp;".html_safe
+            div class="hint"
+              | #{Spree.t(:contact_person, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          = f.text_field :web_site,
+                  class: 'form-control input standard_input',
+                  placeholder: Spree.t(:web_site, scope: 'user_attributes'),
+                  id: "entity_user_form_web_site"
+          = f.label :web_site, "&nbsp;".html_safe
+
+      div class="flex-row"
+        div class="form-group"
+          div class="inn"
+            = f.telephone_field :inn,
+                    class: 'form-control input required numeric_short_input numeric',
+                    placeholder: Spree.t(:inn, scope: 'user_attributes') + '*',
+                    'data-max-length': 12,
+                    'data-min-length': 10,
+                    id: "entity_user_form_inn"
+            = f.label :inn, "&nbsp;".html_safe
+            div class="hint"
+              | #{Spree.t(:inn, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          div class="bank_kpp"
+            = f.telephone_field :bank_kpp,
+                    class: 'form-control input required numeric_short_input numeric',
+                    placeholder: Spree.t(:bank_kpp, scope: 'user_attributes') + '*',
+                    'data-length': 9,
+                    id: "entity_user_form_bank_kpp"
+            = f.label :bank_kpp, "&nbsp;".html_safe
+            div class="hint"
+              | #{Spree.t(:bank_kpp, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          div class="bank_bik"
+            = f.telephone_field :bank_bik,
+                    class: 'form-control input required numeric_short_input numeric',
+                    placeholder: Spree.t(:bank_bik, scope: 'user_attributes') + '*',
+                    'data-length': 9,
+                    id: "entity_user_form_bank_bik"
+            = f.label :bank_bik, "&nbsp;".html_safe
+            div class="hint"
+              | #{Spree.t(:bank_bik, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          div class="bank_name"
+            = f.text_field :bank_name,
+                    class: 'form-control input required numeric_short_input',
+                    placeholder: Spree.t(:bank_name, scope: 'user_attributes') + '*',
+                    id: "entity_user_form_bank_name"
+            = f.label :bank_name, "&nbsp;".html_safe
+
+      div class="flex-row"
+        div class="form-group"
+          div class="checking_account"
+            = f.telephone_field :checking_account,
+                    class: 'form-control input required numeric_short_input numeric',
+                    placeholder: Spree.t(:checking_account, scope: 'user_attributes') + '*',
+                    'data-length': 20,
+                    id: "entity_user_form_checking_account",
+                    autocomplete: "off"
+            = f.label :checking_account, "&nbsp;".html_safe
+            div class="hint"
+              | #{Spree.t(:checking_account, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          div class="correspondent_account"
+            = f.telephone_field :correspondent_account,
+                    class: 'form-control input required numeric_short_input numeric',
+                    placeholder: Spree.t(:correspondent_account, scope: 'user_attributes') + '*',
+                    'data-max-length': 20,
+                    'data-min-length': 1,
+                    id: "entity_user_form_correspondent_account",
+                    autocomplete: "off"
+            = f.label :bank_kpp, "&nbsp;".html_safe
+            div class="hint"
+              | #{Spree.t(:correspondent_account, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          div class="legal_address"
+            = f.text_field :legal_address,
+                    class: 'form-control input required address_input',
+                    placeholder: Spree.t(:legal_address, scope: 'user_attributes') + '*',
+                    id: "entity_user_form_legal_address",
+                    autocomplete: "address"
+            = f.label :legal_address, "&nbsp;".html_safe
+
+
+
+      div class="flex-row"
+        div class="form-group"
+          = f.text_field :bank_okdp,
+                  class: 'form-control input numeric_short_input',
+                  placeholder: Spree.t(:bank_okdp, scope: 'user_attributes'),
+                  id: "entity_user_form_bank_okdp",
+                  autocomplete: "off"
+          = f.label :bank_okdp, "&nbsp;".html_safe
+
+        div class="form-group"
+          = f.text_field :bank_okpo,
+                  class: 'form-control input numeric_short_input',
+                  placeholder: Spree.t(:bank_okpo, scope: 'user_attributes'),
+                  id: "entity_user_form_bank_okpo",
+                  autocomplete: "off"
+          = f.label :bank_okpo, "&nbsp;".html_safe
+
+        div class="form-group"
+          = f.text_field :bank_okonh,
+                  class: 'form-control input numeric_short_input',
+                  placeholder: Spree.t(:bank_okonh, scope: 'user_attributes'),
+                  id: "entity_user_form_bank_okonh",
+                  autocomplete: "off"
+          = f.label :bank_okonh, "&nbsp;".html_safe
+
+      br
+
+      div class="flex-row"
+        div class="form-group"
+          div class="passwords"
+            div class="password"
+              = f.password_field :password,
+                      class: 'form-control input required standard_input',
+                      placeholder: Spree.t(:password) + '*',
+                      id: "entity_user_form_password",
+                      autocomplete: 'new-password',
+                      'data-min-length': 6
+              = f.label :password, "&nbsp;".html_safe
+              div class="hint"
+                | #{Spree.t(:password, scope: 'user_attributes.hints')}
+
+            div class="password_confirmation"
+              = f.password_field :password_confirmation,
+                      class: 'form-control input required standard_input',
+                      placeholder: Spree.t(:confirm_password) + '*',
+                      id: "entity_user_form_password_confirmation",
+                      autocomplete: 'new-password',
+                      'data-min-length': 6
+              = f.label :password_confirmation, "&nbsp;".html_safe
+              div class="hint"
+                | #{Spree.t(:password, scope: 'user_attributes.hints')}
+
+
+            div id="passwords_error" class="flash-error" style="display: none;"
+              | #{Spree.t(:passwords_not_equals, scope: 'user_attributes.errors')}
+        div class="form-group"
+          div class="want_be_dealer"
+            = f.check_box :want_be_dealer, class: 'checkbox small'
+            = f.label :want_be_dealer, Spree.t(:want_be_dealer, scope: 'user_attributes')
+            div class="hint"
+              a href="#" class="link"
+                | #{Spree.t(:dealer_advantages, scope: 'user_attributes.hints')}
+
+        div class="form-group"
+          div class="terms"
+            = check_box_tag :entity_user_form_terms, false, false, class: 'checkbox small required'
+            label for="entity_user_form_terms"
+              | #{Spree.t(:terms, scope: 'user_attributes')}
+              a href="#" class="link"
+                | #{Spree.t(:more, scope: 'user_attributes.hints')}
+
+    div class="submit-group"
+      = f.submit Spree.t(:registration),
+              class: 'btn btn-lg btn-success btn-block submit',
+              disabled: true

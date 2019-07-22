@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_globalize (originally 20150224152415)
 class AddDeletedAtToTranslationTables < SpreeExtension::Migration[4.2]
   def change

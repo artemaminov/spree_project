@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   # This line mounts Spree's routes at the root of your application.
@@ -24,8 +26,9 @@ Rails.application.routes.draw do
       resources :retailer_regions do
         patch :translate, on: :member
       end
-      
+
       resources :questions
+      resources :role_discounts
     end
 
     resources :news, only: [:index]

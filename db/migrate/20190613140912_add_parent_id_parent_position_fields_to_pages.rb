@@ -1,5 +1,6 @@
-class AddParentIdParentPositionFieldsToPages < SpreeExtension::Migration[4.2]
+# frozen_string_literal: true
 
+class AddParentIdParentPositionFieldsToPages < SpreeExtension::Migration[4.2]
   def self.up
     change_table :spree_pages do |t|
       t.integer :parent_position, default: 0, null: false
@@ -13,5 +14,4 @@ class AddParentIdParentPositionFieldsToPages < SpreeExtension::Migration[4.2]
       t.remove :parent_id
     end
   end
-
 end

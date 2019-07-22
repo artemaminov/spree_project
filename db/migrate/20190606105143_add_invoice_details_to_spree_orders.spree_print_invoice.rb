@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_print_invoice (originally 20140123094547)
 class AddInvoiceDetailsToSpreeOrders < SpreeExtension::Migration[4.2]
   def change

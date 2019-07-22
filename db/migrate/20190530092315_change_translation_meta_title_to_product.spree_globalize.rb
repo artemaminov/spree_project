@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_globalize (originally 20171005151819)
 class ChangeTranslationMetaTitleToProduct < SpreeExtension::Migration[4.2]
   def change

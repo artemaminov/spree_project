@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_related_products (originally 20100308092101)
 class CreateRelations < SpreeExtension::Migration[4.2]
   def self.up

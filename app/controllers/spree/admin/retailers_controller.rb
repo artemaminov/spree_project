@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class RetailersController < ResourceController
-
       def create
         if permitted_resource_params[:image]
           @retailer.build_image(attachment: permitted_resource_params.delete(:image))
@@ -35,9 +36,9 @@ module Spree
         retailers = super.order(created_at: :asc)
         @search = retailers.ransack(params[:q])
 
-        @collection = @search.result.
-            page(params[:page]).
-            per(params[:per_page])
+        @collection = @search.result
+                             .page(params[:page])
+                             .per(params[:per_page])
       end
 
       def update_page_attribute
@@ -45,7 +46,7 @@ module Spree
       end
 
       def permitted_params
-        [:translations_attributes => [:id, :name, :locale, :address]]
+        [translations_attributes: %i[id name locale address]]
       end
     end
   end

@@ -1,5 +1,6 @@
-class AddSpreeRetailerRegionIdToRetailers < SpreeExtension::Migration[4.2]
+# frozen_string_literal: true
 
+class AddSpreeRetailerRegionIdToRetailers < SpreeExtension::Migration[4.2]
   def self.up
     change_table :spree_retailers do |t|
       t.integer :retailer_region_id, default: 0, null: false, index: true

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20170320145518)
 class AddUniqueIndexOnNumberToSpreeReimbursements < ActiveRecord::Migration[5.0]
   def change

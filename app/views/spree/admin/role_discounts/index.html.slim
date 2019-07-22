@@ -1,0 +1,38 @@
+= content_for :page_title, Spree.t(plural_resource_name(Spree::RoleDiscount))
+- if can?(:create, Spree::RoleDiscount)
+  = content_for :page_actions
+    = button_link_to Spree.t(:new_role_discount, scope: :role_discount), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_role_discount' }
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }
+
+- if @role_discounts.any?
+  table class="table" id="listing_retailers" data-hook=""
+    colgroup
+      col style="width: 40%"
+      col style="width: 30%"
+      col style="width: 30%"
+    thead
+      tr data-hook="admin_role_discount_index_headers"
+        th
+          | Название
+        th
+          | Скидка (%)
+        th data-hook="admin_role_discounts_index_header_actions" class="actions"
+    tbody
+      - @role_discounts.each do |discount|
+        tr data-hook="admin_role_discounts_index_rows" class="#{cycle('odd', 'even')}" id="#{dom_id discount}"
+          td
+            | #{discount.role.name}
+          td
+            | #{discount.discount} %
+          td class="actions text-right" data-hook="admin_retailers_index_row_actions"
+            = link_to_edit discount, no_text: true
+
+            = link_to_delete discount, no_text: true
+
+- else
+    div class="alert alert-warning no-objects-found"
+      | #{Spree.t(:no_resource_found, resource: Spree::RoleDiscount.model_name.human)},
+        #{link_to Spree.t(:add_one), spree.new_role_discount}!
+
+== render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }

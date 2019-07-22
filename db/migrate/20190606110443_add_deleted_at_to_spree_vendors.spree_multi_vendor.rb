@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_multi_vendor (originally 20170412124925)
 class AddDeletedAtToSpreeVendors < SpreeExtension::Migration[4.2]
   def change

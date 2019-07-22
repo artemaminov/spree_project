@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSpreeRetailersTable < SpreeExtension::Migration[4.2]
   def self.up
     create_table :spree_retailers do |t|

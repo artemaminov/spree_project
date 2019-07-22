@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_print_invoice (originally 20150608145856)
 class RemoveInvoiceDateColumn < SpreeExtension::Migration[4.2]
   def change

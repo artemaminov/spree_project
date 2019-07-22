@@ -75,6 +75,7 @@ $(document).on('turbolinks:load', function() {
         }
     });
 
+
     // bottom unsued partly code
 
     var z = $(".tovar__formats_format li")

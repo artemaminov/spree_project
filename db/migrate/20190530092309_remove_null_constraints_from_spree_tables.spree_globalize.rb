@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_globalize (originally 20150217095648)
 class RemoveNullConstraintsFromSpreeTables < SpreeExtension::Migration[4.2]
   def up

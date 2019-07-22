@@ -1,0 +1,17 @@
+div class="module-breadcrumbs"
+  ul class="breadcrumb-navigation" id="registration-breadcrumbs"
+    li class="first"
+      a href="/"
+        | БКЗ
+    li class="separator"
+      | >
+    li
+      a href='/signup' title="#{Spree.t(:registration)}"
+        | #{Spree.t(:registration)}
+    li class="separator"
+      | >
+    li
+      - Spree::User.user_types.map do |user|
+        - user_type = user[0]
+        b id=user_type style="#{user_type != 'private_user' ? 'display: none;' : ''}"
+          | #{Spree.t(user_type, scope: "user_attributes.user_types")}

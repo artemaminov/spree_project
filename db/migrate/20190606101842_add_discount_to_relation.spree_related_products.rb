@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_related_products (originally 20100324123835)
 class AddDiscountToRelation < SpreeExtension::Migration[4.2]
   def self.up

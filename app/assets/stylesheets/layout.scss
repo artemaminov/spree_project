@@ -404,3 +404,262 @@
     white-space: nowrap;
   }
 }
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 20px;
+
+  + label {
+    position: relative;
+    padding: 0 0 0 40px;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      transition: .2s;
+      border: 2px solid #767b82;
+    }
+
+    &:after {
+      content: '';
+    }
+  }
+
+  &:checked {
+    + label {
+      &:before {
+        background: #424a53;
+        border: 2px solid #424a53;
+      }
+
+      &:after {
+        background-image: url(asset_path('check.svg'));
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: -7px;
+        left: -10px;
+      }
+    }
+  }
+
+  &.small {
+    + label {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        transition: .2s;
+        border: 2px solid #92969c;
+      }
+
+      &:after {
+        content: '';
+      }
+    }
+
+    &:checked {
+      + label {
+        &:before {
+          background: #92969c;
+          border: 2px solid #92969c;
+        }
+
+        &:after {
+          background-image: url(asset_path('check.svg'));
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 0px;
+          left: -3px;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}
+
+.user_registration_checkbox {
+  display: flex;
+  margin-bottom: 2em;
+
+  label {
+    font-size: 28px;
+  }
+
+  div{
+    &:first-child{
+      margin-right: 5em;
+    }
+  }
+}
+
+.input {
+  color: #c3c5c9;
+  border: 2px solid #c3c5c9;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: 0.2s;
+  font-size: 20px;
+  font-family: 'akzidenz-grotesk_proLtCn', sans-serif;
+  position: relative;
+  padding: 0.1em 1.5em 0.1em 0.5em !important;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  &:hover, &:focus {
+    color: #424a53;
+    background-color: #ffffff;
+    border: 2px solid #424a53;
+    background: rgba(255,255,255,0.8);
+
+  }
+
+  &.standard_input {
+    width: 300px;
+  }
+
+  &.numeric_short_input {
+    width: 190px;
+  }
+
+  &.address_input {
+    width: calc(380px + 0.5em);
+  }
+
+  + label {
+    position: relative;
+  }
+
+  + label:before {
+    content: '';
+  }
+
+  &.success {
+    border: 1px solid #424a53;
+    background: rgba(243,253,241,0.6);
+
+    + label:before {
+      background-image: url(asset_path('check_green.svg'));
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: -16px;
+      left: -45px;
+    }
+  }
+
+  &.error {
+    border: 2px solid #eb0000;
+    background: rgba(252,226,226,0.6);
+
+    + label:before {
+      background-image: url(asset_path('close_error.svg'));
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: -6px;
+      left: -35px;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.form-group {
+  .hint {
+    color: #989ca2;
+    text-transform: initial;
+    margin: 0.5em 0;
+  }
+}
+
+.private_user_form, .entity_user_form {
+  .form-group {
+    margin-bottom: 0.5em;
+  }
+
+  .submit-group {
+    text-align: center;
+  }
+
+  .submit {
+    background-color: #424a53;
+    color: #ffffff;
+    transition: 0.2s;
+    width: 250px;
+    border: 2px solid #424a53;
+
+
+    &:disabled {
+      border: 2px solid #ffffff;
+      background-color: #abb4c0;
+      color: #dde0e5;
+      transition: 0.2s;
+    }
+  }
+  
+  .flex-row {
+    display: flex;
+
+    div {
+      margin-right: 0.5em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .organization-checkboxes {
+    display: flex;
+    height: 100%;
+    width: 250px;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: initial;
+  }
+
+  .passwords {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .want_be_dealer, .terms {
+    text-transform: initial;
+    margin: 0.75em;
+
+    .hint {
+      margin-left: 40px;
+    }
+
+    .link {
+      text-decoration: underline;
+    }
+  }
+
+  .terms {
+    width: 275px;
+
+    label {
+      display: block;
+    }
+
+    .checkbox {
+      + label {
+        &:after {
+          top: -3px;
+        }
+      }
+    }
+  }
+}
+
+.flash-error {
+  color: #eb0000;
+}
