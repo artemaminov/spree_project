@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Configure Spree Preferences
 #
 # Note: Initializing preferences available within the Admin will overwrite any changes that were made through the user interface when you restart.
@@ -13,9 +15,9 @@ Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
-  #config.default_country_id = 169
+  # config.default_country_id = 169
   config.currency = :RUB
-  #country = Spree::Country.find_by_name('Russian Federation')
+  # country = Spree::Country.find_by_name('Russian Federation')
   config.default_country_id = 168
 end
 
@@ -30,4 +32,4 @@ Spree.dependencies do |dependencies|
   # dependencies.cart_add_item_service = 'MyNewAwesomeService'
 end
 
-Spree.user_class = "Spree::User"
+Spree.user_class = 'Spree::User'

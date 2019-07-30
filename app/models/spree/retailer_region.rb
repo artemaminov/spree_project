@@ -1,7 +1,9 @@
-#name, lat, lng, disabled, active_on_home
+# frozen_string_literal: true
+
+# name, lat, lng, disabled, active_on_home
 module Spree
   class RetailerRegion < Spree::Base
-    validates :name, :lat, :lng, :presence => true
+    validates :name, :lat, :lng, presence: true
 
     translates :name, fallbacks_for_empty_translations: true
     include SpreeGlobalize::Translatable

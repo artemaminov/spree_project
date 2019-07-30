@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c782a19-d629-4ac0-84e3-1b010de40189" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/forms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/spree/user_decorator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/spree/user_decorator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/locales/ru.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ru.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -21,58 +26,132 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            <state relative-caret-position="708">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/forms.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="205" column="45" lean-forward="true" selection-start-line="205" selection-start-column="45" selection-end-line="205" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="1685" column="23" selection-start-line="1685" selection-start-column="23" selection-end-line="1685" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="167" column="51" selection-start-line="167" selection-start-column="51" selection-end-line="167" selection-end-column="51" />
+              <folding>
+                <element signature="e#7820#8322#0" />
+                <element signature="e#8332#8895#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/spree/user_decorator.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="616">
+              <caret line="566" column="13" selection-start-line="566" selection-start-column="13" selection-end-line="566" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles.css.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39555">
+              <caret line="2637" column="37" selection-start-line="2637" selection-start-column="4" selection-end-line="2637" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/images/close_error.svg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>assets/</find>
-      <find>assets</find>
-      <find>'./fonts/akzidgrtskprolig-webfont.woff2'</find>
-      <find>url('</find>
-      <find>fonts/</find>
-      <find>url(&quot;</find>
-      <find>url(.</find>
-      <find>url(</find>
-      <find>url</find>
-      <find>&gt;&gt;</find>
-      <find>sidebar-map-retailers</find>
-      <find>translations_attributes</find>
-      <find>@retailer</find>
-      <find>@retailer_region</find>
-      <find>back_to_retailer_regions_list</find>
-      <find>/retailer</find>
-      <find>областей</find>
-      <find>retailer_region</find>
-      <find>region</find>
-      <find>active_on_home</find>
-      <find>processed</find>
-      <find>image</find>
-      <find>local</find>
-      <find>points</find>
-      <find>button_</find>
-      <find>.submit</find>
-      <find>section</find>
-      <find>che</find>
-      <find>function</find>
-      <find>fbu</find>
+      <find>user</find>
+      <find>/user</find>
+      <find>Наименование</find>
+      <find>news</find>
+      <find>select2</find>
+      <find>spree/user</find>
+      <find>webpa</find>
+      <find>user_type</find>
+      <find>organ</find>
+      <find>bik</find>
+      <find>type</find>
+      <find>breadcrumbs_header</find>
+      <find>;</find>
+      <find>private_user_form</find>
+      <find>submi</find>
+      <find>id</find>
+      <find>data</find>
+      <find>регистрация</find>
+      <find>private</find>
+      <find>.inpu</find>
+      <find>.input</find>
+      <find>•</find>
+      <find>numeric_field</find>
+      <find>number_field</find>
+      <find>person</find>
+      <find>address</find>
+      <find>consol</find>
+      <find>want</find>
+      <find>kpp</find>
+      <find>entity_spree_user_form</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/db/migrate</dir>
-      <dir>$PROJECT_DIR$</dir>
       <dir>$PROJECT_DIR$/app</dir>
       <dir>$PROJECT_DIR$/bin</dir>
       <dir>$PROJECT_DIR$/app/views</dir>
       <dir>$PROJECT_DIR$/app/assets/javascripts</dir>
       <dir>$PROJECT_DIR$/app/assets/stylesheets</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/app/controllers</dir>
+      <dir>$PROJECT_DIR$/app/views/spree/admin</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -81,57 +160,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20190716115200_add_translation_to_spree_retailer_regions.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailers/admin_menu/_documents_menu.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailers/admin_menu/_documents_sub_menu.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailers/admin_menu/_documents_tab.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/shared/_map_retailers_sub_menu.slim" />
-        <option value="$PROJECT_DIR$/app/overrides/spree/admin/retailers/add_retailers_map_to_main_navigation.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/shared/_map_retailers_tab.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailers/index.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/translations/retailer.html.slim" />
-        <option value="$PROJECT_DIR$/app/controllers/spree/admin/retailer_regions_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/spree/admin/retailers_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/spree/retailer.rb" />
-        <option value="$PROJECT_DIR$/app/models/spree/news.rb" />
-        <option value="$PROJECT_DIR$/app/models/spree/retailer_region.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailer_regions/edit.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailer_regions/new.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailer_regions/_form.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/shared/sub_menu/_map_retailers_sub_menu.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailer_regions/index.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/translations/retailer_region.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/retailers/_form.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/home/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/spree/home/_retailers.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/home/_map.scripts.html.slim" />
+        <option value="$PROJECT_DIR$/app/controllers/spree/admin/role_discounts_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/role_discounts/_form.html.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/role_discounts/edit.html.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/role_discounts/index.html.slim" />
+        <option value="$PROJECT_DIR$/app/controllers/spree/spree_store_controller_decorator.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/spree/app_spree_store_controller_decorator.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/checkout_helper.rb" />
         <option value="$PROJECT_DIR$/app/controllers/spree/home_controller_decorator.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/home/_news_standard.html.slim" />
+        <option value="$PROJECT_DIR$/app/controllers/spree/addresses_controller_decorator.rb" />
+        <option value="$PROJECT_DIR$/app/views/spree/addresses/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/addresses/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/users/_addresses.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/201907231533_add_fields_to_user_table.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20190724103700_add_enum_columns_to_user.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20190723153300_add_fields_to_user_table.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20190724103700_add_enum_columns_to_users_table.rb" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/users/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/users/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/spree/news/index.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/news/show.html.slim" />
-        <option value="$PROJECT_DIR$/config/environments/staging.rb" />
-        <option value="$PROJECT_DIR$/config/storage.yml" />
-        <option value="$PROJECT_DIR$/app/views/spree/home/_news_latest.html.slim" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/colorbox.css.erb" />
-        <option value="$PROJECT_DIR$/app/views/spree/shared/_main_nav_bar.slim" />
-        <option value="$PROJECT_DIR$/db/migrate/20190717123100_create_spree_question_table.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20190717123100_create_spree_questions_table.rb" />
-        <option value="$PROJECT_DIR$/app/models/spree/question.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/questions/create.js.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/shared/_footer_components.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/shared/_form.slim" />
-        <option value="$PROJECT_DIR$/app/controllers/spree/questions_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/questions/create.js.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/spree/admin/questions_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/questions/new.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/questions/edit.html.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/questions/_form.html.slim" />
-        <option value="$PROJECT_DIR$/config/locales/ru.yml" />
-        <option value="$PROJECT_DIR$/app/overrides/spree/admin/questions/admin_layout.rb" />
-        <option value="$PROJECT_DIR$/app/views/spree/admin/questions/index.html.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/users/index.html.erb" />
+        <option value="$PROJECT_DIR$/config/initializers/spree.rb" />
+        <option value="$PROJECT_DIR$/app/models/spree/attributes_decorator.rb" />
+        <option value="$PROJECT_DIR$/vendor/assets/javascripts/spree/backend/all.js" />
+        <option value="$PROJECT_DIR$/vendor/assets/javascripts/spree/backend/users.js" />
+        <option value="$PROJECT_DIR$/app/views/spree/shared/user/_user_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/shared/user/_login_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_sessions/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_mailer/confirmation_instructions.text.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_mailer/reset_password_instructions.text.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_passwords/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_passwords/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/users/_entity_form.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/users/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/spree/shared/_breadcrumbs_header.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/static_content/_breadcrumbs.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_breadcrumbs.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_registration_checkboxes.slim" />
+        <option value="$PROJECT_DIR$/app/assets/images/check_green.svg" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/main.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/assets/images/close_error.svg" />
+        <option value="$PROJECT_DIR$/app/views/spree/shared/user/_private_user_form.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_registrations/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles.css.erb" />
+        <option value="$PROJECT_DIR$/app/assets/images/check.svg" />
+        <option value="$PROJECT_DIR$/app/models/spree/user_decorator.rb" />
+        <option value="$PROJECT_DIR$/app/views/spree/shared/_form.slim" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim" />
+        <option value="$PROJECT_DIR$/config/locales/ru.yml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/layout.scss" />
+        <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/forms.js" />
       </list>
     </option>
   </component>
@@ -148,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,53 +257,21 @@
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
               <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
               <item name="spree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="overrides" type="462c0819:PsiDirectoryNode" />
-              <item name="spree" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="retailers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
@@ -253,7 +301,32 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="spree" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="retailers" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="spree" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="spree" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="spree" type="462c0819:PsiDirectoryNode" />
+              <item name="user_registrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
@@ -266,37 +339,32 @@
               <item name="config" type="462c0819:PsiDirectoryNode" />
               <item name="locales" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/spree/admin/questions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/assets/images" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Ruby" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/assets/images" />
+      <recent name="$PROJECT_DIR$/app/views/spree/admin" />
+      <recent name="$PROJECT_DIR$/app/views/spree/admin/questions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/overrides/spree/admin/role_discounts" />
       <recent name="$PROJECT_DIR$/app/views/spree/admin/shared/sub_menu" />
       <recent name="$PROJECT_DIR$/app/controllers/spree/admin" />
       <recent name="$PROJECT_DIR$/app/controllers/spree" />
       <recent name="$PROJECT_DIR$/app/overrides" />
-      <recent name="$PROJECT_DIR$/app/views/spree/metrics" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/views/spree/admin/questions" />
-      <recent name="$PROJECT_DIR$/app/views/spree/admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -475,11 +543,21 @@
       <workItem from="1563258622696" duration="12144000" />
       <workItem from="1563297829217" duration="3267000" />
       <workItem from="1563353933279" duration="6177000" />
+      <workItem from="1563787784326" duration="8703000" />
+      <workItem from="1563871363919" duration="6477000" />
+      <workItem from="1563912650952" duration="637000" />
+      <workItem from="1563952103430" duration="6338000" />
+      <workItem from="1563966534501" duration="10938000" />
+      <workItem from="1564044165238" duration="10056000" />
+      <workItem from="1564135460706" duration="8377000" />
+      <workItem from="1564385071234" duration="12567000" />
+      <workItem from="1564428092807" duration="2813000" />
+      <workItem from="1564468661626" duration="9159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196180000" />
+    <option name="totallyTimeSpent" value="272245000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -494,7 +572,7 @@
     <frame x="0" y="23" width="1600" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.3042362" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.3440308" />
       <window_info id="Structure" order="1" sideWeight="0.50063694" side_tool="true" weight="0.2381258" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -509,7 +587,8 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3299363" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3299363" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5006418" side_tool="true" weight="0.3299363" />
-      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3299363" />
+      <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.3299363" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -520,122 +599,128 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/admin/retailers_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="14" column="70" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/home/_retailers.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="137" selection-start-line="13" selection-start-column="124" selection-end-line="13" selection-end-column="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/overrides/spree/admin/retailers/add_retailers_map_to_main_navigation.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/home_controller_decorator.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/spree/variant_decorator.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/news.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/storage.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/news/show.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/questions/index.html.slim">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/spree/news/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="164" selection-start-line="15" selection-start-column="164" selection-end-line="15" selection-end-column="164" />
+        <state relative-caret-position="150">
+          <caret line="10" column="36" lean-forward="true" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/home/_news_standard.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state relative-caret-position="255">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/home/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/variants/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        <state relative-caret-position="326">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="6" selection-end-line="34" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/pages/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="585">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="36" />
+        <state relative-caret-position="244">
+          <caret line="97" column="33" lean-forward="true" selection-start-line="97" selection-start-column="33" selection-end-line="97" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/shared_image.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/spree/page_decorator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/users/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="50" column="11" lean-forward="true" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/spree/attributes_decorator.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/translations/news.html.slim">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/home/_map.scripts.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/questions/_form.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#72#79#1" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_main_nav_bar.slim">
+    <entry file="file://$PROJECT_DIR$/config/initializers/spree.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="84" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/home/_news_latest.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="13" column="80" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/colorbox.css.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_passwords/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_passwords/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_mailer/reset_password_instructions.text.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_mailer/confirmation_instructions.text.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/user/_login_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_sessions/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -645,201 +730,180 @@
     <entry file="file://$PROJECT_DIR$/app/views/spree/shared/forbidden.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_translations.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_taxonomies.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/layouts/spree_application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_error_messages.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="38" />
+        <state relative-caret-position="105">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_head.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/static_content/_static_content_header.html.erb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_header.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/slick.js">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/users/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="350">
+          <caret line="53" column="80" selection-start-line="53" selection-start-column="80" selection-end-line="53" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_breadcrumbs_header.slim" />
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_breadcrumbs.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="4" selection-end-line="16" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/static_content/_breadcrumbs.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/static_content/_children_menu.slim">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/assets/javascripts/spree/backend/all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_sidebar.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/users/_entity_form.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="137" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="137" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_shipment_tracking.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/users/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="151" selection-start-line="13" selection-start-column="81" selection-end-line="13" selection-end-column="151" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_link_to_cart.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/vendor/assets/javascripts/spree/backend/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/retailer.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/images/close.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/images/check_green.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/images/close.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/user/_private_user_form.slim" />
+    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/user/_user_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="4" selection-end-line="16" />
+          <caret line="8" column="91" selection-start-line="8" selection-start-column="91" selection-end-line="8" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20190715212900_create_spree_retailer_regions_table.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="3" lean-forward="true" selection-end-line="15" selection-end-column="3" />
+        <state>
+          <caret column="45" selection-start-column="45" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20190717123100_create_spree_questions_table.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/images/check.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_registration_checkboxes.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        <state relative-caret-position="15">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="7" selection-end-column="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/question.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles.css.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="39555">
+          <caret line="2637" column="37" selection-start-line="2637" selection-start-column="4" selection-end-line="2637" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_footer.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/assets/images/close_error.svg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_footer_components.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state relative-caret-position="75">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/spree/shared/_form.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/attachments/destroy.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/news_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/questions/create.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/questions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/admin/news_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="50" selection-end-column="3" />
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="79" column="24" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        <state relative-caret-position="708">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/questions/new.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="360">
+          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/questions/index.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="616">
+          <caret line="566" column="13" selection-start-line="566" selection-start-column="13" selection-end-line="566" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/questions/_form.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/models/spree/user_decorator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="60">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/admin/questions_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/questions/edit.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        <state relative-caret-position="236">
+          <caret line="167" column="51" selection-start-line="167" selection-start-column="51" selection-end-line="167" selection-end-column="51" />
+          <folding>
+            <element signature="e#7820#8322#0" />
+            <element signature="e#8332#8895#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="1635" column="54" selection-start-line="1635" selection-start-column="54" selection-end-line="1635" selection-end-column="54" />
+        <state relative-caret-position="156">
+          <caret line="1685" column="23" selection-start-line="1685" selection-start-column="23" selection-end-line="1685" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/overrides/spree/admin/news/admin_layout.rb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/forms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/overrides/spree/admin/questions/admin_layout.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="102" selection-start-line="7" selection-start-column="102" selection-end-line="7" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        <state relative-caret-position="609">
+          <caret line="205" column="45" lean-forward="true" selection-start-line="205" selection-start-column="45" selection-end-line="205" selection-end-column="45" />
         </state>
       </provider>
     </entry>

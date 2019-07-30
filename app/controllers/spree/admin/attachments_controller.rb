@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class AttachmentsController < StoreController
-
       def destroy
         @attachment_id = params[:attachment_id]
         image = ActiveStorage::Attachment.find(@attachment_id)

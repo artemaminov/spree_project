@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20180613080857)
 class RenameGuestTokenToTokenInOrders < ActiveRecord::Migration[5.2]
   def change

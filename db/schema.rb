@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_123100) do
+ActiveRecord::Schema.define(version: 2019_07_24_103700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -984,6 +984,14 @@ ActiveRecord::Schema.define(version: 2019_07_17_123100) do
     t.index ["return_authorization_id"], name: "index_spree_return_items_on_return_authorization_id"
   end
 
+  create_table "spree_role_discounts", id: :serial, force: :cascade do |t|
+    t.integer "role_id", default: 0, null: false
+    t.decimal "discount", precision: 2, default: "0"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["role_id"], name: "index_spree_role_discounts_on_role_id"
+  end
+
   create_table "spree_role_users", id: :serial, force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
@@ -1370,42 +1378,8 @@ ActiveRecord::Schema.define(version: 2019_07_17_123100) do
     t.index ["active"], name: "index_spree_trackers_on_active"
   end
 
-  create_table "spree_users", id: :serial, force: :cascade do |t|
-    t.string "encrypted_password", limit: 128
-    t.string "password_salt", limit: 128
-    t.string "email"
-    t.string "remember_token"
-    t.string "persistence_token"
-    t.string "reset_password_token"
-    t.string "perishable_token"
-    t.integer "sign_in_count", default: 0, null: false
-    t.integer "failed_attempts", default: 0, null: false
-    t.datetime "last_request_at"
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "login"
-    t.integer "ship_address_id"
-    t.integer "bill_address_id"
-    t.string "authentication_token"
-    t.string "unlock_token"
-    t.datetime "locked_at"
-    t.datetime "reset_password_sent_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "spree_api_key", limit: 48
-    t.datetime "remember_created_at"
-    t.datetime "deleted_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.index ["bill_address_id"], name: "index_spree_users_on_bill_address_id"
-    t.index ["deleted_at"], name: "index_spree_users_on_deleted_at"
-    t.index ["email"], name: "email_idx_unique", unique: true
-    t.index ["ship_address_id"], name: "index_spree_users_on_ship_address_id"
-    t.index ["spree_api_key"], name: "index_spree_users_on_spree_api_key"
-  end
+# Could not dump table "spree_users" because of following StandardError
+#   Unknown type 'spree_user_type' for column 'user_type'
 
   create_table "spree_variants", id: :serial, force: :cascade do |t|
     t.string "sku", default: "", null: false
@@ -1425,6 +1399,7 @@ ActiveRecord::Schema.define(version: 2019_07_17_123100) do
     t.datetime "discontinue_on"
     t.datetime "created_at", null: false
     t.integer "vendor_id"
+    t.decimal "sale_price", precision: 8, scale: 2
     t.index ["deleted_at"], name: "index_spree_variants_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_variants_on_discontinue_on"
     t.index ["is_master"], name: "index_spree_variants_on_is_master"

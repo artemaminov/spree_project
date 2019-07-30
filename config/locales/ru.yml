@@ -143,6 +143,25 @@ ru:
         email: Email
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        name: "ФИО / Название"
+        user_type: "Тип пользователя"
+        user_organization_type: "Тип органзации"
+        contact_person: "Контактное лицо"
+        legal_address: "Юридический адрес"
+        bank_name: "Банк"
+        phone_number: "Телефонный номер"
+        bank_bik: "БИК Банка"
+        checking_account: "Расчетный счет"
+        correspondent_account: "Кор. счет"
+        inn: "ИНН"
+        bank_kpp: "КПП"
+        bank_okdp: "ОКДП"
+        bank_okpo: "ОКПО"
+        bank_okonh: "ОКОНХ/ОКВЭД"
+        web_site: "Сайт компании"
+        want_be_dealer: "Хочу стать дилером"
+        phone_number_confirmed: "Телефон подтвержден"
+
       spree/variant:
         cost_currency: "Валюта"
         cost_price: "Себестоимость"
@@ -152,6 +171,7 @@ ru:
         sku: "Артикул"
         weight: "Вес"
         width: "Ширина"
+        sale_price: "Распродажная цена"
       spree/zone:
         description: "Описание"
         name: "Название"
@@ -205,6 +225,9 @@ ru:
         name: "Имя"
         phone: "Номер телефона"
         email_send: "Емейл отправлен?"
+      spree/role_discount:
+        discount: "Скидка"
+        role_id: "Роль"
     errors:
       models:
         spree/calculator/tiered_flat_rate:
@@ -420,6 +443,10 @@ ru:
         one: "Вопрос"
         many: "Вопросов"
         other: "Вопрос"
+      spree/role_discount:
+        one: "Скидка роли"
+        many: "Скидки ролей"
+        other: "Скидки ролей"
   devise:
     confirmations:
       confirmed: "Ваш аккаунт успешно активирован. Теперь вы авторизованы."
@@ -1161,6 +1188,7 @@ ru:
     price_from: "Цена от"
     price_range: "Ценовой диапазон"
     price_sack: Price Sack
+    sale_price: "Распродажная цена"
     process: "Обработать"
     product: "Товар"
     product_details: "Описание товара"
@@ -1634,3 +1662,62 @@ ru:
       new_question: "Новый вопрос"
       editing_question: "Редактировать вопрос"
       back_to_questions_list: "Назад к списку вопросов"
+    role_discount:
+      new_role_discount: "Новый скидка роли"
+      editing_role_discount: "Редактировать скидку роли"
+      back_to_role_discounts_list: "Назад к списку скидок ролей"
+    user_attributes:
+      email: Email
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      name: "ФИО / Название"
+      private_name: "Имя Фамилия Отчество"
+      entity_name: "Название"
+      user_type: "Тип пользователя"
+      user_organization_type: "Тип органзации"
+      user_types:
+        private_user: "Частное лицо"
+        entity_user: "Юридическое лицо"
+      user_organization_types:
+        organization: "Организация"
+        individual: "ИП"
+      contact_person: "Контактное лицо"
+      legal_address: "Юридический адрес"
+      bank_name: "Банк"
+      phone_number: "Телефонный номер"
+      bank_bik: "БИК Банка"
+      checking_account: "Расчетный счет"
+      correspondent_account: "Кор. счет"
+      inn: "ИНН"
+      bank_kpp: "КПП"
+      bank_okdp: "ОКДП"
+      bank_okpo: "ОКПО"
+      bank_okonh: "ОКОНХ/ОКВЭД"
+      web_site: "Сайт компании"
+      want_be_dealer: "Я хочу стать дилером"
+      phone_number_confirmed: "Телефон подтвержден"
+      terms: "Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности, "
+      errors:
+        private_name: 'ФИО должно быть заполнено'
+        oraganization_name: 'Название должно быть заполнено'
+        phone_number: 'Должно быть заполнено в формате 7XXXXXXXXXXX'
+        email: 'Должно быть заполнено либо имеет неправильный формат'
+        passwords_not_equals: 'Пароли не совпадают'
+
+
+      hints:
+        password: 'не менее 6 символов'
+        contact_person: 'ФИО для связи'
+        phone_number: 'Возможно использовать в качестве логина'
+        phone_number_format: 'формате 7XXXXXXXXXXX'
+        inn: "10 цифр, для ИП 12 цифр"
+        bank_kpp: "9 цифр"
+        bank_bik: "9 цифр"
+        checking_account: "20  цифр"
+        correspondent_account: "не более чем 20 цифр"
+        dealer_advantages: "Преимущества дилера"
+        more: "узнать подробнее"
+
+
+
+    registration: "Регистрация"

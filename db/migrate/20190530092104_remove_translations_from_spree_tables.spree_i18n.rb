@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_i18n (originally 20150609154031)
 class RemoveTranslationsFromSpreeTables < SpreeExtension::Migration[4.2]
   def up
     # Don't migrate if we still use Globalize, i.e. through spree_globalize Gem
     return if defined?(Globalize)
 
-    %w(
+    %w[
       OptionType
       OptionValue
       ProductProperty
@@ -14,13 +16,14 @@ class RemoveTranslationsFromSpreeTables < SpreeExtension::Migration[4.2]
       Store
       Taxon
       Taxonomy
-    ).each do |class_name|
+    ].each do |class_name|
       migrate_translation_data!(class_name)
     end
   end
 
   def down
     return if defined?(Globalize)
+
     raise ActiveRecord::IrreversibleMigration
   end
 

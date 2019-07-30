@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_related_products (originally 20120623014337)
 class UpdateRelations < SpreeExtension::Migration[4.2]
   def up

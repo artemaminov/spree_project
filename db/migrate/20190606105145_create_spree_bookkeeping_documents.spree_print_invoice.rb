@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_print_invoice (originally 20150616133616)
 class CreateSpreeBookkeepingDocuments < SpreeExtension::Migration[4.2]
   def up

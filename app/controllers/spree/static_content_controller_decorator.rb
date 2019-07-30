@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::StaticContentController.class_eval do
   def show
     @page = Spree::StaticPage.finder_scope.by_store(current_store).find_by!(slug: request.path)
@@ -6,4 +8,3 @@ Spree::StaticContentController.class_eval do
     @children = Spree::StaticPage.finder_scope.by_store(current_store).where(parent_id: parent_id).order(:parent_position)
   end
 end
-

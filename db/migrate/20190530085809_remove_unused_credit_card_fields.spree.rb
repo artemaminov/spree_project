@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20131001013410)
 class RemoveUnusedCreditCardFields < ActiveRecord::Migration[4.2]
   def up
@@ -5,6 +7,7 @@ class RemoveUnusedCreditCardFields < ActiveRecord::Migration[4.2]
     remove_column :spree_credit_cards, :start_year if column_exists?(:spree_credit_cards, :start_year)
     remove_column :spree_credit_cards, :issue_number if column_exists?(:spree_credit_cards, :issue_number)
   end
+
   def down
     add_column :spree_credit_cards, :start_month,  :string
     add_column :spree_credit_cards, :start_year,   :string

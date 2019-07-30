@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Spree
   class NewsController < StoreController
     before_action :set_pagination_params, only: [:index]
-    before_action :get_parent, only: [:index, :show]
+    before_action :get_parent, only: %i[index show]
 
     def show
       @news = Spree::News.visible.find_by(slug: params[:slug])

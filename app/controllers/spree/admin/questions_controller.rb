@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class QuestionsController < ResourceController
-
       private
 
       def collection
@@ -9,9 +10,9 @@ module Spree
         news = super.order(created_at: :asc)
         @search = news.ransack(params[:q])
 
-        @collection = @search.result.
-            page(params[:page]).
-            per(params[:per_page])
+        @collection = @search.result
+                             .page(params[:page])
+                             .per(params[:per_page])
       end
     end
   end

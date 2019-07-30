@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PagesHelper
   def add_object_link(name, form, object, partial, where)
     html = render(partial: partial, locals: { form: form, file: object })
@@ -18,6 +20,6 @@ module PagesHelper
     onclick = "#{"#{html_options[:onclick]}; " if html_options[:onclick]}#{function}; return false;"
     href = html_options[:href] || '#'
 
-    content_tag(:a, name, html_options.merge(:href => href, :onclick => onclick))
+    content_tag(:a, name, html_options.merge(href: href, onclick: onclick))
   end
 end

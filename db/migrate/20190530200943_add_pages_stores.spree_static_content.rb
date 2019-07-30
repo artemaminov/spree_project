@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree_static_content (originally 20140926121757)
 class AddPagesStores < SpreeExtension::Migration[4.2]
   def change

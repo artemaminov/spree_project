@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20130807024302)
 class RenameAdjustmentFields < ActiveRecord::Migration[4.2]
   def up
@@ -11,7 +13,7 @@ class RenameAdjustmentFields < ActiveRecord::Migration[4.2]
 
     # This enables the Spree::Order#all_adjustments association to work correctly
     Spree::Adjustment.reset_column_information
-    Spree::Adjustment.where(adjustable_type: "Spree::Order").find_each do |adjustment|
+    Spree::Adjustment.where(adjustable_type: 'Spree::Order').find_each do |adjustment|
       adjustment.update_column(:order_id, adjustment.adjustable_id)
     end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class RetailerRegionsController < ResourceController
@@ -18,9 +20,9 @@ module Spree
         regions = super.order(created_at: :asc)
         @search = regions.ransack(params[:q])
 
-        @collection = @search.result.
-            page(params[:page]).
-            per(params[:per_page])
+        @collection = @search.result
+                             .page(params[:page])
+                             .per(params[:per_page])
       end
 
       def update_page_attribute
@@ -28,7 +30,7 @@ module Spree
       end
 
       def permitted_params
-        [:translations_attributes => [:id, :name]]
+        [translations_attributes: %i[id name]]
       end
     end
   end

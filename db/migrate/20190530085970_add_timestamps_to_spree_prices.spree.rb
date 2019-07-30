@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This migration comes from spree (originally 20180915160001)
 class AddTimestampsToSpreePrices < ActiveRecord::Migration[5.2]
   def up

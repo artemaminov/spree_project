@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Spree
   Page.class_eval do
-
     has_many_attached :gallery_images
     has_many_attached :attachments
     has_many :file_attachments
