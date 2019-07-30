@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', function() {
     });
 
 
-    toggleAttributes = function toggleAttributes(element, toggle=true){
+    toggleAttributes = function toggleAttributes(element, toggle){
         if(toggle){
             $(element)
                 .removeClass("error")
