@@ -11,7 +11,11 @@ div class="module-breadcrumbs"
     li class="separator"
       | >
     li
-      - Spree::User.user_types.map do |user|
-        - user_type = user[0]
-        b id=user_type style="#{user_type != 'private_user' ? 'display: none;' : ''}"
-          | #{Spree.t(user_type, scope: "user_attributes.user_types")}
+      - if show_users_type
+        - Spree::User.user_types.map do |user|
+          - user_type = user[0]
+          b id=user_type style="#{user_type != 'private_user' ? 'display: none;' : ''}"
+            | #{Spree.t(user_type, scope: "user_attributes.user_types")}
+      - else
+        b id="confirmation"
+          | #{Spree.t(:confirmation, scope: "profile.finish")}

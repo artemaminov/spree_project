@@ -76,7 +76,7 @@ $(document).on('turbolinks:load', function() {
                 }
 
                 if (length > 0) {
-                    if(value.length >= length) {
+                    if(value.length == length) {
                         toggleAttributes($(element), true);
                     } else {
                         toggleAttributes($(element), false);
@@ -117,6 +117,7 @@ $(document).on('turbolinks:load', function() {
 
         var value = $(this).val();
         var needReturn = checkField($(this), value, length, minLength, maxLength, required, type);
+
         if (needReturn){
             return;
         }
@@ -125,21 +126,25 @@ $(document).on('turbolinks:load', function() {
             var password = $form.find('.password input');
             var passwordConfirmation = $form.find('.password_confirmation input');
 
-            if(password.val() != passwordConfirmation.val()){
-                 toggleAttributes(password, false);
-                 toggleAttributes(passwordConfirmation, false);
-                $form.find('#passwords_error').fadeIn();
-                return
-            } else {
-                $form.find('#passwords_error').fadeOut();
+            if(passwordConfirmation) {
+                if(password.val() != passwordConfirmation.val()){
+                    toggleAttributes(password, false);
+                    toggleAttributes(passwordConfirmation, false);
+                    $form.find('#passwords_error').fadeIn();
+                    return
+                } else {
+                    $form.find('#passwords_error').fadeOut();
+                }
             }
 
+
             if($form.prop('id') =='entity_spree_user_form' && !$('#entity_user_form_terms').prop('checked')) {
+                disableForm($form, true);
                 return;
             }
-            $form.find('input.submit')
-                .removeClass("disabled")
-                .removeAttr("disabled");
+            disableForm($form, false);
+        } else {
+            disableForm($form, true);
         }
     });
 
@@ -148,14 +153,10 @@ $(document).on('turbolinks:load', function() {
         $form = $(this).parents().closest('form');
         if(checked){
             if($form.find('input.input.required').length == $form.find('input.success').length) {
-                $form.find('input.submit')
-                    .removeClass("disabled")
-                    .removeAttr("disabled");
+                disableForm($form, false);
             }
         } else {
-            $form.find('input.submit')
-                .addClass("disabled")
-                .attr("disabled");
+            disableForm($form, true);
         }
 
     });
@@ -188,24 +189,124 @@ $(document).on('turbolinks:load', function() {
         }
     });
 
-
-
-    $('#private_user_form .password input, #private_user_form .password_confirmation input,' +
-      ' #entity_user_form .password input, #entity_user_form .password_confirmation input').focusout(function(){
+    $('#private_user_form .password_confirmation input, #entity_user_form .password_confirmation input').on('input', function(){
         $form = $(this).parents().closest('form');
 
         var password = $form.find('.password input');
         var passwordConfirmation = $form.find('.password_confirmation input');
 
+        if(password.val() == '' && passwordConfirmation.val() == '') {
+            return;
+        }
+
         if(password.val() != passwordConfirmation.val()){
             toggleAttributes(password, false);
             toggleAttributes(passwordConfirmation, false);
             $form.find('#passwords_error').fadeIn();
+            disableForm($form, true);
             return
         } else {
             toggleAttributes(password, true);
             toggleAttributes(passwordConfirmation, true);
             $form.find('#passwords_error').fadeOut();
+
+            if($form.find('input.input.required').length == $form.find('input.success').length) {
+                if($form.prop('id') =='entity_spree_user_form' && !$('#entity_user_form_terms').prop('checked')) {
+                    disableForm($form, true);
+                } else {
+                    disableForm($form, false);
+                }
+            } else {
+                disableForm($form, true);
+            }
+
         }
+    });
+
+    function disableForm(form, disable) {
+        if(disable) {
+            $(form).find('input.submit')
+                .addClass("disabled")
+                .attr("disabled", true);
+        } else {
+            $(form).find('input.submit')
+                .removeClass("disabled")
+                .removeAttr("disabled");
+        }
+    }
+
+
+
+    $('#login_button, .mini_profile#login_button').on('click', function(event) {
+        event.preventDefault();
+        var hasClass = $(this).hasClass('active');
+
+        var signup = $(this).parents().closest('.profile').find('#signup_button');
+        var credentials =  $(this).parents().closest('.profile').find('#credentials');
+
+        if(!hasClass){
+            $(this).addClass('active');
+            signup.hide();
+            credentials.fadeIn();
+        } else {
+            $(this).removeClass('active');
+            credentials.hide();
+            signup.show();
+        }
+    });
+
+
+    $('#credentials .input').on('input', function() {
+        $form = $(this).parents().closest('form');
+
+        var length = parseInt($(this).data('length'), 10);
+        var minLength = parseInt($(this).data('min-length'), 10);
+        var maxLength = parseInt($(this).data('max-length'), 10);
+        var required = $(this).hasClass('required');
+        var numeric = $(this).hasClass('numeric');
+        var type = $(this).prop('type');
+
+        if(numeric) {
+            this.value = this.value.replace(/\D/g, '');
+
+            if (length > 0 && this.value.length > length) {
+                this.value = this.value.slice(0, length);
+            }
+
+            if(maxLength > 0 && this.value.length > maxLength) {
+                this.value = this.value.slice(0, maxLength);
+            }
+        }
+
+        var value = $(this).val();
+        checkField($(this), value, length, minLength, maxLength, required, type);
+
+        if($form.find('input.input.required').length == $form.find('input.success').length) {
+            disableForm($form, false);
+        } else {
+            disableForm($form, true);
+        }
+    });
+
+    $("form#new_spree_user, form#mini_new_spree_user").on("ajax:complete", function(xhr, status) {
+        var statusCode = status.status;
+        var responseText = JSON.parse(status.responseText);
+
+        if(statusCode == 200){
+            return Turbolinks.visit('/account');
+        } else {
+            $('.forgot-password').show();
+            $('#login_error').append(responseText.error).show();
+            $('#signup_button').show();
+            return;
+        }
+    });
+
+    $('#mini_profile .profile_logo').on('click', function(){
+        $('#mini_profile').toggleClass('opened');
+    });
+
+    $("#logout_button").on("ajax:complete", function(xhr, status){
+        return Turbolinks.visit('/');
     });
 });

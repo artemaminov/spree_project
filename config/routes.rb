@@ -36,5 +36,8 @@ Rails.application.routes.draw do
 
     get '/news/post/:slug', to: 'news#show', as: :news_post
     delete 'admin/delete_attachment/:attachment_id', to: 'admin/attachments#destroy', as: :delete_attachment
+
+    get '/activations', to: 'user_activations#index', as: :activations
+    post '/activations/send_email', to: 'user_activations#send_email', as: :send_activation_email
   end
 end

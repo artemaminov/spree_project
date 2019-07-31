@@ -1,5 +1,9 @@
 div class="private_user_form" id="private_user_form"
-  = form_for resource, as: :spree_user, url: spree.registration_path, html: { id: "private_spree_user_form" } do |f|
+  = form_for resource,
+          as: :spree_user,
+          url: spree.registration_path,
+          html: { id: "private_spree_user_form" },
+          remote: true do |f|
     fieldset
       div class="form-group"
         = f.text_field :name,

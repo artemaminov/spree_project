@@ -1,0 +1,7 @@
+div id="confirmation" class="confirmation_block"
+  div class="email_form" id="entity_user_form" style="display: none;"
+    = form_for resource,
+            as: :spree_user,
+            url: spree.registration_path,
+            html: {id: "entity_spree_user_form"},
+            remote: true do |f|
