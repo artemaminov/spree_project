@@ -18,6 +18,10 @@ section class="first"
             = link_to Spree.t(:home), spree.root_path
           = render partial: 'spree/static_content/static_content_header'
 
+      div class="cart_profile"
+        = render partial: 'spree/shared/cart', locals: { mini: false }
+        = render partial: 'spree/shared/profile_block', locals: { mini: false }
+
   div class=(["fixed-nav", @body_id == "home-page" ? "" : "fixed-nav--fixed"].compact.join(' '))
     div class="fixed-nav__contacts"
       a href="/" class="small__logo" title="Лофт кирпич в Тюмени. На главную"
@@ -32,6 +36,7 @@ section class="first"
         a href="#" class="fixed-nav__cabinet" data-turbolinks="false"
       a href="#form_send_call" class="fixed-nav__button button_form cboxElement" data-turbolinks="false"
         | связаться
+      = render partial: 'spree/shared/profile_block', locals: { mini: true }
 
     div class="first__filter"
       div class="filter__wrap"

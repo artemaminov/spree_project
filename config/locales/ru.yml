@@ -1717,6 +1717,31 @@ ru:
         correspondent_account: "не более чем 20 цифр"
         dealer_advantages: "Преимущества дилера"
         more: "узнать подробнее"
+    profile:
+      profile: "Личный кабинет"
+      signin: "Войти"
+      signup: "Регистрация"
+      forgot_password: "Забыли пароль?"
+      enter: "Вход"
+      logout: "Выход"
+      cabinet: "Аккаунт"
+
+      labels:
+        email: "Телефон или email"
+        password: "Пароль"
+
+      hints:
+        login: "Для авторизации по номеру телефона введите его в формате 7XXXXXXXXXX"
+      finish:
+        finish: "Регистрация успешно завершена!"
+        activate_account: "Пожалуйста, активируйте аккаунт"
+        by_phone: "По телефону"
+        by_email: "По E-mail"
+        confirmation: "Подтверждение"
+        confirmation_message: "Подтвердите аккаунт"
+        send_email: "Отправить E-mail письмо"
+        success_email_send: "Код активации отправлен на Ваш E-mail"
+        error_email_send: "Произошла ошибка при отправке кода на Ваш E-mail"
 
 
 

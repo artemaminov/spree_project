@@ -1,5 +1,9 @@
 div class="entity_user_form" id="entity_user_form" style="display: none;"
-  = form_for resource, as: :spree_user, url: spree.registration_path, html: { id: "entity_spree_user_form" } do |f|
+  = form_for resource,
+          as: :spree_user,
+          url: spree.registration_path,
+          html: { id: "entity_spree_user_form" },
+          remote: true do |f|
     fieldset
       = f.hidden_field :user_type, value: 'entity_user'
 

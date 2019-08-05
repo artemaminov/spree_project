@@ -1,0 +1,9 @@
+div class="activations" id="activations"
+  div class="title"
+    h2
+      | #{Spree.t(:confirmation_message, scope: "profile.finish")}
+
+  div class="buttons_wrapper"
+    div class="send_email" id="send_email"
+      a href="/activations/send_email" id="send_email_url" data-remote="true" data-method="post"
+        | #{Spree.t(:send_email, scope: "profile.finish")}

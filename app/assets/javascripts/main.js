@@ -75,7 +75,6 @@ $(document).on('turbolinks:load', function() {
         }
     });
 
-
     // bottom unsued partly code
 
     var z = $(".tovar__formats_format li")
@@ -493,41 +492,6 @@ $(document).on('turbolinks:load', function() {
             location.href = $(this).data("href");
         }
     );
-
-    var menuContacts = $("section .fixed-nav__contacts"),
-        menuFilter = $("section .first__filter"),
-        menu = $("section .fixed-nav"),
-        menuOffset = 0;
-    section_menu = $(".section_mlist_production");
-
-    if (menuFilter.length > 0) {
-        menuFilter.offset().top - menuFilter.innerHeight();
-    }
-
-    $(window).on("scroll", function(event) {
-        console.log('scrolled');
-        if (section_menu.length > 0) {
-            top_section_menu =
-                $(".second_page .products__block").offset().top -
-                $(".fixed-nav.fixed-nav--fixed").innerHeight();
-
-            if ($(window).scrollTop() > top_section_menu) {
-                section_menu.css({ position: "fixed", top: top_section_menu + "px" });
-            } else {
-                section_menu.removeAttr("style");
-            }
-        }
-
-        if ($(window).scrollTop() > menuOffset) {
-            menuContacts.show();
-            menu.addClass("fixed-nav--fixed");
-        } else {
-            menuContacts.hide();
-            menu.removeClass("fixed-nav--fixed");
-            $("#div_about").hide();
-        }
-    });
-
 
 
     $(".filter__list .filter__item a").on("click", function() {

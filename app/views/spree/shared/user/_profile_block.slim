@@ -1,0 +1,25 @@
+- mini = mini.nil? ? false : mini
+
+div class="profile"
+  div class="standard"
+    div class="title"
+      img src="#{image_path('cabinet-icon.png')}" alt="Profile logo"
+      | #{Spree.t(:profile, scope: :profile)}
+
+
+    - if spree_current_user
+      div class="username"
+        | #{spree_current_user.name}
+      div class="buttons"
+        a href="/account"
+          | #{Spree.t(:cabinet, scope: :profile)}
+        a href="/logout" id="logout_button" data-remote="true"
+          | #{Spree.t(:logout, scope: :profile)}
+    - else
+      = render partial: 'spree/shared/user/login_form', locals: { hidden: true, mini: mini }
+
+      div class="buttons"
+        a href="#" class="login" id="login_button" data-turbolinks="false"
+          | #{Spree.t(:enter, scope: :profile)}
+        a href="/signup" id="signup_button"
+          | #{Spree.t(:signup, scope: :profile)}
