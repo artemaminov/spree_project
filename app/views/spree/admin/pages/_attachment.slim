@@ -7,7 +7,7 @@ li class="file-attachment"
 
     div class="form-group"
       = ff.label :published_at
-      = ff.text_field :published_at, value: datepicker_field_value(ff.object.new_record? ? Time.now : ff.object.published_at), class: 'datepicker form-control', id: "index_to_replace_with_js"
+      = ff.text_field :published_at, value: datepicker_field_value(ff.object.new_record? ? Date.today : ff.object.published_at), class: 'datepicker form-control', id: "index_to_replace_with_js"
       = error_message_on ff.object, :published_at
 
     div class="form-group"
