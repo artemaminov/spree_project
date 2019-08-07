@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
     var email = new RegExp("[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+");
-
+    var phoneFieldIds = ['private_user_form_phone_number', 'entity_user_form_phone_number'];
 
     $('#checkbox_entity_user, #checkbox_private_user').on('change', function() {
         var id = $(this).prop('id');
@@ -49,7 +49,6 @@ $(document).on('turbolinks:load', function() {
         }
     };
 
-
     function checkField(element, value, length, minLength, maxLength, required, type){
         if (required) {
             if (value != ''){
@@ -58,6 +57,8 @@ $(document).on('turbolinks:load', function() {
                     if(!email.test(value)){
                         toggleAttributes($(element), false);
                         return true;
+                    } {
+                        checkEmailAjax($(element), value);
                     }
                 }
 
@@ -91,7 +92,7 @@ $(document).on('turbolinks:load', function() {
         }
 
         return false;
-    }
+    };
 
     $('#private_user_form .input, #entity_user_form .input').on('input', function() {
         $form = $(this).parents().closest('form');
@@ -102,6 +103,8 @@ $(document).on('turbolinks:load', function() {
         var required = $(this).hasClass('required');
         var numeric = $(this).hasClass('numeric');
         var type = $(this).prop('type');
+        var id = $(this).prop('id');
+
 
         if(numeric) {
             this.value = this.value.replace(/\D/g, '');
@@ -122,7 +125,13 @@ $(document).on('turbolinks:load', function() {
             return;
         }
 
-        if($form.find('input.input.required').length == $form.find('input.success').length) {
+        if(phoneFieldIds.includes(id)){
+            if(length != 0 && value.length == length) {
+                checkPhoneNumberAjax($(this), value);
+            }
+        }
+
+        if(checkFormRequiredFields($form)) {
             var password = $form.find('.password input');
             var passwordConfirmation = $form.find('.password_confirmation input');
 
@@ -210,7 +219,7 @@ $(document).on('turbolinks:load', function() {
             toggleAttributes(passwordConfirmation, true);
             $form.find('#passwords_error').fadeOut();
 
-            if($form.find('input.input.required').length == $form.find('input.success').length) {
+            if(checkFormRequiredFields($form)) {
                 if($form.prop('id') =='entity_spree_user_form' && !$('#entity_user_form_terms').prop('checked')) {
                     disableForm($form, true);
                 } else {
@@ -281,7 +290,7 @@ $(document).on('turbolinks:load', function() {
         var value = $(this).val();
         checkField($(this), value, length, minLength, maxLength, required, type);
 
-        if($form.find('input.input.required').length == $form.find('input.success').length) {
+        if(checkFormRequiredFields($form)) {
             disableForm($form, false);
         } else {
             disableForm($form, true);
@@ -309,4 +318,70 @@ $(document).on('turbolinks:load', function() {
     $("#logout_button").on("ajax:complete", function(xhr, status){
         return Turbolinks.visit('/');
     });
+
+    function checkFormRequiredFields(form) {
+        return form.find('input.input.required').length == form.find('input.success').length;
+    };
+
+    function findClosestFormAndCheck(element) {
+        var form = $(element).parents().closest('form');
+        if(checkFormRequiredFields($form)) {
+            if(form.prop('id') =='entity_spree_user_form' && !$('#entity_user_form_terms').prop('checked')) {
+                disableForm(form, true);
+            } else {
+                disableForm(form, false);
+            }
+        } else {
+            disableForm(form, true);
+        }
+    }
+
+    function checkPhoneNumberAjax(element, value) {
+        var formGroup = $(element).parents().closest('.form-group');
+        var errorElement = formGroup.find('.phone-number-error');
+        var forgotPassword = formGroup.find('.forgot-password');
+
+        $.ajax({
+            method: "POST",
+            url: "/activations/check_phone_number",
+            data: { phone_number: value }
+        }).done(function(msg, txt, asd) {
+            var notExist = msg.success.not_exist;
+
+            if(notExist) {
+                errorElement.hide();
+                forgotPassword.hide();
+                toggleAttributes(element, true);
+            } else {
+                toggleAttributes(element, false);
+                errorElement.fadeIn();
+                forgotPassword.fadeIn();
+            }
+            findClosestFormAndCheck(element);
+        });
+    };
+
+    function checkEmailAjax(element, value) {
+        var formGroup = $(element).parents().closest('.form-group');
+        var errorElement = formGroup.find('.email-error');
+        var forgotPassword = formGroup.find('.forgot-password');
+        $.ajax({
+            method: "POST",
+            url: "/activations/check_email",
+            data: { email: value }
+        }).done(function(msg, txt, asd) {
+            var notExist = msg.success.not_exist;
+
+            if(notExist) {
+                errorElement.hide();
+                forgotPassword.hide();
+                toggleAttributes(element, true);
+            } else {
+                toggleAttributes(element, false);
+                errorElement.fadeIn();
+                forgotPassword.fadeIn();
+            }
+            findClosestFormAndCheck(element);
+        });
+    };
 });

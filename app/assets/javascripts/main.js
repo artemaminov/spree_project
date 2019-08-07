@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function() {
 
 
     $(".news__item").on("click", function() {
-        location.href = $(this).data("href");
+        Turbolinks.visit($(this).data("href"));
     });
 
     $(".button_form").colorbox({

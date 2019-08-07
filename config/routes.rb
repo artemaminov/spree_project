@@ -39,5 +39,8 @@ Rails.application.routes.draw do
 
     get '/activations', to: 'user_activations#index', as: :activations
     post '/activations/send_email', to: 'user_activations#send_email', as: :send_activation_email
+    post '/activations/check_email', to: 'user_activations#check_email', as: :check_email
+    post '/activations/check_phone_number', to: 'user_activations#check_phone_number', as: :check_phone_number
+
   end
 end
