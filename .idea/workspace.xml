@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c782a19-d629-4ac0-84e3-1b010de40189" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/forms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/spree/app_spree_store_controller_decorator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/spree/app_spree_store_controller_decorator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/spree/user_activations_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/spree/user_activations_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/locales/ru.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ru.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/spree/admin/role_discounts/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/spree/admin/role_discounts/index.html.slim" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -44,80 +37,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/forms.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="364" column="52" lean-forward="true" selection-start-line="364" selection-start-column="52" selection-end-line="364" selection-end-column="52" />
-              <folding>
-                <element signature="e#1559#1811#0" />
-                <element signature="e#5604#6674#0" />
-                <element signature="e#8031#8330#0" />
-                <element signature="e#8413#8928#0" />
-                <element signature="e#10161#10543#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" selection-start-line="45" selection-end-line="46" selection-end-column="93" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="1721" column="74" selection-start-line="1721" selection-start-column="74" selection-end-line="1721" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8760">
-              <caret line="584" column="28" selection-start-line="584" selection-start-column="28" selection-end-line="584" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/spree/user_activations_controller.rb">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/spree/app_spree_store_controller_decorator.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="110" selection-start-line="42" selection-start-column="110" selection-end-line="42" selection-end-column="110" />
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -126,7 +49,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>kpp</find>
       <find>entity_spree_user_form</find>
       <find>=</find>
       <find>wrap</find>
@@ -156,6 +78,7 @@
       <find>уже су</find>
       <find>email-</find>
       <find>findClosesFormAndCheck</find>
+      <find>console.lo</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/db/migrate</dir>
@@ -175,8 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/spree/static_content/_breadcrumbs.slim" />
-        <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_registration_checkboxes.slim" />
         <option value="$PROJECT_DIR$/app/assets/images/check_green.svg" />
         <option value="$PROJECT_DIR$/app/assets/images/close_error.svg" />
         <option value="$PROJECT_DIR$/app/views/spree/shared/user/_private_user_form.slim" />
@@ -226,6 +147,8 @@
         <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_private_user_form.slim" />
         <option value="$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/forms.js" />
+        <option value="$PROJECT_DIR$/app/views/spree/admin/role_discounts/index.html.slim" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -305,6 +228,23 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="spree" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="spree" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spree_ror" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="spree" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="role_discounts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="spree_ror" type="b2602c69:ProjectViewProjectNode" />
@@ -577,12 +517,12 @@
       <workItem from="1564738152041" duration="9021000" />
       <workItem from="1565024171997" duration="2862000" />
       <workItem from="1565084288995" duration="8788000" />
-      <workItem from="1565158069593" duration="3299000" />
+      <workItem from="1565158069593" duration="3739000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330404000" />
+    <option name="totallyTimeSpent" value="330844000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -624,16 +564,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/initializers/content_security_policy.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/home/_scroll.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -892,9 +822,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/forms.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="364" column="52" lean-forward="true" selection-start-line="364" selection-start-column="52" selection-end-line="364" selection-end-column="52" />
+          <folding>
+            <element signature="e#1559#1811#0" />
+            <element signature="e#5604#6674#0" />
+            <element signature="e#8031#8330#0" />
+            <element signature="e#8413#8928#0" />
+            <element signature="e#10161#10543#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="1721" column="74" selection-start-line="1721" selection-start-column="74" selection-end-line="1721" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8760">
+        <state relative-caret-position="296">
           <caret line="584" column="28" selection-start-line="584" selection-start-column="28" selection-end-line="584" selection-end-column="28" />
         </state>
       </provider>
@@ -920,31 +878,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/spree/user_registrations/_entity_user_form.slim">
+    <entry file="file://$PROJECT_DIR$/app/views/spree/admin/role_discounts/index.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        <state relative-caret-position="495">
+          <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/ru.yml">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="1721" column="74" selection-start-line="1721" selection-start-column="74" selection-end-line="1721" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/forms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="364" column="52" lean-forward="true" selection-start-line="364" selection-start-column="52" selection-end-line="364" selection-end-column="52" />
-          <folding>
-            <element signature="e#1559#1811#0" />
-            <element signature="e#5604#6674#0" />
-            <element signature="e#8031#8330#0" />
-            <element signature="e#8413#8928#0" />
-            <element signature="e#10161#10543#0" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

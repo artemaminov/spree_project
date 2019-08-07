@@ -33,6 +33,6 @@
 - else
     div class="alert alert-warning no-objects-found"
       | #{Spree.t(:no_resource_found, resource: Spree::RoleDiscount.model_name.human)},
-        #{link_to Spree.t(:add_one), spree.new_role_discount}!
+        #{link_to Spree.t(:add_one), spree.new_admin_role_discount_url}!
 
 == render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection }
