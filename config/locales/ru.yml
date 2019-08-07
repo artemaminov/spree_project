@@ -1709,6 +1709,7 @@ ru:
         password: 'не менее 6 символов'
         contact_person: 'ФИО для связи'
         phone_number: 'Возможно использовать в качестве логина'
+        email: "Будет использоваться как логин для сайта"
         phone_number_format: 'формате 7XXXXXXXXXXX'
         inn: "10 цифр, для ИП 12 цифр"
         bank_kpp: "9 цифр"
@@ -1717,6 +1718,8 @@ ru:
         correspondent_account: "не более чем 20 цифр"
         dealer_advantages: "Преимущества дилера"
         more: "узнать подробнее"
+        email_already_exist: "E-mail уже используется для регистрации"
+        phone_number_already_exist: "Номер телефона уже использовался для регистрации"
     profile:
       profile: "Личный кабинет"
       signin: "Войти"
@@ -1725,6 +1728,7 @@ ru:
       enter: "Вход"
       logout: "Выход"
       cabinet: "Аккаунт"
+      remember_password: "напомнить пароль"
 
       labels:
         email: "Телефон или email"
@@ -1742,6 +1746,11 @@ ru:
         send_email: "Отправить E-mail письмо"
         success_email_send: "Код активации отправлен на Ваш E-mail"
         error_email_send: "Произошла ошибка при отправке кода на Ваш E-mail"
+    activations:
+      email_exist: "Email"
+      email_not_found: "E-mail не найден"
+      phone_number_not_found: "Телефон не найден"
+
 
 
 

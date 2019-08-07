@@ -577,11 +577,24 @@
     text-transform: initial;
     margin: 0.5em 0;
   }
+
+  .email-error, .phone-number-error {
+    color: #eb0000;
+    display: none;
+    margin-bottom: 0.1em;
+    text-transform: initial;
+  }
 }
 
 .private_user_form, .entity_user_form, .credentials {
   .form-group {
     margin-bottom: 0.5em;
+
+    .forgot-password {
+      display: none;
+      text-decoration: underline;
+      text-transform: lowercase;
+    }
   }
 
   .submit-group {
@@ -840,4 +853,3 @@
     }
   }
 }
-

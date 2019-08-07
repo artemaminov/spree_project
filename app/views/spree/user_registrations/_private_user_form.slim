@@ -15,22 +15,36 @@ div class="private_user_form" id="private_user_form"
         = f.label :name, "&nbsp;".html_safe
 
       div class="form-group"
-        = f.email_field :email,
-                class: 'form-control input required standard_input',
-                placeholder: Spree.t(:email) + '*',
-                'data-type': 'email',
-                autocomplete: 'email',
-                id: "private_user_form_email"
-        = f.label :email, "&nbsp;".html_safe
+        div class="email"
+          p class="email-error"
+            | #{Spree.t(:email_already_exist, scope: 'user_attributes.hints')}
+          = f.email_field :email,
+                  class: 'form-control input required standard_input',
+                  placeholder: Spree.t(:email) + '*',
+                  'data-type': 'email',
+                  autocomplete: 'email',
+                  id: "private_user_form_email"
+          = f.label :email, "&nbsp;".html_safe
+        div class="hint"
+          | #{Spree.t(:email, scope: 'user_attributes.hints')}
+        div class="forgot-password"
+          = link_to Spree.t(:remember_password, scope: :profile), spree.recover_password_path
 
       div class="form-group"
-        = f.telephone_field :phone_number,
-                class: 'form-control input required standard_input numeric',
-                placeholder: Spree.t(:phone_number, scope: 'user_attributes') + '*',
-                'data-length': 11,
-                autocomplete: 'tel',
-                id: "private_user_form_phone_number"
-        = f.label :phone_number, "&nbsp;".html_safe
+        div class="phone-number"
+          p class="phone-number-error"
+            | #{Spree.t(:phone_number_already_exist, scope: 'user_attributes.hints')}
+          = f.telephone_field :phone_number,
+                  class: 'form-control input required standard_input numeric',
+                  placeholder: Spree.t(:phone_number, scope: 'user_attributes') + '*',
+                  'data-length': 11,
+                  autocomplete: 'tel',
+                  id: "private_user_form_phone_number"
+          = f.label :phone_number, "&nbsp;".html_safe
+        div class="hint"
+          | #{Spree.t(:phone_number, scope: 'user_attributes.hints')}
+        div class="forgot-password"
+          = link_to Spree.t(:remember_password, scope: :profile), spree.recover_password_path
 
       br
 
