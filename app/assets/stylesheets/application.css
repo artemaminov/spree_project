@@ -12,9 +12,4 @@
  *
  *= require_tree .
  *= require_self
- *= require slick
- *= require slick-theme
- *= require colorbox
- *= require font-awesome.min
- *= require layout
  */
