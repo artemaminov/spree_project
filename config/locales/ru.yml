@@ -282,7 +282,7 @@ ru:
       spree/delivery:
         many: "Адресов доставки"
         one: "Адрес доставки"
-        other: "Адреса доставки"  
+        other: "Адреса доставки"
       spree/seller:
         many: "Продавцов"
         one: "Продавец"
@@ -514,7 +514,7 @@ ru:
       new: "Новый"
       refund:
       save: "Сохранить"
-      update: "Изменить"	  
+      update: "Изменить"
     activate: "Активировать"
     active: "Активен"
     add: "Добавить"
@@ -530,7 +530,7 @@ ru:
     add_rule_of_type: "Добавить правило типа"
     add_state: "Добавить регион/область"
     add_stock: "Добавить склад"
-    add_stock_management: "Добавить управление запасами"     
+    add_stock_management: "Добавить управление запасами"
     add_to_cart: "Добавить в корзину"
     add_variant: "Добавить вариант"
     additional_item: "Ставка для дополнительных наименований"
@@ -573,11 +573,11 @@ ru:
         orders: "Заказы"
         user_information: "Информация"
         store_credits: "Баланс"
-        deliveries: "Адреса доставки"  
+        deliveries: "Адреса доставки"
     administration: "Администрирование"
     advertise:
     add_store_credit: "Добавить кредитов"
-    add_delivery: "Добавить адрес доставки" 
+    add_delivery: "Добавить адрес доставки"
     agree_to_privacy_policy: "Согласиться с Политикой Конфиденциальности"
     agree_to_terms_of_service: "Согласиться с Уловиями обслуживания"
     all: "все"
@@ -777,7 +777,7 @@ ru:
       records_not_deleted: "Got error '%{error}' while reseting %{model} model."
       imports: Импорт товаров
       import: Импорт
-      import_headings:        
+      import_headings:
         product_import_headings:
           product_import: Импорт товаров
           clear_product_data: clear product related data
@@ -787,7 +787,7 @@ ru:
           verify_products: Verify Product (%{product_count})
           verify: Verify %{resource}
           import_with_sample_data: Import with Sample data
-          transform_to_spree_format: Transform to Spree Format        
+          transform_to_spree_format: Transform to Spree Format
       download_sample_file: Download Sample File
       download_shopify_file: Download Shopify Export File
     default: "По умолчанию"
@@ -1750,8 +1750,4 @@ ru:
       email_exist: "Email"
       email_not_found: "E-mail не найден"
       phone_number_not_found: "Телефон не найден"
-
-
-
-
     registration: "Регистрация"
