@@ -7,7 +7,7 @@ module Spree
 
     has_one :image, as: :viewable, dependent: :destroy, class_name: 'Spree::SharedImage'
 
-    translates :name, :address, fallbacks_for_empty_translations: true
+    translates :region, :name, :address, fallbacks_for_empty_translations: true
     include SpreeGlobalize::Translatable
 
     belongs_to :retailer_region, class_name: 'Spree::RetailerRegion'
