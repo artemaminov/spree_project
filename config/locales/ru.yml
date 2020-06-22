@@ -697,6 +697,10 @@ ru:
     confirm_password: "Подтверждение пароля"
     continue: "Продолжить"
     continue_shopping: "Продолжить покупки"
+    content_editor:
+      first_page: "Первая страница"
+      slider: "Карусель"
+      tab: "Оформление"
     cost_currency: "Валюта"
     cost_price: "Себестоимость"
     could_not_connect_to_jirafe: "Невозможно синхоринизороваться с Jirafe. Попытка будет повторена позже."

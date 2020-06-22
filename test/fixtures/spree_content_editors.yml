@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  button_title: MyString
+  button_url: MyString
+  background: one
+  section_to_paste_after: MyString
+
+two:
+  title: MyString
+  description: MyText
+  button_title: MyString
+  button_url: MyString
+  background: two
+  section_to_paste_after: MyString

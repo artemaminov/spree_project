@@ -1,0 +1,5 @@
+<% if can? :admin, Spree::ContentEditor %>
+  <ul class="nav nav-sidebar">
+    <%= main_menu_tree Spree.t('content_editor.tab'), url: '#sidebar-content-editor', icon: 'home', sub_menu: 'content_editor' %>
+  </ul>
+<% end %>
