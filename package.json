@@ -1,5 +1,8 @@
 {
   "name": "mystore",
   "private": true,
+  "scripts": {
+    "postinstall": "gulp build"
+  },
   "dependencies": {}
 }

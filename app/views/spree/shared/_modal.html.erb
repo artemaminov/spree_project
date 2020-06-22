@@ -1,0 +1,101 @@
+<div class="modal fade" id="registration" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-registration">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Регистрация</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag(gulp_asset_path("/static/images/general/icons/close-modal.svg")) %></span></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="input-group">
+            <label for="name">Фамилия Имя Отчество</label>
+            <input type="text" name="name" id="name" placeholder="Ивано Иван Иванович">
+          </div>
+          <div class="input-group">
+            <label for="phone">Номер телефона</label>
+            <input class="input_phone" type="text" name="name" id="phone" placeholder="+7 (___) ___ __ __">
+          </div>
+          <div class="input-group">
+            <label for="email">ЭЛЕКТРОННАЯ ПОЧТА</label>
+            <input type="text" name="email" id="email" placeholder="your@email.com">
+          </div>
+          <div class="input-group">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password" placeholder="6+ символов">
+          </div>
+          <div class="input-group">
+            <button class="btn btn_registration id_modalThankYouOpen" type="submit">Зарегистрироваться</button>
+          </div>
+          <div class="text police">Нажатие кнопки «Зарегистрироваться» означает согласие с настоящей<br><a href="#">Политикой конфеденциальности</a></div>
+          <div class="socials"><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/facebook-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/google-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/twiter-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/vk-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/instagram-modal.svg")) %></a></div><a class="already-registered id_modalLoginOpen" href="#">Уже зарегистрированы? - Войти в личный кабинет</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Войти<br> в личный кабинет</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag(gulp_asset_path("/static/images/general/icons/close-modal.svg")) %></span></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="input-group">
+            <label for="email">ЭЛЕКТРОННАЯ ПОЧТА</label>
+            <input type="text" name="email" id="email" placeholder="your@email.com">
+          </div>
+          <div class="input-group">
+            <label for="password">Пароль</label>
+            <input type="password" name="password" id="password" placeholder="6+ символов">
+          </div>
+          <div class="input-group">
+            <button class="btn" type="submit">Войти</button>
+          </div>
+          <div class="socials"><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/facebook-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/google-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/twiter-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/vk-modal.svg")) %></a><a class="item" href="#"><%= image_tag(gulp_asset_path("/static/images/general/icons/socials/instagram-modal.svg")) %></a></div><a class="id_modalForgotPasswordOpen" href="#">Забыли свой пароль? - Восстановить доступ</a>
+          <div class="input-group last">
+            <button class="btn id_modalRegistrationOpen">Зарегистрироваться</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="thankYou" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal_thank-you">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Успешно!</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag(gulp_asset_path("/static/images/general/icons/close-modal.svg")) %></span></button>
+      </div>
+      <div class="modal-body">
+        <div class="text">На вашу электронную почту отправленно письмо с временным паролем.</div>
+        <div class="input-group last">
+          <button class="btn" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="forgotPassword" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Восстановление пароля</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag(gulp_asset_path("/static/images/general/icons/close-modal.svg")) %></span></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="input-group">
+            <label for="email">ЭЛЕКТРОННАЯ ПОЧТА</label>
+            <input type="text" name="email" id="email" placeholder="your@email.com">
+          </div>
+          <div class="input-group last">
+            <button class="btn" type="submit">Восстановить пароль</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
