@@ -1,8 +1,0 @@
-div class="user_registration_checkbox" id="user_registration_checkbox"
-    - Spree::User.user_types.map do |user|
-      - user_type = user[0]
-      div id="signup_#{user_type}"
-
-        = check_box_tag "checkbox_#{user_type}", user_type == 'private_user', (user_type == 'private_user' ?  'checked' : nil), class: 'checkbox'
-        label for="checkbox_#{user_type}"
-          | #{Spree.t(user_type, scope: "user_attributes.user_types")}

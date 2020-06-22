@@ -1,9 +1,0 @@
-<% @body_id = 'signup' %>
-<%= render partial: 'spree/user_registrations/breadcrumbs', locals: { show_users_type: true } %>
-
-<div class="registration_forms" id="registration_forms">
-  <%= render partial: 'spree/user_registrations/registration_checkboxes' %>
-  <%= render :partial => 'spree/shared/error_messages', locals: { target: @user } %>
-  <%= render :partial => 'spree/user_registrations/private_user_form', locals: { resource: resource } %>
-  <%= render :partial => 'spree/user_registrations/entity_user_form', locals: { resource: resource } %>
-</div>

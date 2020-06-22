@@ -1,8 +1,0 @@
-<% if @success %>
-  $('.buttons_wrapper').hide();
-  $('#activations').append("<h1 class=\"success\"><%=j Spree.t(:success_email_send, scope: "profile.finish") %></h1>");
-  Turbolinks.visit('/');
-<% else %>
-  $('.buttons_wrapper').hide();
-  $('#activations').append("<h1 class=\"error\"><%=j Spree.t(:error_email_send, scope: "profile.finish") %></h1>");
-<% end %>

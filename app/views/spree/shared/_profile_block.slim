@@ -1,7 +1,0 @@
-- if (!mini.nil? && mini)
-  div class="mini_profile" id="mini_profile"
-    img src="#{image_path('profile_small.png')}" alt="Profile small logo" class="profile_logo"
-    div class="cart_profile"
-      = render partial: 'spree/shared/user/profile_block', locals: { mini: true }
-- else
-  = render partial: 'spree/shared/user/profile_block', locals: { mini: false }
