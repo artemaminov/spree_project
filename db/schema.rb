@@ -276,7 +276,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_103700) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2019-06-24 11:02:23"
+    t.datetime "publication_date", default: "2020-06-16 11:42:54"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""
@@ -459,7 +459,6 @@ ActiveRecord::Schema.define(version: 2019_07_24_103700) do
     t.integer "state_lock_version", default: 0, null: false
     t.decimal "taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
     t.decimal "non_taxable_adjustment_total", precision: 10, scale: 2, default: "0.0", null: false
-    t.integer "invoice_number"
     t.index ["approver_id"], name: "index_spree_orders_on_approver_id"
     t.index ["bill_address_id"], name: "index_spree_orders_on_bill_address_id"
     t.index ["canceler_id"], name: "index_spree_orders_on_canceler_id"
@@ -915,7 +914,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_103700) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "address"
+    t.text "address"
     t.index ["locale"], name: "index_spree_retailer_translations_on_locale"
     t.index ["spree_retailer_id"], name: "index_spree_retailer_translations_on_spree_retailer_id"
   end
