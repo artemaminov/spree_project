@@ -1,0 +1,24 @@
+= content_for :page_title
+  | #{Spree.t('page_section.title')}
+  span class="green"
+    |  #{@page_section.title}
+
+
+= content_for :page_actions
+  = button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::PageSection)), spree.admin_page_sections_path, icon: 'arrow-left', class: 'btn-primary'
+
+== render :partial => 'spree/shared/error_messages', :locals => { :target => @news }
+
+div class="row"
+  fieldset class="no-border-top translations"
+
+    == render 'settings'
+    = form_for [:admin, @resource] do |f|
+      div class="row translations"
+        div class="col-md-8"
+          = form_for [:admin, @resource] do |f|
+            == render 'form_fields', f: f
+            == render 'spree/admin/shared/edit_resource_links'
+
+        div class="col-md-4"
+          == render 'fields'

@@ -29,8 +29,7 @@ Rails.application.routes.draw do
 
       resources :questions
       resources :role_discounts
-
-      resources :content_editor
+      resources :page_sections
     end
 
     resources :news, only: [:index]
