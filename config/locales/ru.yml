@@ -217,6 +217,15 @@ ru:
       spree/page:
         gallery_images: "Фотогалерея"
         attachments: "Вложения"
+      spree/page_section:
+        image: "Фоновое изображение"
+        button_centered: "Кнопка в центре"
+        button_style: "Стили кнопки"
+        button_text: "Текст кнопки"
+        button_url: "Ссылка кнопки"
+        description: "Текст блока"
+        html_section_name: "ID html блока"
+        title: "Заголовок"
       spree/file_attachment:
         name: "Имя"
         file: "Вложение"
@@ -316,6 +325,10 @@ ru:
         many: "Заказов"
         one: "Заказ"
         other: "Заказы"
+      spree/page_section:
+        many: "Блоки страницы"
+        one: "Блок страницы"
+        other: "Блоков страницы"
       spree/payment:
         many: "Платежей"
         one: "Платёж"
@@ -697,6 +710,12 @@ ru:
     confirm_password: "Подтверждение пароля"
     continue: "Продолжить"
     continue_shopping: "Продолжить покупки"
+    page_section:
+      blocks: "Блоки"
+      new: "Новый блок"
+      sections: "Блоки страниц"
+      slider: "Карусель"
+      title: "Оформление"
     cost_currency: "Валюта"
     cost_price: "Себестоимость"
     could_not_connect_to_jirafe: "Невозможно синхоринизороваться с Jirafe. Попытка будет повторена позже."

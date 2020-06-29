@@ -1,0 +1,67 @@
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::PageSection)), spree.admin_page_sections_path, icon: 'arrow-left', class: 'btn-primary' %>
+<% end %>
+
+<%= form_for [:admin, resource] do |f| %>
+  <div class="row" data-hook="admin_page_form_fields">
+    <div class="col-lg-6" data-hook="admin_page_form_left">
+      <div class="form-group">
+        <%= f.label :html_section_name %>
+        <%= f.text_field :html_section_name, rows: 12, class: 'form-control', required: true %>
+        <%= f.error_message_on :html_section_name %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_area :title, class: 'form-control', required: true %>
+        <%= f.error_message_on :title %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control', required: true %>
+        <%= f.error_message_on :description %>
+      </div>
+    </div>
+
+    <div class="col-lg-6" data-hook="admin_page_form_right">
+      <div class="form-group">
+        <%= f.label :button_text %>
+        <%= f.text_field :button_text, rows: 12, class: 'form-control', required: true %>
+        <%= f.error_message_on :button_text %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :button_url %>
+        <%= f.text_field :button_url, rows: 12, class: 'form-control', required: true %>
+        <%= f.error_message_on :button_url %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :button_style %>
+        <%= f.text_field :button_style, rows: 12, class: 'form-control' %>
+        <%= f.error_message_on :button_style %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :button_centered %>
+        <%= f.check_box :button_centered, class: 'form-control' %>
+        <%= f.error_message_on :button_centered %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" data-hook="admin_page_form_additional_fields">
+    <div class="col-lg-12">
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <% if resource.image %>
+          <%= render partial: 'spree/admin/shared/croom_form', locals: { resource: resource } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
+<% end %>

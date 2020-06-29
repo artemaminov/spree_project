@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-server '217.116.60.242', port: 10_622, roles: %i[web app db], primary: true
-set :repo_url,        'git@bitbucket.org:yegordanchenko/spree_ror.git'
-set :application,     'staging'
-set :user,            'prog'
+server '91.203.36.113', port: 10_622, roles: %i[web app db], primary: true
+set :repo_url,        'git@gitlab.com:simax72/spree_ror.git'
+# set :application,     'staging'
+# set :user,            'prog'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :branch, 'develop'
-set :deploy_to,       "/home/#{fetch(:user)}/www/newbkz/#{fetch(:application)}"
+# set :branch, 'develop'
+# set :deploy_to,       "/home/#{fetch(:user)}/www/newbkz/#{fetch(:application)}"
 set :stage,           :staging
 # Don't change these unless you know what you're doing
 set :pty,             true
@@ -25,7 +25,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
 ## Defaults:
 # set :scm,           :git
-set :branch, :develop
+set :branch, :content_editor
 # set :format,        :pretty
 # set :log_level,     :debug
 # set :keep_releases, 5

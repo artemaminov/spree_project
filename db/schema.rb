@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_103700) do
+ActiveRecord::Schema.define(version: 2020_06_25_101531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,23 @@ ActiveRecord::Schema.define(version: 2019_07_24_103700) do
     t.index ["deleted_at"], name: "index_spree_credit_cards_on_deleted_at"
     t.index ["payment_method_id"], name: "index_spree_credit_cards_on_payment_method_id"
     t.index ["user_id"], name: "index_spree_credit_cards_on_user_id"
+  end
+
+  create_table "spree_croom_devices", force: :cascade do |t|
+    t.string "name"
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_croom_images", force: :cascade do |t|
+    t.bigint "spree_croom_devices_id"
+    t.bigint "spree_asset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spree_asset_id"], name: "index_spree_croom_images_on_spree_asset_id"
+    t.index ["spree_croom_devices_id"], name: "index_spree_croom_images_on_spree_croom_devices_id"
   end
 
   create_table "spree_customer_returns", id: :serial, force: :cascade do |t|
@@ -471,6 +488,27 @@ ActiveRecord::Schema.define(version: 2019_07_24_103700) do
     t.index ["store_id"], name: "index_spree_orders_on_store_id"
     t.index ["token"], name: "index_spree_orders_on_token"
     t.index ["user_id", "created_by_id"], name: "index_spree_orders_on_user_id_and_created_by_id"
+  end
+
+  create_table "spree_page_section_translations", force: :cascade do |t|
+    t.bigint "spree_page_section_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "description"
+    t.string "button_text"
+    t.string "button_url"
+    t.string "html_section_name"
+    t.string "button_style"
+    t.boolean "button_centered"
+    t.index ["locale"], name: "index_spree_page_section_translations_on_locale"
+    t.index ["spree_page_section_id"], name: "index_spree_page_section_translations_on_spree_page_section_id"
+  end
+
+  create_table "spree_page_sections", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_page_translations", force: :cascade do |t|
@@ -1470,6 +1508,8 @@ ActiveRecord::Schema.define(version: 2019_07_24_103700) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "spree_croom_images", "spree_assets"
+  add_foreign_key "spree_croom_images", "spree_croom_devices", column: "spree_croom_devices_id"
   add_foreign_key "spree_oauth_access_grants", "spree_oauth_applications", column: "application_id"
   add_foreign_key "spree_oauth_access_tokens", "spree_oauth_applications", column: "application_id"
 end
