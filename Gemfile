@@ -56,6 +56,7 @@ group :development do
   gem 'capistrano-rails',   require: false
   gem 'capistrano-rvm',     require: false
   gem 'capistrano3-puma',   require: false
+  gem 'capistrano-git-with-submodules', '~> 2.0'
 end
 
 group :test do
