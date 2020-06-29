@@ -1,0 +1,3 @@
+[submodule "bkz-makeup"]
+	path = bkz-makeup
+	url = git@gitlab.com:stbt_stbt/bkz-makeup.git
