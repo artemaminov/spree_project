@@ -1,7 +1,7 @@
 <div class="sidebar sidebar_wrapper"></div>
 <div class="sidebar_block">
   <div class="sidebar_container">
-    <div class="sidebar_header"><a class="logo" href="/"><%= image_tag(gulp_asset_path("/static/images/general/icons/logo.svg")) %></a>
+    <div class="sidebar_header"><a class="logo" href="/"><%= image_tag("general/icons/logo.svg") %></a>
       <div class="slogan">ВНИМАНИЕ К КАЖДОЙ ДЕТАЛИ</div>
       <div class="close_sidebar">
         <svg width="27" height="27" viewbox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,23 +14,23 @@
       <div class="sidebar_slider_block" id="sidebar_slider">
         <ul class="slidee">
           <li class="item"><a href="#">
-            <div class="img"><img src="<%= gulp_asset_path("/static/images/content/sidebar_slider_1.jpg") %>"/></div>
+            <div class="img"><%= image_tag("/static/images/content/sidebar_slider_1.jpg") %></div>
             <div class="title">Кирпич ручной работы Монс-Роял</div>
             <div class="more">Подробнее</div></a></li>
           <li class="item"><a href="#">
-            <div class="img"><img src="<%= gulp_asset_path("/static/images/content/sidebar_slider_2.jpg") %>"/></div>
+            <div class="img"><%= image_tag("/static/images/content/sidebar_slider_2.jpg") %></div>
             <div class="title">Кирпич ручной работы Монс-Роял</div>
             <div class="more">Подробнее</div></a></li>
           <li class="item"><a href="#">
-            <div class="img"><img src="<%= gulp_asset_path("/static/images/content/sidebar_slider_1.jpg") %>"/></div>
+            <div class="img"><%= image_tag("/static/images/content/sidebar_slider_1.jpg") %></div>
             <div class="title">Кирпич ручной работы Монс-Роял</div>
             <div class="more">Подробнее</div></a></li>
           <li class="item"><a href="#">
-            <div class="img"><img src="<%= gulp_asset_path("/static/images/content/sidebar_slider_1.jpg") %>"/></div>
+            <div class="img"><%= image_tag("/static/images/content/sidebar_slider_1.jpg") %></div>
             <div class="title">Кирпич ручной работы Монс-Роял</div>
             <div class="more">Подробнее</div></a></li>
           <li class="item"><a href="#">
-            <div class="img"><img src="<%= gulp_asset_path("/static/images/content/sidebar_slider_1.jpg") %>"/></div>
+            <div class="img"><%= image_tag("/static/images/content/sidebar_slider_1.jpg") %></div>
             <div class="title">Кирпич ручной работы Монс-Роял</div>
             <div class="more">Подробнее</div></a></li>
         </ul>
@@ -42,7 +42,7 @@
     <div class="sidebar_navigation">
       <ul>
         <li class="cursor"><a href="#">Каталог</a>
-          <div class="toggle_btn"><%= image_tag(gulp_asset_path("/static/images/general/icons/arrow_sidebar.svg")) %></div>
+          <div class="toggle_btn"><%= image_tag("general/icons/arrow_sidebar.svg") %></div>
           <ul>
             <li><a href="#">Кирпич ручной формовки</a></li>
             <li><a href="#">Ригель - кирпич</a></li>
@@ -51,7 +51,7 @@
           </ul>
         </li>
         <li class="cursor"><a href="#">О компании</a>
-          <div class="toggle_btn"><%= image_tag(gulp_asset_path("/static/images/general/icons/arrow_sidebar.svg")) %></div>
+          <div class="toggle_btn"><%= image_tag("general/icons/arrow_sidebar.svg") %></div>
           <ul>
             <li><a href="#">Сертификаты</a></li>
             <li><a href="#">Документы</a></li>
@@ -63,6 +63,6 @@
         <li><a href="#">Личный кабинет</a></li>
       </ul>
     </div>
-    <div class="contacts"><a class="item" href="tel:+7 922 079 3302"><%= image_tag(gulp_asset_path("/static/images/general/icons/header/phone.svg"), class: 'phone') %><span>+7 922 079 3302</span></a><a class="item" href="mailto:kom@zaobkz.ru"><%= image_tag(gulp_asset_path("/static/images/general/icons/header/email.svg"), class: 'email') %><span>kom@zaobkz.ru</span></a></div>
+    <div class="contacts"><a class="item" href="tel:+7 922 079 3302"><%= image_tag("general/icons/header/phone.svg", class: 'phone') %><span>+7 922 079 3302</span></a><a class="item" href="mailto:kom@zaobkz.ru"><%= image_tag("/static/images/general/icons/header/email.svg", class: 'email') %><span>kom@zaobkz.ru</span></a></div>
   </div>
 </div>
