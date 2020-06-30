@@ -9,6 +9,7 @@
  *= require_tree .
  *= require spree/backend/spree_globalize
  *= require spree/backend/spree_editor
+ *= require spree/backend/spree_cropper
 */
 
 tbody tr td.actions {

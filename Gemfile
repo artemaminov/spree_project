@@ -82,6 +82,7 @@ gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
 
 gem 'rubocop', '~> 0.73.0', require: false
-gem 'spree_editor', github: 'spree-contrib/spree_editor'
+gem 'spree_editor', github: 'artemaminov/spree_editor', branch: 'trix'
+gem 'spree_cropper', github: 'artemaminov/spree_cropper'
 gem 'spree_multi_vendor', github: 'spree-contrib/spree_multi_vendor'
 gem 'spree_print_invoice', github: 'spree-contrib/spree_print_invoice', branch: 'master'
