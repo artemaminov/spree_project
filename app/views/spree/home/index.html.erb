@@ -79,13 +79,7 @@
     </div>
   </div>
 </div>
-<div class="section section_move-to-catalog">
-  <div class="container-xl">
-    <div class="title">БОГАНДИНСКИЙ КИРПИЧНЫЙ ЗАВОД –<br class='w1920'> ЭТО ВНИМАНИЕ К КАЖДОЙ ДЕТАЛИ ПРИ ПРОИЗВОДСТВЕ</div>
-    <div class="description">Откройте для себя коллекцию престижных и высокоточных часов Rolex. Rolex предлагает широкую гамму профессиональных и классических моделей, в которой каждый сможет подобрать часы по вкусу. Откройте для себя широкую гамму часов Rolex, идеально сочетающих стиль и функциональность.</div>
-    <div class="btn btn-move-to-catalog">Перейти в каталог</div>
-  </div>
-</div>
+<%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('move-to-catalog') } %>
 <div class="section section_portfolio">
   <div class="container-xl">
     <div class="title">Портфолио проектов&nbsp;&nbsp;-&nbsp;&nbsp;<a href="#">Посмотреть все</a></div>
@@ -124,13 +118,7 @@
     <div class="count">Проектов 2 из 250</div>
   </div>
 </div>
-<div class="section section_about-production">
-  <div class="container-xl">
-    <div class="title">Каждый кирпич<br> <b>сделан вручную</b><br> и мы этим гордимся</div>
-    <div class="description">c теплом и профессионализмом</div>
-    <div class="btn btn_light btn_about-production">подробнее о производстве</div>
-  </div>
-</div>
+<%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('about-production') } %>
 <div class="section section_news">
   <div class="container-fluid">
     <div class="bg"></div>
@@ -154,13 +142,5 @@
     <div class="count">Новостей 1 из 5</div>
   </div>
 </div>
-<div class="section section_partners">
-  <div class="container-xl">
-    <div class="title">Мы всегда открыты к сотрудничеству</div>
-    <div class="description">Стать партнером</div>
-    <div class="btn-wrap">
-      <div class="btn btn_light btn_light_partners">Связаться с нами</div>
-    </div>
-  </div>
-</div>
+<%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('partners') } %>
 <div class="section section_empty"></div>
