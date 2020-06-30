@@ -1,0 +1,29 @@
+<div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" data-hook="login" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Войти<br> в личный кабинет</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag("general/icons/close-modal.svg") %></span></button>
+      </div>
+      <div class="modal-body">
+        <%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
+          <div class="input-group">
+            <%= f.label :email, Spree.t(:email) %>
+            <%= f.email_field :email, placeholder: "#{Spree.t(:email)}", :id => 'email', :tabindex => 1, autofocus: true %>
+          </div>
+          <div class="input-group">
+            <%= f.label :password, Spree.t(:password) %>
+            <%= f.password_field :password, placeholder: "#{Spree.t(:password)}", :id => 'password', :tabindex => 2 %>
+          </div>
+          <div class="input-group">
+            <%= f.submit Spree.t(:login), :class => 'btn', :tabindex => 4 %>
+          </div>
+          <div class="socials"><a class="item" href="#"><%= image_tag("general/icons/socials/facebook-modal.svg") %></a><a class="item" href="#"><%= image_tag("/static/images/general/icons/socials/google-modal.svg") %></a><a class="item" href="#"><%= image_tag("/static/images/general/icons/socials/twiter-modal.svg") %></a><a class="item" href="#"><%= image_tag("/static/images/general/icons/socials/vk-modal.svg") %></a><a class="item" href="#"><%= image_tag("/static/images/general/icons/socials/instagram-modal.svg") %></a></div><a class="id_modalForgotPasswordOpen" href="#">Забыли свой пароль? - Восстановить доступ</a>
+          <div class="input-group last">
+            <button class="btn id_modalRegistrationOpen">Зарегистрироваться</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
