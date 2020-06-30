@@ -16,4 +16,4 @@ Rails.application.config.assets.paths << Rails.root.join('public', 'static', 'im
 # folder are already added.
 Rails.application.config.assets.precompile += %w( *.svg )
 Rails.application.config.assets.precompile += %w( spree/frontend/*.js )
-Rails.application.config.assets.precompile += %w[ckeditor/*]
+Rails.application.config.assets.precompile += %w( ckeditor/* )
