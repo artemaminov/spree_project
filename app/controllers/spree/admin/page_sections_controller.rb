@@ -7,7 +7,6 @@ module Spree
       update.before :update_before
 
       def create
-        byebug
         @page_section = PageSection.build(params[:page_section].except(:icon))
         @page_section.build_image(attachment: page_section_params[:icon])
         if @page_section.save
