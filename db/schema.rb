@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_095530) do
+ActiveRecord::Schema.define(version: 2020_07_10_121041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,25 +188,17 @@ ActiveRecord::Schema.define(version: 2020_07_10_095530) do
     t.index ["user_id"], name: "index_spree_credit_cards_on_user_id"
   end
 
-  create_table "spree_cropper_translations", force: :cascade do |t|
-    t.bigint "spree_cropper_id", null: false
-    t.string "locale", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "cropped_image"
+  create_table "spree_croppers", force: :cascade do |t|
+    t.bigint "cropped_image_id"
     t.string "name"
-    t.integer "x"
-    t.integer "y"
     t.integer "width"
     t.integer "height"
-    t.string "variant_key"
-    t.index ["locale"], name: "index_spree_cropper_translations_on_locale"
-    t.index ["spree_cropper_id"], name: "index_spree_cropper_translations_on_spree_cropper_id"
-  end
-
-  create_table "spree_croppers", force: :cascade do |t|
+    t.integer "x"
+    t.integer "y"
+    t.string "cmd"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cropped_image_id"], name: "index_spree_croppers_on_cropped_image_id"
   end
 
   create_table "spree_customer_returns", id: :serial, force: :cascade do |t|
