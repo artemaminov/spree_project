@@ -1,0 +1,54 @@
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::Slider)), spree.admin_sliders_path, icon: 'arrow-left', class: 'btn-primary' %>
+<% end %>
+
+<%= form_for [:admin, resource] do |f| %>
+  <div class="row" data-hook="admin_page_form_fields">
+    <div class="col-lg-6" data-hook="admin_page_form_left">
+
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_area :title, class: 'form-control', required: true %>
+        <%= f.error_message_on :title %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :message %>
+        <%= f.text_area :message, class: 'form-control', required: true %>
+        <%= f.error_message_on :message %>
+      </div>
+    </div>
+
+    <div class="col-lg-6" data-hook="admin_page_form_right">
+      <div class="form-group">
+        <%= f.label :position %>
+        <%= f.text_field :position, class: 'form-control', required: true %>
+        <%= f.error_message_on :position %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, rows: 12, class: 'form-control', required: true %>
+        <%= f.error_message_on :url %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" data-hook="admin_page_form_additional_fields">
+    <div class="col-lg-12">
+      <div class="form-group">
+        <% resource.build_cropped_image if resource.cropped_image.blank? %>
+        <%= f.fields_for :cropped_image, resource.cropped_image do |cropped_image_fields| %>
+          <%= cropped_image_fields.label :attachment %>
+          <%= cropped_image_fields.file_field :attachment %>
+<!--          Delete: <%#= cropped_image_fields.check_box :_destroy %>-->
+          <% unless resource.cropped_image.new_record? %>
+            <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource, f: f } %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
+<% end %>

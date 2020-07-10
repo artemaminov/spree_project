@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_101531) do
+ActiveRecord::Schema.define(version: 2020_07_10_095530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,21 +188,25 @@ ActiveRecord::Schema.define(version: 2020_06_25_101531) do
     t.index ["user_id"], name: "index_spree_credit_cards_on_user_id"
   end
 
-  create_table "spree_croom_devices", force: :cascade do |t|
+  create_table "spree_cropper_translations", force: :cascade do |t|
+    t.bigint "spree_cropper_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "cropped_image"
     t.string "name"
+    t.integer "x"
+    t.integer "y"
     t.integer "width"
     t.integer "height"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "variant_key"
+    t.index ["locale"], name: "index_spree_cropper_translations_on_locale"
+    t.index ["spree_cropper_id"], name: "index_spree_cropper_translations_on_spree_cropper_id"
   end
 
-  create_table "spree_croom_images", force: :cascade do |t|
-    t.bigint "spree_croom_devices_id"
-    t.bigint "spree_asset_id"
+  create_table "spree_croppers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["spree_asset_id"], name: "index_spree_croom_images_on_spree_asset_id"
-    t.index ["spree_croom_devices_id"], name: "index_spree_croom_images_on_spree_croom_devices_id"
   end
 
   create_table "spree_customer_returns", id: :serial, force: :cascade do |t|
@@ -1130,6 +1134,24 @@ ActiveRecord::Schema.define(version: 2020_06_25_101531) do
     t.index ["tax_rate_id"], name: "index_spree_shipping_rates_on_tax_rate_id"
   end
 
+  create_table "spree_slider_translations", force: :cascade do |t|
+    t.bigint "spree_slider_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "position"
+    t.string "url"
+    t.string "title"
+    t.text "message"
+    t.index ["locale"], name: "index_spree_slider_translations_on_locale"
+    t.index ["spree_slider_id"], name: "index_spree_slider_translations_on_spree_slider_id"
+  end
+
+  create_table "spree_sliders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_state_changes", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "previous_state"
@@ -1508,8 +1530,6 @@ ActiveRecord::Schema.define(version: 2020_06_25_101531) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "spree_croom_images", "spree_assets"
-  add_foreign_key "spree_croom_images", "spree_croom_devices", column: "spree_croom_devices_id"
   add_foreign_key "spree_oauth_access_grants", "spree_oauth_applications", column: "application_id"
   add_foreign_key "spree_oauth_access_tokens", "spree_oauth_applications", column: "application_id"
 end

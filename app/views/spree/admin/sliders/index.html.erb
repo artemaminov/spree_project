@@ -1,0 +1,47 @@
+<% content_for :page_title do %>
+  <%= Spree.t('slider.title') %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <%= button_link_to Spree.t('slider.new'), new_object_url, icon: 'plus', class: 'btn-primary', id: 'admin_new_slider' %>
+<% end %>
+
+<% if @sliders.any? %>
+  <table class="table" id="listing_pages" data-hook>
+    <colgroup>
+      <col style="width: 50%">
+      <col style="width: 25%">
+      <col style="width: 15%">
+      <col style="width: 10%">
+    </colgroup>
+    <thead>
+    <tr data-hook="admin_pages_index_headers">
+      <th><%= Spree::Slider.human_attribute_name('title') %></th>
+      <th><%= Spree.t('cropped_image.column') %></th>
+      <th><%= Spree::Slider.human_attribute_name('position') %></th>
+      <th data-hook="admin_pages_index_header_actions" class="actions"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @slider.each do |section| %>
+      <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id section %>">
+        <td><%= section.title.html_safe %></td>
+        <td class="text-center"><%= image_tag(main_app.url_for(section.cropped_image.url(:mobile))) if section.cropped_image %></td>
+        <td><%= section.html_section_name %></td>
+        <td class="actions text-right" data-hook="admin_pages_index_row_actions">
+          <%= link_to_edit section, no_text: true %>
+          <% if defined?(SpreeGlobalize) %>
+            <%= link_to content_tag(:span, '', class: 'icon icon-translate'), spree.admin_translations_path('page_section', section.id), class: 'btn btn-primary btn-sm icon-link with-tip', data: { 'original-title' => Spree.t('i18n.translations') } %>
+          <% end %>
+          <%= link_to_delete section, no_text: true %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-warning no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: Spree::Slider.model_name.human) %>,
+    <%= link_to Spree.t(:add_one), spree.new_admin_slider_path %>!
+  </div>
+<% end %>
