@@ -17,7 +17,7 @@
     <thead>
     <tr data-hook="admin_pages_index_headers">
       <th><%= Spree::PageSection.human_attribute_name('title') %></th>
-      <th><%= Spree::PageSection.human_attribute_name('image') %></th>
+      <th><%= Spree.t('cropped_image.column') %></th>
       <th><%= Spree::PageSection.human_attribute_name('html_section_name') %></th>
       <th data-hook="admin_pages_index_header_actions" class="actions"></th>
     </tr>
@@ -26,7 +26,7 @@
     <% @page_sections.each do |section| %>
       <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id section %>">
         <td><%= section.title.html_safe %></td>
-        <td class="text-center"><%= content_tag(:i, '', class: 'icon icon-ok') if section.image %></td>
+        <td class="text-center"><%= image_tag(main_app.url_for(section.cropped_image.url(:mobile))) if section.cropped_image %></td>
         <td><%= section.html_section_name %></td>
         <td class="actions text-right" data-hook="admin_pages_index_row_actions">
           <%= link_to_edit section, no_text: true %>
