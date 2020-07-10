@@ -11,6 +11,7 @@ Spree::HomeController.class_eval do
     @standard_news = news_collection
     @latest_news = @standard_news.latest
     @page_sections = Spree::PageSection
+    @sliders = Spree::Slider.all
   end
 
   private
