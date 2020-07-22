@@ -1,3 +1,11 @@
+<% unless resource.cropped_image.blank? %>
+  <%= content_for :head do %>
+    <%= javascript_include_tag 'rcrop/rcrop.min' %>
+    <%= javascript_include_tag 'spree/backend/cropper' %>
+    <%= stylesheet_link_tag 'rcrop/rcrop.min' %>
+  <% end %>
+<% end %>
+
 <% content_for :page_actions do %>
   <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::PageSection)), spree.admin_page_sections_path, icon: 'arrow-left', class: 'btn-primary' %>
 <% end %>
@@ -60,7 +68,7 @@
           <%= cropped_image_fields.file_field :attachment %>
 <!--          Delete: <%#= cropped_image_fields.check_box :_destroy %>-->
           <% unless resource.cropped_image.new_record? %>
-            <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource, f: f } %>
+            <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource.cropped_image, cropped_image_fields: cropped_image_fields } %>
           <% end %>
         <% end %>
       </div>

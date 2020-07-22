@@ -41,17 +41,21 @@
     </div>
   </div>
   <div class="sliders">
-    <% @sliders.each do |slider| %>
-      <div class="slider">
-      <div class="wrap"></div>
-      <picture>
-        <source media="(max-width: 375px)" srcset="<%= main_app.url_for(slider.cropped_image.attachment.variant(crop: slider.cropped_image.for('mobile'))) %>"/>
-        <source media="(max-width: 768px)" srcset="<%= main_app.url_for(slider.cropped_image.attachment.variant(crop: slider.cropped_image.for('tablet_portrait'))) %>"/>
-        <source media="(max-width: 1440px)" srcset="<%= main_app.url_for(slider.cropped_image.attachment.variant(crop: slider.cropped_image.for('tablet_landscape'))) %>"/>
-        <%= image_tag(main_app.url_for(slider.cropped_image.attachment.variant(crop: slider.cropped_image.for('desktop')))) %>
-      </picture>
-      <div class="text"><%= slider.title.html_safe %><b><%= slider.message.html_safe %></b></div>
-    </div>
+    <% unless @slider.blank? %>
+      <% @slider.slides.each do |slide| %>
+        <div class="slider">
+        <div class="wrap"></div>
+        <% unless slide.cropped_image.blank? %>
+        <picture>
+          <source media="(max-width: 375px)" srcset="<%= main_app.url_for(slide.cropped_image.attachment.variant(crop: slide.cropped_image.for('mobile'))) %>"/>
+          <source media="(max-width: 768px)" srcset="<%= main_app.url_for(slide.cropped_image.attachment.variant(crop: slide.cropped_image.for('tablet_portrait'))) %>"/>
+          <source media="(max-width: 1440px)" srcset="<%= main_app.url_for(slide.cropped_image.attachment.variant(crop: slide.cropped_image.for('tablet_landscape'))) %>"/>
+          <%= image_tag(main_app.url_for(slide.cropped_image.attachment.variant(crop: slide.cropped_image.for('desktop')))) %>
+        </picture>
+        <% end %>
+        <div class="text"><%= slide.title.html_safe %><b><%= slide.message.html_safe %></b></div>
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,11 @@
 <% unless page_section.blank? %>
-  <div class="section section_<%= page_section.html_section_name %>" style="background-image: url(<%= main_app.url_for(page_section.image.url(:mobile)) %>)">
+  <div class="section section_<%= page_section.html_section_name %>">
+    <picture>
+      <source media="(max-width: 375px)" srcset="<%= main_app.url_for(page_section.cropped_image.attachment.variant(crop: page_section.cropped_image.for('mobile'))) unless page_section.cropped_image.blank? %>">
+      <source media="(max-width: 768px)" srcset="<%= main_app.url_for(page_section.cropped_image.attachment.variant(crop: page_section.cropped_image.for('tablet_landscape'))) unless page_section.cropped_image.blank? %>">
+      <source media="(max-width: 1440px)" srcset="<%= main_app.url_for(page_section.cropped_image.attachment.variant(crop: page_section.cropped_image.for('desktop'))) unless page_section.cropped_image.blank? %>">
+      <%= image_tag main_app.url_for(page_section.cropped_image.attachment.variant(crop: page_section.cropped_image.for('desktop'))), class: "bg-img" unless page_section.cropped_image.blank? %>
+    </picture>
     <div class="container-xl">
       <div class="title"><%= page_section.title.html_safe %></div>
       <div class="description"><%= page_section.description.html_safe %></div>

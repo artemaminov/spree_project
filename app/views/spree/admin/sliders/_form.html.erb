@@ -1,3 +1,9 @@
+<%= content_for :head do %>
+<%= javascript_include_tag 'rcrop/rcrop.min' %>
+<%= javascript_include_tag 'spree/backend/cropper' %>
+<%= stylesheet_link_tag 'rcrop/rcrop.min' %>
+<% end %>
+
 <% content_for :page_actions do %>
   <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::Slider)), spree.admin_sliders_path, icon: 'arrow-left', class: 'btn-primary' %>
 <% end %>
@@ -6,47 +12,28 @@
   <div class="row" data-hook="admin_page_form_fields">
     <div class="col-lg-6" data-hook="admin_page_form_left">
 
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_area :title, class: 'form-control', required: true %>
-        <%= f.error_message_on :title %>
-      </div>
+      <%= field_container f.object, :title, class: ['form-group'] do %>
+        <%= f.label :page %>
+        <%= f.text_field :page, class: 'form-control', required: true %>
+        <%= f.error_message_on :page %>
+      <% end %>
 
-      <div class="form-group">
-        <%= f.label :message %>
-        <%= f.text_area :message, class: 'form-control', required: true %>
-        <%= f.error_message_on :message %>
-      </div>
     </div>
-
     <div class="col-lg-6" data-hook="admin_page_form_right">
-      <div class="form-group">
-        <%= f.label :position %>
-        <%= f.text_field :position, class: 'form-control', required: true %>
-        <%= f.error_message_on :position %>
-      </div>
 
-      <div class="form-group">
-        <%= f.label :url %>
-        <%= f.text_field :url, rows: 12, class: 'form-control', required: true %>
-        <%= f.error_message_on :url %>
-      </div>
+      <%= field_container f.object, :title, class: ['form-group'] do %>
+        <%= f.label :page_id %>
+        <%= f.text_field :page_id, class: 'form-control' %>
+        <%= f.error_message_on :page_id %>
+      <% end %>
+
     </div>
   </div>
-
   <div class="row" data-hook="admin_page_form_additional_fields">
-    <div class="col-lg-12">
-      <div class="form-group">
-        <% resource.build_cropped_image if resource.cropped_image.blank? %>
-        <%= f.fields_for :cropped_image, resource.cropped_image do |cropped_image_fields| %>
-          <%= cropped_image_fields.label :attachment %>
-          <%= cropped_image_fields.file_field :attachment %>
-<!--          Delete: <%#= cropped_image_fields.check_box :_destroy %>-->
-          <% unless resource.cropped_image.new_record? %>
-            <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource, f: f } %>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="col-lg-12" data-hook="admin_page_form_left">
+      <%= f.fields_for :slides, resource.slides || resource.slides.build do |slide| %>
+        <%= render partial: 'spree/admin/slides/form_fields', locals: { f: slide, resource: slide.object } %>
+      <% end %>
     </div>
   </div>
 

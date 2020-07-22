@@ -710,12 +710,6 @@ ru:
     confirm_password: "Подтверждение пароля"
     continue: "Продолжить"
     continue_shopping: "Продолжить покупки"
-    page_section:
-      blocks: "Блоки"
-      new: "Новый блок"
-      sections: "Блоки страниц"
-      slider: "Карусель"
-      title: "Оформление"
     cost_currency: "Валюта"
     cost_price: "Себестоимость"
     could_not_connect_to_jirafe: "Невозможно синхоринизороваться с Jirafe. Попытка будет повторена позже."
@@ -1151,6 +1145,12 @@ ru:
     out_of_stock: "Нет в наличии"
     overview: "Обзор"
     package_from: "обработки в"
+    page_section:
+      blocks: "Блоки"
+      new: "Новый блок"
+      sections: "Блоки страниц"
+      slider: "Карусель"
+      title: "Оформление"
     pagination:
       next_page: "следующая страница »"
       previous_page: "« предыдущая страница"
@@ -1439,6 +1439,8 @@ ru:
     show_rate_in_label: "Показывать процент в названии"
     sku: "Артикул"
     skus:
+    slider:
+      title: "Карусель"
     slug: "Ссылка"
     source: "Источник"
     special_instructions: "Дополнительные инструкции"

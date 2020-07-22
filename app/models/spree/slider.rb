@@ -1,14 +1,13 @@
 module Spree
   class Slider < Spree::Base
-    has_one :cropped_image, as: :viewable, dependent: :destroy
+    has_and_belongs_to_many :slides, :class_name => 'Spree::Slide', join_table: 'spree_sliders_slides'
 
-    accepts_nested_attributes_for :cropped_image, allow_destroy: true
+    accepts_nested_attributes_for :slides
 
-    validates :title, :message, :position, presence: true
+    validates_presence_of :page
 
-    if defined?(SpreeGlobalize)
-      translates :title, :message, :url, :position, fallbacks_for_empty_translations: true
-      include SpreeGlobalize::Translatable
+    def self.for_page(name, page_id)
+      where(page: name, page_id: page_id).first
     end
 
   end
