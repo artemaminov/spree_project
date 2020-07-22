@@ -4,6 +4,11 @@ Spree::StoreController.class_eval do
   include Rails.application.routes.url_helpers
   include CheckoutHelper
 
+  before_action :load_slider
+
+  def load_slider
+    @slider = Spree::Slider.for_page controller_name, params[:id]
+  end
 
   def render_error_message (error)
     status = { status: bad_request }
