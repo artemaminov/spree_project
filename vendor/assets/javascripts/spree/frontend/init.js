@@ -2,23 +2,78 @@
 
 var isModalOpen = false;
 $(document).ready(function () {
-  $('.input_phone').inputmask("+7 (999) 999 99 99");
+  initInputMask();
   initHomeSlickSlider();
   showModal('.id_modalRegistrationOpen', '#registration');
   showModal('.id_modalLoginOpen', '#login');
   showModal('.id_modalThankYouOpen', '#thankYou');
   showModal('.id_modalForgotPasswordOpen', '#forgotPassword');
+  showModal('.id_modalAddProduct', '#addProduct');
+  showModal('.id_modalAddCollection', '#addCollection');
   isShowSidebar();
   showNavigation();
   initPopover();
   initGrid();
+  modalAddProductInitAndDestroy();
+  initTabForAddProductModal();
+  initAccordionAddCollection();
 });
 
-function initGrid() {
-  $('.grid').masonry({
-    itemSelector: '.grid-item',
-    percentPosition: true // gutter: 10
+function initAccordionAddCollection() {
+  var accordion = $('#accordionAddCollection');
+  accordion.on('shown.bs.collapse', function () {
+    addDeleteActiveForAccordion();
+  });
+  accordion.on('hidden.bs.collapse', function () {
+    addDeleteActiveForAccordion();
+  });
+}
 
+function addDeleteActiveForAccordion() {
+  var items = $('.accordion .card .card-header .items');
+  items.parent().parent().removeClass('active');
+  items.each(function (i, elem) {
+    if (!$(this).hasClass('collapsed')) {
+      $(this).parent().parent().addClass('active');
+    }
+  });
+}
+
+function initTabForAddProductModal() {
+  $('#tabProduct li, #tabProduct li input').on('click', function (e) {
+    $(this).find('a').tab('show');
+    $(this).closest('ul').find('input[type="radio"]').prop('checked', '');
+    $(this).closest('li').find('input[type="radio"]').prop('checked', 'checked');
+  });
+}
+
+function initInputMask() {
+  $('.input_phone').inputmask("+7 (999) 999 99 99");
+}
+
+function modalAddProductInitAndDestroy() {
+  $(document).on('shown.bs.modal', function (e) {
+    if (e.target.id === 'addProduct') {
+      initAddProductSliderMini();
+      initAddProductSlider();
+    }
+  });
+  $(document).on('hidden.bs.modal', function (e) {
+    if (e.target.id === 'addProduct') {
+      destroyAddProductSlider('.slider_add-product');
+      destroyAddProductSlider('.slider_add-product_mini');
+    }
+  });
+}
+
+function initGrid() {
+  var grid = $('.grid').imagesLoaded().progress(function () {
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      columnWidth: '.persent-size' // gutter: 10
+
+    });
   });
 }
 
@@ -27,7 +82,8 @@ function initPopover() {
     trigger: 'hover',
     placement: 'top',
     container: 'body',
-    html: true
+    html: true,
+    boundary: 'window'
   });
 }
 
@@ -47,6 +103,44 @@ function isShowSidebar() {
     $('.sidebar_block').addClass('active');
     initSidebarSlider();
   });
+}
+
+function initAddProductSliderMini() {
+  $('.slider_add-product_mini').slick({
+    arrows: false,
+    dots: false,
+    fade: false,
+    autoplay: false,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    asNavFor: '.slider_add-product',
+    focusOnSelect: true,
+    responsive: [{
+      breakpoint: 1439,
+      settings: {
+        slidesToShow: 3
+      }
+    }]
+  });
+}
+
+function initAddProductSlider() {
+  $('.slider_add-product').slick({
+    arrows: false,
+    dots: false,
+    fade: true,
+    autoplay: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    swipe: false,
+    asNavFor: '.slider_add-product_mini'
+  });
+}
+
+function destroyAddProductSlider(obj) {
+  $(obj).slick('unslick');
 }
 
 function initHomeSlickSlider() {
@@ -100,7 +194,7 @@ function showNavigation() {
   var oldY = 0;
   var firstSection = null,
       positionBottomFirstSection = null;
-  firstSection = $('.section_first-section');
+  firstSection = $('#first-section');
   positionBottomFirstSection = firstSection.outerHeight();
   window.addEventListener('scroll', function () {
     var coordinates = document.documentElement.getBoundingClientRect();
