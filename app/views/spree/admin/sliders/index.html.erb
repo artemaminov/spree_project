@@ -9,18 +9,16 @@
 <% if @sliders.any? %>
   <table class="table" id="list-slider" data-hook>
     <colgroup>
-      <col style="width: 15%">
       <col style="width: 10%">
-      <col style="width: 10%">
-      <col style="width: 55%">
-      <col style="width: 10%">
+      <col style="width: 40%">
+      <col style="width: 50%">
+      <col style="width: 0">
     </colgroup>
     <thead>
     <tr data-hook="admin_pages_index_headers">
       <th><%= Spree::Slider.human_attribute_name('position') %></th>
       <th><%= Spree::Slider.human_attribute_name('title') %></th>
       <th><%= Spree.t('slides_count') %></th>
-      <th><%= Spree.t('cropped_image.column') %></th>
       <th data-hook="admin_pages_index_header_actions" class="actions"></th>
     </tr>
     </thead>
@@ -30,13 +28,6 @@
         <td><%= slider.page %></td>
         <td><%= slider.page_id %></td>
         <td><%= slider.slides.count %></td>
-        <td class="text-center">
-          <% if slider.slides.exists? %>
-            <% slider.slides.each do |slide| %>
-              <%= image_tag(main_app.url_for(slide.cropped_image.url(:mobile))) unless slide.cropped_image.blank? %>
-            <% end %>
-          <% end %>
-        </td>
         <td class="actions text-right" data-hook="admin_pages_index_row_actions">
           <%= link_to_edit slider, no_text: true %>
           <% if defined?(SpreeGlobalize) %>

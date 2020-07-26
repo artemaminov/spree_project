@@ -1,6 +1,6 @@
 <% unless page_section.blank? %>
   <div class="section section_<%= page_section.html_section_name %>">
-    <%= cropped_image_tag(page_section.cropped_image, 'bg-img') %>
+    <%= image_combine_tag(page_section, 'bg-img') %>
     <div class="container-xl">
       <div class="title"><%= page_section.title.html_safe %></div>
       <div class="description"><%= page_section.description.html_safe %></div>

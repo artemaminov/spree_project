@@ -1,8 +1,6 @@
 module Spree
   class PageSection < Spree::Base
-    has_one :cropped_image, as: :viewable, dependent: :destroy,class_name: 'Spree::CroppedImage'
 
-    accepts_nested_attributes_for :cropped_image, allow_destroy: true
 
     validates :title, :description, :html_section_name, presence: true
     validates :button_url, presence: true, if: :button_text?

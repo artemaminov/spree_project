@@ -1,9 +1,3 @@
-<%= content_for :head do %>
-<%= javascript_include_tag 'rcrop/rcrop.min' %>
-<%= javascript_include_tag 'spree/backend/cropper' %>
-<%= stylesheet_link_tag 'rcrop/rcrop.min' %>
-<% end %>
-
 <% content_for :page_actions do %>
   <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::Slider)), spree.admin_sliders_path, icon: 'arrow-left', class: 'btn-primary' %>
 <% end %>
