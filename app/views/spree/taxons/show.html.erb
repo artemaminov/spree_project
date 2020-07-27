@@ -1,0 +1,29 @@
+<%= render partial: 'spree/shared/slider' %>
+
+<section class="catalog-content">
+  <div class="container-xl">
+    <!-- хлебные крошки-->
+    <div class="breadcrumbs">
+      <%= spree_breadcrumbs(@taxon) %>
+    </div>
+    <!-- конце хлебные крошки-->
+    <!-- фильтр-->
+    <%= render partial: 'spree/shared/filters' %>
+    <!-- конце фильтр-->
+    <!-- скисок продукции-->
+    <div class="products">
+        <div class="grid">
+          <div data-hook="taxon_products">
+            <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+          </div>
+        </div>
+      </div>
+    <!-- конце список продукции-->
+  </div>
+</section>
+
+<%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('partners') } %>
+<div class="section section_empty"></div>
+
+<%= render partial: 'spree/products/modal_add_product' %>
+<%= render partial: 'spree/products/modal_add_collection' %>

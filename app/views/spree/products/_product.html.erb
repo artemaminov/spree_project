@@ -1,0 +1,38 @@
+<% url = spree.product_path(product, taxon_id: taxon.try(:id)) %>
+<div id="product_<%= product.id %>" class="grid-item persent-size">
+  <div class="box-card">
+    <div class="preview"><%= small_image(product, itemprop: "image") %>
+      <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><%= link_to url %>Карточка товара</a>
+    </div>
+    <div class="header">
+      <div class="title"><%= product.name %></div>
+      <div class="in-stock">В наличии</div>
+    </div>
+    <div class="body">
+      <div class="item item-left">
+        <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+        <div class="prices">
+          <div class="item item-wholesale">
+            <div class="title">Оптовая</div>
+            <div class="price"><%= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %> ₽</div>
+          </div>
+          <div class="item item-retail">
+            <div class="title">Розничная</div>
+            <div class="price"><%= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %> ₽</div>
+          </div>
+        </div>
+      </div>
+      <div class="item item-right">
+        <div class="add-to-basket">
+          <div class="btn_circle id_modalAddCollection" href="#">
+            <div class="circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

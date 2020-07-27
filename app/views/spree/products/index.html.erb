@@ -1,0 +1,679 @@
+<%= render partial: 'spree/shared/slider' %>
+
+<section class="catalog-content">
+  <div class="container-xl">
+    <!-- хлебные крошки-->
+    <div class="breadcrumbs">
+      <%= spree_breadcrumbs(@taxon) %>
+      <a href="#">Главная страница</a><span>/</span><span>Кирпич ручной формовки</span>
+    </div>
+    <!-- конце хлебные крошки-->
+    <!-- фильтр-->
+    <div class="filters">
+      <div class="item">
+        <div class="title">Оттенок</div>
+        <div class="colors">
+          <div class="item">
+            <input type="checkbox" id="color-2" name="color">
+            <label style="background: url(/static/images/content/products/color-2.png) center" for="color-2" data-toggle="popover" data-content="&lt;span&gt;Темный оттенок&lt;/span&gt;"></label>
+          </div>
+          <div class="item">
+            <input type="checkbox" id="color-3" name="color">
+            <label style="background: url(/static/images/content/products/color-3.png) center" for="color-3" data-toggle="popover" data-content="&lt;span&gt;Серый оттенок&lt;/span&gt;"></label>
+          </div>
+          <div class="item">
+            <input type="checkbox" id="color-4" name="color">
+            <label style="background: url(/static/images/content/products/color-4.png) center" for="color-4" data-toggle="popover" data-content="&lt;span&gt;Черный оттенок&lt;/span&gt;"></label>
+          </div>
+          <div class="item">
+            <input type="checkbox" id="color-1" name="color">
+            <label style="background: url(/static/images/content/products/color-1.png) center" for="color-1" data-toggle="popover" data-content="&lt;span&gt;Светлый оттенок&lt;/span&gt;"></label>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="title">Форматы</div>
+        <div class="formats_wrapper">
+          <div class="formats">
+            <div class="item">
+              <input type="checkbox" id="size-1" name="sizes">
+              <label for="size-1" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">ECO-WDF</label>
+            </div>
+            <div class="item">
+              <input type="checkbox" id="size-2" name="sizes">
+              <label for="size-2" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">NF</label>
+            </div>
+            <div class="item">
+              <input type="checkbox" id="size-3" name="sizes">
+              <label for="size-3" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">WDF</label>
+            </div>
+            <div class="item">
+              <input type="checkbox" id="size-4" name="sizes">
+              <label for="size-4" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">SF</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- конце фильтр-->
+    <!-- скисок продукции-->
+    <div class="products">
+      <div class="grid">
+        <!-- один товар-->
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- конец один товар-->
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item grid-item_article persent-size persent-size-x2">
+          <div class="article"><img src="/static/images/content/products/article-1.jpg"/>
+            <div class="title">Кирпич ручной работы Монс-Роял</div>
+            <div class="description">
+              <p>Ницше однажды сказал, что голос красоты звучит тихо и проникает только в самые чуткие уши. Вы слышали, как звучит керамический кирпич ручной формовки?</p>
+              <p>Звук чистейшей красоты, чистейшей мастерской работы и натуральной укрепленной огнем глины. Это не описать словами, нужно только слушать.</p>
+              <p>А смотреть на такой кирпич, можно практически, как на огонь – бесконечно. Он неподражаемо эффектно смотрится на фасадах и в интерьерах, тонко играя своими состаренными фактурами. Кажется, что каждый старинный кирпич хранит свою многовековую тайну.</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item grid-item_article persent-size persent-size-x2">
+          <div class="article"><img src="/static/images/content/products/article-1.jpg"/>
+            <div class="title">Кирпич ручной работы Монс-Роял</div>
+            <div class="description">
+              <p>Ницше однажды сказал, что голос красоты звучит тихо и проникает только в самые чуткие уши. Вы слышали, как звучит керамический кирпич ручной формовки?</p>
+              <p>Звук чистейшей красоты, чистейшей мастерской работы и натуральной укрепленной огнем глины. Это не описать словами, нужно только слушать.</p>
+              <p>А смотреть на такой кирпич, можно практически, как на огонь – бесконечно. Он неподражаемо эффектно смотрится на фасадах и в интерьерах, тонко играя своими состаренными фактурами. Кажется, что каждый старинный кирпич хранит свою многовековую тайну.</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">В наличии</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item persent-size">
+          <div class="box-card">
+            <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+              <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+            </div>
+            <div class="header">
+              <div class="title">Лозьер</div>
+              <div class="in-stock">Под заказ</div>
+            </div>
+            <div class="body">
+              <div class="item item-left">
+                <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                <div class="prices">
+                  <div class="item item-wholesale">
+                    <div class="title">Оптовая</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                  <div class="item item-retail">
+                    <div class="title">Розничная</div>
+                    <div class="price">от 33.7 ₽</div>
+                  </div>
+                </div>
+              </div>
+              <div class="item item-right">
+                <div class="add-to-basket">
+                  <div class="btn_circle id_modalAddCollection" href="#">
+                    <div class="circle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- конце список продукции-->
+  </div>
+</section>
+
+<%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('partners') } %>
+<div class="section section_empty"></div>
+
+<%= render partial: 'spree/shared/footer' %>
+<%= render partial: 'spree/shared/modal' %>
+<%= render partial: 'spree/products/modal_add_product' %>
+<%= render partial: 'spree/products/modal_add_collection' %>
+
+<% if "spree/products" == params[:controller] && @taxon || @taxonomies.present? %>
+  <% content_for :sidebar do %>
+    <div data-hook="homepage_sidebar_navigation">
+      <% if "spree/products" == params[:controller] && @taxon %>
+        <%= render partial: 'spree/shared/filters' %>
+      <% else %>
+        <%= render partial: 'spree/shared/taxonomies' %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if params[:keywords] %>
+  <div data-hook="search_results">
+    <% if @products.empty? %>
+      <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+    <% else %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+    <% end %>
+  </div>
+<% else %>
+  <div data-hook="homepage_products">
+    <% cache(cache_key_for_products) do %>
+      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+    <% end %>
+  </div>
+<% end %>
