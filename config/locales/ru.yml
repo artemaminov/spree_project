@@ -1448,13 +1448,12 @@ ru:
     sku: "Артикул"
     skus:
     slider:
-      title: "Карусель"
+      title: "Оформление"
+      new: "Добавить слайд"
+    split: "Разделить"
     slug: "Ссылка"
     source: "Источник"
     special_instructions: "Дополнительные инструкции"
-    slider:
-      new: "Добавить слайд"
-    split: "Разделить"
     spree_gateway_error_flash_for_checkout: "Возникли проблемы с Вашими реквизитами. Пожалуйста, проверьте их и попробуйте ещё раз."
     ssl:
       change_protocol:
