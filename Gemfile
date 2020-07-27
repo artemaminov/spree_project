@@ -77,7 +77,7 @@ gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n'
 
 gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
-gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed'
+# gem 'spree_recently_viewed', github: 'spree-contrib/spree_recently_viewed'
 gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
 
