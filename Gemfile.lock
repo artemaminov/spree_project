@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/artemaminov/spree_cropper.git
-  revision: 9edef8dda95323ffa5f35522e94d9535af6ec100
+  revision: 4b4f82333b01eb5a6939aae91d8b275c582a8b42
   specs:
-    spree_cropper (0.1.1.beta)
+    spree_cropper (0.1.2.beta)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
@@ -19,6 +19,15 @@ GIT
       spree_core (>= 3.1.0, < 5.0)
       spree_extension
       tinymce-rails (~> 4.2.5)
+
+GIT
+  remote: https://github.com/artemaminov/spree_image_combine.git
+  revision: 3b06da49ed956a7b9907298f7946b342577ade91
+  specs:
+    spree_image_combine (0.0.1.alpha)
+      spree_backend (>= 3.2.0, < 5.0)
+      spree_core (>= 3.2.0, < 5.0)
+      spree_extension
 
 GIT
   remote: https://github.com/spree-contrib/spree_address_book.git
@@ -129,7 +138,7 @@ GEM
     activejob (5.2.4.3)
       activesupport (= 5.2.4.3)
       globalid (>= 0.3.6)
-    activemerchant (1.109.0)
+    activemerchant (1.110.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -244,7 +253,7 @@ GEM
     execjs (2.7.0)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
-    ffaker (2.15.0)
+    ffaker (2.16.0)
     ffi (1.13.1)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
@@ -258,7 +267,7 @@ GEM
       request_store (~> 1.0)
     highline (2.0.3)
     htmlentities (4.3.4)
-    i18n (1.8.4)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     io-like (0.3.0)
@@ -592,6 +601,7 @@ DEPENDENCIES
   spree_gateway (~> 3.4)
   spree_globalize!
   spree_i18n!
+  spree_image_combine!
   spree_multi_vendor!
   spree_print_invoice!
   spree_recently_viewed!
