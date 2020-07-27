@@ -8,6 +8,7 @@ Spree::StoreController.class_eval do
 
   def load_slider
     @slider = Spree::Slider.for_page controller_name, params[:id]
+    @page_sections = Spree::PageSection
   end
 
   def render_error_message (error)
