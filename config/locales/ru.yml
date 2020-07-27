@@ -108,6 +108,14 @@ ru:
         amount: "Сумма"
       spree/role:
         name: "Название"
+      spree/slide:
+        title: "Заголовок"
+        message: "Текст"
+        order: "Порядковый номер"
+        url: "Ссылка"
+      spree/slider:
+        page: "Путь (имя контроллера)"
+        page_id: "ID (параметр)"
       spree/state:
         abbr: "Аббревиатура"
         name: "Название"
@@ -1444,6 +1452,8 @@ ru:
     slug: "Ссылка"
     source: "Источник"
     special_instructions: "Дополнительные инструкции"
+    slider:
+      new: "Добавить слайд"
     split: "Разделить"
     spree_gateway_error_flash_for_checkout: "Возникли проблемы с Вашими реквизитами. Пожалуйста, проверьте их и попробуйте ещё раз."
     ssl:
