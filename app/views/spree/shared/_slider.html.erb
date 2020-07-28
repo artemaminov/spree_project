@@ -1,14 +1,15 @@
 <div class="section_first-section-catalog" id="first-section">
-  <picture>
-    <source media="(max-width: 375px)" srcset="/static/images/general/bg/catalog/bg-first-section-375.jpg">
-    <source media="(max-width: 768px)" srcset="/static/images/general/bg/catalog/bg-first-section-768.jpg">
-    <source media="(max-width: 1440px)" srcset="/static/images/general/bg/catalog/bg-first-section-1440.jpg"><img class="bg-img" src="/static/images/general/bg/catalog/bg-first-section-1920.jpg">
-  </picture>
-  <div class="wrap"></div>
-  <div class="container-xl">
-    <h1 class="title">КИРПИЧ РУЧНОЙ ФОРМОВКИ</h1>
-    <h2 class="description mt-4">Выраженная фактура позволяет создать оригинальные решения</h2>
-    <div class="socials_header">
+  <% if @slider %>
+    <% @slider.slides.each do |slide| %>
+      <%= image_combine_tag(@slider) %>
+      <div class="wrap"></div>
+      <div class="container-xl">
+        <h1 class="title"><%= slide.title %></h1>
+        <h2 class="description mt-4"><%= slide.message %></h2>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="socials_header">
       <div class="items"><a class="item" href="#">
         <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0)">
@@ -44,5 +45,4 @@
           <path d="M8.291 9.32361L8.751 6.32361H5.872V4.38261C5.85244 4.159 5.88332 3.93386 5.96235 3.72377C6.04138 3.51368 6.16656 3.32401 6.32865 3.16874C6.49073 3.01346 6.6856 2.89654 6.89889 2.8266C7.11217 2.75666 7.33844 2.73547 7.561 2.76461H8.868V0.210609C8.10058 0.087469 7.32517 0.020624 6.548 0.0106085C6.01316 -0.0302121 5.47589 0.0470892 4.97426 0.237035C4.47262 0.426981 4.0189 0.724924 3.64523 1.10975C3.27157 1.49458 2.98711 1.95688 2.81201 2.46388C2.63691 2.97089 2.57546 3.5102 2.632 4.04361V6.32761H0V9.32761H2.632V16.5716H5.872V9.32361H8.291Z" fill="white"></path>
         </svg></a></div>
     </div>
-  </div>
 </div>
