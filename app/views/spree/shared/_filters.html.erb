@@ -4,19 +4,19 @@
     <div class="colors">
       <div class="item">
         <input type="checkbox" id="color-2" name="color">
-        <label style="background: url(/static/images/content/products/color-2.png) center" for="color-2" data-toggle="popover" data-content="&lt;span&gt;Темный оттенок&lt;/span&gt;"></label>
+        <label style="background: url(<%= asset_url 'content/products/color-2.png' %>) center" for="color-2" data-toggle="popover" data-content="&lt;span&gt;Темный оттенок&lt;/span&gt;"></label>
       </div>
       <div class="item">
         <input type="checkbox" id="color-3" name="color">
-        <label style="background: url(/static/images/content/products/color-3.png) center" for="color-3" data-toggle="popover" data-content="&lt;span&gt;Серый оттенок&lt;/span&gt;"></label>
+        <label style="background: url(<%= asset_url 'content/products/color-3.png' %>) center" for="color-3" data-toggle="popover" data-content="&lt;span&gt;Серый оттенок&lt;/span&gt;"></label>
       </div>
       <div class="item">
         <input type="checkbox" id="color-4" name="color">
-        <label style="background: url(/static/images/content/products/color-4.png) center" for="color-4" data-toggle="popover" data-content="&lt;span&gt;Черный оттенок&lt;/span&gt;"></label>
+        <label style="background: url(<%= asset_url 'content/products/color-4.png' %>) center" for="color-4" data-toggle="popover" data-content="&lt;span&gt;Черный оттенок&lt;/span&gt;"></label>
       </div>
       <div class="item">
         <input type="checkbox" id="color-1" name="color">
-        <label style="background: url(/static/images/content/products/color-1.png) center" for="color-1" data-toggle="popover" data-content="&lt;span&gt;Светлый оттенок&lt;/span&gt;"></label>
+        <label style="background: url(<%= asset_url 'content/products/color-1.png' %>) center" for="color-1" data-toggle="popover" data-content="&lt;span&gt;Светлый оттенок&lt;/span&gt;"></label>
       </div>
     </div>
   </div>
@@ -45,7 +45,8 @@
   </div>
 </div>
 
-<% filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
+<%# filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
+<% filters = [] %>
 
 <% unless filters.empty? %>
   <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
