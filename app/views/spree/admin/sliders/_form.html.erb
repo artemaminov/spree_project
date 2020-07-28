@@ -6,6 +6,12 @@
   <div class="row" data-hook="admin_page_form_fields">
     <div class="col-lg-6" data-hook="admin_page_form_left">
 
+      <%= field_container f.object, :name, class: ['form-group'] do %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+        <%= f.error_message_on :name %>
+      <% end %>
+
       <%= field_container f.object, :page, class: ['form-group'] do %>
         <%= f.label :page %>
         <%= f.text_field :page, class: 'form-control', required: true %>

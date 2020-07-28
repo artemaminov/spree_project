@@ -5,6 +5,13 @@
 <%= form_for [:admin, resource] do |f| %>
   <div class="row" data-hook="admin_page_form_fields">
     <div class="col-lg-6" data-hook="admin_page_form_left">
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, rows: 12, class: 'form-control', required: true %>
+        <%= f.error_message_on :name %>
+      </div>
+
       <div class="form-group">
         <%= f.label :html_section_name %>
         <%= f.text_field :html_section_name, rows: 12, class: 'form-control', required: true %>

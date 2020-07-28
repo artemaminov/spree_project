@@ -114,6 +114,7 @@ ru:
         order: "Порядковый номер"
         url: "Ссылка"
       spree/slider:
+        name: "Наименование"
         page: "Путь (имя контроллера)"
         page_id: "ID (параметр)"
       spree/state:
@@ -233,6 +234,7 @@ ru:
         button_url: "Ссылка кнопки"
         description: "Текст блока"
         html_section_name: "ID html блока"
+        name: "Наименование"
         title: "Заголовок"
       spree/file_attachment:
         name: "Имя"
