@@ -45,7 +45,7 @@
       <% @slider.slides.each do |slide| %>
         <div class="slider">
         <div class="wrap"></div>
-        <%= image_combine_tag(slide) %>
+        <%= image_combine_tag(@slider) %>
         <div class="text"><%= slide.title.html_safe %><b><%= slide.message.html_safe %></b></div>
       </div>
       <% end %>

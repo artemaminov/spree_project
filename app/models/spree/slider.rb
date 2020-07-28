@@ -7,6 +7,7 @@ module Spree
     validates_presence_of :page
 
     def self.for_page(name, page_id)
+      page_id = [nil, ''] if page_id.blank?
       where(page: name, page_id: page_id).first
     end
 
