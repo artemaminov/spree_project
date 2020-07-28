@@ -22,9 +22,9 @@ GIT
 
 GIT
   remote: https://github.com/artemaminov/spree_image_combine.git
-  revision: 3b06da49ed956a7b9907298f7946b342577ade91
+  revision: 78bb9ba4b290f8a62be3dfdb86efc72f05315982
   specs:
-    spree_image_combine (0.0.1.alpha)
+    spree_image_combine (0.0.2.alpha)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
