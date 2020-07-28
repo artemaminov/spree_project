@@ -1,8 +1,10 @@
 <% url = spree.product_path(product, taxon_id: taxon.try(:id)) %>
 <div id="product_<%= product.id %>" class="grid-item persent-size">
   <div class="box-card">
-    <div class="preview"><%= small_image(product, itemprop: "image") %>
-      <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><%= link_to url %>Карточка товара</a>
+    <div class="preview">
+      <%= small_image(product, itemprop: "image") %>
+      <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div>
+      <%= link_to 'Карточка товара', url, class: 'btn btn_card-product' %>
     </div>
     <div class="header">
       <div class="title"><%= product.name %></div>
