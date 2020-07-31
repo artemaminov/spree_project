@@ -44,10 +44,7 @@
         <li class="cursor"><a href="#">Каталог</a>
           <div class="toggle_btn"><%= image_tag("general/icons/arrow_sidebar.svg") %></div>
           <ul>
-            <li><a href="#">Кирпич ручной формовки</a></li>
-            <li><a href="#">Ригель - кирпич</a></li>
-            <li><a href="#">Клинкерный кирпич</a></li>
-            <li><a href="#">Тротуарный клинкер</a></li>
+            <%= render partial: 'spree/shared/taxonomies', locals: { inside_li_tag: true } %>
           </ul>
         </li>
         <li class="cursor"><a href="#">О компании</a>
