@@ -1,0 +1,11 @@
+<% cache [I18n.locale, @taxonomies] do %>
+  <% @taxonomies.each do |taxonomy| %>
+    <% taxon = taxonomy.taxons.first %>
+    <% link = link_to(taxon.name, seo_url(taxon), class: 'item') %>
+    <% if inside_li_tag %>
+      <%= content_tag(:li, link) %>
+    <% else %>
+      <%= link %>
+    <% end %>
+  <% end %>
+<% end %>
