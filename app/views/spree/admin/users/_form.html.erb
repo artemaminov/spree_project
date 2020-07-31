@@ -22,11 +22,6 @@
       <%= f.error_message_on :phone_number%>
     <% end %>
 
-    <%= f.field_container :user_type, class: ['form-group'] do %>
-      <%= f.label :user_type, Spree.t(:user_type, scope: :user_attributes) %>
-      <%= f.select(:user_type, Spree::User.user_types.map{|t| [Spree.t(t[0], scope: "user_attributes.user_types"), t[0]]}, { include_blank: false }, { class: 'select2' }) %>
-    <% end %>
-
     <div data-hook="admin_user_form_roles" class="form-group">
       <strong><%= Spree.t(:roles) %></strong>
       <%= f.collection_check_boxes :spree_role_ids, Spree::Role.all, :id, :name do |role_form| %>
@@ -37,10 +32,6 @@
           <% end %>
         </div>
       <% end %>
-    </div>
-
-    <div id="entity_fields" style="display: <%= f.object.user_type == 'private_user' ? 'none' : 'block'%>;">
-      <%= render partial: 'entity_form', locals: { f: f } %>
     </div>
 
   </div>
