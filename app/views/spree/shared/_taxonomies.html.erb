@@ -1,5 +1,5 @@
-<% max_level = 1 %>
 <% cache [I18n.locale, @taxonomies] do %>
+  <% if @taxonomies %>
   <% @taxonomies.each do |taxonomy| %>
     <% taxon = taxonomy.taxons.first %>
     <% link = link_to(taxon.name, seo_url(taxon), class: 'item') %>
@@ -9,4 +9,5 @@
       <%= link %>
     <% end %>
   <% end %>
+    <% end %>
 <% end %>
