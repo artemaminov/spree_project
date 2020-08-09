@@ -31,7 +31,6 @@ def get_column_mappings(row)
 end
 
 def associate_product_with_taxon(product, taxon_hierarchy)
-  byebug
   return if product.nil? || taxon_hierarchy.nil?
 
   taxon_hierarchy.split(/\s*\|\s*/).each do |hierarchy|
