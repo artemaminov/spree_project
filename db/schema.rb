@@ -1491,7 +1491,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.string "sku", default: "", null: false
     t.decimal "weight", precision: 8, scale: 2, default: "0.0"
     t.decimal "height", precision: 8, scale: 2
-    t.decimal "width", precision: 8, scale: 2
+    t.string "width", limit: 255
     t.decimal "depth", precision: 8, scale: 2
     t.datetime "deleted_at"
     t.boolean "is_master", default: false
@@ -1506,6 +1506,11 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.datetime "created_at", null: false
     t.integer "vendor_id"
     t.decimal "sale_price", precision: 8, scale: 2
+    t.integer "sqr_meter_amount"
+    t.integer "pallet_quantity"
+    t.integer "car_load"
+    t.string "pallet_dimension", limit: 14
+    t.string "dimension", limit: 11
     t.index ["deleted_at"], name: "index_spree_variants_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_variants_on_discontinue_on"
     t.index ["is_master"], name: "index_spree_variants_on_is_master"
