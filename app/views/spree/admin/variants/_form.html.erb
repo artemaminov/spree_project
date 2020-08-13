@@ -1,11 +1,11 @@
 <div class="row">
-  <div data-hook="admin_variant_form_fields" class="col-12 col-md-6">
+  <div data-hook="admin_variant_form_fields" class="col-xs-12 col-md-6">
     <div data-hook="variants">
       <% @product.option_types.each do |option_type| %>
         <div class="form-group" data-hook="presentation">
           <%= label :new_variant, option_type.presentation %>
           <%= f.collection_select 'option_value_ids', option_type.option_values, :id, :presentation,
-                                  { include_blank: true }, { name: 'variant[option_value_ids][]', class: 'select2' } %>
+            { include_blank: true }, { name: 'variant[option_value_ids][]', class: 'select2' } %>
         </div>
       <% end %>
 
@@ -35,20 +35,42 @@
       </div>
 
       <div class="form-group" data-hook="discontinue_on">
-
-        <%= f.label :discontinue_on, Spree.t(:discontinue_on) %>
-        <%= f.error_message_on :discontinue_on %>
-        <%= f.text_field :discontinue_on, value: datepicker_field_value(@variant.discontinue_on), class: 'datepicker form-control' %>
+          <%= f.label :discontinue_on, Spree.t(:discontinue_on) %>
+          <%= f.error_message_on :discontinue_on %>
+          <%= f.text_field :discontinue_on, value: datepicker_field_value(@variant.discontinue_on), class: 'datepicker form-control' %>
       </div>
     </div>
   </div>
 
-  <div class="col-12 col-md-6" data-hook="admin_variant_form_additional_fields">
-    <% [:weight, :height, :width, :depth].each do |field| %>
-      <div class="form-group" data-hook="<%= field %>"><%= f.label field, Spree.t(field) %>
-        <% value = number_with_precision(@variant.send(field), precision: 2) %>
-        <%= f.text_field field, value: value, class: 'form-control' %>
-      </div>
-    <% end %>
+  <div class="col-xs-6 col-md-6" data-hook="admin_variant_form_additional_fields">
+    <div class="form-group" data-hook="sqr_meter_amount">
+      <%= f.label :sqr_meter_amount, Spree.t(:sqr_meter_amount) %>
+      <%= f.text_field :sqr_meter_amount, class: 'form-control' %>
+    </div>
+
+    <div class="form-group" data-hook="pallet_quantity">
+      <%= f.label :pallet_quantity, Spree.t(:pallet_quantity) %>
+      <%= f.text_field :pallet_quantity, class: 'form-control' %>
+    </div>
+
+    <div class="form-group" data-hook="car_load">
+      <%= f.label :car_load, Spree.t(:car_load) %>
+      <%= f.text_field :car_load, class: 'form-control' %>
+    </div>
+
+    <div class="form-group" data-hook="pallet_dimension">
+      <%= f.label :pallet_dimension, Spree.t(:pallet_dimension) %>
+      <%= f.text_field :pallet_dimension, class: 'form-control' %>
+    </div>
+
+    <div class="form-group" data-hook="weight">
+      <%= f.label :weight, Spree.t(:weight) %>
+      <%= f.text_field :weight, class: 'form-control' %>
+    </div>
+
+    <div class="form-group" data-hook="dimension">
+      <%= f.label :dimension, Spree.t(:dimension) %>
+      <%= f.text_field :dimension, class: 'form-control' %>
+    </div>
   </div>
 </div>
