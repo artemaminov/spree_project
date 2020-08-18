@@ -936,6 +936,7 @@ ru:
     images: "Изображения"
     implement_eligible_for_return:
     implement_requires_manual_intervention:
+    in_stock: "В наличии"
     inactive: "Не активен"
     incl: "вкл."
     included_in_price: "Включено в цену"
