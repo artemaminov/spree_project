@@ -13,4 +13,8 @@ Spree::FrontendHelper.module_eval do
     end
     content_tag(:div, raw(crumbs.flatten.map(&:mb_chars).join), class: 'breadcrumbs', itemscope: 'itemscope', itemtype: 'https://schema.org/BreadcrumbList')
   end
+
+  def in_stock_text(product)
+    product.in_stock? ? Spree.t('in_stock') : Spree.t('out_of_stock')
+  end
 end

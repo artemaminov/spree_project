@@ -1,76 +1,40 @@
-<div class="filters">
-  <div class="item">
-    <div class="title">Оттенок</div>
-    <div class="colors">
-      <div class="item">
-        <input type="checkbox" id="color-2" name="color">
-        <label style="background: url(<%= asset_url 'content/products/color-2.png' %>) center" for="color-2" data-toggle="popover" data-content="&lt;span&gt;Темный оттенок&lt;/span&gt;"></label>
-      </div>
-      <div class="item">
-        <input type="checkbox" id="color-3" name="color">
-        <label style="background: url(<%= asset_url 'content/products/color-3.png' %>) center" for="color-3" data-toggle="popover" data-content="&lt;span&gt;Серый оттенок&lt;/span&gt;"></label>
-      </div>
-      <div class="item">
-        <input type="checkbox" id="color-4" name="color">
-        <label style="background: url(<%= asset_url 'content/products/color-4.png' %>) center" for="color-4" data-toggle="popover" data-content="&lt;span&gt;Черный оттенок&lt;/span&gt;"></label>
-      </div>
-      <div class="item">
-        <input type="checkbox" id="color-1" name="color">
-        <label style="background: url(<%= asset_url 'content/products/color-1.png' %>) center" for="color-1" data-toggle="popover" data-content="&lt;span&gt;Светлый оттенок&lt;/span&gt;"></label>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <div class="title">Форматы</div>
-    <div class="formats_wrapper">
-      <div class="formats">
-        <div class="item">
-          <input type="checkbox" id="size-1" name="sizes">
-          <label for="size-1" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">ECO-WDF</label>
-        </div>
-        <div class="item">
-          <input type="checkbox" id="size-2" name="sizes">
-          <label for="size-2" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">NF</label>
-        </div>
-        <div class="item">
-          <input type="checkbox" id="size-3" name="sizes">
-          <label for="size-3" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">WDF</label>
-        </div>
-        <div class="item">
-          <input type="checkbox" id="size-4" name="sizes">
-          <label for="size-4" data-toggle="popover" data-content="&lt;span class='format'&gt;Размер &lt;span&gt;220х140х65&lt;/span&gt;&lt;/span&gt;">SF</label>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<%# filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
-<% filters = [] %>
-
+<% filters = @taxon ? @taxon.applicable_filters : [Spree::Core::ProductFilters.all_taxons] %>
 <% unless filters.empty? %>
-  <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
-    <%= hidden_field_tag 'per_page', params[:per_page] %>
-    <% filters.each do |filter| %>
-      <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
-      <% next if labels.empty? %>
-      <div class="navigation" data-hook="navigation">
-        <h4 class="filter-title"> <%= filter[:name] %> </h4>
-        <ul class="list-group">
-          <% labels.each do |nm,val| %>
-            <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
-            <li class="list-group-item">
-              <input type="checkbox"
-                     id="<%= label %>"
-                     name="search[<%= filter[:scope].to_s %>][]"
-                     value="<%= val %>"
-                     <%= params[:search].present? && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : "" %> />
-              <label class="nowrap" for="<%= label %>"> <%= nm %> </label>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+    <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
+      <%= hidden_field_tag 'per_page', params[:per_page] %>
+      <div class="filters">
+      <% filters.each do |filter| %>
+        <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
+        <% next if labels.empty? %>
+        <div class="item">
+          <div class="title"><%= filter[:type] %></div>
+          <%= '<div class="formats_wrapper">'.html_safe if filter[:type] == 'formats' %>
+          <div class="<%= filter[:type] %>">
+            <% labels.each do |nm,val| %>
+              <% label = "#{filter[:name]}_#{nm}".gsub(/\s+/,'_') %>
+              <div class="item">
+                <input
+                  type="checkbox"
+                  id="<%= label %>"
+                  name="search[<%= filter[:scope].to_s %>][]"
+                  value="<%= val %>"
+                  <%= params[:search].present? && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s) ? "checked" : "" %>
+                  onclick="javascript: this.form.submit();"
+                  />
+                <label
+                  style="background: url(<%= asset_url 'content/products/color-2.png' unless filter[:type] == 'formats'%>) center"
+                  for="<%= label %>"
+                  data-toggle="popover"
+                  data-content="&lt;span&gt;<%= val %>&lt;/span&gt;"
+                >
+                  <%= val if filter[:type] == 'formats' %>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        <%= '</div>'.html_safe if filter[:type] == 'formats' %>
+        </div>
+      <% end %>
     <% end %>
-    <%= submit_tag Spree.t(:search), name: nil, class: 'btn btn-primary' %>
-  <% end %>
+  </div>
 <% end %>
