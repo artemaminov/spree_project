@@ -1659,6 +1659,7 @@ ru:
     print_invoice:
       documents: "Печать отчетов"
     back_to_vendors_list: "Вернуться к списку производителей"
+    backorder: "Под заказ"
     edit_vendor: "Изменить производителя"
     new_vendor: "Новый производитель"
     only_alphanumeric_chars: "должен содержать только буквы и цифры"

@@ -15,6 +15,6 @@ Spree::FrontendHelper.module_eval do
   end
 
   def in_stock_text(product)
-    product.in_stock? ? Spree.t('in_stock') : Spree.t('out_of_stock')
+    product.in_stock? ? Spree.t('in_stock') : Spree.t('backorder')
   end
 end
