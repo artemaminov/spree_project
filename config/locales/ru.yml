@@ -890,7 +890,11 @@ ru:
     failed_payment_attempts:
     filename: "Имя файла"
     fill_in_customer_info: "Заполните информацию о клиенте"
-    filter: "Фильтр"
+    filter:
+      format: "Форматы"
+      selective_format: "Форматы"
+      color: "Оттенок"
+      selective_color: "Оттенок"
     filter_results: "Результаты фильтрации"
     finalize: "Завершить"
     finalized: "Завершено"
