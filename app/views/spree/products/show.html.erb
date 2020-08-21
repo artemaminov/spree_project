@@ -1,0 +1,1481 @@
+<%= render partial: 'spree/shared/slider' %>
+
+<% @body_id = 'product-details' %>
+
+<% cache cache_key_for_product do %>
+  <section class="catalog-content product-content">
+    <div class="container-xl">
+      <%= spree_breadcrumbs(@taxon) %>
+      <!-- добавление в корзину-->
+      <div class="card-product">
+        <div class="card-product_top">
+          <div class="item item_img">
+            <picture>
+              <source media="(max-width: 375px)" srcset="<%= asset_url 'content/product/product-1-375.jpg' %>">
+              <source media="(max-width: 1023px)" srcset="<%= asset_url 'content/product/product-1-768.jpg' %>">
+              <source media="(max-width: 1650px)" srcset="<%= asset_url 'content/product/product-1-1440.jpg' %>">
+              <img src="<%= asset_url 'content/product/product-1-1920.jpg' %>">
+            </picture>
+          </div>
+          <div class="item item_specifications">
+            <div class="header">
+              <div class="text">
+                <div class="description"><%= @taxon.name %></div>
+                <div class="title"><%= @product.name %></div>
+              </div>
+              <div class="price-block">
+                <div class="block">
+                  <div class="price_unit"><%= @product.variants.first.price %><span>₽/шт.</span></div>
+                  <div class="price_metr"><%= @product.variants.first.price * @product.variants.first.sqr_meter_amount.to_f %><span>₽/м<sup>2</sup></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="tabs">
+              <ul class="nav nav-tabs" id="tabProduct" role="tablist">
+                <% @product.variants.each_with_index do |variant, i| %>
+                <li class="nav-item" role="presentation"><a class="nav-link <%= 'active' if i == 0 %>" id="variant-<%= i %>-tab" data-toggle="tab" href="#variant-<%= i %>" role="tab" aria-controls="variant-<%= i %>" aria-selected="true">
+                  <input type="radio" id="option-1" name="option" checked>
+                  <label for="option-1"><%= variant.option_value('format') %></label></a></li>
+                <% end %>
+              </ul>
+              <div class="tab-content" id="tabProductContent">
+                <% @product.variants.each_with_index do |variant, i| %>
+                <div class="tab-pane fade show <%= 'active' if i == 0 %>" id="variant-<%= i %>" role="tabpanel" aria-labelledby="variant-<%= i %>-tab">
+                  <div class="tab-content_product">
+                    <div class="header">
+                      <div class="title">Технические характеристики</div>
+                      <div class="articule">Артикул<span><%= variant.sku %></span></div>
+                    </div>
+                    <div class="body">
+                      <div class="item item_left">
+                        <div class="table">
+                          <div class="item">
+                            <div class="name">Формат</div>
+                            <div class="value"><%= variant.option_value('format') %></div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Вес кирпича</div>
+                            <div class="value"><%= variant.weight %> кг.</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Марка прочности</div>
+                            <div class="value"><%= @product.property("durability-mark") %></div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Марка морозостойксоти</div>
+                            <div class="value"><%= @product.property("frost-resistance-mark") %></div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Водопоглощение</div>
+                            <div class="value"><%= @product.property("water-absorption") %>%</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Класс плотности</div>
+                            <div class="value"><%= @product.property("density-class") %></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item item_right">
+                        <div class="table">
+                          <div class="item">
+                            <div class="name">Размер кирпича</div>
+                            <div class="value"><%= variant.dimension %> мм.</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Цвет кирпича</div>
+                            <div class="value">color</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Количество в кв. метре</div>
+                            <div class="value"><%= variant.sqr_meter_amount %> шт.</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Количество в поддоне</div>
+                            <div class="value"><%= variant.pallet_quantity %> шт.</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Количество палет на машине</div>
+                            <div class="value"><%= variant.car_load %> шт.</div>
+                          </div>
+                          <div class="item">
+                            <div class="name">Размер поддона</div>
+                            <div class="value"><%= variant.pallet_dimension %> мм.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-product_bottom">
+          <div class="title">Выбрать формат и количество кирпича для заказа:</div>
+          <div class="table_add-product">
+            <div class="header">
+              <div class="item">
+                <div class="icon"></div>
+                <div class="format">Формат</div>
+                <div class="availability">Наличие</div>
+                <div class="price_unit">Цена, шт.</div>
+                <div class="price_metr">Цена, м2</div>
+                <div class="count">Количество</div>
+                <div class="total">Сумма</div>
+                <div class="arrow"></div>
+                <div class="delete"></div>
+              </div>
+            </div>
+            <div class="body accordion-add-product" id="accordionAddProduct">
+              <% @product.variants.each_with_index do |variant, i| %>
+              <div class="card">
+                <div class="card-header" id="heading_<%= i %>">
+                  <div class="items collapsed" data-toggle="collapse" data-target="#collapse_<%= i %>" aria-expanded="true" aria-controls="collapse_<%= i %>">
+                    <div class="icon"><%= image_tag 'general/icons/products/icon-add-product.svg' %></div>
+                    <div class="format"><%= variant.option_value('format') %></div>
+                    <div class="availability"><%= in_stock_text(variant) %></div>
+                    <div class="price_unit"><%= variant.price %> ₽</div>
+                    <div class="price_metr"><%= variant.price * variant.sqr_meter_amount.to_f %> ₽</div>
+                    <div class="count">
+                      <div class="inputCount" id="inputCount"><a class="btn_minus">
+                        <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
+                        </svg></a>
+                        <input class="calc-btn" type="text" placeholder="0"
+                               data-info='{
+                               "id":"<%= i %>",
+                               "price":"<%= variant.price %>",
+                               "palletQuantity":"<%= variant.pallet_quantity %>",
+                               "sqrMeterAmount":"<%= variant.sqr_meter_amount %>"
+                               }' />
+                        <a class="btn_plus">
+                        <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
+                          <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
+                        </svg></a>
+                      </div>
+                      <select class="custom-select type-count calc-type" name="state" id="variant-<%= i %>-amount-type">
+                        <option value="AL">штук</option>
+                        <option value="WY">метр &sup2;</option>
+                      </select>
+                      <div class="text"><span id="variant-<%= i %>-pieces">0 шт.</span><span id="variant-<%= i %>-pallets">0 поддонов</span></div>
+                    </div>
+                    <div class="total" id="variant-<%= i %>-total"><span>Сумма:</span>0.00 ₽</div>
+                    <div class="arrow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                        <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                      </svg>
+                    </div>
+                    <div class="delete">
+                      <div class="btn_delete">
+                        <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.47465 7.47465C2.27938 7.27938 2.27939 6.9628 2.47465 6.76754L6.71729 2.5249C6.91255 2.32964 7.22913 2.32964 7.42439 2.5249V2.5249C7.61966 2.72016 7.61966 3.03674 7.42439 3.23201L3.18175 7.47465C2.98649 7.66991 2.66991 7.66991 2.47465 7.47465V7.47465Z" fill="#4F4F4F"></path>
+                          <path d="M2.47457 2.52543C2.66983 2.33017 2.98642 2.33017 3.18168 2.52543L7.42432 6.76807C7.61958 6.96333 7.61958 7.27991 7.42432 7.47518V7.47518C7.22906 7.67044 6.91247 7.67044 6.71721 7.47518L2.47457 3.23254C2.27931 3.03727 2.27931 2.72069 2.47457 2.52543V2.52543Z" fill="#4F4F4F"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="collapse collapsed" id="collapse_1" aria-labelledby="heading_1" data-parent="#accordionAddProduct"></div>
+              </div>
+              <% end %>
+            </div>
+            <div class="footer">
+              <div class="total">
+                <div class="title">Общая сумма:</div>
+                <div class="number">0.00 ₽</div>
+              </div>
+              <div class="item">
+                <div class="total">
+                  <div class="title">Общая сумма:</div>
+                  <div class="number" id="total">0.00 ₽</div>
+                </div>
+                <div class="add-to-basket">
+                  <div class="btn btn_add-product">
+                    <svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                    </svg><span>Добавить в заказ</span>
+                  </div>
+                </div>
+                <div class="buy-one-click">
+                  <div class="btn btn_add-product">Купить в 1 клик</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- конец добавление в корзину-->
+      <!-- портфолио-->
+      <div class="section section_portfolio section_portfolio_product">
+        <div class="container-xl">
+          <div class="title">Портфолио обьектов с кирпичом Лозьер</div>
+          <div class="slider_portfolio" id="slider_portfolio">
+            <ul class="slidee">
+              <li class="item"><a href="#">
+                <div class="img"><img src="/static/images/content/portfolioItem-1.jpg"/></div>
+                <div class="title">Многоэтажный дом</div>
+                <div class="description">Кирпич ручной работы Монс-Роял</div>
+                <div class="more">Подробнее</div></a></li>
+              <li class="item"><a href="#">
+                <div class="img"><img src="/static/images/content/portfolioItem-2.jpg"/></div>
+                <div class="title">Многоэтажный дом</div>
+                <div class="description">Кирпич ручной работы Монс-Роял</div>
+                <div class="more">Подробнее</div></a></li>
+              <li class="item"><a href="#">
+                <div class="img"><img src="/static/images/content/portfolioItem-1.jpg"/></div>
+                <div class="title">Многоэтажный дом</div>
+                <div class="description">Кирпич ручной работы Монс-Роял</div>
+                <div class="more">Подробнее</div></a></li>
+              <li class="item"><a href="#">
+                <div class="img"><img src="/static/images/content/portfolioItem-2.jpg"/></div>
+                <div class="title">Многоэтажный дом</div>
+                <div class="description">Кирпич ручной работы Монс-Роял</div>
+                <div class="more">Подробнее</div></a></li>
+              <li class="item"><a href="#">
+                <div class="img"><img src="/static/images/content/portfolioItem-1.jpg"/></div>
+                <div class="title">Многоэтажный дом</div>
+                <div class="description">Кирпич ручной работы Монс-Роял</div>
+                <div class="more">Подробнее</div></a></li>
+            </ul>
+          </div>
+          <div class="scrollbar">
+            <div class="handle"></div>
+          </div>
+          <div class="count">Проектов 2 из 250</div>
+        </div>
+      </div>
+      <!-- конец портфолио-->
+    </div>
+  </section>
+  <!-- о производстве-->
+  <div class="section section_about-production">
+    <picture>
+      <source media="(max-width: 375px)" srcset="/static/images/general/bg/bg-about-production-375.jpg">
+      <source media="(max-width: 768px)" srcset="/static/images/general/bg/bg-about-production-768.jpg">
+      <source media="(max-width: 1440px)" srcset="/static/images/general/bg/bg-about-production-1440.jpg"><img class="bg-img" src="/static/images/general/bg/bg-about-production.jpg">
+    </picture>
+    <div class="container-xl">
+      <div class="title">Каждый кирпич<br> <b>сделан вручную</b><br> и мы этим гордимся</div>
+      <div class="description">c теплом и профессионализмом</div>
+      <div class="btn btn_light btn_about-production">подробнее о производстве</div>
+    </div>
+  </div>
+  <!-- конец о производстве-->
+  <!-- аккордион-->
+  <section class="catalog-content product-content">
+    <div class="container-xl">
+      <div class="accordion-content">
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Сертификаты и паспорта качества</div>
+          </div>
+          <div class="body items">
+            <div class="item">
+              <div class="title">Санитарно-эпидемиологическое заключение на кирпич</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+            <div class="item">
+              <div class="title">Санитарно-эпидемиологическое заключение на кирпич категории</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+            <div class="item">
+              <div class="title">Сертификат соответствия кирпича</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Технические условия по применению кирпича</div>
+          </div>
+          <div class="body items">
+            <div class="item">
+              <div class="title">Санитарно-эпидемиологическое заключение на кирпич</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+            <div class="item">
+              <div class="title">Санитарно-эпидемиологическое заключение на кирпич категории</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+            <div class="item">
+              <div class="title">Сертификат соответствия кирпича</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Альбомы технических решений</div>
+          </div>
+          <div class="body items">
+            <div class="item">
+              <div class="title">Санитарно-эпидемиологическое заключение на кирпич</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+            <div class="item">
+              <div class="title">Санитарно-эпидемиологическое заключение на кирпич категории</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+            <div class="item">
+              <div class="title">Сертификат соответствия кирпича</div>
+              <div class="files"><img src="/static/images/general/icons/products/pdf.svg"/><a class="name" href="#">Скачать PDF<span>[0,73 мб]</span></a></div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Рекомендации по выбору кладочных смесей и затирки</div>
+          </div>
+          <div class="body">
+            <div class="text">
+              <p>Укладка каждого третьего-четвертого ряда должно обязательно заканчиваться заполнением шовного пространства, что позволит получить более привлекательные швы, а также способствует повышению их устойчивости к температурным перепадам. Кроме всего прочего, такое мероприятие направлено на своеобразную профилактику разрушений строения в результате негативного воздействия влаги.</p>
+              <p>Единственный вариант, когда допускается пренебречь подобной процедурой – финишная отделка стены посредством штукатурки. Следует отметить, что контролировать качество укладки необходимо практически постоянно, а каждый квадратный метр возведенной поверхности нужно обязательно проверять на правильность угловых соединений, показатели вертикальности и горизонтальности при помощи отвеса, строительного уровня и угольника.</p>
+              <p>Категорически запрещается осуществлять сдвиг уложенных элементов после застывания раствора. Цветная кладочная смесь Основит БРИКФОРМ МС11 серый Теплоизоляционные кладочные смеси</p>
+            </div>
+            <div class="videos">
+              <div class="item">
+                <iframe width="100%" src="https://www.youtube.com/embed/eJPNJfh-fdg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+              </div>
+              <div class="item">
+                <iframe width="100%" src="https://www.youtube.com/embed/IdMrnPS4tUo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Калькулятор раствора</div>
+          </div>
+          <div class="body">
+            <div class="calculator-mortar">
+              <div class="item item-calculator">
+                <div class="items">
+                  <div class="item">
+                    <div class="title">Объем раствора, м3</div>
+                    <div class="input">
+                      <input type="text"/>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="title">Марка раствора</div>
+                    <div class="select">
+                      <select class="custom-select" name="rastvor_marka">
+                        <option value="M150">M150</option>
+                        <option value="M150">M400</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="title">Цемент, марка</div>
+                    <div class="select">
+                      <select class="custom-select" name="cement_marka">
+                        <option value="M150">M150</option>
+                        <option value="M150">M400</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer">
+                  <div class="btn">Расчитать раствор</div>
+                </div>
+              </div>
+              <div class="item item-result">
+                <div class="table">
+                  <div class="header">
+                    <div class="material">Материал:</div>
+                    <div class="weight">Вес(кг):</div>
+                    <div class="volume">Объем (л):</div>
+                  </div>
+                  <div class="body">
+                    <div class="items">
+                      <div class="item">
+                        <div class="material">Цемент</div>
+                        <div class="weight">402</div>
+                        <div class="volume">365</div>
+                      </div>
+                      <div class="item">
+                        <div class="material">Песок</div>
+                        <div class="weight">402</div>
+                        <div class="volume">365</div>
+                      </div>
+                      <div class="item">
+                        <div class="material">Вода</div>
+                        <div class="weight">402</div>
+                        <div class="volume">365</div>
+                      </div>
+                      <div class="item">
+                        <div class="material">Соотношение</div>
+                        <div class="weight">1:3.4:0.57</div>
+                        <div class="volume">1:3.4:0.57</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Оплата</div>
+          </div>
+          <div class="body">
+            <div class="payment">
+              <p>Все покупки, совершенные в Богандинский кирпичный завод  можно оплатить любым удобным для Вас способом:</p>
+              <ul>
+                <li class="nal">Наличными
+                  <ul>
+                    <li><span><b>- в офисе</b></span>Оплатить заказ наличными можно в шоу-румах и складских комплексах Богандинский кирпичный завод  г.Москва и г.Санкт-Петербург в кассе. Возможна частичная оплата.</li>
+                    <li><span><b>- курьеру</b></span>Оплата производится при получении заказа. Максимальная сумма – 160 000₽.</li>
+                  </ul>
+                </li>
+                <li class="bez-nal">Безналичный расчет
+                  <ul>
+                    <li><span><b>- Счет-договор</b></span>Для оплаты необходимо согласовать с менеджером сроки поставки и получить счет-договор. Физическим лицам доступна возможность оплаты заказа по счету через мобильное приложение банка. Возможна частичная оплата.</li>
+                    <li><span><b>- в офисе</b></span>Оплатить заказ можно в кассах шоу-румов и складских комплексов БКЗ г.Москва и г.Санкт-Петербург через платежные терминалы «Сбербанк». Поддерживается возможность бесконтактной оплаты через сервисы Apple Pay, Google Pay, Samsung Pay, системами MasterCard PayPass и Visa payWave. Возможна частичная оплата.</li>
+                    <li><span><b>- на сайте</b></span>Платеж осуществляется в личном кабинете после подтверждения менеджером состава и стоимости заказа. Все операции проводятся в соответствии с требованиями VISA International, MasterCard Worldwide, МИР. Безопасность платежей гарантируется использованием SSL протокола для передачи конфиденциальной информации. Если при оформлении заказа Вы указали e-mail, электронный чек придет на него, в ином случае – на указанный номер телефона. Наличие и содержание чека можно проверить на сайте ФНС.</li>
+                  </ul>
+                </li>
+              </ul><span><b>Обратите внимание!</b></span><span>-платеж производится в рублях РФ;</span><span>-цены на продукцию указаны в рублях с учетом налога НДС;</span><span>-стоимость товара зависит от курса ЦБ РФ на дату платежа;</span><span>-при наличии выбранной позиции на складе, отгрузка возможна сразу после оплаты по договоренности с менеджером отдела продаж;</span><span>-для заказных позиций требуется предоплата порядка 70% от общей стоимости. Оставшаяся сумма оплачивается в срок, прописанный в договоре;</span><span>-минимальная сумма первого взноса при частичной оплате должна составить 70% от общей суммы заказа. Оставшуюся сумму можно доплатить перед отгрузкой товара. Произвести расчет можно любым видом оффлайн-оплаты.</span>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Ориентировочная стоимость доставка без выгрузки</div>
+          </div>
+          <div class="body">
+            <div class="delivery-product">
+              <div class="addresses">
+                <div class="item">
+                  <div class="title">Выберите склад:</div>
+                  <div class="select">
+                    <select class="custom-select" name="delivery">
+                      <option value="1">Москва, СК «Алексеевский», м. Алексеевская 129075, ул. Калибровская, д.31А</option>
+                      <option value="2">Санкт-Петербург, Спорт, м. Алексеевская 123123, ул. Калибровская, д.22</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="title">Укажите адрес доставки:</div>
+                  <div class="input">
+                    <input type="text" value="Москва, СК «Алексеевский», м. Алексеевская 129075, ул. Калибровская, д.31А"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="delivery-price">
+              <div class="table">
+                <div class="header">
+                  <div class="icon"></div>
+                  <div class="format">Формат</div>
+                  <div class="kind-of-transport">Вид транспорта</div>
+                  <div class="count">Кол-во кирпича</div>
+                  <div class="count-car">Кол-во машин</div>
+                  <div class="total">Сумма</div>
+                  <div class="arrow"></div>
+                </div>
+                <div class="body accordion-delivery" id="accordionDelivery">
+                  <div class="card">
+                    <div class="card-header" id="heading_1">
+                      <div class="items collapsed" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">
+                        <div class="icon"><img src="static/images/general/icons/products/icon-add-product.svg"/></div>
+                        <div class="format">WDF</div>
+                        <div class="kind-of-transport">
+                          <select class="custom-select" name="delivery_method">
+                            <option value="1">Служба доставки “Название службы”</option>
+                            <option value="2">Ж/д - контейнер 20-футовый, полувагон</option>
+                            <option value="3">Авто грузоподъемностью от 1,5 до 20 т.</option>
+                            <option value="4">Авто с краном-манипулятором</option>
+                          </select>
+                        </div>
+                        <div class="count">
+                          <div class="inputCount" id="inputCount"><a class="btn_minus">
+                            <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
+                            </svg></a>
+                            <input type="text" placeholder="0"/><a class="btn_plus">
+                            <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
+                              <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
+                            </svg></a>
+                          </div>
+                          <select class="custom-select type-count" name="state">
+                            <option value="AL">штук</option>
+                            <option value="WY">метр &sup2;</option>
+                          </select>
+                          <div class="text"><span>1200 шт.</span><span>100 поддонов</span></div>
+                        </div>
+                        <div class="count-car">4 авто</div>
+                        <div class="total">321 124 120.15 ₽</div>
+                        <div class="arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                            <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="collapse collapsed" id="collapse_1" aria-labelledby="heading_1" data-parent="#accordionAddProduct"></div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="heading_2">
+                      <div class="items collapsed" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" aria-controls="collapse_2">
+                        <div class="icon"><img src="static/images/general/icons/products/icon-add-product.svg"/></div>
+                        <div class="format">WDF</div>
+                        <div class="kind-of-transport">
+                          <select class="custom-select" name="delivery_method">
+                            <option value="1">Служба доставки “Название службы”</option>
+                            <option value="2">Ж/д - контейнер 20-футовый, полувагон</option>
+                            <option value="3">Авто грузоподъемностью от 1,5 до 20 т.</option>
+                            <option value="4">Авто с краном-манипулятором</option>
+                          </select>
+                        </div>
+                        <div class="count">
+                          <div class="inputCount" id="inputCount"><a class="btn_minus">
+                            <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
+                            </svg></a>
+                            <input type="text" placeholder="0"/><a class="btn_plus">
+                            <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
+                              <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
+                            </svg></a>
+                          </div>
+                          <select class="custom-select type-count" name="state">
+                            <option value="AL">штук</option>
+                            <option value="WY">метр &sup2;</option>
+                          </select>
+                          <div class="text"><span>1200 шт.</span><span>100 поддонов</span></div>
+                        </div>
+                        <div class="count-car">4 авто</div>
+                        <div class="total">321 124 120.15 ₽</div>
+                        <div class="arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                            <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="collapse collapsed" id="collapse_2" aria-labelledby="heading_2" data-parent="#accordionAddProduct"></div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="heading_3">
+                      <div class="items collapsed" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" aria-controls="collapse_3">
+                        <div class="icon"><img src="static/images/general/icons/products/icon-add-product.svg"/></div>
+                        <div class="format">WDF</div>
+                        <div class="kind-of-transport">
+                          <select class="custom-select" name="delivery_method">
+                            <option value="1">Служба доставки “Название службы”</option>
+                            <option value="2">Ж/д - контейнер 20-футовый, полувагон</option>
+                            <option value="3">Авто грузоподъемностью от 1,5 до 20 т.</option>
+                            <option value="4">Авто с краном-манипулятором</option>
+                          </select>
+                        </div>
+                        <div class="count">
+                          <div class="inputCount" id="inputCount"><a class="btn_minus">
+                            <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
+                            </svg></a>
+                            <input type="text" placeholder="0"/><a class="btn_plus">
+                            <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
+                              <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
+                            </svg></a>
+                          </div>
+                          <select class="custom-select type-count" name="state">
+                            <option value="AL">штук</option>
+                            <option value="WY">метр &sup2;</option>
+                          </select>
+                          <div class="text"><span>1200 шт.</span><span>100 поддонов</span></div>
+                        </div>
+                        <div class="count-car">4 авто</div>
+                        <div class="total">321 124 120.15 ₽</div>
+                        <div class="arrow">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                            <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="collapse collapsed" id="collapse_3" aria-labelledby="heading_3" data-parent="#accordionAddProduct"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="total"><span>Ориентировочная стоимость доставки:</span><span>1 289 000.35 ₽</span></div>
+            </div>
+            <div class="delivery-description">
+              <div class="item">
+                <div class="icon"><img src="/static/images/general/icons/products/delivery/truck.svg"/></div>
+                <div class="text">Доставка на Ваш строительный объект возможна любым типом автомобильного транспорта грузоподъемностью от 1,5 до 20 тонн или автомобилями с краном-манипулятором. Тип транспорта согласовывается в зависимости от партии товара и особенностей объекта доставки.</div>
+              </div>
+              <div class="item">
+                <div class="icon"><img src="/static/images/general/icons/products/delivery/train.svg"/></div>
+                <div class="text">Для ж/д перевозок используются различные виды подвижных составов: контейнер (20- и 40-футовый), полувагон, крытый вагон. При необходимости возможны прием и перегрузка товара в Ваш автотранспорт или доставка контейнера до  указанного вами адреса.</div>
+              </div>
+              <div class="item">
+                <div class="icon"><img src="/static/images/general/icons/products/delivery/company.svg"/></div>
+                <div class="text">Богандинский кирпичный завод сотрудничает только с надежными и проверенными транспортными компаниями и службами курьерской доставки России. Выбор компании-перевозчика определяется свойствами товара и Вашими пожеланиями.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-product-item js-accordion-product">
+          <div class="header">
+            <div class="title">Описание</div>
+          </div>
+          <div class="body">
+            <div class="description">
+              <p>Активное сотрудничество с архитекторами, дизайнерами, студиями и профессиональными сообществами — одно из приоритетных направлений деятельности компании Славдом.</p>
+              <p>Менеджер, который с первого обращения в компанию, будет закреплен за Вами, учтет все пожелания, предоставит полную информацию о строительных материалах, необходимых для реализации каждого проекта, включая разработку нестандартных дизайнерских решений.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- конец аккордион-->
+  <!-- похожие продукты-->
+  <div class="section section_similar-product">
+    <div class="container-xl">
+      <div class="title">Похожие товары</div>
+      <div class="slider_similar_product" id="slider_similar_product">
+        <ul class="slidee">
+          <li class="grid-item persent-size">
+            <div class="box-card">
+              <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+                <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+              </div>
+              <div class="header">
+                <div class="title">Лозьер</div>
+                <div class="in-stock">Под заказ</div>
+              </div>
+              <div class="body">
+                <div class="item item-left">
+                  <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                  <div class="prices">
+                    <div class="item item-wholesale">
+                      <div class="title">Оптовая</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                    <div class="item item-retail">
+                      <div class="title">Розничная</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item item-right">
+                  <div class="add-to-basket">
+                    <div class="btn_circle id_modalAddCollection" href="#">
+                      <div class="circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="grid-item persent-size">
+            <div class="box-card">
+              <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+                <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+              </div>
+              <div class="header">
+                <div class="title">Лозьер</div>
+                <div class="in-stock">В наличии</div>
+              </div>
+              <div class="body">
+                <div class="item item-left">
+                  <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                  <div class="prices">
+                    <div class="item item-wholesale">
+                      <div class="title">Оптовая</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                    <div class="item item-retail">
+                      <div class="title">Розничная</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item item-right">
+                  <div class="add-to-basket">
+                    <div class="btn_circle id_modalAddCollection" href="#">
+                      <div class="circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="grid-item persent-size">
+            <div class="box-card">
+              <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+                <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+              </div>
+              <div class="header">
+                <div class="title">Лозьер</div>
+                <div class="in-stock">Под заказ</div>
+              </div>
+              <div class="body">
+                <div class="item item-left">
+                  <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                  <div class="prices">
+                    <div class="item item-wholesale">
+                      <div class="title">Оптовая</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                    <div class="item item-retail">
+                      <div class="title">Розничная</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item item-right">
+                  <div class="add-to-basket">
+                    <div class="btn_circle id_modalAddCollection" href="#">
+                      <div class="circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="grid-item persent-size">
+            <div class="box-card">
+              <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+                <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+              </div>
+              <div class="header">
+                <div class="title">Лозьер</div>
+                <div class="in-stock">В наличии</div>
+              </div>
+              <div class="body">
+                <div class="item item-left">
+                  <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                  <div class="prices">
+                    <div class="item item-wholesale">
+                      <div class="title">Оптовая</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                    <div class="item item-retail">
+                      <div class="title">Розничная</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item item-right">
+                  <div class="add-to-basket">
+                    <div class="btn_circle id_modalAddCollection" href="#">
+                      <div class="circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="grid-item persent-size">
+            <div class="box-card">
+              <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+                <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+              </div>
+              <div class="header">
+                <div class="title">Лозьер</div>
+                <div class="in-stock">В наличии</div>
+              </div>
+              <div class="body">
+                <div class="item item-left">
+                  <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                  <div class="prices">
+                    <div class="item item-wholesale">
+                      <div class="title">Оптовая</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                    <div class="item item-retail">
+                      <div class="title">Розничная</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item item-right">
+                  <div class="add-to-basket">
+                    <div class="btn_circle id_modalAddCollection" href="#">
+                      <div class="circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="grid-item persent-size">
+            <div class="box-card">
+              <div class="preview"><img src="/static/images/content/products/product-1.jpg"/>
+                <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div><a class="btn btn_card-product" href="/product.html">Карточка товара</a>
+              </div>
+              <div class="header">
+                <div class="title">Лозьер</div>
+                <div class="in-stock">В наличии</div>
+              </div>
+              <div class="body">
+                <div class="item item-left">
+                  <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;<span>NF, WDF, ECO-WDF, SF<img class="info cursor-pointer" src="/static/images/general/icons/products/info.svg"/></span></div>
+                  <div class="prices">
+                    <div class="item item-wholesale">
+                      <div class="title">Оптовая</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                    <div class="item item-retail">
+                      <div class="title">Розничная</div>
+                      <div class="price">от 33.7 ₽</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item item-right">
+                  <div class="add-to-basket">
+                    <div class="btn_circle id_modalAddCollection" href="#">
+                      <div class="circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="scrollbar">
+        <div class="handle"></div>
+      </div>
+      <div class="count">Товаров 2 из 250</div>
+    </div>
+  </div>
+  <!-- конец похожие продукты-->
+  <!-- карта-->
+  <section class="catalog-content section_map">
+    <div class="header">
+      <div class="title">Ближайшие официальные дистрибьюторы <br />Богандинского кирпичного завода</div>
+      <div class="form">
+        <form>
+          <div class="input_find-region">
+            <input type="text" placeholder="Введите регион">
+            <button class="btn" type="submit"><img src="/static/images/general/icons/products/map/arrow-right-for-button.svg"></button>
+          </div>
+        </form><a class="location" href="#">
+        <div class="icon"><img src="/static/images/general/icons/products/map/gps.svg"></div>Мое местоположение</a>
+      </div>
+    </div>
+    <div class="map_wrapper">
+      <div class="map"></div>
+      <div class="information">
+        <div class="left">
+          <div class="dealer-wrapper">
+            <div class="title">Белгородская область</div>
+            <div class="dealer-list_wrapper">
+              <div class="dealer-list_block">
+                <div class="dealer-list">
+                  <div class="item active">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="header">
+                      <div class="name">Evenline, OOO&nbsp;-&nbsp;<span>дистрибьютор</span></div>
+                      <div class="site">www.zaobkz.ru</div>
+                      <div class="phone">+375 17 223 69 34</div>
+                      <div class="arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                          <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="body">
+                      <div class="table">
+                        <div class="item">
+                          <div class="name">Сайт</div>
+                          <div class="value"><a href="#">www.zaobkz.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Адрес</div>
+                          <div class="value">197022, Санкт-Петербург, Аптекарская наб., д. 12, БЦ «Кантемировский»</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Телефон</div>
+                          <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"/></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"/></a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">График работы</div>
+                          <div class="value">Пн - Пт: 09:00 - 21:00<br/>Сб - Вс: 11:00 - 19:00</div>
+                        </div>
+                        <div class="item">
+                          <div class="name">E-mail</div>
+                          <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+                        </div>
+                        <div class="item">
+                          <div class="name">Координаты</div>
+                          <div class="value value_location">59.975862067295,30.323704429918</div>
+                        </div>
+                      </div>
+                      <div class="links">
+                        <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a></div>
+                        <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"/><span>Открыть схему проезда</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="dealer-details-wrapper">
+            <div class="image">
+              <div class="title">Evenline, OOO</div><img src="/static/images/content/product/dealer-1.jpg">
+            </div>
+            <div class="table">
+              <div class="item">
+                <div class="name">Сайт</div>
+                <div class="value"><a href="#">www.zaobkz.ru</a></div>
+              </div>
+              <div class="item">
+                <div class="name">Адрес</div>
+                <div class="value">197022, Санкт-Петербург, Аптекарская<br>наб., д. 12, БЦ «Кантемировский»</div>
+              </div>
+              <div class="item">
+                <div class="name">Телефон</div>
+                <div class="value value_phone"><a href="">+7 (812) 335 - 65 -89</a><a href=""><img src="/static/images/general/icons/products/map/whatsapp.svg"></a><a href=""><img src="/static/images/general/icons/products/map/telegram.svg"></a></div>
+              </div>
+              <div class="item">
+                <div class="name">График работы</div>
+                <div class="value">Пн - Пт: 09:00 - 21:00<br>Сб - Вс: 11:00 - 19:00</div>
+              </div>
+              <div class="item">
+                <div class="name">E-mail</div>
+                <div class="value"><a href="#">spb@slav-dom.ru</a></div>
+              </div>
+              <div class="item">
+                <div class="name">Координаты</div>
+                <div class="value">59.975862067295,30.323704429918</div>
+              </div>
+            </div>
+            <div class="links">
+              <div class="item"><a class="btn btn_build-map" href="#">Построить схему проезда</a><a class="btn btn_build-map_mobile" href="#">Построить схему</a></div>
+              <div class="item"><a class="driving-directions" href="#"><img class="icon" src="/static/images/general/icons/products/map/pdf-light.svg"><span>Открыть схему проезда</span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- конец карта-->
+  <!-- конец карточка товара-->
+
+
+
+
+
+
+
+  <div data-hook="product_show" class="row" itemscope itemtype="https://schema.org/Product">
+    <div class="col-md-4 col-sm-5" data-hook="product_left_part">
+      <div data-hook="product_left_part_wrap">
+        <div id="product-images" data-hook="product_images">
+          <div id="main-image" class="panel panel-default" data-hook>
+            <div class="panel-body text-center">
+              <%= product_image(@product, itemprop: "image") %>
+            </div>
+          </div>
+          <div id="thumbnails" data-hook>
+            <%= render partial: 'thumbnails' %>
+          </div>
+        </div>
+
+        <div data-hook="product_properties">
+          <%= render partial: 'properties' %>
+        </div>
+
+        <div data-hook="promotions">
+          <%= render partial: 'promotions' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 col-sm-7" data-hook="product_right_part">
+      <div data-hook="product_right_part_wrap">
+        <div id="product-description" data-hook="product_description">
+          <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
+
+          <div class="well" itemprop="description" data-hook="description">
+            <%= product_description(@product) %>
+          </div>
+
+          <div id="cart-form" data-hook="cart_form">
+            <%= render partial: 'cart_form' %>
+          </div>
+        </div>
+
+        <div id="taxon-crumbs" class=" five " data-hook="product_taxons">
+          <%= render partial: 'taxons' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

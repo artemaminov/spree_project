@@ -8,16 +8,67 @@ $(document).ready(function () {
   increment();
 });
 
+function calcTotal() {
+  let variantCost = 0;
+  let totals = $('.card .items .total');
+  let final = 0;
+  totals.each(function(index){
+    let variantTotalElement = $(`#variant-${index}-total`);
+    variantCost = Number(variantTotalElement.data('cost'));
+    if (Number.isFinite(variantCost)) {
+      console.log(variantCost);
+      final += variantCost;
+    }
+  });
+  $("#total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
+  console.log(final);
+}
+
+function calc(e) {
+  let variantPieces, variantSqrMeters, variantPallets, variantTotal = 0;
+  let variant = $(e).data("info");
+  let amount = $(e).val();
+  let variantPiecesElement = $(`#variant-${variant.id}-pieces`);
+  let variantPalletsElement = $(`#variant-${variant.id}-pallets`);
+  let variantTotalElement = $(`#variant-${variant.id}-total`);
+  let variantAmountType = $(`#variant-${variant.id}-amount-type option:checked`).val();
+  switch (variantAmountType) {
+    case "WY":
+      variantSqrMeters = Number(amount);
+      variantPieces = Number(variant.sqrMeterAmount) * variantSqrMeters;
+      variantPiecesElement.text(`${variantPieces} штук`);
+      break;
+    case "AL":
+      variantPieces = Number(amount);
+      variantSqrMeters = Number.parseFloat(variantPieces / Number(variant.sqrMeterAmount)).toFixed(2);
+      variantPiecesElement.text(`${variantSqrMeters} метр\u00B2`);
+  }
+  variantPallets = Number.parseFloat(variantPieces / Number(variant.palletQuantity)).toFixed(2);
+  variantTotal = Number.parseFloat(Number(variant.price) * variantPieces).toFixed(2);
+  variantPalletsElement.text(`${variantPallets} поддонов`);
+  variantTotalElement.text(`${variantTotal} ₽`);
+  variantTotalElement.data('cost', variantTotal);
+  calcTotal();
+}
+
 function increment() {
+  $('.calc-type').change(function() {
+    let input = $(this).prev().find('input.calc-btn');
+    calc(input);
+  });
   $('#inputCount>.btn_minus').on('click', function () {
-    var inputVal = Number($(this).next().val() || 0);
+    let input = $(this).next();
+    let inputVal = Number(input.val() || 0);
     if (inputVal > 0) inputVal -= 1;
-    $(this).next().val(inputVal);
+    input.val(inputVal);
+    calc(input);
   });
   $('#inputCount>.btn_plus').on('click', function () {
-    var inputVal = Number($(this).prev().val() || 0);
+    let input = $(this).prev();
+    let inputVal = Number(input.val() || 0);
     inputVal += 1;
-    $(this).prev().val(inputVal);
+    input.val(inputVal);
+    calc(input);
   });
 }
 
