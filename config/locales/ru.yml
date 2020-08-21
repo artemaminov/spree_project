@@ -890,7 +890,11 @@ ru:
     failed_payment_attempts:
     filename: "Имя файла"
     fill_in_customer_info: "Заполните информацию о клиенте"
-    filter: "Фильтр"
+    filter:
+      format: "Форматы"
+      selective_format: "Форматы"
+      color: "Оттенок"
+      selective_color: "Оттенок"
     filter_results: "Результаты фильтрации"
     finalize: "Завершить"
     finalized: "Завершено"
@@ -1655,6 +1659,7 @@ ru:
     print_invoice:
       documents: "Печать отчетов"
     back_to_vendors_list: "Вернуться к списку производителей"
+    backorder: "Под заказ"
     edit_vendor: "Изменить производителя"
     new_vendor: "Новый производитель"
     only_alphanumeric_chars: "должен содержать только буквы и цифры"

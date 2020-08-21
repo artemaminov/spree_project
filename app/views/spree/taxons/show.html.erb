@@ -2,15 +2,10 @@
 
 <section class="catalog-content">
   <div class="container-xl">
-    <!-- хлебные крошки-->
     <div class="breadcrumbs">
       <%= spree_breadcrumbs(@taxon) %>
     </div>
-    <!-- конце хлебные крошки-->
-    <!-- фильтр-->
     <%= render partial: 'spree/shared/filters' %>
-    <!-- конце фильтр-->
-    <!-- скисок продукции-->
     <div class="products">
         <div class="grid">
           <div data-hook="taxon_products">
@@ -18,7 +13,6 @@
           </div>
         </div>
       </div>
-    <!-- конце список продукции-->
   </div>
 </section>
 

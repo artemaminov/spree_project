@@ -1,6 +1,11 @@
 module Spree
   module Core
     module ProductFilters
+      COLORS_IMAGES = {
+          "Красный": "content/products/color-1.png",
+          "Светлый": "content/products/color-3.png",
+          "Темный": "content/products/color-4.png"
+      }
 
       # Format filter
       def self.option_with_values(option_scope, option, values)
@@ -26,7 +31,7 @@ module Spree
         formats = Spree::OptionValue.joins(variants: :product).where(:option_type_id => option_type).map(&:presentation).compact.uniq
         {
             type: 'formats',
-            :name => I18n.t('filter.format'),
+            :name => I18n.t('spree.filter.format'),
             :scope => :format_any,
             :conds => nil,
             :option => 'format',
@@ -43,7 +48,7 @@ module Spree
         formats = Spree::OptionValue.joins(variants: {product: :taxons}).where(:option_type_id => option_type).where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants).map(&:presentation).compact.uniq
         {
             type: 'formats',
-            :name => I18n.t('filter.format'),
+            :name => I18n.t('spree.filter.selective_format'),
             :scope => :selective_format_any,
             :conds => nil,
             :option => 'format',
@@ -68,7 +73,8 @@ module Spree
         conds = Hash[*formats.map { |b| [b, pp[:value].eq(b)] }.flatten]
         {
             type: 'colors',
-            name: I18n.t('filter.color'),
+            name: I18n.t('spree.filter.color'),
+            images: COLORS_IMAGES,
             scope: :color_any,
             conds: conds,
             labels: formats.sort.map { |k| [k, k] }
@@ -84,7 +90,8 @@ module Spree
         scope = Spree::ProductProperty.where(property: color_property).taxon_selective(taxon)
         formats = scope.pluck(:value).uniq
         {
-          name: I18n.t('filter.selective_color'),
+          name: I18n.t('spree.filter.selective_color'),
+          images: COLORS_IMAGES,
           scope: :selective_color_any,
           labels: formats.sort.map { |k| [k, k] }
         }

@@ -1,13 +1,9 @@
 <% cache [I18n.locale, @taxonomies] do %>
   <% if @taxonomies %>
-  <% @taxonomies.each do |taxonomy| %>
-    <% taxon = taxonomy.taxons.first %>
-    <% link = link_to(taxon.name, seo_url(taxon), class: 'item') %>
-    <% if inside_li_tag %>
-      <%= content_tag(:li, link) %>
-    <% else %>
-      <%= link %>
+    <% @taxonomies.each do |taxonomy| %>
+      <% taxon = taxonomy.taxons.first %>
+      <% link = link_to(taxon.name, seo_url(taxon), class: 'item') %>
+      <%= inside_li_tag ? content_tag(:li, link) : link %>
     <% end %>
   <% end %>
-    <% end %>
 <% end %>

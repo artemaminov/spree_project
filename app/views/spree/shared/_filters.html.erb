@@ -7,7 +7,7 @@
         <% labels = filter[:labels] || filter[:conds].map {|m,c| [m,m]} %>
         <% next if labels.empty? %>
         <div class="item">
-          <div class="title"><%= filter[:type] %></div>
+          <div class="title"><%= filter[:name] %></div>
           <%= '<div class="formats_wrapper">'.html_safe if filter[:type] == 'formats' %>
           <div class="<%= filter[:type] %>">
             <% labels.each do |nm,val| %>
@@ -22,7 +22,7 @@
                   onclick="javascript: this.form.submit();"
                   />
                 <label
-                  style="background: url(<%= asset_url 'content/products/color-2.png' unless filter[:type] == 'formats'%>) center"
+                  style="background: url(<%= asset_url filter[:images][val.to_sym] unless filter[:type] == 'formats'%>) center"
                   for="<%= label %>"
                   data-toggle="popover"
                   data-content="&lt;span&gt;<%= val %>&lt;/span&gt;"

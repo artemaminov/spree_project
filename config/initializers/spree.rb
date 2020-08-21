@@ -19,6 +19,7 @@ Spree.config do |config|
   config.currency = :RUB
   # country = Spree::Country.find_by_name('Russian Federation')
   config.default_country_id = 168
+  config.products_per_page = 1000
 end
 
 # Configure Spree Dependencies
