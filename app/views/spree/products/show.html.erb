@@ -25,16 +25,16 @@
               </div>
               <div class="price-block">
                 <div class="block">
-                  <div class="price_unit"><%= @product.variants.first.price %><span>₽/шт.</span></div>
-                  <div class="price_metr"><%= @product.variants.first.price * @product.variants.first.sqr_meter_amount.to_f %><span>₽/м<sup>2</sup></span></div>
+                  <div class="price_unit" id="piece-price"><%= @product.variants.first.price %><span>₽/шт.</span></div>
+                  <div class="price_metr" id="sqr-meter-price"><%= @product.variants.first.price * @product.variants.first.sqr_meter_amount.to_f %><span>₽/м<sup>2</sup></span></div>
                 </div>
               </div>
             </div>
             <div class="tabs">
               <ul class="nav nav-tabs" id="tabProduct" role="tablist">
                 <% @product.variants.each_with_index do |variant, i| %>
-                <li class="nav-item" role="presentation"><a class="nav-link <%= 'active' if i == 0 %>" id="variant-<%= i %>-tab" data-toggle="tab" href="#variant-<%= i %>" role="tab" aria-controls="variant-<%= i %>" aria-selected="true">
-                  <input type="radio" id="option-1" name="option" checked>
+                <li class="nav-item" role="presentation" data-price='{"piece":<%= variant.price %>, "sqrMeter":<%= variant.price * variant.sqr_meter_amount %>}'><a class="nav-link <%= 'active' if i == 0 %>" id="variant-<%= i %>-tab" data-toggle="tab" href="#variant-<%= i %>" role="tab" aria-controls="variant-<%= i %>" aria-selected="true">
+                  <input type="radio" id="option-1" name="option" <%= 'checked' if i == 0 %>>
                   <label for="option-1"><%= variant.option_value('format') %></label></a></li>
                 <% end %>
               </ul>
