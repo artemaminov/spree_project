@@ -81,7 +81,10 @@ gem 'spree_address_book', github: 'spree-contrib/spree_address_book'
 gem 'spree_related_products', github: 'spree-contrib/spree_related_products'
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
 
+gem 'mry'
 gem 'rubocop', '~> 0.81.0', require: false
+gem 'rubocop-rails'
+gem 'rubocop-rspec', require: false
 gem 'spree_editor', github: 'artemaminov/spree_editor', branch: 'trix'
 gem 'spree_cropper', github: 'artemaminov/spree_cropper'
 gem 'spree_image_combine', github: 'artemaminov/spree_image_combine'
