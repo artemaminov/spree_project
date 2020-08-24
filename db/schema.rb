@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_082212) do
+ActiveRecord::Schema.define(version: 2020_08_24_073758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,24 +188,26 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.index ["user_id"], name: "index_spree_credit_cards_on_user_id"
   end
 
-  create_table "spree_cropper_devices", force: :cascade do |t|
+  create_table "spree_cropper_dimensions", force: :cascade do |t|
     t.string "name"
     t.integer "width"
     t.integer "height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "preserve_ratio", default: true
   end
 
   create_table "spree_croppers", force: :cascade do |t|
     t.bigint "cropped_image_id"
-    t.string "name"
     t.integer "width"
     t.integer "height"
     t.integer "x"
     t.integer "y"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "dimension_id"
     t.index ["cropped_image_id"], name: "index_spree_croppers_on_cropped_image_id"
+    t.index ["dimension_id"], name: "index_spree_croppers_on_dimension_id"
   end
 
   create_table "spree_customer_returns", id: :serial, force: :cascade do |t|
@@ -258,6 +260,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.integer "height", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "multiple", default: false
   end
 
   create_table "spree_image_combines", force: :cascade do |t|
@@ -265,12 +268,12 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "spree_images_positions_types", force: :cascade do |t|
+  create_table "spree_images_positions", force: :cascade do |t|
     t.bigint "image_combine_id"
     t.bigint "block_position_id"
     t.integer "order", default: 1
-    t.index ["block_position_id"], name: "index_spree_images_positions_types_on_block_position_id"
-    t.index ["image_combine_id"], name: "index_spree_images_positions_types_on_image_combine_id"
+    t.index ["block_position_id"], name: "index_spree_images_positions_on_block_position_id"
+    t.index ["image_combine_id"], name: "index_spree_images_positions_on_image_combine_id"
   end
 
   create_table "spree_inventory_units", id: :serial, force: :cascade do |t|
@@ -526,7 +529,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
   end
 
   create_table "spree_page_section_translations", force: :cascade do |t|
-    t.bigint "spree_page_section_id", null: false
+    t.bigint "page_section_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -534,7 +537,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.text "description"
     t.string "button_text"
     t.index ["locale"], name: "index_spree_page_section_translations_on_locale"
-    t.index ["spree_page_section_id"], name: "index_spree_page_section_translations_on_spree_page_section_id"
+    t.index ["page_section_id"], name: "index_spree_page_section_translations_on_spree_page_section_id"
   end
 
   create_table "spree_page_sections", force: :cascade do |t|
@@ -548,7 +551,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
   end
 
   create_table "spree_page_translations", force: :cascade do |t|
-    t.integer "spree_page_id", null: false
+    t.integer "page_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -561,7 +564,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
     t.string "meta_description"
     t.string "layout"
     t.index ["locale"], name: "index_spree_page_translations_on_locale"
-    t.index ["spree_page_id"], name: "index_spree_page_translations_on_spree_page_id"
+    t.index ["page_id"], name: "index_spree_page_translations_on_spree_page_id"
   end
 
   create_table "spree_pages", id: :serial, force: :cascade do |t|
@@ -1167,14 +1170,14 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
   end
 
   create_table "spree_slide_translations", force: :cascade do |t|
-    t.bigint "spree_slide_id", null: false
+    t.bigint "slide_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "message"
     t.index ["locale"], name: "index_spree_slide_translations_on_locale"
-    t.index ["spree_slide_id"], name: "index_spree_slide_translations_on_spree_slide_id"
+    t.index ["slide_id"], name: "index_spree_slide_translations_on_spree_slide_id"
   end
 
   create_table "spree_sliders", force: :cascade do |t|
@@ -1582,8 +1585,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_082212) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "spree_images_positions_types", "spree_image_combine_block_positions", column: "block_position_id"
-  add_foreign_key "spree_images_positions_types", "spree_image_combines", column: "image_combine_id"
+  add_foreign_key "spree_images_positions", "spree_image_combine_block_positions", column: "block_position_id"
+  add_foreign_key "spree_images_positions", "spree_image_combines", column: "image_combine_id"
   add_foreign_key "spree_oauth_access_grants", "spree_oauth_applications", column: "application_id"
   add_foreign_key "spree_oauth_access_tokens", "spree_oauth_applications", column: "application_id"
   add_foreign_key "spree_sliders_slides", "spree_sliders", column: "slider_id"
