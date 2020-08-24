@@ -5,7 +5,6 @@ Spree::HomeController.class_eval do
     @searcher = build_searcher(params.merge(include_images: true))
     @products = @searcher.retrieve_products
     @products = @products.includes(:possible_promotions) if @products.respond_to?(:includes)
-    @taxonomies = Spree::Taxonomy.includes(root: :children)
     @retailers = collected_retailers_info
     @regions = collected_regions
     @standard_news = news_collection
