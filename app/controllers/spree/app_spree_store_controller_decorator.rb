@@ -4,9 +4,9 @@ Spree::StoreController.class_eval do
   include Rails.application.routes.url_helpers
   include CheckoutHelper
 
-  before_action :load_slider
+  before_action :load_data
 
-  def load_slider
+  def load_data
     @slider = Spree::Slider.for_page controller_name, params[:id]
     @page_sections = Spree::PageSection
     @taxonomies = Spree::Taxonomy.includes(root: :children)
