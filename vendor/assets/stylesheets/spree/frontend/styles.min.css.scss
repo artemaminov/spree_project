@@ -383,13 +383,13 @@ template {
 
 /* Slider */
 .slick-loading .slick-list {
-  background: #fff url("./ajax-loader.gif") center center no-repeat; }
+  background: #fff asset-url("ajax-loader.gif") center center no-repeat; }
 
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url("./fonts/slick.eot");
-  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
+  src: asset-url("fonts/slick.eot");
+  src: asset-url("fonts/slick.eot?#iefix") format("embedded-opentype"), asset-url("fonts/slick.woff") format("woff"), asset-url("fonts/slick.ttf") format("truetype"), asset-url("fonts/slick.svg#slick") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -829,7 +829,7 @@ label {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background: #fff url("/static/images/general/icons/products/arrow-down.svg") no-repeat center right 8px;
+  background: #fff asset-url("general/icons/products/arrow-down.svg") no-repeat center right 8px;
   outline: 0; }
   .custom-select.type-count {
     background-color: #fff;
@@ -1658,7 +1658,7 @@ header {
     left: 0;
     top: 66px;
     display: inline-block;
-    background: url("/static/images/general/bg/bg-news-main.jpg") center no-repeat;
+    background: asset-url("general/bg/bg-news-main.jpg") center no-repeat;
     width: 53%;
     height: 404px;
     z-index: 1; }
@@ -3011,11 +3011,11 @@ footer.footer {
           position: absolute;
           width: 12px;
           height: 12px;
-          background: url("/static/images/general/icons/products/radioButton.svg") center no-repeat;
+          background: asset-url("general/icons/products/radioButton.svg") center no-repeat;
           left: 0;
           top: calc(50% - 6px); }
         .modal_add-product .product_modal_content .item_option .body .tabs .nav-item .nav-link input[type=radio]:checked + label:before {
-          background: url("/static/images/general/icons/products/radioButtonChecked.svg") center no-repeat; }
+          background: asset-url("general/icons/products/radioButtonChecked.svg") center no-repeat; }
         .modal_add-product .product_modal_content .item_option .body .tabs .nav-item .nav-link.active {
           background: transparent; }
       .modal_add-product .product_modal_content .item_option .body .tabs .nav-item:first-child .nav-link {
@@ -4713,11 +4713,11 @@ footer.footer {
       position: absolute;
       width: 12px;
       height: 12px;
-      background: url("/static/images/general/icons/products/radioButton.svg") center no-repeat;
+      background: asset-url("general/icons/products/radioButton.svg") center no-repeat;
       left: 0;
       top: calc(50% - 6px); }
     .catalog-content .card-product .tabs .nav-item .nav-link input[type=radio]:checked + label:before {
-      background: url("/static/images/general/icons/products/radioButtonChecked.svg") center no-repeat; }
+      background: asset-url("general/icons/products/radioButtonChecked.svg") center no-repeat; }
     .catalog-content .card-product .tabs .nav-item .nav-link.active {
       background: transparent; }
   .catalog-content .card-product .tabs .nav-item:first-child .nav-link {
@@ -4887,7 +4887,7 @@ footer.footer {
       .catalog-content .accordion-content .accordion-product-item > .header:after {
         content: "";
         position: absolute;
-        background: url("/static/images/general/icons/products/arrow-up-accordion.svg") no-repeat center;
+        background: asset-url("general/icons/products/arrow-up-accordion.svg") no-repeat center;
         height: 10px;
         width: 14px;
         right: 5px;
@@ -5214,9 +5214,9 @@ footer.footer {
           top: 0;
           width: 30px;
           height: 30px;
-          background: url("/static/images/general/icons/products/nal.svg"); }
+          background: asset-url("general/icons/products/nal.svg"); }
         .catalog-content .accordion-content .accordion-product-item .payment > ul > li.bez-nal:after {
-          background: url("/static/images/general/icons/products/bez-nal.svg"); }
+          background: asset-url("general/icons/products/bez-nal.svg"); }
         .catalog-content .accordion-content .accordion-product-item .payment > ul > li > ul {
           padding: 0;
           list-style: none; }
@@ -5782,7 +5782,7 @@ footer.footer {
       right: 0;
       bottom: 0;
       left: 0;
-      background: url("/static/images/content/product/map.jpg") center no-repeat;
+      background: asset-url("content/product/map.jpg") center no-repeat;
       z-index: 0; }
       @media (max-width: 1023px) {
         .catalog-content.section_map > .map_wrapper > .map {
@@ -6822,7 +6822,7 @@ footer.footer {
               .basket-content .steps > .item > .wrapper > .body .delivery-methods > .body > .wrapper > .selected-store_block.active:after, .basket-content .steps > .item > .wrapper > .body .delivery-methods > .body > .wrapper > .select-address_block.active:after {
                 content: "";
                 position: absolute;
-                background: url("/static/images/general/icons/basket/arrow-tab.svg");
+                background: asset-url("general/icons/basket/arrow-tab.svg");
                 width: 33px;
                 height: 16px;
                 top: -16.5px; }
@@ -7226,7 +7226,7 @@ footer.footer {
             .basket-content .steps > .item > .wrapper > .body .filling-out-form > .body > .wrapper.left:after, .basket-content .steps > .item > .wrapper > .body .filling-out-form > .body > .wrapper.right:after {
               content: "";
               position: absolute;
-              background: url("/static/images/general/icons/basket/arrow-tab.svg");
+              background: asset-url("general/icons/basket/arrow-tab.svg");
               width: 33px;
               height: 16px;
               top: -16px; }

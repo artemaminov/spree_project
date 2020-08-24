@@ -39,11 +39,18 @@ function addDeleteActiveForAccordion() {
   });
 }
 
+function changeUnitPrice(unit) {
+  let price = $(unit).data("price");
+  $('#piece-price').html(`${price.piece}<span>₽/шт.</span>`);
+  $('#sqr-meter-price').html(`${price.sqrMeter}<span>₽/м<sup>2</sup></span>`);
+}
+
 function initTabForAddProductModal() {
   $('#tabProduct li, #tabProduct li input').on('click', function (e) {
     $(this).find('a').tab('show');
-    $(this).closest('ul').find('input[type="radio"]').prop('checked', '');
-    $(this).closest('li').find('input[type="radio"]').prop('checked', 'checked');
+    $(this).closest('ul').find('input[type="radio"]').prop('checked','');
+    $(this).closest('li').find('input[type="radio"]').prop('checked','checked');
+    changeUnitPrice(this);
   });
 }
 
