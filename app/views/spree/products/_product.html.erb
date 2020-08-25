@@ -19,10 +19,10 @@
           </span>
         </div>
         <div class="prices">
-          <div class="item item-wholesale">
-            <div class="title">Оптовая</div>
-            <div class="price"><%= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %> ₽</div>
-          </div>
+<!--          <div class="item item-wholesale">-->
+<!--            <div class="title">Оптовая</div>-->
+<!--            <div class="price"><%#= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %> ₽</div>-->
+<!--          </div>-->
           <div class="item item-retail">
             <div class="title">Розничная</div>
             <div class="price"><%= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %> ₽</div>
