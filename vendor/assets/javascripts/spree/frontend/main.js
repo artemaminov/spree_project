@@ -59,6 +59,11 @@ function increment() {
   $('input.calc-btn').keyup(function() {
     calc($(this));
   });
+  $('.btn_delete').on('click', function() {
+    let input = $(this).closest('.items').find('input.calc-btn');
+    input.val(0);
+    calc(input);
+  });
   $('#inputCount>.btn_minus').on('click', function () {
     let input = $(this).next();
     let inputVal = Number(input.val() || 0);
