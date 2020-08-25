@@ -10,12 +10,7 @@
       <div class="card-product">
         <div class="card-product_top">
           <div class="item item_img">
-            <picture>
-              <source media="(max-width: 375px)" srcset="<%= asset_url 'content/product/product-1-375.jpg' %>">
-              <source media="(max-width: 1023px)" srcset="<%= asset_url 'content/product/product-1-768.jpg' %>">
-              <source media="(max-width: 1650px)" srcset="<%= asset_url 'content/product/product-1-1440.jpg' %>">
-              <img src="<%= asset_url 'content/product/product-1-1920.jpg' %>">
-            </picture>
+            <%= image_combine_tag @product %>
           </div>
           <div class="item item_specifications">
             <div class="header">
