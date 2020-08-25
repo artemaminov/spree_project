@@ -112,7 +112,6 @@ namespace :db do
             variants = product_information[VARIANTS_FIELD].scan(VARIANT_REGEX)
             variants.each do |variant|
               variant_information = {}
-              # byebug
               variant_index = variants_ids.find_index(variant)
               next if variant_index.nil?
 
