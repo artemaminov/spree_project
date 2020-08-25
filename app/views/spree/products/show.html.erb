@@ -35,72 +35,7 @@
               </ul>
               <div class="tab-content" id="tabProductContent">
                 <% @product.variants.each_with_index do |variant, i| %>
-                <div class="tab-pane fade show <%= 'active' if i == 0 %>" id="variant-<%= i %>" role="tabpanel" aria-labelledby="variant-<%= i %>-tab">
-                  <div class="tab-content_product">
-                    <div class="header">
-                      <div class="title">Технические характеристики</div>
-                      <div class="articule">Артикул<span><%= variant.sku %></span></div>
-                    </div>
-                    <div class="body">
-                      <div class="item item_left">
-                        <div class="table">
-                          <div class="item">
-                            <div class="name">Формат</div>
-                            <div class="value"><%= variant.option_value('format') %></div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Вес кирпича</div>
-                            <div class="value"><%= variant.weight %> кг.</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Марка прочности</div>
-                            <div class="value"><%= @product.property("durability-mark") %></div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Марка морозостойксоти</div>
-                            <div class="value"><%= @product.property("frost-resistance-mark") %></div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Водопоглощение</div>
-                            <div class="value"><%= @product.property("water-absorption") %>%</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Класс плотности</div>
-                            <div class="value"><%= @product.property("density-class") %></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item item_right">
-                        <div class="table">
-                          <div class="item">
-                            <div class="name">Размер кирпича</div>
-                            <div class="value"><%= variant.dimension %> мм.</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Цвет кирпича</div>
-                            <div class="value">color</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Количество в кв. метре</div>
-                            <div class="value"><%= variant.sqr_meter_amount %> шт.</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Количество в поддоне</div>
-                            <div class="value"><%= variant.pallet_quantity %> шт.</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Количество палет на машине</div>
-                            <div class="value"><%= variant.car_load %> шт.</div>
-                          </div>
-                          <div class="item">
-                            <div class="name">Размер поддона</div>
-                            <div class="value"><%= variant.pallet_dimension %> мм.</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <%= render partial: 'spree/products/properties', locals: { variant: variant, i: i } %>
                 <% end %>
               </div>
             </div>
@@ -124,56 +59,7 @@
             </div>
             <div class="body accordion-add-product" id="accordionAddProduct">
               <% @product.variants.each_with_index do |variant, i| %>
-              <div class="card">
-                <div class="card-header" id="heading_<%= i %>">
-                  <div class="items collapsed" data-toggle="collapse" data-target="#collapse_<%= i %>" aria-expanded="true" aria-controls="collapse_<%= i %>">
-                    <div class="icon"><%= image_tag 'general/icons/products/icon-add-product.svg' %></div>
-                    <div class="format"><%= variant.option_value('format') %></div>
-                    <div class="availability"><%= in_stock_text(variant) %></div>
-                    <div class="price_unit"><%= variant.price %> ₽</div>
-                    <div class="price_metr"><%= variant.price * variant.sqr_meter_amount.to_f %> ₽</div>
-                    <div class="count">
-                      <div class="inputCount" id="inputCount"><a class="btn_minus">
-                        <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
-                        </svg></a>
-                        <input class="calc-btn" type="number" placeholder="0"
-                               data-info='{
-                               "id":"<%= i %>",
-                               "price":"<%= variant.price %>",
-                               "palletQuantity":"<%= variant.pallet_quantity %>",
-                               "sqrMeterAmount":"<%= variant.sqr_meter_amount %>"
-                               }' />
-                        <a class="btn_plus">
-                        <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
-                          <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
-                        </svg></a>
-                      </div>
-                      <select class="custom-select type-count calc-type" name="state" id="variant-<%= i %>-amount-type">
-                        <option value="AL">штук</option>
-                        <option value="WY">метр &sup2;</option>
-                      </select>
-                      <div class="text"><span id="variant-<%= i %>-pieces">0 шт.</span><span id="variant-<%= i %>-pallets">0 поддонов</span></div>
-                    </div>
-                    <div class="total" id="variant-<%= i %>-total"><span>Сумма:</span>0.00 ₽</div>
-                    <div class="arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                        <path d="M6.00132 2.11057L10.537 6.74449C10.6167 6.82566 10.7113 6.89001 10.8155 6.93385C10.9196 6.97769 11.0311 7.00017 11.1437 7C11.2563 6.99983 11.3678 6.97702 11.4718 6.93287C11.5758 6.88873 11.6702 6.8241 11.7497 6.74269C11.8292 6.66128 11.8923 6.56468 11.9352 6.4584C11.9781 6.35213 12.0002 6.23826 12 6.12329C11.9998 6.00833 11.9775 5.89453 11.9342 5.78838C11.891 5.68223 11.8277 5.58581 11.748 5.50464L6.60901 0.254838C6.45308 0.0960948 6.24317 0.0048797 6.023 0.000190168C5.80283 -0.00449936 5.58938 0.0776983 5.4271 0.229663L0.252048 5.50104C0.0909955 5.66498 0.000331345 5.88752 1.01505e-06 6.1197C-0.000329315 6.35188 0.0897005 6.57468 0.250286 6.73909C0.410871 6.90351 0.628857 6.99607 0.85629 6.9964C1.08372 6.99674 1.30197 6.90483 1.46302 6.74089L6.00132 2.11057Z" fill="#333333"></path>
-                      </svg>
-                    </div>
-                    <div class="delete">
-                      <div class="btn_delete">
-                        <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M2.47465 7.47465C2.27938 7.27938 2.27939 6.9628 2.47465 6.76754L6.71729 2.5249C6.91255 2.32964 7.22913 2.32964 7.42439 2.5249V2.5249C7.61966 2.72016 7.61966 3.03674 7.42439 3.23201L3.18175 7.47465C2.98649 7.66991 2.66991 7.66991 2.47465 7.47465V7.47465Z" fill="#4F4F4F"></path>
-                          <path d="M2.47457 2.52543C2.66983 2.33017 2.98642 2.33017 3.18168 2.52543L7.42432 6.76807C7.61958 6.96333 7.61958 7.27991 7.42432 7.47518V7.47518C7.22906 7.67044 6.91247 7.67044 6.71721 7.47518L2.47457 3.23254C2.27931 3.03727 2.27931 2.72069 2.47457 2.52543V2.52543Z" fill="#4F4F4F"></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="collapse collapsed" id="collapse_1" aria-labelledby="heading_1" data-parent="#accordionAddProduct"></div>
-              </div>
+                <%= render partial: 'spree/products/calc_line', locals: { variant: variant, i: i } %>
               <% end %>
             </div>
             <div class="footer">
