@@ -25,7 +25,7 @@
                   style="background: url(<%= asset_url filter[:images][name.to_sym] unless filter[:type] == 'formats'%>) center"
                   for="<%= label %>"
                   data-toggle="popover"
-                  data-content="&lt;span&gt;<%= dimension %>&lt;/span&gt;"
+                  data-content="&lt;span&gt;Размер <%= dimension %>&lt;/span&gt;"
                 >
                   <%= name if filter[:type] == 'formats' %>
                 </label>
