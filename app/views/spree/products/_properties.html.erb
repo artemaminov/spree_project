@@ -1,0 +1,66 @@
+<div class="tab-pane fade show <%= 'active' if properties_counter == 0 %>" id="variant-<%= properties_counter %>" role="tabpanel" aria-labelledby="variant-<%= properties_counter %>-tab">
+  <div class="tab-content_product">
+    <div class="header">
+      <div class="title">Технические характеристики</div>
+      <div class="articule">Артикул<span><%= properties.sku %></span></div>
+    </div>
+    <div class="body">
+      <div class="item item_left">
+        <div class="table">
+          <div class="item">
+            <div class="name">Формат</div>
+            <div class="value"><%= properties.option_value('format') %></div>
+          </div>
+          <div class="item">
+            <div class="name">Вес кирпича</div>
+            <div class="value"><%= properties.weight %> кг.</div>
+          </div>
+          <div class="item">
+            <div class="name">Марка прочности</div>
+            <div class="value"><%= @product.property("durability-mark") %></div>
+          </div>
+          <div class="item">
+            <div class="name">Марка морозостойксоти</div>
+            <div class="value"><%= @product.property("frost-resistance-mark") %></div>
+          </div>
+          <div class="item">
+            <div class="name">Водопоглощение</div>
+            <div class="value"><%= @product.property("water-absorption") %>%</div>
+          </div>
+          <div class="item">
+            <div class="name">Класс плотности</div>
+            <div class="value"><%= @product.property("density-class") %></div>
+          </div>
+        </div>
+      </div>
+      <div class="item item_right">
+        <div class="table">
+          <div class="item">
+            <div class="name">Размер кирпича</div>
+            <div class="value"><%= properties.dimension %> мм.</div>
+          </div>
+          <div class="item">
+            <div class="name">Цвет кирпича</div>
+            <div class="value">color</div>
+          </div>
+          <div class="item">
+            <div class="name">Количество в кв. метре</div>
+            <div class="value"><%= properties.sqr_meter_amount %> шт.</div>
+          </div>
+          <div class="item">
+            <div class="name">Количество в поддоне</div>
+            <div class="value"><%= properties.pallet_quantity %> шт.</div>
+          </div>
+          <div class="item">
+            <div class="name">Количество палет на машине</div>
+            <div class="value"><%= properties.car_load %> шт.</div>
+          </div>
+          <div class="item">
+            <div class="name">Размер поддона</div>
+            <div class="value"><%= properties.pallet_dimension %> мм.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<% cache [I18n.locale, @taxonomies] do %>
+<% cache [I18n.locale, @taxonomies, inside_li_tag] do %>
   <% if @taxonomies %>
     <% @taxonomies.each do |taxonomy| %>
       <% taxon = taxonomy.taxons.first %>

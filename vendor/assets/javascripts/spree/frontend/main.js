@@ -20,7 +20,7 @@ function calcTotal() {
       final += variantCost;
     }
   });
-  $("#total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
+  $(".calc-total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
   console.log(final);
 }
 
@@ -58,6 +58,11 @@ function increment() {
   });
   $('input.calc-btn').keyup(function() {
     calc($(this));
+  });
+  $('.btn_delete').on('click', function() {
+    let input = $(this).closest('.items').find('input.calc-btn');
+    input.val(0);
+    calc(input);
   });
   $('#inputCount>.btn_minus').on('click', function () {
     let input = $(this).next();
