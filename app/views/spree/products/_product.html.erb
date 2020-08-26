@@ -12,7 +12,7 @@
     </div>
     <div class="body">
       <div class="item item-left">
-        <div class="format" data-toggle="popover" data-content="&lt;div class='popover_products'&gt;&lt;div class='item item_header'&gt;&lt;div class='title'&gt;Форматы&lt;/div&gt;&lt;div class='format'&gt;Размеры&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;NF&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;div class='item'&gt;&lt;div class='title'&gt;ECO-WD&lt;/div&gt;&lt;div class='format'&gt;210х100х65&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">Форматы:&nbsp;
+        <div class="format" data-toggle="popover" data-content="<%= formats_dimensions(product) %>">Форматы:&nbsp;
           <span>
             <%= option_values_text(product) %>
             <%= image_tag 'general/icons/products/info.svg', class: "info cursor-pointer" %>

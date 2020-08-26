@@ -28,14 +28,14 @@ module Spree
 
       def self.format_filter
         option_type =Spree::OptionType.find_by(name: "format")
-        formats = Spree::OptionValue.joins(variants: :product).where(:option_type_id => option_type).map(&:presentation).compact.uniq
+        formats = Spree::OptionValue.joins(variants: :product).where(:option_type_id => option_type).order(:position).map { |f| [f.presentation, "#{f.width}x#{f.height}x#{f.depth} мм"] }.compact.uniq
         {
             type: 'formats',
             :name => I18n.t('spree.filter.format'),
             :scope => :format_any,
             :conds => nil,
             :option => 'format',
-            :labels => formats.map { |k| [k, k] }
+            :labels => formats
         }
       end
 
@@ -45,14 +45,14 @@ module Spree
 
       def self.selective_format_filter(taxon = nil)
         option_type =Spree::OptionType.find_by(name: "format")
-        formats = Spree::OptionValue.joins(variants: {product: :taxons}).where(:option_type_id => option_type).where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants).map(&:presentation).compact.uniq
+        formats = Spree::OptionValue.joins(variants: {product: :taxons}).where(:option_type_id => option_type).where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants).order(:position).map { |f| [f.presentation, "#{f.width}x#{f.height}x#{f.depth} мм"] }.compact.uniq
         {
             type: 'formats',
             :name => I18n.t('spree.filter.selective_format'),
             :scope => :selective_format_any,
             :conds => nil,
             :option => 'format',
-            :labels => formats.map { |k| [k, k] }
+            :labels => formats
         }
       end
 
