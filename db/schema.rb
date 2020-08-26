@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_073758) do
+ActiveRecord::Schema.define(version: 2020_08_26_065029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -453,6 +453,10 @@ ActiveRecord::Schema.define(version: 2020_08_24_073758) do
     t.integer "option_type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "width"
+    t.integer "height"
+    t.integer "depth"
+    t.string "icon"
     t.index ["name"], name: "index_spree_option_values_on_name"
     t.index ["option_type_id"], name: "index_spree_option_values_on_option_type_id"
     t.index ["position"], name: "index_spree_option_values_on_position"
@@ -1513,7 +1517,6 @@ ActiveRecord::Schema.define(version: 2020_08_24_073758) do
     t.integer "pallet_quantity"
     t.integer "car_load"
     t.string "pallet_dimension", limit: 14
-    t.string "dimension", limit: 11
     t.index ["deleted_at"], name: "index_spree_variants_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_variants_on_discontinue_on"
     t.index ["is_master"], name: "index_spree_variants_on_is_master"
