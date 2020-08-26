@@ -1,0 +1,21 @@
+<tr class="product_property fields" id="spree_<%= dom_id(f.object) %>" data-hook="product_property">
+  <td class="move-handle">
+    <% if f.object.persisted? && can?(:edit, f.object) %>
+      <span class="icon icon-move handle"></span>
+      <%= f.hidden_field :id %>
+    <% end %>
+  </td>
+  <td class='property_name'>
+    <%#= f.collection_select :property_name, Spree::Property.all, :name, :presentation, prompt: true %>
+    <%= f.select :property_name, Spree::Property.all.map { |p| ["#{p.presentation}", p.name] }, {}, { class: "select2" } %>
+    <%#= f.text_field :property_presentation, class: 'autocomplete form-control' %>
+  </td>
+  <td class='value'>
+    <%= f.text_field :value, class: 'form-control' %>
+  </td>
+  <td class="actions actions-1">
+    <% if f.object.persisted? && can?(:destroy, f.object) %>
+      <%= link_to_delete f.object, no_text: true %>
+    <% end %>
+  </td>
+</tr>

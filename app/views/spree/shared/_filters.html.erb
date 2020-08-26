@@ -22,10 +22,14 @@
                   onclick="javascript: this.form.submit();"
                   />
                 <label
-                  style="background: url(<%= asset_url filter[:images][name.to_sym] unless filter[:type] == 'formats'%>) center"
+                  <% unless filter[:type] == 'formats' %>
+                    <% unless filter[:images][name.to_sym].nil? %>
+                      style="background: url(<%= asset_url filter[:images][name.to_sym] %>) center"
+                    <% end %>
+                  <% end %>
                   for="<%= label %>"
                   data-toggle="popover"
-                  data-content="&lt;span&gt;<%= dimension %>&lt;/span&gt;"
+                  data-content="&lt;span&gt;Размер <%= dimension %>&lt;/span&gt;"
                 >
                   <%= name if filter[:type] == 'formats' %>
                 </label>
