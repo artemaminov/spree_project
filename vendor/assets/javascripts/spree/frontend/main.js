@@ -20,7 +20,7 @@ function calcTotal() {
       final += variantCost;
     }
   });
-  $("#total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
+  $(".calc-total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
   console.log(final);
 }
 
