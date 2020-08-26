@@ -12,8 +12,8 @@
             <div class="value"><%= properties.option_value('format') %></div>
           </div>
           <div class="item">
-            <div class="name">Вес кирпича</div>
-            <div class="value"><%= properties.weight %> кг.</div>
+            <div class="name">Тон кирпича</div>
+            <div class="value"><%= @product.property("color-tone") %></div>
           </div>
           <div class="item">
             <div class="name">Марка прочности</div>
@@ -37,11 +37,11 @@
         <div class="table">
           <div class="item">
             <div class="name">Размер кирпича</div>
-            <div class="value"><%= properties.dimension %> мм.</div>
+            <div class="value"><%= properties.option_value('format', :dimension) %> мм.</div>
           </div>
           <div class="item">
-            <div class="name">Цвет кирпича</div>
-            <div class="value">color</div>
+            <div class="name">Вес кирпича</div>
+            <div class="value"><%= properties.weight %> кг.</div>
           </div>
           <div class="item">
             <div class="name">Количество в кв. метре</div>
