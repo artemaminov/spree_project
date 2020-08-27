@@ -4,6 +4,15 @@ Spree::ProductsHelper.module_eval do
     options.join(', ')
   end
 
+  def variant_icon(variant)
+    icon = variant.option_value('format', :icon)
+    if icon.empty?
+      image_tag "icons/format/icon-add-product.svg"
+    else
+      image_tag "icons/format/#{ icon }"
+    end
+  end
+
   def formats_dimensions(product)
     options = Spree::OptionValue.where(presentation: fetch_options(product))
     output = %{
