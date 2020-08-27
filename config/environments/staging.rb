@@ -67,6 +67,18 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "mystore_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.yandex.com',
+      port: 587,
+      domain: 'centr-ugra.ru',
+      user_name: 'gazpro@centr-ugra.ru',
+      password: 'MsgnuW4pN7m6cDFd',
+      authentication: 'login',
+      enable_starttls_auto: true,
+      # tls: true
+  }
+  config.action_mailer.default_url_options = { host: 'gazpro.centr-ugra.ru'}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
