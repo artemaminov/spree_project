@@ -34,7 +34,7 @@
                 <% end %>
               </ul>
               <div class="tab-content" id="tabProductContent">
-                <%= render partial: 'spree/products/properties', collection: @product.variants, cached: true %>
+                <%= render partial: 'spree/products/properties', collection: @product.variants %>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="body accordion-add-product" id="accordionAddProduct">
-              <%= render partial: 'spree/products/calc_line', collection: @product.variants, cached: true %>
+              <%= render partial: 'spree/products/calc_line', collection: @product.variants %>
             </div>
             <div class="footer">
               <div class="total">
