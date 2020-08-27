@@ -16,12 +16,10 @@ function calcTotal() {
     let variantTotalElement = $(`#variant-${index}-total`);
     variantCost = Number(variantTotalElement.data('cost'));
     if (Number.isFinite(variantCost)) {
-      console.log(variantCost);
       final += variantCost;
     }
   });
   $(".calc-total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
-  console.log(final);
 }
 
 function calc(e) {
