@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header" id="heading_<%= calc_line_counter %>">
     <div class="items collapsed" data-toggle="collapse" data-target="#collapse_<%= calc_line_counter %>" aria-expanded="true" aria-controls="collapse_<%= calc_line_counter %>">
-      <div class="icon"><%= image_tag 'general/icons/products/icon-add-product.svg' %></div>
+      <div class="icon"><%= variant_icon(calc_line) %></div>
       <div class="format"><%= calc_line.option_value('format') %></div>
       <div class="availability"><%= in_stock_text(calc_line) %></div>
       <div class="price_unit"><%= calc_line.price %> ₽</div>

@@ -67,6 +67,14 @@ GIT
       spree_extension
 
 GIT
+  remote: https://github.com/spree-contrib/spree_mail_settings.git
+  revision: be7a9a9fa866054a81270f15e8e5fb289e80a9d7
+  specs:
+    spree_mail_settings (3.3.0)
+      spree_auth_devise (>= 3.1.0, < 4.0)
+      spree_backend (>= 3.1.0, < 4.0)
+
+GIT
   remote: https://github.com/spree-contrib/spree_multi_vendor.git
   revision: d4f9184182991c6749d2b8b59d9ec729d7c3b33e
   specs:
@@ -609,6 +617,7 @@ DEPENDENCIES
   spree_globalize!
   spree_i18n!
   spree_image_combine!
+  spree_mail_settings!
   spree_multi_vendor!
   spree_print_invoice!
   spree_related_products!

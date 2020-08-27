@@ -16,12 +16,10 @@ function calcTotal() {
     let variantTotalElement = $(`#variant-${index}-total`);
     variantCost = Number(variantTotalElement.data('cost'));
     if (Number.isFinite(variantCost)) {
-      console.log(variantCost);
       final += variantCost;
     }
   });
   $(".calc-total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
-  console.log(final);
 }
 
 function calc(e) {
@@ -48,6 +46,11 @@ function calc(e) {
   variantPalletsElement.text(`${variantPallets} поддонов`);
   variantTotalElement.text(`${variantTotal} ₽`);
   variantTotalElement.data('cost', variantTotal);
+  if (amount != Number(0)) {
+    variantPiecesElement.closest('.items').find('.btn_delete').show();
+  } else {
+    variantPiecesElement.closest('.items').find('.btn_delete').hide();
+  }
   calcTotal();
 }
 
@@ -61,6 +64,7 @@ function increment() {
   });
   $('.btn_delete').on('click', function() {
     let input = $(this).closest('.items').find('input.calc-btn');
+    $(this).hide();
     input.val(0);
     calc(input);
   });
