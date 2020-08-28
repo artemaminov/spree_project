@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header" id="heading_<%= calc_line_counter %>">
+    <div class="items collapsed" data-toggle="collapse" data-target="#collapse_<%= calc_line_counter %>" aria-expanded="true" aria-controls="collapse_<%= calc_line_counter %>">
+      <div class="icon"><%= variant_icon(calc_line) %></div>
+      <div class="format">
+        <div class="in-stock"><%= in_stock_text(calc_line) %></div>
+        <div class="name"><%= calc_line.option_value('format') %></div>
+      </div>
+      <div class="size">
+        <div class="title">Размер:</div><%= calc_line.option_value('format', :dimension) %> мм.
+      </div>
+      <div class="price">
+        <div class="title">Цена за шт.:</div><%= calc_line.price %> ₽
+      </div>
+      <div class="count">
+        <div class="inputCount" id="inputCount"><a class="btn_minus">
+          <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
+          </svg></a>
+          <input class="calc-btn" type="number" placeholder="0"
+                 data-info='{
+                               "id":"<%= calc_line_counter %>",
+                               "price":"<%= calc_line.price %>",
+                               "palletQuantity":"<%= calc_line.pallet_quantity %>",
+                               "sqrMeterAmount":"<%= calc_line.sqr_meter_amount %>"
+                               }' />
+          <a class="btn_plus">
+            <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
+              <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
+            </svg></a>
+        </div>
+        <div class="text"><span id="variant-<%= calc_line_counter %>-pieces">0 шт.</span><span id="variant-<%= calc_line_counter %>-pallets">0 поддонов</span></div>
+      </div>
+      <div class="count-m2">
+        <select class="custom-select type-count calc-type" name="state" id="variant-<%= calc_line_counter %>-amount-type">
+          <option value="AL">штук</option>
+          <option value="WY">метр&sup2;</option>
+        </select>
+      </div>
+      <div class="total" id="variant-<%= calc_line_counter %>-total">
+        <div class="title">Сумма:</div>0.00 ₽
+      </div>
+      <div class="arrow"><%= image_tag "general/icons/products/arrow_black.svg" %></div>
+      <div class="delete"><a class="btn_delete">
+        <svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.47465 7.47465C2.27938 7.27938 2.27939 6.9628 2.47465 6.76754L6.71729 2.5249C6.91255 2.32964 7.22913 2.32964 7.42439 2.5249V2.5249C7.61966 2.72016 7.61966 3.03674 7.42439 3.23201L3.18175 7.47465C2.98649 7.66991 2.66991 7.66991 2.47465 7.47465V7.47465Z" fill="#4F4F4F"></path>
+          <path d="M2.47457 2.52543C2.66983 2.33017 2.98642 2.33017 3.18168 2.52543L7.42432 6.76807C7.61958 6.96333 7.61958 7.27991 7.42432 7.47518V7.47518C7.22906 7.67044 6.91247 7.67044 6.71721 7.47518L2.47457 3.23254C2.27931 3.03727 2.27931 2.72069 2.47457 2.52543V2.52543Z" fill="#4F4F4F"></path>
+        </svg></a></div>
+    </div>
+  </div>
+  <div class="collapse collapsed" id="collapse_<%= calc_line_counter %>" aria-labelledby="heading_<%= calc_line_counter %>" data-parent="#accordionAddCollection"></div>
+</div>
