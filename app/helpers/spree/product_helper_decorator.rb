@@ -7,9 +7,9 @@ Spree::ProductsHelper.module_eval do
     options.join(', ')
   end
 
-  # Get variant icon if present
+  # Get variant icon if present or stub
   def variant_icon(variant)
-    icon = variant.option_value('format', :icon)
+    icon = variant.option_value('format', :icon) || ''
     icons_path = ICONS_FOLDER + icon
     if icon.empty? || Rails.application.assets_manifest.assets[icons_path].nil?
       image_tag ICONS_FOLDER + FALLBACK_ICON
