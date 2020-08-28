@@ -9,7 +9,7 @@ Spree::ProductsHelper.module_eval do
   def variant_icon(variant)
     icon = variant.option_value('format', :icon)
     icons_path = ICONS_FOLDER + icon
-    if icon.empty? || Rails.application.assets_manifest.find_sources(icons_path).blank?
+    if icon.empty? || Rails.application.assets.find_asset(icons_path).nil?
       image_tag ICONS_FOLDER + 'icon-add-product.svg'
     else
       image_tag icons_path
