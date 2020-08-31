@@ -1,0 +1,5 @@
+<% if can? :admin, Spree::Gallery %>
+    <ul class="nav nav-sidebar">
+        <%= tab 'Галерея', url: spree.admin_galleries_path, icon: 'th-large' %>
+    </ul>
+<% end %>

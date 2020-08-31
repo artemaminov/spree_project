@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :role_discounts
 
       resources :page_sections
+      resources :galleries
       resources :sliders
     end
 

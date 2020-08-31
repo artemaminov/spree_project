@@ -47,6 +47,7 @@
             <%= render partial: 'spree/shared/taxonomies', locals: { inside_li_tag: true } %>
           </ul>
         </li>
+        <% if false %>
         <li class="cursor"><a href="#">О компании</a>
           <div class="toggle_btn"><%= image_tag("general/icons/arrow_sidebar.svg") %></div>
           <ul>
@@ -58,6 +59,7 @@
         <li><a href="#">Сеть продаж</a></li>
         <li><a href="#">Контакты</a></li>
         <li><a href="#">Личный кабинет</a></li>
+        <% end %>
       </ul>
     </div>
     <div class="contacts"><a class="item" href="tel:+7 922 079 3302"><%= image_tag("general/icons/header/phone.svg", class: 'phone') %><span>+7 922 079 3302</span></a><a class="item" href="mailto:kom@zaobkz.ru"><%= image_tag("general/icons/header/email.svg", class: 'email') %><span>kom@zaobkz.ru</span></a></div>
