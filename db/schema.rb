@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_065029) do
+ActiveRecord::Schema.define(version: 2020_08_31_074524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -228,6 +228,30 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
     t.index ["page_id"], name: "index_spree_file_attachments_on_page_id"
   end
 
+  create_table "spree_galleries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_gallery_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spree_gallery_translations", force: :cascade do |t|
+    t.bigint "spree_gallery_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "subtitle"
+    t.text "desc"
+    t.index ["locale"], name: "index_spree_gallery_translations_on_locale"
+    t.index ["spree_gallery_id"], name: "index_spree_gallery_translations_on_spree_gallery_id"
+  end
+
   create_table "spree_gateways", id: :serial, force: :cascade do |t|
     t.string "type"
     t.string "name"
@@ -331,7 +355,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2020-06-16 11:42:54"
+    t.datetime "publication_date", default: "2020-08-31 05:56:43"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""
@@ -533,7 +557,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
   end
 
   create_table "spree_page_section_translations", force: :cascade do |t|
-    t.bigint "page_section_id", null: false
+    t.bigint "spree_page_section_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -541,7 +565,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
     t.text "description"
     t.string "button_text"
     t.index ["locale"], name: "index_spree_page_section_translations_on_locale"
-    t.index ["page_section_id"], name: "index_spree_page_section_translations_on_spree_page_section_id"
+    t.index ["spree_page_section_id"], name: "index_spree_page_section_translations_on_spree_page_section_id"
   end
 
   create_table "spree_page_sections", force: :cascade do |t|
@@ -551,11 +575,11 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
     t.boolean "button_centered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "Слайдер", null: false
+    t.string "name", default: "Блок", null: false
   end
 
   create_table "spree_page_translations", force: :cascade do |t|
-    t.integer "page_id", null: false
+    t.integer "spree_page_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -568,7 +592,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
     t.string "meta_description"
     t.string "layout"
     t.index ["locale"], name: "index_spree_page_translations_on_locale"
-    t.index ["page_id"], name: "index_spree_page_translations_on_spree_page_id"
+    t.index ["spree_page_id"], name: "index_spree_page_translations_on_spree_page_id"
   end
 
   create_table "spree_pages", id: :serial, force: :cascade do |t|
@@ -1174,19 +1198,19 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
   end
 
   create_table "spree_slide_translations", force: :cascade do |t|
-    t.bigint "slide_id", null: false
+    t.bigint "spree_slide_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.text "message"
     t.index ["locale"], name: "index_spree_slide_translations_on_locale"
-    t.index ["slide_id"], name: "index_spree_slide_translations_on_spree_slide_id"
+    t.index ["spree_slide_id"], name: "index_spree_slide_translations_on_spree_slide_id"
   end
 
   create_table "spree_sliders", force: :cascade do |t|
     t.string "page"
-    t.string "page_id", limit: 32
+    t.integer "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "Слайдер", null: false
@@ -1498,7 +1522,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_065029) do
     t.string "sku", default: "", null: false
     t.decimal "weight", precision: 8, scale: 2, default: "0.0"
     t.decimal "height", precision: 8, scale: 2
-    t.string "width", limit: 255
+    t.decimal "width", precision: 8, scale: 2
     t.decimal "depth", precision: 8, scale: 2
     t.datetime "deleted_at"
     t.boolean "is_master", default: false
