@@ -1,6 +1,49 @@
 "use strict";
 
 var isModalOpen = false;
+
+(function (e, p) {
+  e.extend({
+    lockfixed: function lockfixed(a, b) {
+      b && b.offset ? (b.offset.bottom = parseInt(b.offset.bottom, 10), b.offset.top = parseInt(b.offset.top, 10)) : b.offset = {
+        bottom: 100,
+        top: 0
+      };
+
+      if ((a = e(a)) && a.offset()) {
+        var n = a.css("position"),
+            c = parseInt(a.css("marginTop"), 10),
+            l = a.css("top"),
+            g = a.offset().top,
+            h = !1;
+        if (!0 === b.forcemargin || navigator.userAgent.match(/\bMSIE (4|5|6)\./) || navigator.userAgent.match(/\bOS ([0-9])_/) || navigator.userAgent.match(/\bAndroid ([0-9])\./i)) h = !0;
+        e(window).bind("scroll resize orientationchange load lockfixed:pageupdate", a, function (k) {
+          if (!h || !document.activeElement || "INPUT" !== document.activeElement.nodeName) {
+            var d = 0,
+                d = a.outerHeight();
+            k = a.outerWidth();
+            var m = e(document).height() - b.offset.bottom,
+                f = e(window).scrollTop();
+            "fixed" != a.css("position") && (g = a.offset().top, c = parseInt(a.css("marginTop"), 10), l = a.css("top"));
+            f >= g - (c ? c : 0) - b.offset.top ? (d = m < f + d + c + b.offset.top ? f + d + c + b.offset.top - m : 0, h ? a.css({
+              marginTop: parseInt((c ? c : 0) + (f - g - d) + 2 * b.offset.top, 10) + "px"
+            }) : a.css({
+              position: "fixed",
+              top: b.offset.top - d + "px",
+              width: k + "px"
+            })) : a.css({
+              position: n,
+              top: l,
+              width: k + "px",
+              marginTop: (c ? c : 0) + "px"
+            });
+          }
+        });
+      }
+    }
+  });
+})(jQuery);
+
 $(document).ready(function () {
   initInputMask();
   initHomeSlickSlider();
@@ -17,7 +60,116 @@ $(document).ready(function () {
   modalAddProductInitAndDestroy();
   initTabForAddProductModal();
   initAccordionAddCollection();
+  initAccordionProduct();
+  initAccordionAddProduct();
+  initAccordionDelivery();
+  initAccordionProductMap();
+  initBasketSteps();
+  initDeliveryBasket();
+  initFillingOutFormBasket();
 });
+
+function initFillingOutFormBasket() {
+  var fillingOutForm = $("input[name*='fillingOutForm']");
+  checkedFillingOutForm(fillingOutForm.val());
+  fillingOutForm.on("click", function () {
+    var val = $(this).val();
+    checkedFillingOutForm(val);
+  });
+}
+
+function checkedFillingOutForm(val) {
+  if (Number(val) === 2) {
+    $(".filling-out-form .form-basket").html("\n    <div class=\"form-row\">\n      <div class=\"form-group col-md-6\">\n        <label for=\"innBasket\">\u0418\u041D\u041D*</label>\n        <input class=\"form-control\" id=\"innBasket\" type=\"text\" placeholder=\"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0418\u041D\u041D \u043A\u043E\u043C\u0430\u043F\u043D\u0438\u0438\">\n      </div>\n      <div class=\"form-group col-md-6\">\n        <label for=\"phoneNumberBasket\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430*</label>\n        <input class=\"form-control\" id=\"phoneNumberBasket\" type=\"text\" placeholder=\"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\" inputmode=\"text\">\n      </div>\n    </div>\n    <div class=\"form-row\">\n      <div class=\"form-group col-md-6\">\n        <label for=\"fioBasket\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E*</label>\n        <input class=\"form-control\" id=\"fioBasket\" type=\"text\" placeholder=\"\u0418\u0432\u0430\u043D\u043E \u0418\u0432\u0430\u043D \u0418\u0432\u0430\u043D\u043E\u0432\u0438\u0447\">\n      </div>\n      <div class=\"form-group col-md-6\">\n        <label for=\"emailBasket\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430*</label>\n        <input class=\"form-control\" id=\"emailBasket\" type=\"text\" placeholder=\"your@email.com\">\n      </div>\n    </div>\n    ");
+    $(".filling-out-form .wrapper").removeClass("left").addClass("right");
+  } else {
+    $(".filling-out-form .form-basket").html("\n    <div class=\"form-row\">\n      <div class=\"form-group col-md-6\">\n        <label for=\"fioBasket\">\u0424\u0430\u043C\u0438\u043B\u0438\u044F \u0418\u043C\u044F \u041E\u0442\u0447\u0435\u0441\u0442\u0432\u043E*</label>\n        <input class=\"form-control\" id=\"fioBasket\" type=\"text\" placeholder=\"\u0418\u0432\u0430\u043D\u043E \u0418\u0432\u0430\u043D \u0418\u0432\u0430\u043D\u043E\u0432\u0438\u0447\">\n      </div>\n      <div class=\"form-group col-md-6\">\n        <label for=\"phoneNumberBasket\">\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430*</label>\n        <input class=\"form-control\" id=\"phoneNumberBasket\" type=\"text\" placeholder=\"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\" inputmode=\"text\">\n      </div>\n    </div>\n    <div class=\"form-row\">\n      <div class=\"form-group col-md-6\">\n        <label for=\"emailBasket\">\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u0430\u044F \u043F\u043E\u0447\u0442\u0430*</label>\n        <input class=\"form-control\" id=\"emailBasket\" type=\"text\" placeholder=\"your@email.com\">\n      </div>\n    </div>\n    ");
+    $(".filling-out-form .wrapper").removeClass("right").addClass("left");
+  }
+}
+
+function initDeliveryBasket() {
+  var valueDelivery = $("input[name*='delivery-basket']");
+  checkedDelivery(valueDelivery.val());
+  valueDelivery.on("click", function () {
+    var val = $(this).val();
+    checkedDelivery(val);
+  });
+}
+
+function checkedDelivery(valueDelivery) {
+  if (Number(valueDelivery) === 2) {
+    // $(".selected-store_block").show();
+    // $(".select-address_block").hide();
+    $(".selected-store_block").addClass("active");
+    $(".select-address_block").removeClass("active");
+  } else {
+    // $(".selected-store_block").hide();
+    // $(".select-address_block").show();
+    $(".selected-store_block").removeClass("active");
+    $(".select-address_block").addClass("active");
+  }
+}
+
+function initBasketSteps() {
+  $(".js-btnNextBasketSteps").on("click", function () {
+    $(this).parent().parent().parent().parent().removeClass("active").next().addClass("active");
+  });
+  $(".js-btnBackBasketSteps").on("click", function () {
+    $(this).parent().parent().parent().parent().removeClass("active").prev().addClass("active");
+  });
+}
+
+function initAccordionProductMap() {
+  $(".section_map .dealer-list .item").on("click", function () {
+    if (!$(this).hasClass("active")) {
+      $(".section_map .dealer-list .item").removeClass("active");
+      $(this).addClass("active");
+    } else {
+      $(".section_map .dealer-list .item").removeClass("active");
+    }
+  });
+}
+
+function initAccordionDelivery() {
+  var accordion = $('#accordionDelivery');
+  accordion.on('shown.bs.collapse', function () {
+    addDeleteActiveDelivery();
+  });
+  accordion.on('hidden.bs.collapse', function () {
+    addDeleteActiveDelivery();
+  });
+}
+
+function addDeleteActiveDelivery() {
+  var items = $('.accordion-delivery .card-header .items');
+  items.parent().parent().removeClass('active');
+  items.each(function () {
+    if (!$(this).hasClass('collapsed')) {
+      $(this).parent().parent().addClass('active');
+    }
+  });
+}
+
+function initAccordionAddProduct() {
+  var accordion = $('#accordionAddProduct');
+  accordion.on('shown.bs.collapse', function () {
+    addDeleteActiveForProduct();
+  });
+  accordion.on('hidden.bs.collapse', function () {
+    addDeleteActiveForProduct();
+  });
+}
+
+function addDeleteActiveForProduct() {
+  var items = $('.accordion-add-product .card-header .items');
+  items.parent().parent().removeClass('active');
+  items.each(function (i, elem) {
+    if (!$(this).hasClass('collapsed')) {
+      $(this).parent().parent().addClass('active');
+    }
+  });
+}
 
 function initAccordionAddCollection() {
   var accordion = $('#accordionAddCollection');
@@ -39,23 +191,30 @@ function addDeleteActiveForAccordion() {
   });
 }
 
+function initAccordionProduct() {
+  $(".js-accordion-product>.header").on("click", function () {
+    if ($(this).parent().hasClass("active")) $(this).parent().removeClass("active");else $(this).parent().addClass("active");
+  });
+}
+
 function changeUnitPrice(unit) {
-  let price = $(unit).data("price");
-  $('#piece-price').html(`${price.piece}<span>₽/шт.</span>`);
-  $('#sqr-meter-price').html(`${price.sqrMeter}<span>₽/м<sup>2</sup></span>`);
+  var price = $(unit).data("price");
+  $('#piece-price').html("".concat(price.piece, "<span>\u20BD/\u0448\u0442.</span>"));
+  $('#sqr-meter-price').html("".concat(price.sqrMeter, "<span>\u20BD/\u043C<sup>2</sup></span>"));
 }
 
 function initTabForAddProductModal() {
   $('#tabProduct li, #tabProduct li input').on('click', function (e) {
     $(this).find('a').tab('show');
-    $(this).closest('ul').find('input[type="radio"]').prop('checked','');
-    $(this).closest('li').find('input[type="radio"]').prop('checked','checked');
+    $(this).closest('ul').find('input[type="radio"]').prop('checked', '');
+    $(this).closest('li').find('input[type="radio"]').prop('checked', 'checked');
     changeUnitPrice(this);
   });
 }
 
 function initInputMask() {
   $('.input_phone').inputmask("+7 (999) 999 99 99");
+  $('#phoneNumberBasket').inputmask("+7 (999) 999 99 99");
 }
 
 function modalAddProductInitAndDestroy() {

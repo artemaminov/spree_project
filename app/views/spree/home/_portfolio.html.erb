@@ -1,0 +1,25 @@
+<div class="section section_portfolio">
+  <div class="container-xl">
+    <div class="title">Портфолио проектов&nbsp;-&nbsp;
+      <%= link_to Spree.t(:show_all), portfolio_index_url %>
+    </div>
+    <div class="slider_portfolio" id="slider_portfolio">
+      <ul class="slidee">
+        <% @portfolio.each do |item| %>
+          <li class="item">
+            <%= link_to portfolio_url(item) do %>
+              <div class="img"><%= image_tag(main_app.url_for(item.preview_image.attachment)) %></div>
+              <div class="title"><%= item.title %></div>
+              <div class="description"><%= item.subtitle %></div>
+              <div class="more"><%= Spree.t(:read_more) %></div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="scrollbar">
+      <div class="handle"></div>
+    </div>
+    <div class="count"><%= Spree.t(:projects_of) %> 3 из <%= @portfolio.count %></div>
+  </div>
+</div>
