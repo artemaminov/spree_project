@@ -6,6 +6,7 @@
     <div class="slider_portfolio" id="slider_portfolio">
       <ul class="slidee">
         <% @portfolio.each do |item| %>
+          <% next if item.preview_image.attachment.nil? %>
           <li class="item">
             <%= link_to portfolio_url(item) do %>
               <div class="img"><%= image_tag(main_app.url_for(item.preview_image.attachment)) %></div>
