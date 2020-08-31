@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
     resources :news, only: [:index]
     resources :questions, only: [:create]
+    resources :portfolio, only: [:index, :show]
 
     get '/news/post/:slug', to: 'news#show', as: :news_post
     delete 'admin/delete_attachment/:attachment_id', to: 'admin/attachments#destroy', as: :delete_attachment

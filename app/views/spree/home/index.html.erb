@@ -53,44 +53,7 @@
   </div>
 </div>
 <%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('move-to-catalog') } %>
-<div class="section section_portfolio">
-  <div class="container-xl">
-    <div class="title">Портфолио проектов&nbsp;&nbsp;-&nbsp;&nbsp;<a href="#">Посмотреть все</a></div>
-    <div class="slider_portfolio" id="slider_portfolio">
-      <ul class="slidee">
-        <li class="item"><a href="#">
-          <div class="img"><%= image_tag('content/portfolioItem-1.jpg') %></div>
-          <div class="title">Многоэтажный дом</div>
-          <div class="description">Кирпич ручной работы Монс-Роял</div>
-          <div class="more">Подробнее</div></a></li>
-        <li class="item"><a href="#">
-          <div class="img"><%= image_tag('content/portfolioItem-2.jpg') %></div>
-          <div class="title">Многоэтажный дом</div>
-          <div class="description">Кирпич ручной работы Монс-Роял</div>
-          <div class="more">Подробнее</div></a></li>
-        <li class="item"><a href="#">
-          <div class="img"><%= image_tag('content/portfolioItem-1.jpg') %></div>
-          <div class="title">Многоэтажный дом</div>
-          <div class="description">Кирпич ручной работы Монс-Роял</div>
-          <div class="more">Подробнее</div></a></li>
-        <li class="item"><a href="#">
-          <div class="img"><%= image_tag('content/portfolioItem-2.jpg') %></div>
-          <div class="title">Многоэтажный дом</div>
-          <div class="description">Кирпич ручной работы Монс-Роял</div>
-          <div class="more">Подробнее</div></a></li>
-        <li class="item"><a href="#">
-          <div class="img"><%= image_tag('content/portfolioItem-1.jpg') %></div>
-          <div class="title">Многоэтажный дом</div>
-          <div class="description">Кирпич ручной работы Монс-Роял</div>
-          <div class="more">Подробнее</div></a></li>
-      </ul>
-    </div>
-    <div class="scrollbar">
-      <div class="handle"></div>
-    </div>
-    <div class="count">Проектов 2 из 250</div>
-  </div>
-</div>
+<%= render partial: 'spree/home/portfolio' %>
 <%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('about-production') } %>
 <div class="section section_news">
   <div class="container-fluid">

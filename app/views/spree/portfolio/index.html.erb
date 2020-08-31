@@ -1,0 +1,21 @@
+<%= render partial: 'spree/shared/slider' %>
+
+<section class="portfolio-content">
+  <div class="container-xl">
+    <%= spree_breadcrumbs(@taxon) %>
+    <!-- конец хлебные крошки-->
+    <h1>ПОРТФОЛИО ПРОЕКТОВ</h1>
+    <div class="portfolio-list">
+    <!--  4 карточки-->
+      <div class="row">
+        <% @portfolio.each do |item| %>
+          <div class="col col-12 col-md-6 col-sm-6"><a class="card" href="#">
+            <%= image_tag(main_app.url_for(item.preview_image.attachment)) %>
+            <div class="title"><%= item.title %>"</div>
+            <div class="description"><%= item.subtitle %></div></a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
