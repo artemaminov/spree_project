@@ -4,7 +4,13 @@ module Spree
   module Admin
     class GalleriesController < ResourceController
       def create
+        products = products_params_multiple[:products]
 
+        unless products.nil?
+          @gallery.products << Spree::Product.find(products.reject(&:empty?))
+        end
+
+        params[:gallery].delete(:products)
 
         super
       end
