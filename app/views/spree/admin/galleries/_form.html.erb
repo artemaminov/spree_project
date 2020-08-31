@@ -1,0 +1,96 @@
+<% content_for :page_actions do %>
+    <%= button_link_to Spree.t(:back_to_resource_list,
+                               resource: plural_resource_name(Spree::Gallery)),
+                       spree.admin_galleries_path,
+                       icon: 'arrow-left', class: 'btn-primary' %>
+<% end %>
+
+<%= form_for [:admin, resource] do |f| %>
+    <div class="row" data-hook="admin_page_form_fields">
+        <div class="col-lg-6" data-hook="admin_page_form_left">
+
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: 'form-control', required: true %>
+                <%= f.error_message_on :title %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :subtitle %>
+                <%= f.text_field :subtitle, class: 'form-control', required: true %>
+                <%= f.error_message_on :subtitle %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :desc %>
+                <%= f.text_area :desc, class: 'form-control gallery_desc' %>
+                <%= f.error_message_on :desc %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :products %>
+
+                <%= f.select :products, options_for_select( Spree::Product.all.collect{|p| [p.name, p.id]}, @gallery.products.map{|d| d.id} ), {}, {multiple: true, class: 'select2'} %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :main_image %>
+                <%= f.file_field :main_image, multiple: false %>
+                <%= f.error_message_on :main_image %>
+
+                <div class="image-preview">
+                    <%= image_tag main_app.url_for(@gallery.main_image) if @gallery.main_image.attachment.present? %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :preview_image %>
+                <%= f.file_field :preview_image, multiple: false %>
+                <%= f.error_message_on :preview_image %>
+
+                <div class="image-preview">
+                    <%= image_tag main_app.url_for(@gallery.preview_image) if @gallery.preview_image.attachment.present? %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :images %>
+                <%= f.file_field :images, multiple: true %>
+                <%= f.error_message_on :images %>
+
+                <div class="image-preview-multiple">
+                    <% if @gallery.images.any? %>
+                        <% @gallery.images.in_groups_of(5, false) do |row| %>
+                            <div class="image-preview-row">
+                                <% row.each do |image| %>
+                                    <div class="image-preview-item">
+                                        <%= image_tag main_app.url_for(image) %>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+
+
+
+
+<!--            div class="form-group"-->
+<!--            = ff.label :file-->
+<!--            = ff.file_field :file, multiple: false, required: ff.object.file.attachment ? false : true-->
+<!--            = error_message_on ff.object, :file-->
+<!--            = link_to 'Скачать', main_app.url_for(ff.object.file), target: '_blank' if ff.object.file.attachment-->
+
+        </div>
+
+<!--        <div class="col-lg-6" data-hook="admin_page_form_right">-->
+<!--            <div class="form-group">-->
+
+<!--            </div>-->
+
+<!--        </div>-->
+    </div>
+
+    <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
+<% end %>

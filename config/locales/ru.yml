@@ -240,6 +240,15 @@ ru:
         html_section_name: "ID html блока"
         name: "Наименование"
         title: "Заголовок"
+      spree/gallery:
+        title: "Заголовок"
+        subtitle: "Подзаголовок"
+        id: "ID"
+        desc: "Описание"
+        preview_image: "Изображение - обложка"
+        products: "Товары"
+        images: "Фотографии"
+        main_image: "Изображение для слайдера"
       spree/file_attachment:
         name: "Имя"
         file: "Вложение"
@@ -1170,6 +1179,9 @@ ru:
       sections: "Блоки страниц"
       slider: "Карусель"
       title: "Оформление"
+    gallery:
+      new: "Новая галерея"
+      title: "Галерея"
     pagination:
       next_page: "следующая страница »"
       previous_page: "« предыдущая страница"
@@ -1688,7 +1700,7 @@ ru:
       new_news: "Новая новость"
       editing_news: "Редактировать новость"
       back_to_news_list: "Назад к списку новостей"
-    gallery: "Фотогалерея"
+#    gallery: "Фотогалерея"
     attachments:
       attachments: "Вложения"
       new_attachment: "Новое Вложение"
