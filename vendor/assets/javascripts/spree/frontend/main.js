@@ -56,7 +56,7 @@ function calc(e) {
 
 function increment() {
   $('.calc-type').change(function() {
-    let input = $(this).prev().find('input.calc-btn');
+    let input = $(this).closest('.items').find('input.calc-btn');
     calc(input);
   });
   $('input.calc-btn').keyup(function() {
