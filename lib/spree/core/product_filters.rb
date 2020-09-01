@@ -56,7 +56,7 @@ module Spree
             labels: formats,
             name: I18n.t('spree.filter.selective_format'),
             option: 'format',
-            popup: I18n.t('spree.filter,dimensions'),
+            popup: I18n.t('spree.filter.dimensions'),
             scope: :selective_format_any,
             type: 'formats',
         }
