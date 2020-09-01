@@ -10,9 +10,9 @@
   <table class="table" id="listing_pages" data-hook>
     <colgroup>
       <col style="width: 30%">
-      <col style="width: 40%">
+      <col style="width: 30%">
       <col style="width: 25%">
-      <col style="width: 0">
+      <col style="width: 10%">
     </colgroup>
     <thead>
     <tr data-hook="admin_pages_index_headers">
@@ -50,3 +50,6 @@
     <%= link_to Spree.t(:add_one), spree.new_admin_gallery_path %>!
   </div>
 <% end %>
+
+
+<%= paginate @galleries %>

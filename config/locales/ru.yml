@@ -83,6 +83,7 @@ ru:
         description: "Описание"
         master_price: "Цена"
         name: "Название"
+        position: "Сортировка"
         on_hand: "На складе"
         shipping_category: "Категория доставки"
         tax_category: "Категория товаров"
@@ -1180,8 +1181,8 @@ ru:
       slider: "Карусель"
       title: "Оформление"
     gallery:
-      new: "Новая галерея"
-      title: "Галерея"
+      new: "Новое портфолио"
+      title: "Портфолио"
     pagination:
       next_page: "следующая страница »"
       previous_page: "« предыдущая страница"

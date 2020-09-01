@@ -7,6 +7,7 @@ module Spree
             small:   '309x381>',
             product: '538x519>',
             large:   '800x800>',
+            custom: '810x550>'
         }
       end
     end
