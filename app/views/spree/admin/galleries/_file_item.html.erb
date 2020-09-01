@@ -1,0 +1,12 @@
+<%
+    content ||= {}
+    content[:file] ||= ''
+%>
+
+<a href="#" data-image-id="<%= content[:file]&.id %>" class="file-uploader__image-img">
+    <%= hidden_field_tag 'image_massive[]', content[:file]&.id %>
+    <%= image_tag main_app.url_for(content[:file]) %>
+    <div class="file-uploader__image-remove">
+        &times;
+    </div>
+</a>

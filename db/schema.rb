@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_074524) do
+ActiveRecord::Schema.define(version: 2020_09_01_125833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -217,6 +217,14 @@ ActiveRecord::Schema.define(version: 2020_08_31_074524) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["number"], name: "index_spree_customer_returns_on_number", unique: true
     t.index ["stock_location_id"], name: "index_spree_customer_returns_on_stock_location_id"
+  end
+
+  create_table "spree_entity_files", force: :cascade do |t|
+    t.string "entity"
+    t.string "name"
+    t.integer "file_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spree_file_attachments", id: :serial, force: :cascade do |t|
@@ -612,8 +620,6 @@ ActiveRecord::Schema.define(version: 2020_08_31_074524) do
     t.string "meta_title"
     t.boolean "render_layout_as_partial", default: false
     t.boolean "show_in_footer", default: false, null: false
-    t.integer "parent_position", default: 0, null: false
-    t.integer "parent_id"
     t.index ["slug"], name: "index_spree_pages_on_slug"
   end
 
@@ -762,6 +768,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_074524) do
     t.string "meta_title"
     t.datetime "discontinue_on"
     t.integer "vendor_id"
+    t.integer "position"
     t.index ["available_on"], name: "index_spree_products_on_available_on"
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_products_on_discontinue_on"

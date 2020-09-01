@@ -31,7 +31,12 @@ Rails.application.routes.draw do
       resources :role_discounts
 
       resources :page_sections
+
       resources :galleries
+
+      delete 'galleries/file_upload', to: 'galleries#file_upload'
+      post 'galleries/file_upload', to: 'galleries#file_upload'
+
       resources :sliders
     end
 

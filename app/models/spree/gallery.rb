@@ -1,6 +1,6 @@
 module Spree
     class Gallery < Spree::Base
-        validates :title, :subtitle, :main_image, :preview_image, presence: true
+        validates :title, :subtitle, presence: true
 
         has_many :gallery_products, class_name: "Spree::GalleryProduct"
         has_many :products, class_name: "Spree::Product",
