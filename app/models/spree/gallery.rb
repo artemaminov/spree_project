@@ -14,5 +14,17 @@ module Spree
             translates :title, :subtitle, :desc, fallbacks_for_empty_translations: true
             # include SpreeGlobalize::Translatable
         end
+
+        def return_to_catalog
+            @return_to_catalog = products.first.taxons.first
+        end
+
+        def next
+            Spree::Gallery.where("id > ?", id).order("id ASC").first || Spree::Gallery.first
+        end
+
+        def previous
+            Spree::Gallery.where("id < ?", id).order("id DESC").first || Spree::Gallery.last
+        end
     end
 end

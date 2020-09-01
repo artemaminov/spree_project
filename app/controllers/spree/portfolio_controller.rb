@@ -5,5 +5,7 @@ class Spree::PortfolioController < Spree::StoreController
 
   def show
     @portfolio = Spree::Gallery.find params[:id]
+    @next_portfolio = @portfolio.next
   end
+
 end
