@@ -1,16 +1,16 @@
 <div class="row" data-hook="admin_page_form_fields">
   <div class="col-lg-6" data-hook="admin_page_form_left">
-
-    <%= field_container f.object, :title, class: ['form-group'] do %>
+<% byebug %>
+    <%= field_container resource, :title, class: ['form-group'] do %>
       <%= f.label :title %>
       <%= f.text_area :title, class: 'form-control' %>
-      <%= error_message_on f.object, :title %>
+      <%= error_message_on resource, :title %>
     <% end %>
 
-    <%= field_container f.object, :message, class: ['form-group'] do %>
+    <%= field_container resource, :message, class: ['form-group'] do %>
       <%= f.label :message %>
       <%= f.text_area :message, class: 'form-control', required: true %>
-      <%= error_message_on f.object, :message %>
+      <%= error_message_on resource, :message %>
     <% end %>
 
   </div>
@@ -20,13 +20,13 @@
     <div class="form-group">
       <%= f.label :order %>
       <%= f.text_field :order, class: 'form-control' %>
-      <%= error_message_on f.object, :order %>
+      <%= error_message_on resource, :order %>
     </div>
 
     <div class="form-group">
       <%= f.label :url %>
       <%= f.text_field :url, class: 'form-control' %>
-      <%= error_message_on f.object, :url %>
+      <%= error_message_on resource, :url %>
     </div>
   </div>
 </div>
