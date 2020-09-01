@@ -27,9 +27,9 @@
                       style="background: url(<%= asset_url filter[:images][name.to_sym] %>) center"
                     <% end %>
                   <% end %>
-                  for="<%= label %>"
-                  data-toggle="popover"
-                  data-content="&lt;span&gt;Размер <%= dimension %>&lt;/span&gt;"
+                  for='<%= label %>'
+                  data-toggle='popover'
+                  data-content='&lt;span&gt;<%= "#{ filter[:popup] }  #{ dimension }" %>&lt;/span&gt;'
                 >
                   <%= name if filter[:type] == 'formats' %>
                 </label>
