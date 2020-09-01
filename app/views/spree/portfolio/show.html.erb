@@ -119,9 +119,9 @@
 <!-- следующий проект-->
 <div class="portfolio-single-next-project">
   <picture>
-    <source media="(max-width: 375px)" srcset="/static/images/content/portfolio-single/next-project/next-project-375.jpg">
-    <source media="(max-width: 768px)" srcset="/static/images/content/portfolio-single/next-project/next-project-768.jpg">
-    <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/next-project/next-project-1440.jpg"><img class="bg-img" src="/static/images/content/portfolio-single/next-project/next-project-1920.jpg">
+    <% unless @next_portfolio.main_image.attachment.nil? %>
+      <%= image_tag main_app.url_for(@next_portfolio.main_image.attachment), class: "bg-img" %>
+    <% end %>
   </picture>
   <div class="wrapper"></div>
   <div class="container-xl">
