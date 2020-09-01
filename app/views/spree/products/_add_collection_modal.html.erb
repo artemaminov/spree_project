@@ -3,6 +3,7 @@
   <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag "general/icons/close-modal.svg" %></span></button>
 </div>
 <div class="modal-body">
+  <%= form_tag '/send_collection', remote: true do %>
   <div class="accordion" id="accordionAddCollection">
     <div class="card card-top">
       <div class="items">
@@ -24,11 +25,16 @@
       <div class="sum calc-total">0.00 ₽</div>
     </div>
     <div class="item item_btn_add-collection">
+
+    <%= text_field_tag 'customer_name', nil, placeholder: 'Ваше имя' %>
       <div class="btn btn_add-collection">
-        <svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
-        </svg><span>Добавить в коллекцию</span>
+<!--        <svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>-->
+<!--        </svg>-->
+<!--        <span>Добавить в коллекцию</span>-->
+        <span><%= submit_tag 'Отправить менеджеру', data: { "disable-with": "Отправка..." } %></span>
       </div>
     </div>
   </div>
 </div>
+<% end %>

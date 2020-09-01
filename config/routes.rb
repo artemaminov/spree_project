@@ -47,5 +47,6 @@ Rails.application.routes.draw do
     post '/activations/check_email', to: 'user_activations#check_email', as: :check_email
     post '/activations/check_phone_number', to: 'user_activations#check_phone_number', as: :check_phone_number
 
+    post 'send_collection', to: 'products#send_collection'
   end
 end

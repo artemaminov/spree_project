@@ -15,6 +15,16 @@ module Spree
       end
     end
 
+    def send_collection
+      respond_to do |format|
+        format.js {
+          byebug
+          variant_ids = params[:calc_item].keys
+          variants = Spree::Variant.find(variant_ids)
+        }
+      end
+    end
+
   end
 end
 
