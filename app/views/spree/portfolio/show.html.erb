@@ -75,9 +75,11 @@
     <div class="description">
       <h2><%= Spree.t('portfolio.description') %></h2>
       <p><%= @portfolio.desc %></p>
+      <% if false %>
       <h3><%= Spree.t('portfolio.statistics') %></h3>
       <span><strong><%= Spree.t('used') %>:</strong></span>
       <span><span>- 122 043 <%= Spree.t('pieces') %></span> кирпича ручной работы Монс-Роял</span>
+      <% end %>
     </div>
   </div>
 </section>
