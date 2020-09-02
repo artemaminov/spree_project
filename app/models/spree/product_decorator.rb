@@ -1,5 +1,11 @@
 module Spree
+  Product.class_eval do
+    acts_as_list
+  end
+
   module ProductDecorator
+
+
     def lowest_price_variant
       prices.min_by { |v| v.amount }
     end

@@ -12,11 +12,10 @@
         <% end %>
       </div>
 
-        <div data-hook="admin_product_form_weight">
+        <div data-hook="admin_product_form_position">
             <%= f.field_container :position, class: ['form-group'] do %>
                 <%= f.label :position, raw(Spree.t(:position) + content_tag(:span, ' *', class: 'required')) %>
-                <%= f.text_field :position, class: 'form-control weight' %>
-                <%= f.error_message_on :position %>
+                <%= f.text_field :position, class: 'form-control position' %>
             <% end %>
         </div>
 

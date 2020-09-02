@@ -9,7 +9,8 @@
 <% if @galleries.any? %>
   <table class="table" id="listing_pages" data-hook>
     <colgroup>
-      <col style="width: 30%">
+    <col style="width: 5%">
+    <col style="width: 30%">
       <col style="width: 30%">
       <col style="width: 25%">
       <col style="width: 10%">
@@ -17,6 +18,7 @@
     <thead>
     <tr data-hook="admin_pages_index_headers">
         <th><%= Spree::Gallery.human_attribute_name('id') %></th>
+        <th><%= Spree::Gallery.human_attribute_name('position') %></th>
         <th><%= Spree::Gallery.human_attribute_name('title') %></th>
         <th><%= Spree::Gallery.human_attribute_name('subtitle') %></th>
       <th data-hook="admin_pages_index_header_actions" class="actions"></th>
@@ -27,6 +29,7 @@
       <% @galleries.each do |gallery| %>
         <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id gallery %>">
           <td><%= gallery.id %></td>
+            <td><%= gallery.position %></td>
           <td><%= gallery.title %></td>
           <td><%= gallery.subtitle %></td>
           <td class="actions text-right" data-hook="admin_pages_index_row_actions">
