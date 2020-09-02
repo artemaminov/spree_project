@@ -4,7 +4,7 @@
     <source media="(max-width: 768px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-768.jpg">
     <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-1440.jpg">
     <% unless @portfolio.main_image.attachment.nil? %>
-      <%= image_tag main_app.url_for(@portfolio.main_image.attachment), class: "bg-img" %>
+      <%= image_combine_tag(@portfolio.main_image, class: "bg-img") %>
     <% end %>
   </picture>
   <div class="wrap"></div>
