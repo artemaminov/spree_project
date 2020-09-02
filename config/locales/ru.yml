@@ -250,6 +250,7 @@ ru:
         products: "Товары"
         images: "Фотографии"
         main_image: "Изображение для слайдера"
+        position: "Позиция"
       spree/file_attachment:
         name: "Имя"
         file: "Вложение"
@@ -1489,6 +1490,7 @@ ru:
     show_only_considered_risky:
     show_rate_in_label: "Показывать процент в названии"
     sku: "Артикул"
+    position: "Позиция"
     skus:
     slider:
       title: "Оформление"

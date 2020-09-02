@@ -1,5 +1,7 @@
 module Spree
     class Gallery < Spree::Base
+        acts_as_list
+
         validates :title, :subtitle, presence: true
 
         has_many :gallery_products, class_name: "Spree::GalleryProduct"

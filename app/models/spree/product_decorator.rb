@@ -1,6 +1,6 @@
 module Spree
   Product.class_eval do
-    # acts_as_list :order => :position
+    acts_as_list
   end
 
   module ProductDecorator

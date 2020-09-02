@@ -1,0 +1,27 @@
+.confidential {
+
+    width: 60%;
+    margin: auto;
+    border: 0px solid white;
+    padding: 20px;
+    margin-top: 100px;
+
+}
+
+.confidential .registration {
+    text-indent: 3em; /* Отступ первой строки */
+    text-align: justify; /* Выравнивание по ширине */
+}
+
+.confidential .black {
+    font-weight: bold!important;
+}
+
+
+.confidential ol { counter-reset: item }
+
+.confidential li { display: block }
+
+.confidential li:not(.tire):before { content: counters(item, ".") ". "; counter-increment: item;  }
+
+.confidential ul li:before { content: "— "; list-style-type: none; }

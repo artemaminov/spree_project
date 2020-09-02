@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_125833) do
+ActiveRecord::Schema.define(version: 2020_09_02_113931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,6 +239,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
   create_table "spree_galleries", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
   end
 
   create_table "spree_gallery_products", force: :cascade do |t|
@@ -1213,6 +1214,16 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
     t.text "message"
     t.index ["locale"], name: "index_spree_slide_translations_on_locale"
     t.index ["spree_slide_id"], name: "index_spree_slide_translations_on_spree_slide_id"
+  end
+
+  create_table "spree_slider_translations", force: :cascade do |t|
+    t.bigint "spree_slider_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["locale"], name: "index_spree_slider_translations_on_locale"
+    t.index ["spree_slider_id"], name: "index_spree_slider_translations_on_spree_slider_id"
   end
 
   create_table "spree_sliders", force: :cascade do |t|

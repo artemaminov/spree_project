@@ -3,7 +3,7 @@
     content[:file] ||= ''
 %>
 
-<a href="#" data-image-id="<%= content[:file]&.attachment&.id %>" class="file-uploader__image">
+<div data-image-id="<%= content[:file]&.attachment&.id %>" class="file-uploader__image">
     <%= hidden_field_tag 'image_massive[]', content[:file]&.attachment&.id %>
-    <%= image_tag main_app.url_for(content[:file]) %>
-</a>
+    <%= image_tag main_app.url_for(content[:file].variant(resize: '810 x550')) %>
+</div>
