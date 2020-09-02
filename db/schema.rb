@@ -363,7 +363,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2020-08-31 05:56:43"
+    t.datetime "publication_date", default: "2020-06-16 11:42:54"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""
@@ -583,11 +583,11 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
     t.boolean "button_centered"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "Блок", null: false
+    t.string "name", default: "Слайдер", null: false
   end
 
   create_table "spree_page_translations", force: :cascade do |t|
-    t.integer "spree_page_id", null: false
+    t.integer "page_id", null: false
     t.string "locale", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -599,8 +599,9 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
     t.string "meta_title"
     t.string "meta_description"
     t.string "layout"
+    t.integer "spree_page_id"
     t.index ["locale"], name: "index_spree_page_translations_on_locale"
-    t.index ["spree_page_id"], name: "index_spree_page_translations_on_spree_page_id"
+    t.index ["page_id"], name: "index_spree_page_translations_on_spree_page_id"
   end
 
   create_table "spree_pages", id: :serial, force: :cascade do |t|
@@ -1215,9 +1216,19 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
     t.index ["spree_slide_id"], name: "index_spree_slide_translations_on_spree_slide_id"
   end
 
+  create_table "spree_slider_translations", force: :cascade do |t|
+    t.bigint "spree_slider_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["locale"], name: "index_spree_slider_translations_on_locale"
+    t.index ["spree_slider_id"], name: "index_spree_slider_translations_on_spree_slider_id"
+  end
+
   create_table "spree_sliders", force: :cascade do |t|
     t.string "page"
-    t.integer "page_id"
+    t.string "page_id", limit: 32
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "Слайдер", null: false
@@ -1529,7 +1540,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_125833) do
     t.string "sku", default: "", null: false
     t.decimal "weight", precision: 8, scale: 2, default: "0.0"
     t.decimal "height", precision: 8, scale: 2
-    t.decimal "width", precision: 8, scale: 2
+    t.string "width", limit: 255
     t.decimal "depth", precision: 8, scale: 2
     t.datetime "deleted_at"
     t.boolean "is_master", default: false
