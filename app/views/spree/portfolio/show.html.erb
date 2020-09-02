@@ -83,20 +83,22 @@
 </section>
 <!-- конец описание-->
 <!-- список товаров-->
-<div class="section section_similar-product">
-  <div class="container-xl">
-    <div class="title"><%= Spree.t('portfolio.products_used') %></div>
-    <div class="slider_similar_product" id="slider_similar_product">
-      <ul class="slidee">
-        <%= render partial: 'spree/products/product', collection: @portfolio.products, locals: { taxon: @taxon } %>
-      </ul>
+<% if @portfolio.products.any? %>
+  <div class="section section_similar-product">
+    <div class="container-xl">
+      <div class="title"><%= Spree.t('portfolio.products_used') %></div>
+      <div class="slider_similar_product" id="slider_similar_product">
+        <ul class="slidee">
+          <%= render partial: 'spree/products/product', collection: @portfolio.products, locals: { taxon: @taxon } %>
+        </ul>
+      </div>
+      <div class="scrollbar">
+        <div class="handle"></div>
+      </div>
+      <div class="count"><%= Spree.t('products') %> 3 <%= Spree.t('of') %> <%= @portfolio.products.count %></div>
     </div>
-    <div class="scrollbar">
-      <div class="handle"></div>
-    </div>
-    <div class="count"><%= Spree.t('products') %> 3 <%= Spree.t('of') %> <%= @portfolio.products.count %></div>
   </div>
-</div>
+<% end %>
 <!-- конец список товаров-->
 <!-- галерея-->
 <div class="portfolio-single_gallery">
