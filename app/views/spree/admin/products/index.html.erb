@@ -54,6 +54,7 @@
   <table class="table" id="listing_products">
     <thead>
       <tr data-hook="admin_products_index_headers">
+        <th><%= sort_link @search, :position, Spree.t(:position) %></th>
         <th><%= Spree.t(:sku) %></th>
         <th><%= Spree.t(:status) %></th>
 
@@ -67,6 +68,7 @@
     <tbody>
       <% @collection.each do |product| %>
           <tr <%== "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
+            <td class="position"><%= product.position %></td>
             <td class="sku"><%= product.sku rescue '' %></td>
             <td class="status"><%= available_status(product) %> </td>
             <td class="image"><%= mini_image product %></td>
