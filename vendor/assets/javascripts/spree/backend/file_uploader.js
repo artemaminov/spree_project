@@ -28,24 +28,7 @@ $(document).ready(function () {
 });
 
 function remove_file(_this) {
-
-  // $.ajax({
-  //   url: '/admin/galleries/file_upload',
-  //   type: 'DELETE',
-  //   data: {
-  //     id: _this.data('image-id')
-  //   },
-  //   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-  // }).done(function(result){
-
-  confirm('Вы действительно хотите удалить?', _this)
-
-
-    // _this.remove();
-
-  // }).fail(function(result){
-  //   console.log(result);
-  // });
+  confirm_delete('Вы действительно хотите удалить?', _this)
 }
 
 function add_files(e, _this)  {
@@ -88,7 +71,7 @@ function add_files(e, _this)  {
 }
 
 
-function confirm(message, _this) {
+function confirm_delete(message, _this) {
   $.confirm({
     title: 'Внимание',
     content: 'Вы действительно хотите удалить фотографию?',

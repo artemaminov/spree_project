@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     post '/activations/check_email', to: 'user_activations#check_email', as: :check_email
     post '/activations/check_phone_number', to: 'user_activations#check_phone_number', as: :check_phone_number
 
-    # get '/confidential', to: 'home#confidential'
+    get '/confidential_agreement', to: 'agreements#confidential_agreement'
+    get '/user_agreement', to: 'agreements#user_agreement'
+    get '/oferta', to: 'agreements#oferta'
   end
 end
