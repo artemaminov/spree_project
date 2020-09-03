@@ -12,10 +12,6 @@ Spree::HomeController.class_eval do
     @portfolio = Spree::Gallery.all.order(position: :asc)
   end
 
-  def confidential
-
-  end
-
   private
 
   def news_collection
