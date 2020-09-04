@@ -66,7 +66,7 @@ module Spree
 
         @galleries = Spree::Gallery.all
                              .reorder(position: :asc)
-                             .page(params[:page])
+                             # .page(params[:page])
       end
 
       def create
