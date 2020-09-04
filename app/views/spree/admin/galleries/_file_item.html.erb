@@ -3,7 +3,7 @@
     content[:file] ||= ''
 %>
 
-<a href="#" data-image-id="<%= content[:file]&.id %>" class="file-uploader__image-img">
+<a href="#" id="<%= spree_dom_id content[:file] %>" data-image-id="<%= content[:file]&.id %>" class="file-uploader__image-img">
     <%= hidden_field_tag 'image_massive[]', content[:file]&.id %>
     <%= image_tag main_app.url_for(content[:file].variant(resize: '810 x550')) %>
     <div class="file-uploader__image-remove">
