@@ -8,76 +8,88 @@ $(document).ready(function () {
   increment();
 });
 
+function controlCalcClearBtn(line) {
+  var btn = line.closest('.items').find('.btn_delete');
+
+  if (Number(line.val()) != 0) {
+    btn.show();
+  } else {
+    btn.hide();
+  }
+}
+
 function calcTotal() {
-  let variantCost = 0;
-  let totals = $('.card .items .total');
-  let final = 0;
-  totals.each(function(index){
-    let variantTotalElement = $(`#variant-${index}-total`);
+  var variantCost = 0;
+  var totals = $('.card .items .total');
+  var final = 0;
+  totals.each(function (index) {
+    var variantTotalElement = $("#variant-".concat(index, "-total"));
     variantCost = Number(variantTotalElement.data('cost'));
+
     if (Number.isFinite(variantCost)) {
       final += variantCost;
     }
   });
-  $(".calc-total").text(`${Number.parseFloat(final).toFixed(2)} ₽`);
+  $(".calc-total").text("".concat(Number.parseFloat(final).toFixed(2), " \u20BD"));
 }
 
 function calc(e) {
-  let variantPieces, variantSqrMeters, variantPallets, variantTotal = 0;
-  let variant = $(e).data("info");
-  let amount = $(e).val();
-  let variantPiecesElement = $(`#variant-${variant.id}-pieces`);
-  let variantPalletsElement = $(`#variant-${variant.id}-pallets`);
-  let variantTotalElement = $(`#variant-${variant.id}-total`);
-  let variantAmountType = $(`#variant-${variant.id}-amount-type option:checked`).val();
+  var variantPieces,
+      variantSqrMeters,
+      variantPallets,
+      variantTotal = 0;
+  var variant = $(e).data("info");
+  var amount = $(e).val();
+  var variantPiecesElement = $("#variant-".concat(variant.id, "-pieces"));
+  var variantPalletsElement = $("#variant-".concat(variant.id, "-pallets"));
+  var variantTotalElement = $("#variant-".concat(variant.id, "-total"));
+  var variantAmountType = $("#variant-".concat(variant.id, "-amount-type option:checked")).val();
+
   switch (variantAmountType) {
     case "WY":
       variantSqrMeters = Number(amount);
       variantPieces = Number(variant.sqrMeterAmount) * variantSqrMeters;
-      variantPiecesElement.text(`${variantPieces} штук`);
+      variantPiecesElement.text("".concat(variantPieces, " \u0448\u0442\u0443\u043A"));
       break;
+
     case "AL":
       variantPieces = Number(amount);
       variantSqrMeters = Number.parseFloat(variantPieces / Number(variant.sqrMeterAmount)).toFixed(2);
-      variantPiecesElement.text(`${variantSqrMeters} метр\u00B2`);
+      variantPiecesElement.text("".concat(variantSqrMeters, " \u043C\u0435\u0442\u0440\xB2"));
   }
+
   variantPallets = Number.parseFloat(variantPieces / Number(variant.palletQuantity)).toFixed(2);
   variantTotal = Number.parseFloat(Number(variant.price) * variantPieces).toFixed(2);
-  variantPalletsElement.text(`${variantPallets} поддонов`);
-  variantTotalElement.text(`${variantTotal} ₽`);
+  variantPalletsElement.text("".concat(variantPallets, " \u043F\u043E\u0434\u0434\u043E\u043D\u043E\u0432"));
+  variantTotalElement.text("".concat(variantTotal, " \u20BD"));
   variantTotalElement.data('cost', variantTotal);
-  if (amount != Number(0)) {
-    variantPiecesElement.closest('.items').find('.btn_delete').show();
-  } else {
-    variantPiecesElement.closest('.items').find('.btn_delete').hide();
-  }
+  controlCalcClearBtn($(e));
   calcTotal();
 }
 
 function increment() {
-  $('.calc-type').change(function() {
-    let input = $(this).closest('.items').find('input.calc-btn');
+  $('.calc-type').change(function () {
+    var input = $(this).closest('.items').find('input.calc-btn');
     calc(input);
   });
-  $('input.calc-btn').keyup(function() {
+  $('input.calc-btn').keyup(function () {
     calc($(this));
   });
-  $('.btn_delete').on('click', function() {
-    let input = $(this).closest('.items').find('input.calc-btn');
-    $(this).hide();
+  $('.btn_delete').on('click', function () {
+    var input = $(this).closest('.items').find('input.calc-btn');
     input.val(0);
     calc(input);
   });
   $('#inputCount>.btn_minus').on('click', function () {
-    let input = $(this).next();
-    let inputVal = Number(input.val() || 0);
+    var input = $(this).next();
+    var inputVal = Number(input.val() || 0);
     if (inputVal > 0) inputVal -= 1;
     input.val(inputVal);
     calc(input);
   });
   $('#inputCount>.btn_plus').on('click', function () {
-    let input = $(this).prev();
-    let inputVal = Number(input.val() || 0);
+    var input = $(this).prev();
+    var inputVal = Number(input.val() || 0);
     inputVal += 1;
     input.val(inputVal);
     calc(input);
@@ -141,6 +153,7 @@ function adaptive() {
   var width = null,
       oldWith = null;
   $(window).resize(function () {
+    initHeightForAccordionProduct();
     var coordinates = document.documentElement.getBoundingClientRect();
     width = coordinates.width;
     $sliderPortfolioFrame.sly('reload');
@@ -219,14 +232,8 @@ function adaptive() {
   });
 }
 
-function initSocial() {
-  var bottomSocial = $(".wrapper>.footer").innerHeight() + $(".wrapper>.section_map").innerHeight();
-  $.lockfixed(".socialsList .items", {
-    offset: {
-      top: 400,
-      bottom: bottomSocial - 190
-    }
-  });
+function initSocial() {// let bottomSocial = $(".wrapper>.footer").innerHeight() + $(".wrapper>.section_map").innerHeight();
+  // $.lockfixed(".socialsList .items",{offset: {top: 400, bottom: bottomSocial - 190}});
 }
 
 function portfolioFilterMore1070() {

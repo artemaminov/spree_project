@@ -16,9 +16,9 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
     <![endif]-->
-    <%= javascript_include_tag 'spree/frontend/all' %>
     <%= render 'spree/shared/paths' %>
     <%= render 'spree/shared/translations' %>
+    <%= javascript_include_tag 'spree/frontend/all' %>
     <%= yield :head %>
     <%= csrf_meta_tags %>
   </head>

@@ -26,11 +26,12 @@
                 </svg>
               <div class="text">Ваша подборка</div></a>
               <% end %>
-
-              <% if spree_current_user %>
-              <a class="item item_login" href="/logout">
-              <% else %>
-              <a class="item item_login id_modalLoginOpen" href="#">
+              <% if false %>
+                <% if spree_current_user %>                
+                    <a class="item item_login" href="/logout">               
+                <% else %>
+                <a class="item item_login id_modalLoginOpen" href="#">
+                <% end %>
               <% end %>
                 <svg width="15" height="14" viewbox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.70445 7.47786H0.47727C0.213816 7.47786 0 7.26404 0 7.00059C0 6.73713 0.213816 6.52332 0.47727 6.52332H9.70445C9.96791 6.52332 10.1817 6.73713 10.1817 7.00059C10.1817 7.26404 9.96791 7.47786 9.70445 7.47786Z" fill="white"></path>

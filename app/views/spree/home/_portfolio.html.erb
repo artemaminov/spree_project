@@ -9,7 +9,8 @@
           <% next if item.preview_image.attachment.nil? %>
           <li class="item">
             <%= link_to portfolio_url(item) do %>
-              <div class="img"><%= image_tag(main_app.url_for(item.preview_image.attachment)) %></div>
+              <div class="img">
+                <%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '590x551', crop: '590x551+0+0' }))) %></div>
               <div class="title"><%= item.title %></div>
               <div class="description"><%= item.subtitle %></div>
               <div class="more"><%= Spree.t(:read_more) %></div>
@@ -21,6 +22,6 @@
     <div class="scrollbar">
       <div class="handle"></div>
     </div>
-    <div class="count"><%= Spree.t(:projects_of) %> 3 из <%= @portfolio.count %></div>
+    <div class="count"><%= Spree.t('projects') %> 3 <%= Spree.t('of') %> <%= @portfolio.count %></div>
   </div>
 </div>

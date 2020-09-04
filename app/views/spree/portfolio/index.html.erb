@@ -13,12 +13,16 @@
           <div class="col col-12 col-md-6 col-sm-6">
             <%= link_to portfolio_url(item), class: 'card' do %>
               <%= image_tag(main_app.url_for(item.preview_image.attachment)) %>
-              <div class="title"><%= item.title %>"</div>
+              <div class="title"><%= item.title %></div>
               <div class="description"><%= item.subtitle %></div>
             <% end %>
           </div>
         <% end %>
+
+
       </div>
+        <%= paginate @portfolio %>
     </div>
+
   </div>
 </section>

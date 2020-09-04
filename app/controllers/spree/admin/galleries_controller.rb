@@ -3,6 +3,49 @@
 module Spree
   module Admin
     class GalleriesController < ResourceController
+      def file_upload
+        files = params[:files]
+
+        single = params[:single] == 'true'
+        name = params[:name]
+
+        @uploaded = []
+
+        files.each do |file|
+          file = EntityFile.create({
+                                    entity: 'Gallery',
+                                    name: 'temp_file',
+                                    image: file
+                            })
+
+          # file.image.variant(resize: '810x550>')
+          # image.variant(resize_to_limit: [810, 550])
+
+          @uploaded << file.image
+        end
+
+        if single
+          render 'render_big_image', locals: {
+                  content: {
+                          name: name
+                  }
+          }
+        else
+          render 'render_file_item', locals: {
+                  content: {
+                          name: name
+                  }
+          }
+        end
+
+      end
+
+      def index
+        # super
+
+        @galleries = Spree::Gallery.all.page params[:page]
+      end
+
       def create
         products = products_params_multiple[:products]
 
@@ -11,6 +54,20 @@ module Spree
         end
 
         params[:gallery].delete(:products)
+
+        if params.key? :main_image
+          @gallery.main_image.attach(ActiveStorage::Attachment.find(params[:main_image]).blob)
+        end
+
+        if params.key? :preview_image
+          @gallery.preview_image.attach(ActiveStorage::Attachment.find(params[:preview_image]).blob)
+        end
+
+        if params.key? :images
+          params[:images].each do |id|
+            @gallery.images.attach(ActiveStorage::Attachment.find(id).blob)
+          end
+        end
 
         super
       end
@@ -24,6 +81,26 @@ module Spree
         end
 
         params[:gallery].delete(:products)
+
+        if params.key? :main_image
+          @gallery.main_image.destroy if @gallery.main_image.attached?
+
+          @gallery.main_image.attach(ActiveStorage::Attachment.find(params[:main_image]).blob)
+        end
+
+        if params.key? :preview_image
+          @gallery.preview_image.destroy if @gallery.preview_image.attached?
+
+          @gallery.preview_image.attach(ActiveStorage::Attachment.find(params[:preview_image]).blob)
+        end
+
+        if params.key? :images
+          @gallery.images.destroy_all
+
+          params[:images].each do |id|
+            @gallery.images.attach(ActiveStorage::Attachment.find(id).blob)
+          end
+        end
 
         super
       end

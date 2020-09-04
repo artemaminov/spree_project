@@ -1,0 +1,53 @@
+<%
+    content ||= {}
+    content[:multiple] ||= false
+    content[:name] ||= ''
+    content[:images] ||= []
+    content[:image] ||= nil
+
+    content
+%>
+
+<div class="file-uploader">
+    <%= file_field_tag '',
+                       {
+                               multiple: content[:multiple],
+                               accept: 'image/*',
+                               class: 'file-uploader__input',
+                               data: {
+                                       name: content[:name]
+                               }
+                       } %>
+
+
+    <a href="#" class="btn btn-primary btn-standard file-uploader__button">
+        Добавить <%= content[:multiple] ? 'файлы' : 'файл' %>
+    </a>
+
+    <div class="file-uploader__wrapper">
+        <% if content[:multiple] %>
+            <div class="file-uploader__image-multi">
+                <% if content[:images].any? %>
+                    <% content[:images].each do |image| %>
+                        <%= render partial: 'spree/admin/galleries/file_item',
+                                   locals: {
+                                           content: {
+                                                   file: image,
+                                           }
+                                   } %>
+                    <% end %>
+                <% end %>
+            </div>
+        <% else %>
+            <% if content[:image].attached? %>
+                <%= render partial: 'spree/admin/galleries/image_big',
+                           locals: {
+                                   content: {
+                                           file: content[:image],
+                                   }
+                           } %>
+            <% end %>
+        <% end %>
+    </div>
+
+</div>

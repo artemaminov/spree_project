@@ -35,7 +35,7 @@
           <td class="actions text-right" data-hook="admin_pages_index_row_actions">
             <%= link_to_edit slider, no_text: true %>
             <% if defined?(SpreeGlobalize) %>
-              <%= link_to content_tag(:span, '', class: 'icon icon-translate'), spree.admin_translations_path('page_section', slider.id), class: 'btn btn-primary btn-sm icon-link with-tip', data: { 'original-title' => Spree.t('i18n.translations') } %>
+              <%= link_to content_tag(:span, '', class: 'icon icon-translate'), spree.admin_translations_path('slider', slider.id), class: 'btn btn-primary btn-sm icon-link with-tip', data: { 'original-title' => Spree.t('i18n.translations') } %>
             <% end %>
             <%= link_to_delete slider, no_text: true %>
           </td>

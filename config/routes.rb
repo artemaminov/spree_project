@@ -31,7 +31,12 @@ Rails.application.routes.draw do
       resources :role_discounts
 
       resources :page_sections
+
       resources :galleries
+
+      delete 'galleries/file_upload', to: 'galleries#file_upload'
+      post 'galleries/file_upload', to: 'galleries#file_upload'
+
       resources :sliders
     end
 
@@ -47,6 +52,9 @@ Rails.application.routes.draw do
     post '/activations/check_email', to: 'user_activations#check_email', as: :check_email
     post '/activations/check_phone_number', to: 'user_activations#check_phone_number', as: :check_phone_number
 
+    get '/confidential_agreement', to: 'agreements#confidential_agreement'
+    get '/user_agreement', to: 'agreements#user_agreement'
+    get '/oferta', to: 'agreements#oferta'
     post 'send_collection', to: 'products#send_collection'
   end
 end

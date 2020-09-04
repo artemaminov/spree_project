@@ -1,2 +1,148 @@
-<h1>Spree::Portfolio#show</h1>
-<p>Find me in app/views/spree/portfolio/show.html.erb</p>
+<div class="section_first-section-catalog section_first-section-portfolio-single" id="first-section">
+  <picture>
+    <source media="(max-width: 375px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-375.jpg">
+    <source media="(max-width: 768px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-768.jpg">
+    <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-1440.jpg">
+    <% unless @portfolio.main_image.attachment.nil? %>
+      <%= image_combine_tag(@portfolio.main_image, class: "bg-img") %>
+    <% end %>
+  </picture>
+  <div class="wrap"></div>
+  <div class="container-xl">
+    <h1 class="title"><%= @portfolio.title %></h1>
+    <h2 class="description mt-4"><%= @portfolio.subtitle %></h2>
+    <div class="socials_header">
+      <div class="items"><a class="item" href="#">
+        <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0)">
+            <path d="M6.843 3.332C6.14938 3.332 5.47134 3.53768 4.89462 3.92304C4.31789 4.30839 3.86839 4.85611 3.60295 5.49693C3.33752 6.13775 3.26807 6.84289 3.40339 7.52318C3.5387 8.20347 3.87271 8.82836 4.36318 9.31882C4.85364 9.80929 5.47853 10.1433 6.15882 10.2786C6.83911 10.4139 7.54425 10.3445 8.18507 10.079C8.82589 9.81361 9.37361 9.36411 9.75896 8.78738C10.1443 8.21066 10.35 7.53262 10.35 6.839C10.3509 6.37819 10.2608 5.92174 10.0849 5.49584C9.90901 5.06993 9.65072 4.68296 9.32488 4.35712C8.99904 4.03128 8.61207 3.77299 8.18616 3.59708C7.76026 3.42116 7.3038 3.33108 6.843 3.332ZM6.843 9.12C6.39206 9.12 5.95124 8.98628 5.5763 8.73575C5.20136 8.48522 4.90912 8.12913 4.73655 7.71252C4.56399 7.2959 4.51884 6.83747 4.60681 6.39519C4.69478 5.95292 4.91193 5.54666 5.2308 5.2278C5.54966 4.90893 5.95592 4.69178 6.39819 4.60381C6.84047 4.51584 7.2989 4.56099 7.71552 4.73355C8.13213 4.90612 8.48822 5.19836 8.73875 5.5733C8.98928 5.94824 9.123 6.38906 9.123 6.84C9.12194 7.44437 8.88139 8.02368 8.45404 8.45104C8.02668 8.87839 7.44737 9.11894 6.843 9.12ZM11.312 3.189C11.312 3.35079 11.264 3.50894 11.1741 3.64346C11.0843 3.77798 10.9565 3.88282 10.807 3.94473C10.6576 4.00665 10.4931 4.02285 10.3344 3.99128C10.1757 3.95972 10.03 3.88181 9.91559 3.76741C9.80119 3.65301 9.72328 3.50726 9.69172 3.34858C9.66016 3.18991 9.67635 3.02543 9.73827 2.87597C9.80018 2.7265 9.90502 2.59874 10.0395 2.50886C10.1741 2.41897 10.3322 2.371 10.494 2.371C10.6015 2.37074 10.708 2.39171 10.8073 2.43273C10.9067 2.47374 10.997 2.53399 11.073 2.61C11.149 2.68601 11.2093 2.77629 11.2503 2.87565C11.2913 2.97502 11.3123 3.0815 11.312 3.189ZM13.635 4.019C13.6574 2.95561 13.2605 1.92612 12.53 1.153C11.7554 0.424929 10.7269 0.0283949 9.664 0.048C8.535 -0.016 5.149 -0.016 4.02 0.048C2.95769 0.0264061 1.92907 0.4212 1.154 1.148C0.423881 1.92221 0.0267477 2.95203 0.048 4.016C-0.016 5.145 -0.016 8.531 0.048 9.66C0.0256049 10.7234 0.422532 11.7529 1.153 12.526C1.92776 13.254 2.95606 13.6508 4.019 13.632C5.148 13.696 8.534 13.696 9.663 13.632C10.7264 13.6544 11.7559 13.2575 12.529 12.527C13.2572 11.7528 13.6541 10.7247 13.635 9.662C13.699 8.533 13.699 5.15 13.635 4.021V4.019ZM12.176 10.872C12.0599 11.1662 11.8846 11.4333 11.661 11.657C11.4373 11.8806 11.1702 12.0559 10.876 12.172C9.55011 12.4443 8.19358 12.5368 6.843 12.447C5.49242 12.5354 4.13608 12.4429 2.81 12.172C2.51584 12.0559 2.24866 11.8806 2.02504 11.657C1.80141 11.4333 1.62611 11.1662 1.51 10.872C1.2378 9.54643 1.14531 8.19025 1.235 6.84C1.14663 5.48942 1.23911 4.13308 1.51 2.807C1.62611 2.51284 1.80141 2.24566 2.02504 2.02204C2.24866 1.79841 2.51584 1.62311 2.81 1.507C4.13589 1.23471 5.49242 1.14222 6.843 1.232C8.19358 1.14363 9.54992 1.23611 10.876 1.507C11.1702 1.62311 11.4373 1.79841 11.661 2.02204C11.8846 2.24566 12.0599 2.51284 12.176 2.807C12.4483 4.13289 12.5408 5.48942 12.451 6.84C12.5408 8.19025 12.4483 9.54645 12.176 10.872Z" fill="white"></path>
+          </g>
+          <defs>
+            <clippath id="clip0">
+              <rect width="13.683" height="13.68" fill="white"></rect>
+            </clippath>
+          </defs>
+        </svg></a><a class="item" href="#">
+        <svg width="16" height="13" viewbox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0)">
+            <path d="M13.751 3.10204C13.761 3.23804 13.761 3.37404 13.761 3.51004C13.7691 4.68593 13.5435 5.8517 13.0972 6.93965C12.651 8.0276 11.993 9.01603 11.1615 9.84753C10.33 10.679 9.34156 11.337 8.25361 11.7833C7.16566 12.2295 5.99989 12.4551 4.824 12.447C3.11385 12.4519 1.43871 11.9626 0 11.038C0.252023 11.0658 0.505456 11.0789 0.759 11.077C2.17287 11.0807 3.54674 10.6079 4.659 9.73504C4.00359 9.72311 3.36827 9.50681 2.84173 9.11635C2.3152 8.72588 1.92373 8.18074 1.722 7.55704C1.91816 7.58822 2.11638 7.6046 2.315 7.60604C2.59407 7.60525 2.87192 7.5693 3.142 7.49904C2.43099 7.35544 1.79156 6.97026 1.33223 6.40885C0.872895 5.84745 0.621958 5.14441 0.622 4.41904V4.37604C1.0572 4.6194 1.54376 4.75646 2.042 4.77604C1.37553 4.33146 0.903783 3.64938 0.722975 2.86891C0.542166 2.08844 0.665923 1.26839 1.069 0.576039C1.85833 1.54693 2.84291 2.34108 3.95889 2.90699C5.07486 3.4729 6.29733 3.79795 7.547 3.86104C7.4965 3.62433 7.47036 3.38307 7.469 3.14104C7.46962 2.51105 7.65949 1.89577 8.01398 1.37498C8.36848 0.854195 8.87126 0.451916 9.45713 0.220305C10.043 -0.011306 10.6849 -0.061567 11.2997 0.0760388C11.9145 0.213645 12.4738 0.53277 12.905 0.992039C13.609 0.856587 14.284 0.599762 14.9 0.233039C14.6657 0.958907 14.1747 1.57438 13.519 1.96404C14.1428 1.89309 14.7526 1.72928 15.328 1.47804C14.8981 2.1041 14.3656 2.65314 13.753 3.10204H13.751Z" fill="white"></path>
+          </g>
+          <defs>
+            <clippath id="clip0">
+              <rect width="15.327" height="12.448" fill="white"></rect>
+            </clippath>
+          </defs>
+        </svg></a><a class="item" href="#">
+        <svg width="14" height="14" viewbox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0)">
+            <path d="M3.06288 13.6831H0.22588V4.54705H3.06288V13.6831ZM1.64288 3.29905C1.31622 3.30063 0.996433 3.20528 0.723987 3.02505C0.451542 2.84482 0.238684 2.58782 0.112351 2.28657C-0.0139814 1.98533 -0.0481104 1.65337 0.0142833 1.33273C0.0766771 1.01208 0.232789 0.717142 0.462863 0.485247C0.692937 0.253353 0.986631 0.0949213 1.30678 0.0300024C1.62693 -0.0349164 1.95914 -0.00340464 2.26137 0.12055C2.5636 0.244505 2.82227 0.45533 3.00464 0.726347C3.18701 0.997364 3.28489 1.31639 3.28588 1.64305C3.28563 2.07993 3.11286 2.49903 2.80516 2.80916C2.49747 3.11929 2.07974 3.29536 1.64288 3.29905ZM13.6799 13.6831H10.8499V9.23605C10.8499 8.17605 10.8289 6.81705 9.37488 6.81705C7.89988 6.81705 7.67488 7.96805 7.67488 9.16005V13.6831H4.83988V4.54705H7.56088V5.79405H7.59988C7.87198 5.32839 8.26532 4.94527 8.73798 4.68552C9.21064 4.42577 9.74492 4.29911 10.2839 4.31905C13.1549 4.31905 13.6839 6.21005 13.6839 8.66505V13.6831H13.6799Z" fill="white"></path>
+          </g>
+          <defs>
+            <clippath id="clip0">
+              <rect width="13.683" height="13.683" fill="white"></rect>
+            </clippath>
+          </defs>
+        </svg></a><a class="item" href="#">
+        <svg width="9" height="17" viewbox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.291 9.32361L8.751 6.32361H5.872V4.38261C5.85244 4.159 5.88332 3.93386 5.96235 3.72377C6.04138 3.51368 6.16656 3.32401 6.32865 3.16874C6.49073 3.01346 6.6856 2.89654 6.89889 2.8266C7.11217 2.75666 7.33844 2.73547 7.561 2.76461H8.868V0.210609C8.10058 0.087469 7.32517 0.020624 6.548 0.0106085C6.01316 -0.0302121 5.47589 0.0470892 4.97426 0.237035C4.47262 0.426981 4.0189 0.724924 3.64523 1.10975C3.27157 1.49458 2.98711 1.95688 2.81201 2.46388C2.63691 2.97089 2.57546 3.5102 2.632 4.04361V6.32761H0V9.32761H2.632V16.5716H5.872V9.32361H8.291Z" fill="white"></path>
+        </svg></a></div>
+    </div>
+  </div>
+  <div class="arrow-down_wrap">
+    <div class="arrow-down"></div>
+  </div>
+</div>
+<section class="portfolio-single-content">
+  <div class="container-xl">
+    <!-- хлебные крошки-->
+    <div class="breadcrumbs breadcrumbsPortfolio"><a href="#">Главная страница</a><span>/</span><span>Кирпич ручной формовки</span></div>
+    <!-- конец хлебные крошки-->
+  </div>
+</section>
+<!-- описание-->
+<section class="portfolio-single-description">
+  <div class="item item-left">
+    <picture>
+      <source media="(max-width: 375px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-375.jpg">
+      <source media="(max-width: 1024px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-768.jpg">
+      <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-1440.jpg">
+      <% unless @portfolio.preview_image.attachment.nil? %>
+        <%= image_tag main_app.url_for(@portfolio.preview_image.attachment) %>
+      <% end %>
+    </picture>
+  </div>
+  <div class="item item-right">
+    <div class="description">
+      <h2><%= Spree.t('portfolio.description') %></h2>
+      <p><%= @portfolio.desc %></p>
+      <% if false %>
+      <h3><%= Spree.t('portfolio.statistics') %></h3>
+      <span><strong><%= Spree.t('used') %>:</strong></span>
+      <span><span>- 122 043 <%= Spree.t('pieces') %></span> кирпича ручной работы Монс-Роял</span>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!-- конец описание-->
+<!-- список товаров-->
+<% if @portfolio.products.any? %>
+  <div class="section section_similar-product">
+    <div class="container-xl">
+      <div class="title"><%= Spree.t('portfolio.products_used') %></div>
+      <div class="slider_similar_product" id="slider_similar_product">
+        <ul class="slidee">
+          <%= render partial: 'spree/products/product', collection: @portfolio.products, locals: { taxon: @taxon } %>
+        </ul>
+      </div>
+      <div class="scrollbar">
+        <div class="handle"></div>
+      </div>
+      <div class="count"><%= Spree.t('products') %> 3 <%= Spree.t('of') %> <%= @portfolio.products.count %></div>
+    </div>
+  </div>
+<% end %>
+<!-- конец список товаров-->
+<!-- галерея-->
+<div class="portfolio-single_gallery">
+  <div class="container-xl">
+    <div class="title"><%= Spree.t('spree.portfolio.gallery') %></div>
+    <div class="row imglist">
+      <% @portfolio.images.each do |image| %>
+      <div class="col col-12 col-md-6 col-sm-6">
+        <%= link_to main_app.url_for(image), class: 'img', data: { fancybox: "images" } do %>
+          <% unless image.nil? %>
+            <%= image_tag(main_app.url_for(image)) %>
+          <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- конец галерея-->
+<!-- следующий проект-->
+<div class="portfolio-single-next-project">
+  <picture>
+    <% unless @next_portfolio.main_image.attachment.nil? %>
+      <%= image_tag main_app.url_for(@next_portfolio.main_image.attachment), class: "bg-img" %>
+    <% end %>
+  </picture>
+  <div class="wrapper"></div>
+  <div class="container-xl">
+    <div class="description"><%= @next_portfolio.subtitle %></div>
+    <div class="title"><%= @next_portfolio.title %></div>
+    <%= link_to Spree.t('portfolio.next'), portfolio_url(@next_portfolio), class: "btn" %>
+  </div>
+</div>
+<!-- конец следующий проект-->
+<!-- панель с кнопками-->
+<div class="container-xl">
+  <div class="portfolio-single_buttons">
+    <%= link_to Spree.t('return_to_portfolio'), portfolio_index_url, class: "btn btn_back-to-portfolio" %>
+    <%= link_to Spree.t('return_to_catalog'), nested_taxons_url(@portfolio.return_to_catalog), class: "btn btn_move-to-catalog" %>
+  </div>
+</div>
+<!-- конец панель с кнопками-->
+<!-- пробел-->
+<div class="portfolio-space"></div>
+<!-- конец пробел-->

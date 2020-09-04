@@ -83,6 +83,7 @@ ru:
         description: "Описание"
         master_price: "Цена"
         name: "Название"
+        position: "Сортировка"
         on_hand: "На складе"
         shipping_category: "Категория доставки"
         tax_category: "Категория товаров"
@@ -249,6 +250,7 @@ ru:
         products: "Товары"
         images: "Фотографии"
         main_image: "Изображение для слайдера"
+        position: "Позиция"
       spree/file_attachment:
         name: "Имя"
         file: "Вложение"
@@ -583,6 +585,7 @@ ru:
     adjustment_total: "Итого (коррект.)"
     adjustments: "Корректировки"
     admin:
+      commission: "Комиссия"
       tab:
         configuration: "Настройки"
         option_types: "Товарные опции"
@@ -908,6 +911,7 @@ ru:
       selective_format: "Форматы"
       color: "Оттенок"
       selective_color: "Оттенок"
+      dimensions: "Размер"
     filter_results: "Результаты фильтрации"
     finalize: "Завершить"
     finalized: "Завершено"
@@ -977,6 +981,7 @@ ru:
     inventory_error_flash_for_insufficient_quantity: "Один из товаров вашей корзины стал недоступен."
     inventory_state: "Состояние стока"
     is_not_available_to_shipment_address: "не может быть применён к указанному адресу доставки"
+    is_promotionable: "Промоакция?"
     is_published: "Опубликована"
     iso_name: "Имя согласно ISO"
     item: "Наименование"
@@ -1111,6 +1116,7 @@ ru:
       variant_not_deleted: "Вариант не может быть удален"
     number: "Номер"
     num_orders: "Кол-во заказов"
+    of: "из"
     on_hand: "в наличии"
     open: "Открыто"
     open_all_adjustments: "Открыть все корректировки"
@@ -1148,6 +1154,10 @@ ru:
         subtotal:
         thanks: "Спасибо, что выбрали нас."
         total:
+      vendor_notification_email:
+        dear_vendor: "Уважаемый производитель,"
+        subject: "Уведомление производителя"
+        thanks: "Спасибо"
     order_not_found: "Мы не смогли найти Ваш заказ. Попробуйте еще раз."
     order_number: "Заказ %{number}"
     order_processed_successfully: "Ваш заказ был успешно обработан"
@@ -1180,8 +1190,8 @@ ru:
       slider: "Карусель"
       title: "Оформление"
     gallery:
-      new: "Новая галерея"
-      title: "Галерея"
+      new: "Новое портфолио"
+      title: "Портфолио"
     pagination:
       next_page: "следующая страница »"
       previous_page: "« предыдущая страница"
@@ -1201,7 +1211,7 @@ ru:
     payment_processor_choose_banner_text: "Если Вам нужна помощь в выборе способа оплаты, пожалуйста, зайдите на"
     payment_processor_choose_link: "наша страница оплаты"
     payment_state: "Статус платежа"
-    payment_state:
+    payment_status:
       balance_due: "К оплате"
       paid: "Оплачен"
       void: "Аннулирован"
@@ -1223,9 +1233,16 @@ ru:
     percent_per_item: "Процент с каждой единицы товара"
     permalink: "Постоянная ссылка"
     phone: "Телефон"
+    pieces: "штук"
     place_order: "Разместить заказ"
     please_define_payment_methods: "Сначала определите способ оплаты."
     populate_get_error: "Что-то пошло не так. Попробуйте добавить товар еще раз."
+    portfolio:
+      description: "Описание объекта"
+      gallery: "Фотогалерея проекта"
+      next: "Перейти в к следующему проекту"
+      products_used: "Товары, использованные в проекте"
+      statistics: "Статистика проекта"
     powered_by: "Работает на"
     pre_tax_amount:
     pre_tax_refund_amount:
@@ -1241,6 +1258,7 @@ ru:
     sale_price: "Распродажная цена"
     process: "Обработать"
     product: "Товар"
+    products: "Товаров"
     product_details: "Описание товара"
     product_has_no_description: "У данного товара нет описания."
     product_not_available_in_this_currency: "Этот товар недоступен в выбранной валюте."
@@ -1254,9 +1272,8 @@ ru:
       product_source:
         group: "Из группы товаров"
         manual: "Выбрать вручную"
-    products: "Товары"
+    projects: "Проектов"
     promotion: "Промо-акция"
-    promotionable: "Промоакция?"
     promotion_action: "Промо-акция"
     promotion_action_types:
       create_adjustment:
@@ -1323,6 +1340,7 @@ ru:
     quick_search: "Поиск . . ."
     rate: "Ставка"
     reason: "Причина"
+    read_more: "Подробнее"
     receive: "Получить"
     receive_stock: "Получить товар"
     received: "Получен"
@@ -1380,6 +1398,8 @@ ru:
     return_items_cannot_be_associated_with_multiple_orders:
     return_number: "Номер возврата"
     return_quantity: "возвращенное количество"
+    return_to_catalog: "Перейти в каталог"
+    return_to_portfolio: "Вернуться в портфолио"
     returned: "Возвращенные"
     returns: "Разрешения на возврат"
     review: "Проверить"
@@ -1463,12 +1483,14 @@ ru:
     shopping_cart: "Корзина"
     show: "Показать"
     show_active: "Показать активные"
+    show_all: "Посмотреть все"
     show_deleted: "Показать удаленные"
     show_discontinued: "Показать товары с истекшим сроком продажи"
     show_only_complete_orders: "Показывать только завершённые заказы"
     show_only_considered_risky:
     show_rate_in_label: "Показывать процент в названии"
     sku: "Артикул"
+    position: "Позиция"
     skus:
     slider:
       title: "Оформление"
@@ -1626,6 +1648,7 @@ ru:
     unshippable_items: "Неотправляемые Товары"
     update: "Изменить"
     updating: "Обновление"
+    used: "Использовано"
     usage_limit: "Максимальное количество использований"
     use_app_default: "По умолчанию"
     use_billing_address: "Использовать платёжный адрес"
@@ -1679,19 +1702,12 @@ ru:
     edit_vendor: "Изменить производителя"
     new_vendor: "Новый производитель"
     only_alphanumeric_chars: "должен содержать только буквы и цифры"
-    order_mailer:
-      vendor_notification_email:
-        dear_vendor: "Уважаемый производитель,"
-        subject: "Уведомление производителя"
-        thanks: "Спасибо"
     vendor: "Производитель"
     vendor_name: "Имя производителя"
     vendor_states:
       active: "Активен"
       blocked: "Заблокирован"
       pending: "На рассмотрении"
-    admin:
-      commission: "Комиссия"
     retailer:
       new_retailer: "Новый розничный продавец"
       editing_retailer: "Редактировать розничного продавца"
@@ -1804,4 +1820,3 @@ ru:
       email_exist: "Email"
       email_not_found: "E-mail не найден"
       phone_number_not_found: "Телефон не найден"
-    registration: "Регистрация"

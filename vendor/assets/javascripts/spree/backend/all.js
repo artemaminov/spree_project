@@ -13,4 +13,5 @@
 //= require spree/backend/spree_globalize
 //= require spree/backend/spree_print_invoice
 //= require spree/backend/users
-//= require spree/backend/spree_cropper
+//= require spree/backend/file_uploader
+//= require spree/backend/jquery-confirm.min

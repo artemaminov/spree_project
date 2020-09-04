@@ -1,0 +1,7 @@
+<% files = @uploaded %>
+
+const image_container = $('.file-uploader__image-multi')
+
+<% files.each do |file| %>
+    image_container.prepend($('<%= escape_javascript(render partial: 'file_item', locals: {content: {file: file}}) %>'))
+<% end %>

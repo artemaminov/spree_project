@@ -1,0 +1,13 @@
+<% files = @uploaded %>
+
+//const image_container = $('.file-uploader__image-multi')
+
+<% name = content[:name] %>
+
+const image_container = $('*[data-name="<%= name %>"]')
+        .parent()
+        .find('.file-uploader__wrapper')
+
+image_container.empty()
+
+image_container.append($('<%= escape_javascript(render partial: 'image_big', locals: {content: {file: files[0]}}) %>'))

@@ -6,6 +6,11 @@ module Spree
 
     validates_presence_of :page
 
+    if defined?(SpreeGlobalize)
+      translates :name, fallbacks_for_empty_translations: true
+      include SpreeGlobalize::Translatable
+    end
+
     def self.for_page(name, page_id)
       page_id = [nil, ''] if page_id.blank?
       where(page: name, page_id: page_id).first
