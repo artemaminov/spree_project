@@ -16,6 +16,14 @@ module Spree
         end
       end
 
+      def update_images_position
+        params[:spree_attachment].each_with_index do |id, index|
+          ActiveStorage::Attachment.where(id: id).update_all(position: index + 1)
+        end
+
+        head :ok
+      end
+
       def file_upload
         files = params[:files]
 

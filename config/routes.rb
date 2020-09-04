@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
       resources :galleries do
         collection do
+          post :update_images_position
           post :update_positions
         end
       end
