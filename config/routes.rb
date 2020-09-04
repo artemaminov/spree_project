@@ -32,7 +32,38 @@ Rails.application.routes.draw do
 
       resources :page_sections
 
-      resources :galleries
+      resources :galleries do
+        collection do
+          post :update_positions
+        end
+      end
+
+
+      resources :products do
+        collection do
+          post :update_positions
+        end
+        resources :product_properties do
+          collection do
+            post :update_positions
+          end
+        end
+        resources :images do
+          collection do
+            post :update_positions
+          end
+        end
+        member do
+          post :clone
+          get :stock
+        end
+        resources :variants do
+          collection do
+            post :update_positions
+          end
+        end
+        resources :variants_including_master, only: [:update]
+      end
 
       delete 'galleries/file_upload', to: 'galleries#file_upload'
       post 'galleries/file_upload', to: 'galleries#file_upload'

@@ -1,6 +1,8 @@
 class Spree::PortfolioController < Spree::StoreController
   def index
-    @portfolio = Spree::Gallery.all.page(params[:page]).order(position: :asc)
+    @portfolio = Spree::Gallery.all
+                         .order(position: :asc)
+                         .page(params[:page])
   end
 
   def show
