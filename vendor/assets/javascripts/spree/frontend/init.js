@@ -67,7 +67,19 @@ $(document).ready(function () {
   initBasketSteps();
   initDeliveryBasket();
   initFillingOutFormBasket();
+  initHeightForAccordionProduct();
+  initMapForCatalog();
 });
+
+function initMapForCatalog() {
+  $('.dealer-list_block').scroll(function (e) {
+    if (e.target.clientHeight + e.target.scrollTop === e.target.scrollHeight) {
+      $(".dealer-list_block").parent().addClass("heightNone");
+    } else {
+      $(".dealer-list_block").parent().removeClass("heightNone");
+    }
+  });
+}
 
 function initFillingOutFormBasket() {
   var fillingOutForm = $("input[name*='fillingOutForm']");
@@ -152,21 +164,13 @@ function addDeleteActiveDelivery() {
 }
 
 function initAccordionAddProduct() {
-  var accordion = $('#accordionAddProduct');
-  accordion.on('shown.bs.collapse', function () {
-    addDeleteActiveForProduct();
-  });
-  accordion.on('hidden.bs.collapse', function () {
-    addDeleteActiveForProduct();
-  });
-}
-
-function addDeleteActiveForProduct() {
-  var items = $('.accordion-add-product .card-header .items');
-  items.parent().parent().removeClass('active');
-  items.each(function (i, elem) {
-    if (!$(this).hasClass('collapsed')) {
-      $(this).parent().parent().addClass('active');
+  var items = $(".accordion-add-product>.card>.card-header>.items");
+  items.on("click", function () {
+    if (!$(this).parent().parent().hasClass("active")) {
+      items.parent().parent().removeClass('active');
+      $(this).parent().parent().addClass("active");
+    } else {
+      items.parent().parent().removeClass('active');
     }
   });
 }
@@ -191,9 +195,23 @@ function addDeleteActiveForAccordion() {
   });
 }
 
+function initHeightForAccordionProduct() {
+  $(".product-content .accordion-content .js-accordion-product").each(function () {
+    var maxHeight = $(this).children(".body ").outerHeight(true) + $(this).children(".header ").outerHeight(true) + 40;
+    $(this).css("max-height", maxHeight + "px");
+  });
+}
+
 function initAccordionProduct() {
   $(".js-accordion-product>.header").on("click", function () {
-    if ($(this).parent().hasClass("active")) $(this).parent().removeClass("active");else $(this).parent().addClass("active");
+    if ($(this).parent().hasClass("active")) {
+      var maxHeight = $(this).siblings(".body ").outerHeight(true) + $(this).outerHeight(true) + 40;
+      $(this).parent().css("max-height", maxHeight + "px");
+      $(this).parent().removeClass("active");
+    } else {
+      $(this).parent().css("max-height", "240px");
+      $(this).parent().addClass("active");
+    }
   });
 }
 

@@ -10,6 +10,7 @@ $(document).ready(function () {
 
 function controlCalcClearBtn(line) {
   var btn = line.closest('.items').find('.btn_delete');
+
   if (Number(line.val()) != 0) {
     btn.show();
   } else {
@@ -24,6 +25,7 @@ function calcTotal() {
   totals.each(function (index) {
     var variantTotalElement = $("#variant-".concat(index, "-total"));
     variantCost = Number(variantTotalElement.data('cost'));
+
     if (Number.isFinite(variantCost)) {
       final += variantCost;
     }
@@ -61,7 +63,6 @@ function calc(e) {
   variantPalletsElement.text("".concat(variantPallets, " \u043F\u043E\u0434\u0434\u043E\u043D\u043E\u0432"));
   variantTotalElement.text("".concat(variantTotal, " \u20BD"));
   variantTotalElement.data('cost', variantTotal);
-
   controlCalcClearBtn($(e));
   calcTotal();
 }
@@ -152,6 +153,7 @@ function adaptive() {
   var width = null,
       oldWith = null;
   $(window).resize(function () {
+    initHeightForAccordionProduct();
     var coordinates = document.documentElement.getBoundingClientRect();
     width = coordinates.width;
     $sliderPortfolioFrame.sly('reload');
@@ -230,14 +232,8 @@ function adaptive() {
   });
 }
 
-function initSocial() {
-  var bottomSocial = $(".wrapper>.footer").innerHeight() + $(".wrapper>.section_map").innerHeight();
-  $.lockfixed(".socialsList .items", {
-    offset: {
-      top: 400,
-      bottom: bottomSocial - 190
-    }
-  });
+function initSocial() {// let bottomSocial = $(".wrapper>.footer").innerHeight() + $(".wrapper>.section_map").innerHeight();
+  // $.lockfixed(".socialsList .items",{offset: {top: 400, bottom: bottomSocial - 190}});
 }
 
 function portfolioFilterMore1070() {
