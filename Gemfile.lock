@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/artemaminov/spree_cropper.git
-  revision: 50da6fc1709a65109be99e6ce22291c971312e11
+  revision: a5088fbb4ffd47f24aa0acbdb263c4ee33b60647
   specs:
-    spree_cropper (0.2.7.beta)
+    spree_cropper (0.2.8.beta)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
@@ -22,9 +22,9 @@ GIT
 
 GIT
   remote: https://github.com/artemaminov/spree_image_combine.git
-  revision: df5aa332380de3c4c0b8e220643e238b4145b382
+  revision: dcb6056c203aeabada9456658185a4bb809e5ebf
   specs:
-    spree_image_combine (0.0.8.alpha)
+    spree_image_combine (0.0.9.alpha)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
