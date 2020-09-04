@@ -12,6 +12,7 @@
         <tr data-hook="admin_gallery_index_headers">
             <th class="no-border"></th>
             <th><%= Spree::Gallery.human_attribute_name('position') %></th>
+            <th>Изображение</th>
             <th><%= Spree::Gallery.human_attribute_name('title') %></th>
             <th><%= Spree::Gallery.human_attribute_name('subtitle') %></th>
             <th class="actions"></th>
@@ -25,6 +26,9 @@
                         <span class="icon icon-move handle"></span>
                     </td>
                     <td><%= gallery.position %></td>
+                    <td class="image">
+                        <%= image_tag main_app.url_for(resize_to_fill(gallery.main_image.attachment, { resize: '70x70', crop: '70x70+0+0' })) if gallery.main_image.attached? %>
+                    </td>
                     <td><%= gallery.title %></td>
                     <td><%= gallery.subtitle %></td>
                     <td class="actions text-right">
