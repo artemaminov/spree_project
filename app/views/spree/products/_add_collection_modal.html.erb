@@ -18,17 +18,35 @@
     </div>
     <%= render partial: 'spree/products/calc_line_modal', collection: @product.variants, as: 'calc_line' %>
   </div>
-  <div class="total">
-    <div class="item item_total_sum">
+
+  <div class="footer">
+    <div class="new_total">
       <div class="text">Общая сумма:</div>
       <div class="sum calc-total">0.00 ₽</div>
     </div>
-    <div class="item item_btn_add-collection">
-      <div class="btn btn_add-collection">
-        <svg width="15" height="15" viewbox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.4141 6.91406H8.08594V0.585938C8.08594 0.262324 7.82361 0 7.5 0C7.17639 0 6.91406 0.262324 6.91406 0.585938V6.91406H0.585938C0.262324 6.91406 0 7.17639 0 7.5C0 7.82361 0.262324 8.08594 0.585938 8.08594H6.91406V14.4141C6.91406 14.7377 7.17639 15 7.5 15C7.82361 15 8.08594 14.7377 8.08594 14.4141V8.08594H14.4141C14.7377 8.08594 15 7.82361 15 7.5C15 7.17639 14.7377 6.91406 14.4141 6.91406Z" fill="black"></path>
-        </svg><span>Добавить в коллекцию</span>
-      </div>
+    <div class="form_send-order">
+      <form action="" method="POST">
+        <div class="row row_form_send-order">
+          <div class="col">
+            <div class="input-group">
+              <label for="name">Фамилия Имя Отчество</label>
+              <input type="text" name="name" id="name" placeholder="Ивано Иван Иванович">
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label for="phone">Номер телефона</label>
+              <input class="input_phone" type="text" name="name" id="phone" placeholder="+7 (___) ___ __ __">
+            </div>
+          </div>
+          <div class="col"><a class="btn btn_form_send-order" href="#">Отправить заказ</a></div>
+        </div>
+      </form>
+    </div>
+    <div class="politics">
+      <input type="checkbox" id="politicsCheckbox">
+      <label for="politicsCheckbox">Согласие с настоящей<a href="#">Политикой конфеденциальности и обработке Персональных данных</a></label>
     </div>
   </div>
+
 </div>
