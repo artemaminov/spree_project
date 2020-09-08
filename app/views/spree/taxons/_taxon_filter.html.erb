@@ -1,0 +1,45 @@
+<% filters = @taxon ? @taxon.applicable_filters(@products.ids) : [Spree::Core::ProductFilters.all_taxons] %>
+
+<% unless filters.empty? %>
+    <%= form_tag '', method: :get, id: 'sidebar_products_search' do %>
+        <%= hidden_field_tag 'per_page', params[:per_page] %>
+        <%= hidden_field_tag 'taxon_id', @taxon.id, class: 'taxon_id_input' %>
+        <div class="filters">
+            <% filters.each do |filter| %>
+                <% labels = filter[:labels] || filter[:conds].map {|m, c| [m, m]} %>
+                <% next if labels.empty? %>
+                <div class="item">
+                    <div class="title"><%= filter[:name] %></div>
+                    <%= '<div class="formats_wrapper">'.html_safe if filter[:type] == 'formats' %>
+                    <div class="<%= filter[:type] %>">
+                        <% labels.each do |name, dimension| %>
+                            <% label = "#{filter[:name]}_#{name}".gsub(/\s+/,'_') %>
+                            <div class="item">
+                                <input
+                                    type="checkbox"
+                                    id="<%= label %>"
+                                    name="search[<%= filter[:scope].to_s %>][]"
+                                    value="<%= name %>"
+                                    <%= params[:search].present? && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(name.to_s) ? "checked" : "" %>
+                                    />
+                                <label
+                                    <% unless filter[:type] == 'formats' %>
+                                        <% unless filter[:images][name.to_sym].nil? %>
+                                            style="background: url(<%= asset_url filter[:images][name.to_sym] %>) center"
+                                        <% end %>
+                                    <% end %>
+                                    for='<%= label %>'
+                                    data-toggle='popover'
+                                    data-content='&lt;span&gt;<%= "#{ filter[:popup] }  #{ dimension }" %>&lt;/span&gt;'
+                                    >
+                                    <%= name if filter[:type] == 'formats' %>
+                                </label>
+                            </div>
+                        <% end %>
+                    </div>
+                    <%= '</div>'.html_safe if filter[:type] == 'formats' %>
+                </div>
+            <% end %>
+    <% end %>
+    </div>
+<% end %>

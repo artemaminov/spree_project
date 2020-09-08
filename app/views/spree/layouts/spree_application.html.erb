@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
-  <head>
+<head>
     <meta charset="utf-8">
     <title><%= title %></title><!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="">
     <%== meta_data_tags %>
@@ -21,15 +21,22 @@
     <%= javascript_include_tag 'spree/frontend/all' %>
     <%= yield :head %>
     <%= csrf_meta_tags %>
-  </head>
-  <body data-hook="body">
-    <div class="wrapper">
-      <%= render partial: 'spree/shared/main_nav_bar' %>
-      <%= render partial: 'spree/shared/sidebar' %>
-      <%= yield %>
-      <%= render partial: 'spree/shared/footer' %>
-      <%= render partial: 'spree/shared/modal' %>
+</head>
+<body data-hook="body">
+<div id="progress">
+    <div class="alert alert-info alert-progress">
+        <div class="spinner"><%= Spree.t(:loading) %>...</div>
+        <div class="progress-message"><%= Spree.t(:loading) %>...</div>
     </div>
-    <%= render partial: 'spree/shared/bottom_scripts' %>
-  </body>
+</div>
+<div class="wrapper">
+
+    <%= render partial: 'spree/shared/main_nav_bar' %>
+    <%= render partial: 'spree/shared/sidebar' %>
+    <%= yield %>
+    <%= render partial: 'spree/shared/footer' %>
+    <%= render partial: 'spree/shared/modal' %>
+</div>
+<%= render partial: 'spree/shared/bottom_scripts' %>
+</body>
 </html>

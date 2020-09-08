@@ -14,7 +14,18 @@
       <div class="item item-left">
         <div class="format" data-toggle="popover" data-content="<%= formats_dimensions(product) %>">Форматы:&nbsp;
           <span>
-            <%= option_values_text(product) %>
+
+          <span style="display: inline-block">
+            <% formats = option_values_text(product).split(', ') %>
+            <% formats.each_with_index do |format, i| %>
+                <span class="<%= 'selected-format' if params[:search].try(:[], :selective_format_any).try(:[], 0) == format %>"
+                      style="display: inline-block">
+                    <%= format %>
+                </span><%= ',' if i+1 != formats.length %>
+
+            <% end %>
+          </span>
+
             <%= image_tag 'general/icons/products/info.svg', class: "info cursor-pointer" %>
           </span>
         </div>
@@ -25,7 +36,24 @@
 <!--          </div>-->
           <div class="item item-retail">
             <div class="title">Розничная</div>
-            <div class="price">от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> м<sup>2</sup>/₽</div>
+            <div class="price">
+                <% if params[:search].try(:[], :selective_format_any) %>
+                    <%
+                        value = params[:search].try(:[], :selective_format_any).try(:[], 0)
+                        option_value = Spree::OptionValue.where(name: value).first
+
+
+                        variant = option_value&.variants&.where(product_id: product.id)&.first
+                    %>
+                    <% if variant.present? && variant&.prices.any? %>
+                        <%= variant.prices.first.amount %> ₽ / <%= variant.prices.first.amount * variant.sqr_meter_amount %> м<sup>2</sup>/₽
+                    <% else %>
+                        от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> м<sup>2</sup>/₽
+                    <% end %>
+                <% else %>
+                    от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> м<sup>2</sup>/₽
+                <% end %>
+            </div>
           </div>
         </div>
       </div>

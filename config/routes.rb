@@ -87,5 +87,7 @@ Rails.application.routes.draw do
     get '/confidential_agreement', to: 'agreements#confidential_agreement'
     get '/user_agreement', to: 'agreements#user_agreement'
     get '/oferta', to: 'agreements#oferta'
+
+    get '/taxons_by_filter', to: 'taxons#by_filter'
   end
 end

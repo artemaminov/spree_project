@@ -49,7 +49,7 @@ module Spree
 
       # Selective format filter
       def self.selective_format_filter(taxon = nil)
-        option_type =Spree::OptionType.find_by(name: "format")
+        option_type = Spree::OptionType.find_by(name: "format")
         formats = Spree::OptionValue.joins(variants: {product: :taxons}).where(:option_type_id => option_type).where("#{Spree::Taxon.table_name}.id" => [taxon] + taxon.descendants).order(:position).map { |f| [f.presentation, "#{f.width}x#{f.height}x#{f.depth} мм"] }.compact.uniq
         {
             conds: nil,
@@ -73,9 +73,9 @@ module Spree
       end
 
       # Color filter
-      def self.color_filter
+      def self.color_filter(product_ids=[])
         color_property = Spree::Property.find_by(name: 'color-tone')
-        formats = color_property ? Spree::ProductProperty.where(property_id: color_property.id).pluck(:value).uniq.map(&:to_s) : []
+        formats = color_property ? Spree::ProductProperty.where(property_id: color_property.id, product_id: product_ids).pluck(:value).uniq.map(&:to_s) : []
         pp = Arel::Table.new(Spree::ProductProperty.translations_table_name)
         conds = Hash[*formats.map { |b| [b, pp[:value].eq(b)] }.flatten]
         {
