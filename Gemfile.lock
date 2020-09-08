@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/artemaminov/spree_cropper.git
-  revision: a5088fbb4ffd47f24aa0acbdb263c4ee33b60647
+  revision: 2ef34b554a9a204084a1a6e6ef5edfebad2770ed
   specs:
-    spree_cropper (0.2.8.beta)
+    spree_cropper (0.3.0.beta)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
@@ -22,9 +22,9 @@ GIT
 
 GIT
   remote: https://github.com/artemaminov/spree_image_combine.git
-  revision: dcb6056c203aeabada9456658185a4bb809e5ebf
+  revision: f8f7dac2742956c34d5ea458b4d5c867b3675a81
   specs:
-    spree_image_combine (0.0.9.alpha)
+    spree_image_combine (0.1.0.alpha)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
@@ -142,7 +142,7 @@ GEM
     activejob (5.2.4.3)
       activesupport (= 5.2.4.3)
       globalid (>= 0.3.6)
-    activemerchant (1.113.0)
+    activemerchant (1.114.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -328,7 +328,7 @@ GEM
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
-    nio4r (2.5.2)
+    nio4r (2.5.3)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
