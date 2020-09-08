@@ -2,7 +2,7 @@
 <div id="product_<%= product.id %>" class="grid-item persent-size" data-info='{"colorTone":"<%= product.property('color-tone') %>"}'>
   <div class="box-card">
     <div class="preview">
-      <%= image_combine_tag(product) %>
+      <%= product_image(product) %>
 <!--      <div class="btn btn_quick-view id_modalAddProduct">Быстрый просмотр</div>-->
       <%= link_to 'Карточка товара', url, class: 'btn btn_card-product' %>
     </div>
