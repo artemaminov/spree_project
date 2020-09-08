@@ -27,7 +27,7 @@
                     </td>
                     <td><%= gallery.position %></td>
                     <td class="image">
-                        <%= image_tag main_app.url_for(resize_to_fill(gallery.main_image.attachment, { resize: '70x70', crop: '70x70+0+0' })) if gallery.main_image.attached? %>
+                        <%= image_tag main_app.url_for(resize_to_fill(gallery.slider_image.attachment, { resize: '200x70', crop: '200x70+0+0' })) if gallery.slider_image.present? %>
                     </td>
                     <td><%= gallery.title %></td>
                     <td><%= gallery.subtitle %></td>

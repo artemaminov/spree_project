@@ -1,12 +1,7 @@
 <div class="section_first-section-catalog section_first-section-portfolio-single" id="first-section">
-  <picture>
-    <source media="(max-width: 375px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-375.jpg">
-    <source media="(max-width: 768px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-768.jpg">
-    <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/header/portfolio-single-first-section-1440.jpg">
-    <% unless @portfolio.main_image.attachment.nil? %>
-      <%= image_combine_tag(@portfolio.main_image, class: "bg-img") %>
+    <% unless @portfolio.main_image.nil? %>
+      <%= cropped_image_tag(@portfolio.slider_image, class: "bg-img") %>
     <% end %>
-  </picture>
   <div class="wrap"></div>
   <div class="container-xl">
     <h1 class="title"><%= @portfolio.title %></h1>
@@ -105,7 +100,7 @@
 <!-- галерея-->
 <div class="portfolio-single_gallery">
   <div class="container-xl">
-    <div class="title"><%= Spree.t('spree.portfolio.gallery') %></div>
+    <div class="title"><%= Spree.t('portfolio.gallery') %></div>
     <div class="row imglist">
       <% @portfolio.images.each do |image| %>
       <div class="col col-12 col-md-6 col-sm-6">
