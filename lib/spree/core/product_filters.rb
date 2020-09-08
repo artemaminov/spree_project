@@ -75,7 +75,12 @@ module Spree
       # Color filter
       def self.color_filter(product_ids=[])
         color_property = Spree::Property.find_by(name: 'color-tone')
-        formats = color_property ? Spree::ProductProperty.where(property_id: color_property.id, product_id: product_ids).pluck(:value).uniq.map(&:to_s) : []
+        query = {
+            property_id: color_property.id
+        }
+
+        query[:product_id] = product_ids if product_ids.any?
+        formats = color_property ? Spree::ProductProperty.where(query).pluck(:value).uniq.map(&:to_s) : []
         pp = Arel::Table.new(Spree::ProductProperty.translations_table_name)
         conds = Hash[*formats.map { |b| [b, pp[:value].eq(b)] }.flatten]
         {
