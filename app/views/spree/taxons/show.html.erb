@@ -5,13 +5,9 @@
     <div class="breadcrumbs">
       <%= spree_breadcrumbs(@taxon) %>
     </div>
-    <%= render partial: 'spree/shared/filters' %>
+    <%= render partial: 'spree/taxons/taxon_filter' %>
     <div class="products">
-        <div class="grid">
-          <div data-hook="taxon_products">
-            <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-          </div>
-        </div>
+        <%= render 'spree/taxons/include_products' %>
       </div>
   </div>
 </section>

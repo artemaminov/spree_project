@@ -1,0 +1,16 @@
+$('.products')
+    .empty()
+    .append($('<%= escape_javascript(render partial: 'spree/taxons/include_products') %>'))
+
+
+//function updateUrlParameter(params) {
+//  const regExp = new RegExp(param + "(.+?)(&|$)", "g");
+//  const newUrl = window.location.href.replace(regExp, param + "=" + value + "$2");
+//  window.history.pushState("", "", newUrl);
+//}
+
+//let params = '<%#= escape_javascript(@url_params) %>';
+
+//console.log(params)
+
+//window.history.pushState(window.location.href, '', window.location.href)
