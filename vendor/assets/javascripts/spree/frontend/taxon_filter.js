@@ -1,9 +1,9 @@
 $(function () {
   $(document).ajaxStart(function () {
-    $('#progress').stop(true, true).fadeIn()
+    // $('#progress').stop(true, true).fadeIn()
   })
   $(document).ajaxStop(function () {
-    $('#progress').fadeOut()
+    // $('#progress').fadeOut()
   })
 })
 
@@ -41,9 +41,18 @@ $(document).ready(function () {
   })
 });
 
+var xhr_run = null
 
 function products_reloading(form) {
-  $.ajax({
+
+  if (xhr_run !== null) {
+    xhr_run.abort();
+    xhr_run = null;
+  }
+
+  $('.ajax-load').show();
+
+  xhr_run = $.ajax({
     url: '/taxons_by_filter',
     type: 'GET',
     data: form.serializeArray(),
@@ -55,6 +64,7 @@ function products_reloading(form) {
     initGrid();
     initPopover();
 
+    $('.ajax-load').hide();
     // modalAddProductInitAndDestroy();
     // initTabForAddProductModal();
     // modalAddProductInitAndDestroy();
