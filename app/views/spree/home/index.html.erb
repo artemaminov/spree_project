@@ -43,11 +43,13 @@
     <div class="sliders">
         <% unless @slider.blank? %>
             <% @slider.slides.each do |slide| %>
+              <% if slide.present? %>
                 <div class="slider">
                     <div class="wrap"></div>
-                    <%= image_combine_tag(@slider) %>
+                    <%= cropped_image_tag(slide.image) %>
                     <div class="text"><%= slide.title.html_safe %><b><%= slide.message.html_safe %></b></div>
                 </div>
+              <% end %>
             <% end %>
         <% end %>
     </div>
