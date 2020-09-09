@@ -926,6 +926,9 @@ ru:
     free_shipping: "Бесплатная доставка"
     free_shipping_amount:
     front_end: "в публичном интерфейсе"
+    gallery:
+      new: "Новое портфолио"
+      title: "Портфолио"
     gateway: "Платежный шлюз"
     gateway_config_unavailable: "Шлюз не доступен для данного окружения"
     gateway_error: "Ошибка платежного шлюза"
@@ -1195,9 +1198,6 @@ ru:
         menu: "Слайдеры"
         new: "Добавить слайдер"
       title: "Оформление"
-    gallery:
-      new: "Новое портфолио"
-      title: "Портфолио"
     pagination:
       next_page: "следующая страница »"
       previous_page: "« предыдущая страница"
