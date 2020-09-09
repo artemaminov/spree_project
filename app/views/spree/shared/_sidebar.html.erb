@@ -13,26 +13,14 @@
     <div class="sidebar_slider">
       <div class="sidebar_slider_block" id="sidebar_slider">
         <ul class="slidee">
-          <li class="item"><a href="#">
-            <div class="img"><%= image_tag("content/sidebar_slider_1.jpg") %></div>
-            <div class="title">Кирпич ручной работы Монс-Роял</div>
-            <div class="more">Подробнее</div></a></li>
-          <li class="item"><a href="#">
-            <div class="img"><%= image_tag("content/sidebar_slider_2.jpg") %></div>
-            <div class="title">Кирпич ручной работы Монс-Роял</div>
-            <div class="more">Подробнее</div></a></li>
-          <li class="item"><a href="#">
-            <div class="img"><%= image_tag("content/sidebar_slider_1.jpg") %></div>
-            <div class="title">Кирпич ручной работы Монс-Роял</div>
-            <div class="more">Подробнее</div></a></li>
-          <li class="item"><a href="#">
-            <div class="img"><%= image_tag("content/sidebar_slider_1.jpg") %></div>
-            <div class="title">Кирпич ручной работы Монс-Роял</div>
-            <div class="more">Подробнее</div></a></li>
-          <li class="item"><a href="#">
-            <div class="img"><%= image_tag("content/sidebar_slider_1.jpg") %></div>
-            <div class="title">Кирпич ручной работы Монс-Роял</div>
-            <div class="more">Подробнее</div></a></li>
+            <% @portfolio.limit(5).each do |item| %>
+                <% if item.preview_image.attached? %>
+                    <li class="item"><a href="<%= portfolio_url(item) %>">
+                        <div class="img"><%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '177x181', crop: '177x181+0+0' }))) %></div>
+                        <div class="title"><%= item.title %></div>
+                        <div class="more">Подробнее</div></a></li>
+                <% end %>
+            <% end %>
         </ul>
       </div>
       <div class="scrollbar">
