@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/artemaminov/spree_cropper.git
-  revision: af1d7b07430ef38e1f20ce8b92fd3aafb07cd403
+  revision: 2ef34b554a9a204084a1a6e6ef5edfebad2770ed
   specs:
-    spree_cropper (0.2.6.beta)
+    spree_cropper (0.3.0.beta)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
@@ -22,9 +22,9 @@ GIT
 
 GIT
   remote: https://github.com/artemaminov/spree_image_combine.git
-  revision: 045814be042bc07eeb76f48927103761e559897b
+  revision: f8f7dac2742956c34d5ea458b4d5c867b3675a81
   specs:
-    spree_image_combine (0.0.6.alpha)
+    spree_image_combine (0.1.0.alpha)
       spree_backend (>= 3.2.0, < 5.0)
       spree_core (>= 3.2.0, < 5.0)
       spree_extension
@@ -142,7 +142,7 @@ GEM
     activejob (5.2.4.3)
       activesupport (= 5.2.4.3)
       globalid (>= 0.3.6)
-    activemerchant (1.112.0)
+    activemerchant (1.114.0)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -302,7 +302,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.6.0)
+    loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -317,7 +317,7 @@ GEM
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     monetize (1.9.4)
       money (~> 6.12)
     money (6.13.8)
@@ -328,7 +328,7 @@ GEM
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
-    nio4r (2.5.2)
+    nio4r (2.5.3)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
@@ -362,7 +362,7 @@ GEM
     premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.5)
+    public_suffix (4.0.6)
     puma (3.12.6)
     rabl (0.13.1)
       activesupport (>= 2.3.14)
