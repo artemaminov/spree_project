@@ -12,14 +12,20 @@
         <%= f.error_message_on :name %>
       <% end %>
 
+      <%= field_container f.object, :slides, class: ['form-group'] do %>
+        <%= f.label :slides %>
+        <%= f.select :slide_ids, Spree::Slide.all.map { |s| ["#{s.title}", s.id] }, {}, multiple: true, class: 'select2' %>
+        <%= f.error_message_on :slides %>
+      <% end %>
+
+    </div>
+    <div class="col-lg-6" data-hook="admin_page_form_right">
+
       <%= field_container f.object, :page, class: ['form-group'] do %>
         <%= f.label :page %>
         <%= f.text_field :page, class: 'form-control', required: true %>
         <%= f.error_message_on :page %>
       <% end %>
-
-    </div>
-    <div class="col-lg-6" data-hook="admin_page_form_right">
 
       <%= field_container f.object, :page_id, class: ['form-group'] do %>
         <%= f.label :page_id %>
@@ -27,13 +33,6 @@
         <%= f.error_message_on :page_id %>
       <% end %>
 
-    </div>
-  </div>
-  <div class="row" data-hook="admin_page_form_additional_fields">
-    <div class="col-lg-12" data-hook="admin_page_form_left">
-      <%= f.fields_for :slides, resource.slides || resource.slides.build do |slide| %>
-        <%= render partial: 'spree/admin/slides/form_fields', locals: { f: slide, resource: slide.object } %>
-      <% end %>
     </div>
   </div>
 

@@ -1,43 +1,38 @@
 <% content_for :page_title do %>
-  <%= Spree.t('slider.title') %>
+  <%= Spree.t('slide.menu') %>
 <% end %>
 
 <% content_for :page_actions do %>
-    <%= button_link_to Spree.t('slider.new'), new_object_url, icon: 'add', class: 'btn-success', id: 'admin_new_slider' %>
-<% end if can?(:create, Spree::Slider) %>
+    <%= button_link_to Spree.t('slide.new'), new_object_url, icon: 'add', class: 'btn-success', id: 'admin_new_slide' %>
+<% end if can?(:create, Spree::Slide) %>
 
-<% if @sliders.any? %>
+<% if @slides.any? %>
   <table class="table" id="list-slider" data-hook>
     <colgroup>
-      <col style="width: 15%">
-      <col style="width: 25%">
-      <col style="width: 50%">
-      <col style="width: 10%">
+      <col style="width: 20%">
+      <col style="width: 80%">
+      <col style="width: 0">
     </colgroup>
     <thead>
     <tr data-hook="admin_pages_index_headers">
-      <th><%= Spree::Slider.human_attribute_name('position') %></th>
-      <th><%= Spree::Slider.human_attribute_name('title') %></th>
-      <th><%= Spree.t('cropped_image.column') %></th>
+      <th><%= Spree.t('image') %></th>
+      <th><%= Spree::Slide.human_attribute_name('title') %></th>
       <th data-hook="admin_pages_index_header_actions" class="actions"></th>
     </tr>
     </thead>
     <tbody>
-    <% @sliders.each do |image| %>
-      <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id image %>">
-        <td><%= image.position %></td>
-        <td><%= image.title.html_safe %></td>
-        <td class="text-center">
-          <% image.cropped_images.each do |image| %>
-            <%= image_tag(main_app.url_for(image.url(:mobile))) if image %>
-          <% end %>
+    <% @slides.each do |slide| %>
+      <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id slide %>">
+        <td>
+          <%= image_tag(main_app.url_for(resize_to_fill(slide.image.attachment, { resize: '200x70', crop: '200x70+0+0' }))) if slide.image.present? %>
         </td>
+        <td><%= slide.title.html_safe %></td>
         <td class="actions text-right" data-hook="admin_pages_index_row_actions">
-          <%= link_to_edit image, no_text: true %>
+          <%= link_to_edit slide, no_text: true %>
           <% if defined?(SpreeGlobalize) %>
-            <%= link_to content_tag(:span, '', class: 'icon icon-translate'), spree.admin_translations_path('page_section', image.id), class: 'btn btn-primary btn-sm icon-link with-tip', data: { 'original-title' => Spree.t('i18n.translations') } %>
+            <%= link_to content_tag(:span, '', class: 'icon icon-translate'), spree.admin_translations_path('page_section', slide.id), class: 'btn btn-primary btn-sm icon-link with-tip', data: { 'original-title' => Spree.t('i18n.translations') } %>
           <% end %>
-          <%= link_to_delete image, no_text: true %>
+          <%= link_to_delete slide, no_text: true %>
         </td>
       </tr>
     <% end %>

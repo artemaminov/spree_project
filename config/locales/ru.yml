@@ -1187,7 +1187,6 @@ ru:
       blocks: "Блоки"
       new: "Новый блок"
       sections: "Блоки страниц"
-      slider: "Карусель"
       title: "Оформление"
     gallery:
       new: "Новое портфолио"
@@ -1492,10 +1491,13 @@ ru:
     sku: "Артикул"
     position: "Позиция"
     skus:
-    slider:
-      title: "Оформление"
-      new: "Добавить слайд"
     split: "Разделить"
+    slide:
+      menu: "Слайды"
+      new: "Добавить слайд"
+    slider:
+      menu: "Слайдеры"
+      new: "Добавить слайдер"
     slug: "Ссылка"
     source: "Источник"
     special_instructions: "Дополнительные инструкции"

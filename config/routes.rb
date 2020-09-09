@@ -70,6 +70,7 @@ Rails.application.routes.draw do
       post 'galleries/file_upload', to: 'galleries#file_upload'
 
       resources :sliders
+      resources :slides
     end
 
     resources :news, only: [:index]
