@@ -1183,10 +1183,17 @@ ru:
     out_of_stock: "Нет в наличии"
     overview: "Обзор"
     package_from: "обработки в"
-    page_section:
-      blocks: "Блоки"
-      new: "Новый блок"
-      sections: "Блоки страниц"
+    page_design:
+      block:
+        menu: "Блоки"
+        new: "Новый блок"
+        sections: "Блоки страниц"
+      slide:
+        menu: "Слайды"
+        new: "Добавить слайд"
+      slider:
+        menu: "Слайдеры"
+        new: "Добавить слайдер"
       title: "Оформление"
     gallery:
       new: "Новое портфолио"
@@ -1492,12 +1499,6 @@ ru:
     position: "Позиция"
     skus:
     split: "Разделить"
-    slide:
-      menu: "Слайды"
-      new: "Добавить слайд"
-    slider:
-      menu: "Слайдеры"
-      new: "Добавить слайдер"
     slug: "Ссылка"
     source: "Источник"
     special_instructions: "Дополнительные инструкции"
