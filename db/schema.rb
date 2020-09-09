@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_062445) do
+ActiveRecord::Schema.define(version: 2020_09_09_132115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_062445) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2019-07-10 21:19:50"
+    t.datetime "publication_date", default: "2020-08-31 05:56:43"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""
@@ -1246,7 +1246,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_062445) do
   end
 
   create_table "spree_slides", force: :cascade do |t|
-    t.integer "order", default: 0
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -24,6 +24,14 @@
                         <%= f.text_field :variants_including_master_sku_cont, size: 15, class: "form-control js-filterable" %>
                     </div>
                 </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <%= f.label :taxons_id_eq, Spree.t(:taxon) %>
+                        <%= f.select :taxons_id_eq,
+                                     options_for_select(Spree::Taxon.friendly.collect { |s| [s.name, s.id] }, selected: params[:q][:taxons_id_eq]),
+                                     { include_blank: true }, class: 'select2'  %>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-md-12">
                     <div class="field checkbox">
                         <label>
@@ -51,7 +59,7 @@
 <%= render partial: 'spree/admin/shared/index_table_options', locals: { collection: @collection } %>
 
 <% if @collection.any? %>
-    <table class="table <%= 'sortable' if params[:q][:s].include?('position asc') %>" id="listing_products" data-sortable-link="<%= update_positions_admin_products_url %>">
+    <table class="table <%= 'sortable' if params[:q][:s].include?('position asc') %>" id="listing_products" data-sortable-link="<%= update_positions_admin_products_url(page: params[:page], per_page: params[:per_page]) %>">
         <thead>
         <tr data-hook="admin_products_index_headers">
             <% if params[:q][:s].include?('position asc') %>

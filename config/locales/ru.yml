@@ -926,6 +926,9 @@ ru:
     free_shipping: "Бесплатная доставка"
     free_shipping_amount:
     front_end: "в публичном интерфейсе"
+    gallery:
+      new: "Новое портфолио"
+      title: "Портфолио"
     gateway: "Платежный шлюз"
     gateway_config_unavailable: "Шлюз не доступен для данного окружения"
     gateway_error: "Ошибка платежного шлюза"
@@ -1183,15 +1186,18 @@ ru:
     out_of_stock: "Нет в наличии"
     overview: "Обзор"
     package_from: "обработки в"
-    page_section:
-      blocks: "Блоки"
-      new: "Новый блок"
-      sections: "Блоки страниц"
-      slider: "Карусель"
+    page_design:
+      block:
+        menu: "Блоки"
+        new: "Новый блок"
+        sections: "Блоки страниц"
+      slide:
+        menu: "Слайды"
+        new: "Добавить слайд"
+      slider:
+        menu: "Слайдеры"
+        new: "Добавить слайдер"
       title: "Оформление"
-    gallery:
-      new: "Новое портфолио"
-      title: "Портфолио"
     pagination:
       next_page: "следующая страница »"
       previous_page: "« предыдущая страница"
@@ -1238,6 +1244,7 @@ ru:
     please_define_payment_methods: "Сначала определите способ оплаты."
     populate_get_error: "Что-то пошло не так. Попробуйте добавить товар еще раз."
     portfolio:
+      crumb: "Портфолио"
       description: "Описание объекта"
       gallery: "Фотогалерея проекта"
       next: "Перейти в к следующему проекту"
@@ -1492,9 +1499,6 @@ ru:
     sku: "Артикул"
     position: "Позиция"
     skus:
-    slider:
-      title: "Оформление"
-      new: "Добавить слайд"
     split: "Разделить"
     slug: "Ссылка"
     source: "Источник"

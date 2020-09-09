@@ -5,8 +5,11 @@ module Spree
     class GalleriesController < ResourceController
       def update_positions
         ApplicationRecord.transaction do
+          per_page = params[:per_page] || 25
+          page = params[:page] || 1
+
           params[:positions].each do |id, index|
-            Spree::Gallery.where(id: id).update_all(position: index)
+            Spree::Gallery.where(id: id).update_all(position: index.to_i + per_page.to_i * (page.to_i - 1))
           end
         end
 

@@ -49,9 +49,7 @@
 </div>
 <section class="portfolio-single-content">
   <div class="container-xl">
-    <!-- хлебные крошки-->
-    <div class="breadcrumbs breadcrumbsPortfolio"><a href="#">Главная страница</a><span>/</span><span>Кирпич ручной формовки</span></div>
-    <!-- конец хлебные крошки-->
+    <%= spree_breadcrumbs('portfolio.crumb', @portfolio.title) %>
   </div>
 </section>
 <!-- описание-->

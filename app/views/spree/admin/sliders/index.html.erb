@@ -1,9 +1,9 @@
 <% content_for :page_title do %>
-  <%= Spree.t('slider.title') %>
+  <%= Spree.t('page_design.slider.menu') %>
 <% end %>
 
 <% content_for :page_actions do %>
-    <%= button_link_to Spree.t('slider.new'), new_object_url, icon: 'add', class: 'btn-success', id: 'admin_new_slider' %>
+    <%= button_link_to Spree.t('page_design.slider.new'), new_object_url, icon: 'add', class: 'btn-success', id: 'admin_new_slider' %>
 <% end if can?(:create, Spree::Slider) %>
 
 <% if @sliders.any? %>
