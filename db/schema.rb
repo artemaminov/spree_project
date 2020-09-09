@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_132115) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2019-07-10 21:19:50"
+    t.datetime "publication_date", default: "2020-08-31 05:56:43"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""
