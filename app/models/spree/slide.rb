@@ -5,7 +5,7 @@ module Spree
 
     accepts_nested_attributes_for :image
 
-    validates_presence_of :title, :message, :order
+    validates_presence_of :title, :message
 
     if defined?(SpreeGlobalize)
       translates :title, :message, fallbacks_for_empty_translations: true
