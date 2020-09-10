@@ -1,5 +1,3 @@
-<%= render partial: 'spree/shared/slider' %>
-
 <section class="portfolio-content">
   <div class="container-xl">
     <%= spree_breadcrumbs('portfolio.crumb') %>
@@ -9,7 +7,7 @@
     <!--  4 карточки-->
       <div class="row">
         <% @portfolio.each do |item| %>
-          <% next if item.preview_image.attachment.nil? %>
+          <% next unless item.preview_image.present? %>
           <div class="col col-12 col-md-6 col-sm-6">
             <%= link_to portfolio_url(item), class: 'card' do %>
               <%= image_tag(main_app.url_for(item.preview_image.attachment)) %>

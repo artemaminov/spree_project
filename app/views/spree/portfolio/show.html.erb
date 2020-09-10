@@ -1,5 +1,5 @@
 <div class="section_first-section-catalog section_first-section-portfolio-single" id="first-section">
-    <% unless @portfolio.main_image.nil? %>
+    <% if @portfolio.slider_image.present? %>
       <%= cropped_image_tag(@portfolio.slider_image, class: "bg-img") %>
     <% end %>
   <div class="wrap"></div>
@@ -116,8 +116,8 @@
 <!-- следующий проект-->
 <div class="portfolio-single-next-project">
   <picture>
-    <% unless @next_portfolio.main_image.attachment.nil? %>
-      <%= image_tag main_app.url_for(@next_portfolio.main_image.attachment), class: "bg-img" %>
+    <% if @next_portfolio.slider_image.present? %>
+      <%= image_tag main_app.url_for(@next_portfolio.slider_image.attachment), class: "bg-img" %>
     <% end %>
   </picture>
   <div class="wrapper"></div>
