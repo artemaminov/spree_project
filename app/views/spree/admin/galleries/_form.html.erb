@@ -73,7 +73,7 @@
 
       <div class="form-group">
         <%= f.label :slider_image %>
-        <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: @gallery.slider_image || @gallery.build_main_image, resource_name: :slider_image, f: f } %>
+        <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: @gallery.slider_image || @gallery.build_slider_image, resource_name: :slider_image, f: f } %>
       </div>
     </div>
   </div>
