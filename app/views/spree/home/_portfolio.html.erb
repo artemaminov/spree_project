@@ -22,6 +22,8 @@
     <div class="scrollbar">
       <div class="handle"></div>
     </div>
-    <div class="count"><%= Spree.t('projects') %> 3 <%= Spree.t('of') %> <%= @portfolio.count %></div>
+    <div class="count">
+      <%= object_of_counter(Spree.t('projects'), @portfolio.limit(20).count.to_s, @portfolio.count.to_s) %>
+    </div>
   </div>
 </div>

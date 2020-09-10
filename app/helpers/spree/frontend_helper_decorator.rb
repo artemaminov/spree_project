@@ -69,4 +69,8 @@ Spree::FrontendHelper.module_eval do
     options = fetch_options(product)
     options.join(', ')
   end
+
+  def object_of_counter(object, from, to)
+    [object, from, Spree.t('of'), to].join(' ')
+  end
 end
