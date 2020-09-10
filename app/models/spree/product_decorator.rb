@@ -4,6 +4,7 @@ module Spree
 
     self.whitelisted_ransackable_associations = %w[taxons stores variants_including_master master variants]
 
+
   end
 
   module ProductDecorator

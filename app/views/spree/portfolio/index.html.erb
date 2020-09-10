@@ -10,7 +10,8 @@
           <% next unless item.preview_image.present? %>
           <div class="col col-12 col-md-6 col-sm-6">
             <%= link_to portfolio_url(item), class: 'card' do %>
-              <%= image_tag(main_app.url_for(item.preview_image.attachment)) %>
+
+              <%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '812x551', crop: '812x551+0+0' }))) %>
               <div class="title"><%= item.title %></div>
               <div class="description"><%= item.subtitle %></div>
             <% end %>
