@@ -37,20 +37,20 @@ Spree::FrontendHelper.module_eval do
   # Compile product dimensions popover
   def formats_dimensions(product)
     options = Spree::OptionValue.where(presentation: fetch_options(product))
-    output = %{(
+    output = %(
       <div class='popover_products'>
         <div class='item item_header'>
           <div class='title'>Форматы</div>
           <div class='format'>Размеры</div>
         </div>
-    )}
+    )
     options.each do |option|
-      output += %{(
+      output += %(
         <div class='item'>
           <div class='title'>#{option.presentation}</div>
           <div class='format'>#{option.dimension} мм</div>
         </div>
-      )}
+      )
     end
     output += '</div>'
   end
