@@ -56,11 +56,15 @@
 <section class="portfolio-single-description">
   <div class="item item-left">
     <picture>
-      <source media="(max-width: 375px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-375.jpg">
-      <source media="(max-width: 1024px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-768.jpg">
-      <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-1440.jpg">
-      <% unless @portfolio.preview_image.attachment.nil? %>
-        <%= image_tag main_app.url_for(@portfolio.preview_image.attachment) %>
+<!--        <source media="(max-width: 375px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-375.jpg">-->
+<!--        <source media="(max-width: 1024px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-768.jpg">-->
+<!--        <source media="(max-width: 1440px)" srcset="/static/images/content/portfolio-single/portfolio-single-description-1440.jpg">-->
+
+        <source media="(max-width: 375px)" srcset="<%= main_app.url_for(resize_to_fill(@portfolio.preview_image, { resize: '375x600', crop: '375x600+0+0' })) %>">
+        <source media="(max-width: 1024px)" srcset="<%= main_app.url_for(resize_to_fill(@portfolio.preview_image, { resize: '375x630', crop: '375x630+0+0' })) %>">
+        <source media="(max-width: 1440px)" srcset="<%= main_app.url_for(resize_to_fill(@portfolio.preview_image, { resize: '720x630', crop: '720x630+0+0' })) %>">
+        <% unless @portfolio.preview_image.attachment.nil? %>
+            <%= image_tag(main_app.url_for(resize_to_fill(@portfolio.preview_image, { resize: '916x600', crop: '916x630+0+0' }))) %>
       <% end %>
     </picture>
   </div>
@@ -132,7 +136,7 @@
 <div class="container-xl">
   <div class="portfolio-single_buttons">
     <%= link_to Spree.t('return_to_portfolio'), portfolio_index_url, class: "btn btn_back-to-portfolio" %>
-    <%= link_to Spree.t('return_to_catalog'), nested_taxons_url(@portfolio.return_to_catalog), class: "btn btn_move-to-catalog" %>
+    <%#= link_to Spree.t('return_to_catalog'), nested_taxons_url(@portfolio.return_to_catalog), class: "btn btn_move-to-catalog" %>
   </div>
 </div>
 <!-- конец панель с кнопками-->

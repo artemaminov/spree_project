@@ -57,7 +57,7 @@
                                     от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> м<sup>2</sup>/₽
                                 <% end %>
                             <% else %>
-                                от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> м<sup>2</sup>/₽
+                                от <%= product.lowest_price_variant&.amount.to_f %> ₽ / <%= product.lowest_price_variant&.amount.to_f * product.lowest_price_variant&.variant&.sqr_meter_amount.to_f %> м<sup>2</sup>/₽
                             <% end %>
                         </div>
                     </div>
