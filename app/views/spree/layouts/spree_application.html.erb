@@ -30,7 +30,13 @@
     </div>
 </div>
 <div class="wrapper">
-    <%= render partial: 'spree/shared/main_nav_bar' %>
+
+  <% if @use_light_nav_bar %>
+    <%= render partial: 'spree/shared/nav_bar/main_nav_bar_light' %>
+  <% else %>
+    <%= render partial: 'spree/shared/nav_bar/main_nav_bar' %>
+  <% end %>
+
     <%= render partial: 'spree/shared/sidebar' %>
     <%= yield %>
     <%= render partial: 'spree/shared/footer' %>

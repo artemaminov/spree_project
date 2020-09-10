@@ -3,6 +3,7 @@ class Spree::PortfolioController < Spree::StoreController
     @portfolio = Spree::Gallery.all
                          .order(position: :asc)
                          .page(params[:page])
+    @use_light_nav_bar = true
   end
 
   def show
