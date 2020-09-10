@@ -2,7 +2,7 @@
   <% if @taxonomies %>
     <% @taxonomies.each do |taxonomy| %>
       <% taxon = taxonomy.taxons.first %>
-      <% link = link_to(taxon.name, seo_url(taxon), class: 'item') %>
+      <% link = inside_li_tag ? link_to(taxon.name, seo_url(taxon), class: 'item') : link_to(taxon.name, seo_url(taxon)) %>
       <%= inside_li_tag ? content_tag(:li, link) : content_tag(:div, link, class: 'item') %>
     <% end %>
   <% end %>
