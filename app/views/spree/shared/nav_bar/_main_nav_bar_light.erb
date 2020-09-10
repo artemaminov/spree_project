@@ -47,10 +47,7 @@
           </div>
           <div class="navigation">
             <div class="items">
-                    <div class="item"><a href="/catalog.html">Кирпич ручной формовки</a></div>
-                    <div class="item"><a href="#">Ригель-кирпич</a></div>
-                    <div class="item"><a href="#">Клинкерный кирпич</a></div>
-                    <div class="item"><a href="#">Тротуарный клинкер</a></div>
+              <%= render partial: 'spree/shared/taxonomies', locals: { inside_li_tag: false } %>
             </div>
             <div class="burger_block">
               <svg class="burger" width="33" height="26" viewbox="0 0 33 26" fill="none" xmlns="http://www.w3.org/2000/svg">
