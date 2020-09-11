@@ -13,14 +13,17 @@
     <div class="sidebar_slider">
       <div class="sidebar_slider_block" id="sidebar_slider">
         <ul class="slidee">
-            <% @portfolio_sidebar.each do |item| %>
-                <% if item.preview_image.attached? %>
-                    <li class="item"><a href="<%= portfolio_url(item) %>">
-                        <div class="img"><%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '177x181', crop: '177x181+0+0' }))) %></div>
-                        <div class="title"><%= item.title %></div>
-                        <div class="more">Подробнее</div></a></li>
+            <% if @portfolio_sidebar.present? %>
+                <% @portfolio_sidebar.each do |item| %>
+                    <% if item.preview_image.attached? %>
+                        <li class="item"><a href="<%= portfolio_url(item) %>">
+                            <div class="img"><%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '177x181', crop: '177x181+0+0' }))) %></div>
+                            <div class="title"><%= item.title %></div>
+                            <div class="more">Подробнее</div></a></li>
+                    <% end %>
                 <% end %>
             <% end %>
+
         </ul>
       </div>
       <div class="scrollbar">

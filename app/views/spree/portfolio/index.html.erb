@@ -7,7 +7,7 @@
     <!--  4 карточки-->
       <div class="row">
         <% @portfolio.each do |item| %>
-          <% next unless item.preview_image.present? %>
+          <% next unless item.preview_image.attached? %>
           <div class="col col-12 col-md-6 col-sm-6">
             <%= link_to portfolio_url(item), class: 'card' do %>
 
@@ -19,8 +19,14 @@
         <% end %>
 
       </div>
-        <%#= paginate @portfolio %>
     </div>
+
+      <div class="footer">
+          <nav>
+              <%= paginate @portfolio %>
+          </nav>
+      </div>
+
 
   </div>
 </section>
