@@ -38,7 +38,7 @@ function calc(e) {
       variantSqrMeters,
       variantPallets,
       variantTotal = 0;
-  var variant = $(e).data("info");
+  var variant = $(e).data("params");
   var amount = $(e).val();
   var variantPiecesElement = $("#variant-".concat(variant.id, "-pieces"));
   var variantPalletsElement = $("#variant-".concat(variant.id, "-pallets"));

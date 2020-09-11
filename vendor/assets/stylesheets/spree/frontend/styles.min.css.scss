@@ -3606,11 +3606,11 @@ footer.footer {
       position: absolute;
       width: 24px;
       height: 24px;
-      background: url("/static/images/svg/form/checkbox.svg") no-repeat;
+      background: asset-url("svg/form/checkbox.svg") no-repeat;
       left: 0;
       top: 0; }
     .modal_add-collection .footer .politics input[type=checkbox]:checked + label:before {
-      background: url("/static/images/svg/form/checkbox_space.svg") no-repeat; }
+      background: asset-url("svg/form/checkbox_space.svg") no-repeat; }
     .modal_add-collection .footer .politics label {
       position: relative;
       padding-left: 40px;
