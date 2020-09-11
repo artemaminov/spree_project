@@ -3,6 +3,7 @@
   <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><%= image_tag "general/icons/close-modal.svg" %></span></button>
 </div>
 <div class="modal-body">
+  <%= form_tag '/send_collection', remote: true do %>
   <div class="accordion" id="accordionAddCollection">
     <div class="card card-top">
       <div class="items">
@@ -11,7 +12,6 @@
         <div class="size">Размер</div>
         <div class="price">Цена за шт.</div>
         <div class="count">Количество</div>
-        <div class="count-m2"></div>
         <div class="total">Сумма</div>
         <div class="delete"></div>
       </div>
@@ -24,29 +24,31 @@
       <div class="text">Общая сумма:</div>
       <div class="sum calc-total">0.00 ₽</div>
     </div>
+
     <div class="form_send-order">
-      <form action="" method="POST">
         <div class="row row_form_send-order">
           <div class="col">
             <div class="input-group">
-              <label for="name">Фамилия Имя Отчество</label>
-              <input type="text" name="name" id="name" placeholder="Ивано Иван Иванович">
+              <label for="customer_name">Фамилия Имя Отчество</label>
+              <%= text_field_tag 'customer_name', nil, placeholder: "Ивано Иван Иванович" %>
             </div>
           </div>
           <div class="col">
             <div class="input-group">
-              <label for="phone">Номер телефона</label>
-              <input class="input_phone" type="text" name="name" id="phone" placeholder="+7 (___) ___ __ __">
+              <label for="customer_phone">Номер телефона</label>
+              <%= text_field_tag 'customer_phone', nil, placeholder: "+7 (___) ___ __ __", type: 'text', inputmode: 'text' %>
             </div>
           </div>
-          <div class="col"><a class="btn btn_form_send-order" href="#">Отправить заказ</a></div>
+          <div class="col">
+            <%= submit_tag 'Отправить заказ', data: { "disable-with": "Отправка..." }, class: "btn btn_form_send-order" %>
+          </div>
         </div>
-      </form>
     </div>
     <div class="politics">
-      <input type="checkbox" id="politicsCheckbox">
+      <input type="checkbox" name="politics_agreement" id="politicsCheckbox">
       <label for="politicsCheckbox">Согласие с настоящей<a href="#">Политикой конфеденциальности и обработке Персональных данных</a></label>
     </div>
   </div>
 
 </div>
+<% end %>

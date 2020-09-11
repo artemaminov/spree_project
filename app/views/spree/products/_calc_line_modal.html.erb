@@ -17,29 +17,29 @@
           <svg width="5" height="1" viewbox="0 0 5 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0H5V1H0V0Z" fill="#444444"></path>
           </svg></a>
-          <input class="calc-btn" type="number" placeholder="0"
-                 data-info='{
-                               "id":"<%= calc_line_counter %>",
-                               "price":"<%= calc_line.price %>",
-                               "palletQuantity":"<%= calc_line.pallet_quantity %>",
-                               "sqrMeterAmount":"<%= calc_line.sqr_meter_amount %>"
-                               }' />
+          <%= text_field_tag "calc_item[#{ calc_line.id }]", nil, placeholder: 0, type: 'number', class: 'calc-btn', data: { params: {
+              id: calc_line_counter,
+              price: calc_line.price,
+              palletQuantity: calc_line.pallet_quantity,
+              sqrMeterAmount: calc_line.sqr_meter_amount
+          }} %>
           <a class="btn_plus">
             <svg width="7" height="7" viewbox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 3H7V4H0V3Z" fill="#444444"></path>
               <path d="M4 0V7H3V0L4 0Z" fill="#444444"></path>
             </svg></a>
         </div>
-        <div class="text"><span id="variant-<%= calc_line_counter %>-pieces">0 шт.</span><span id="variant-<%= calc_line_counter %>-pallets">0 поддонов</span></div>
-      </div>
-      <div class="count-m2">
-        <select class="custom-select type-count calc-type" name="state" id="variant-<%= calc_line_counter %>-amount-type">
+        <select class="custom-select type-count type-count-catalog-modal calc-type" name="state[<%= calc_line.id %>]" id="variant-<%= calc_line_counter %>-amount-type">
           <option value="AL">штук</option>
           <option value="WY">метр &sup2;</option>
         </select>
+        <div class="text">
+          <span id="variant-<%= calc_line_counter %>-pieces">0 шт.</span>
+        </div>
       </div>
       <div class="total" id="variant-<%= calc_line_counter %>-total">
-        <div class="title">Сумма:</div>0.00 ₽
+        <div class="title">Сумма:</div>
+        <div class="sum">0.00</div>₽
       </div>
       <div class="arrow"><%= image_tag "general/icons/products/arrow_black.svg" %></div>
       <div class="delete"><a class="btn_delete">

@@ -15,11 +15,21 @@ module Spree
       end
     end
 
+    def send_collection
+      respond_to do |format|
+        format.js {
+          byebug
+          variant_ids = params[:calc_item].keys
+          variants = Spree::Variant.find(variant_ids)
+        }
+      end
+    end
+
     def index
-        @searcher = build_searcher(params.merge(include_images: true))
-        @products = @searcher.retrieve_products.reorder(position: :asc)
-        @products = @products.includes(:possible_promotions) if @products.respond_to?(:includes)
-        @taxonomies = Spree::Taxonomy.includes(root: :children)
+      @searcher = build_searcher(params.merge(include_images: true))
+      @products = @searcher.retrieve_products.order(position: :asc)
+      @products = @products.includes(:possible_promotions) if @products.respond_to?(:includes)
+      @taxonomies = Spree::Taxonomy.includes(root: :children)
     end
 
   end
