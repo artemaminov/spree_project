@@ -113,9 +113,7 @@ function adaptive() {
   var $sliderPortfolioFrame = $('#slider_portfolio');
   var $sliderPortfolioWrap = $sliderPortfolioFrame.parent();
   sliderOption($sliderPortfolioFrame, $sliderPortfolioWrap.find('.scrollbar'));
-  var $sliderSimilarProductFrame = $('#slider_similar_product');
-  var $sliderSimilarProductWrap = $sliderSimilarProductFrame.parent();
-  sliderOption($sliderSimilarProductFrame, $sliderSimilarProductWrap.find('.scrollbar'));
+  initSliderSimilarProductFrame(widthClient);
 
   if (widthClient >= 1300) {
     initSocial();
@@ -159,7 +157,7 @@ function adaptive() {
     $sliderPortfolioFrame.sly('reload');
     $sidebarSliderFrame.sly('reload');
     $sliderPortfolioFrame.sly('reload');
-    $sliderSimilarProductFrame.sly('reload');
+    initSliderSimilarProductFrame(width);
     initHeightForMasonry();
 
     if (width >= 1300) {
@@ -230,6 +228,23 @@ function adaptive() {
 
     oldWith = coordinates.width;
   });
+}
+
+function initSliderSimilarProductFrame(widthClient) {
+  var $sliderSimilarProductFrame = $('#slider_similar_product');
+
+  if ($sliderSimilarProductFrame.find("ul>li").length > 3) {
+    var $sliderSimilarProductWrap = $sliderSimilarProductFrame.parent();
+    sliderOption($sliderSimilarProductFrame, $sliderSimilarProductWrap.find('.scrollbar'));
+  } else {
+    $sliderSimilarProductFrame.find("ul>li").css("width", "33.33%");
+
+    if (widthClient <= 1024) {
+      $sliderSimilarProductFrame.find("ul>li").css("width", "50%");
+    }
+
+    $sliderSimilarProductFrame.siblings(".scrollbar").css("display", "none");
+  }
 }
 
 function initSocial() {// let bottomSocial = $(".wrapper>.footer").innerHeight() + $(".wrapper>.section_map").innerHeight();
@@ -338,7 +353,7 @@ function productCard1150More() {
 function catalogModalAdaptive767More() {
   $('.accordion .card').each(function (i, elem) {
     if (i !== 0) {
-      $(this).find('.card-body .items .count-m2').after($(this).find('.card-body .footer .total'));
+      $(this).find('.card-body .items .count').after($(this).find('.card-body .footer .total'));
     }
   });
 }
@@ -354,7 +369,7 @@ function catalogModalAdaptive767() {
 function catalogModalAdaptive1439() {
   if (!$('.product_modal_content>.item_slider>.header').length) {
     $('.product_modal_content>.item_option>.header').prependTo($('.product_modal_content>.item_slider'));
-    $('.accordion .collapse').html("\n        <div class=\"card-body\">\n          <div class=\"header\">\n            <div class=\"count\">\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432 \u0448\u0442.</div>\n            <div class=\"count-m2\">\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432 \u043C2.</div>\n            <div class=\"total\">\u0421\u0443\u043C\u043C\u0430</div>\n            <div class=\"delete\">&nbsp;</div>\n          </div>\n          <div class=\"items\"></div>\n          <div class=\"footer\"></div>\n        </div>\n    ");
+    $('.accordion .collapse').html("\n        <div class=\"card-body\">\n          <div class=\"header\">\n            <div class=\"count\">\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432 \u0448\u0442.</div>\n            <div class=\"total\">\u0421\u0443\u043C\u043C\u0430</div>\n            <div class=\"delete\">&nbsp;</div>\n          </div>\n          <div class=\"items\"></div>\n          <div class=\"footer\"></div>\n        </div>\n    ");
     $('.accordion .card').each(function (i, elem) {
       if (i !== 0) {
         $(this).find('.card-header .items .count,' + '.card-header .items .count-m2,' + '.card-header .items .total,' + '.card-header .items .delete').prependTo($(this).find('.card-body .items'));
