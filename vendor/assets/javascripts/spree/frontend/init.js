@@ -56,7 +56,9 @@ $(document).ready(function () {
   isShowSidebar();
   showNavigation();
   initPopover();
-  initGrid();
+  setTimeout(function () {
+    initGrid();
+  }, 1000);
   modalAddProductInitAndDestroy();
   initTabForAddProductModal();
   initAccordionAddCollection();
@@ -69,7 +71,41 @@ $(document).ready(function () {
   initFillingOutFormBasket();
   initHeightForAccordionProduct();
   initMapForCatalog();
+  initRemoveBtnDeleteDesktop();
+  initRemoveBtnDeleteMobile();
+  initCountMetrForModal();
+  initNewsOnMain();
 });
+
+function initNewsOnMain() {
+  $(".section_news .news").attr("data-count", $(".section_news .news .item").length);
+}
+
+function initCountMetrForModal() {
+  $(".type-count-catalog-modal").change(function () {
+    var value = Number($(this).val());
+    if (value === 1) $(this).next().find("div").html("шт.");
+    if (value === 2) $(this).next().find("div").html("м&sup2;");
+  });
+}
+
+function initRemoveBtnDeleteDesktop() {
+  var cards = $("#accordionAddCollection>.card");
+  cards.each(function () {
+    var sum = $(this).find(".card-header>.items>.total>.sum").text();
+    var btnDelete = $(this).find(".card-header>.items>.delete>.btn_delete");
+    if (Number(sum) === 0) btnDelete.css("display", "none");else btnDelete.css("display", "flex");
+  });
+}
+
+function initRemoveBtnDeleteMobile() {
+  var cards = $("#accordionAddCollection>.card");
+  cards.each(function () {
+    var sum = $(this).find(".card-body>.items>.total>.sum").text();
+    var btnDelete = $(this).find(".card-body>.items>.delete>.btn_delete");
+    if (Number(sum) === 0) btnDelete.css("display", "none");else btnDelete.css("display", "flex");
+  });
+}
 
 function initMapForCatalog() {
   $('.dealer-list_block').scroll(function (e) {
@@ -251,11 +287,12 @@ function modalAddProductInitAndDestroy() {
 }
 
 function initGrid() {
-  var grid = $('.grid').imagesLoaded().progress(function () {
+  $('.grid').imagesLoaded().progress(function () {
     $('.grid').masonry({
       itemSelector: '.grid-item',
       percentPosition: true,
-      columnWidth: '.persent-size' // gutter: 10
+      columnWidth: '.persent-size',
+      horizontalOrder: true // gutter: 10
 
     });
   });
