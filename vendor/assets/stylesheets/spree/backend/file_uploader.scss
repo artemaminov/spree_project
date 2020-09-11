@@ -14,6 +14,7 @@
 
     &__image-multi {
         margin-top: 20px;
+        position: relative;
     }
 
     &__image {
@@ -36,7 +37,7 @@
             display: inline-block;
 
             &:hover {
-                transform: scale(1.1);
+                //transform: scale(1.1);
                 z-index: 5;
 
                 .file-uploader__image-remove {

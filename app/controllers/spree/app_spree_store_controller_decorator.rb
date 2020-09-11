@@ -10,6 +10,7 @@ Spree::StoreController.class_eval do
     @slider = Spree::Slider.for_page controller_name, params[:id]
     @page_sections = Spree::PageSection
     @taxonomies = Spree::Taxonomy.includes(root: :children)
+    @portfolio_sidebar = Spree::Gallery.all.order(position: :asc).limit(5)
   end
 
   def render_error_message (error)

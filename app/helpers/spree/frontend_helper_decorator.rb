@@ -1,20 +1,33 @@
 Spree::FrontendHelper.module_eval do
-  def spree_breadcrumbs(taxon, separator = '/')
-    return '' if current_page?('/') || taxon.nil?
+  def spree_breadcrumbs(crumb, child = '', options = { class: 'breadcrumbs' })
+    return '' if current_page?('/') || crumb.nil?
+
+    separator = '/'
 
     separator = raw(content_tag(:span, separator))
     crumbs = [link_to(Spree.t(:home), spree.root_path, itemprop: 'url') + separator]
-    if taxon
+
+    if crumb.is_a?(Spree::Taxon)
       # crumbs << link_to(Spree.t(:products), spree.products_path, itemprop: 'url') + separator
-      crumbs << taxon.ancestors.collect { |ancestor| link_to(ancestor.name, seo_url(ancestor), itemprop: 'url') + separator } unless taxon.ancestors.empty?
-      crumbs << link_to(taxon.name, seo_url(taxon), itemprop: 'url')
+      crumbs << crumb.ancestors.collect { |ancestor| link_to(ancestor.name, seo_url(ancestor), itemprop: 'url') + separator } unless crumb.ancestors.empty?
+
       if @product
+        crumbs << link_to(crumb.name, seo_url(crumb), itemprop: 'url')
         crumbs << separator + content_tag(:span, @product.name)
+      else
+        crumbs << content_tag(:span, crumb.name)
       end
     else
-      crumbs << Spree.t(:products)
+
+      if child.blank?
+        crumbs << content_tag(:span, Spree.t(crumb))
+      else
+        crumbs << link_to(Spree.t(crumb), "/#{controller_name}", itemprop: 'url') + separator
+        crumbs << content_tag(:span, child)
+      end
+      # crumbs << content_tag(:span, Spree.t(:products))
     end
-    content_tag(:div, raw(crumbs.flatten.map(&:mb_chars).join), class: 'breadcrumbs', itemscope: 'itemscope', itemtype: 'https://schema.org/BreadcrumbList')
+    content_tag(:div, raw(crumbs.flatten.map(&:mb_chars).join), options, itemscope: 'itemscope', itemtype: 'https://schema.org/BreadcrumbList')
   end
 
   def in_stock_text(product)
@@ -24,20 +37,20 @@ Spree::FrontendHelper.module_eval do
   # Compile product dimensions popover
   def formats_dimensions(product)
     options = Spree::OptionValue.where(presentation: fetch_options(product))
-    output = %{
+    output = %(
       <div class='popover_products'>
         <div class='item item_header'>
           <div class='title'>Форматы</div>
           <div class='format'>Размеры</div>
         </div>
-    }
+    )
     options.each do |option|
-      output += %{
+      output += %(
         <div class='item'>
           <div class='title'>#{option.presentation}</div>
           <div class='format'>#{option.dimension} мм</div>
         </div>
-      }
+      )
     end
     output += '</div>'
   end
@@ -55,5 +68,9 @@ Spree::FrontendHelper.module_eval do
   def option_values_text(product)
     options = fetch_options(product)
     options.join(', ')
+  end
+
+  def object_of_counter(object, from, to)
+    [object, from, Spree.t('of'), to].join(' ')
   end
 end

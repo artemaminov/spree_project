@@ -3,6 +3,30 @@
 module Spree
   module Admin
     class GalleriesController < ResourceController
+      def update_positions
+        ApplicationRecord.transaction do
+          per_page = params[:per_page] || 25
+          page = params[:page] || 1
+
+          params[:positions].each do |id, index|
+            Spree::Gallery.where(id: id).update_all(position: index.to_i + per_page.to_i * (page.to_i - 1))
+          end
+        end
+
+        respond_to do |format|
+          format.html { redirect_to admin_galleries_url }
+          format.js { render plain: 'Ok' }
+        end
+      end
+
+      def update_images_position
+        params[:spree_attachment].each_with_index do |id, index|
+          ActiveStorage::Attachment.where(id: id).update_all(position: index + 1)
+        end
+
+        head :ok
+      end
+
       def file_upload
         files = params[:files]
 
@@ -43,7 +67,9 @@ module Spree
       def index
         # super
 
-        @galleries = Spree::Gallery.all.page params[:page]
+        @galleries = Spree::Gallery.all
+                             .reorder(position: :asc)
+                             # .page(params[:page])
       end
 
       def create

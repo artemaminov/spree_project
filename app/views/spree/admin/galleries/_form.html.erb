@@ -1,84 +1,82 @@
 <% content_for :page_actions do %>
-    <%= button_link_to Spree.t(:back_to_resource_list,
-                               resource: plural_resource_name(Spree::Gallery)),
-                       spree.admin_galleries_path,
-                       icon: 'arrow-left', class: 'btn-primary' %>
+  <%= button_link_to Spree.t(:back_to_resource_list,
+                             resource: plural_resource_name(Spree::Gallery)),
+                     spree.admin_galleries_path,
+                     icon: 'arrow-left', class: 'btn-primary' %>
 <% end %>
 
 <%= form_for [:admin, resource] do |f| %>
-    <div class="row" data-hook="admin_page_form_fields">
-        <div class="col-lg-8" data-hook="admin_page_form_left">
+  <div class="row" data-hook="admin_page_form_fields">
+    <div class="col-lg-6" data-hook="admin_page_form_left">
 
-            <div class="form-group">
-                <%= f.label :title %>
-                <%= f.text_field :title, class: 'form-control', required: true %>
-                <%= f.error_message_on :title %>
-            </div>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', required: true %>
+        <%= f.error_message_on :title %>
+      </div>
 
-            <div class="form-group">
-                <%= f.label :position %>
-                <%= f.text_field :position, class: 'form-control', required: true %>
-                <%= f.error_message_on :position %>
-            </div>
+      <div class="form-group">
+        <%= f.label :position %>
+        <%= f.text_field :position, class: 'form-control', required: true %>
+      </div>
 
-            <div class="form-group">
-                <%= f.label :subtitle %>
-                <%= f.text_field :subtitle, class: 'form-control', required: true %>
-                <%= f.error_message_on :subtitle %>
-            </div>
+      <div class="form-group">
+        <%= f.label :subtitle %>
+        <%= f.text_field :subtitle, class: 'form-control', required: true %>
+        <%= f.error_message_on :subtitle %>
+      </div>
 
-            <div class="form-group">
-                <%= f.label :desc %>
-                <%= f.text_area :desc, class: 'form-control gallery_desc' %>
-                <%= f.error_message_on :desc %>
-            </div>
+      <div class="form-group">
+        <%= f.label :desc %>
+        <%= f.text_area :desc, class: 'form-control gallery_desc' %>
+        <%= f.error_message_on :desc %>
+      </div>
 
-            <div class="form-group">
-                <%= f.label :products %>
+      <div class="form-group">
+        <%= f.label :products %>
+        <%= f.select :products, options_for_select(Spree::Product.all.collect { |p| [p.name, p.id] }, @gallery.products.map { |d| d.id }), {}, {multiple: true, class: 'select2'} %>
+      </div>
 
-                <%= f.select :products, options_for_select( Spree::Product.all.collect{|p| [p.name, p.id]}, @gallery.products.map{|d| d.id} ), {}, {multiple: true, class: 'select2'} %>
-            </div>
-
-            <div class="form-group">
-                <%= f.label :main_image %>
-
-                <%= render partial: 'spree/admin/galleries/file_uploader',
-                           locals: {
-                                   content: {
-                                           multiple: false,
-                                           name: 'main_image',
-                                           image: @gallery.main_image
-                                   }
-                           }%>
-            </div>
-
-            <div class="form-group">
-                <%= f.label :preview_image %>
-
-                <%= render partial: 'spree/admin/galleries/file_uploader',
-                           locals: {
-                                   content: {
-                                           multiple: false,
-                                           name: 'preview_image',
-                                           image: @gallery.preview_image
-                                   }
-                           }%>
-            </div>
-
-            <div class="form-group">
-                <%= f.label :images %>
-                <%= render partial: 'spree/admin/galleries/file_uploader',
-                           locals: {
-                                   content: {
-                                           multiple: true,
-                                           name: 'images[]',
-                                           images: @gallery.images
-                                   }
-                           } %>
-            </div>
-
-        </div>
     </div>
 
-    <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :preview_image %>
+
+        <%= render partial: 'spree/admin/galleries/file_uploader',
+                   locals: {
+                       content: {
+                           multiple: false,
+                           name: 'preview_image',
+                           image: @gallery.preview_image
+                       }
+                   } %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :images %>
+        <%= render partial: 'spree/admin/galleries/file_uploader',
+                   locals: {
+                       content: {
+                           multiple: true,
+                           name: 'images[]',
+                           images: @gallery.images,
+                           position_url: update_images_position_admin_galleries_url
+                       }
+                   } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="form-group">
+        <%= f.label :slider_image %>
+        <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: @gallery.slider_image || @gallery.build_slider_image, resource_name: :slider_image, f: f } %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
 <% end %>

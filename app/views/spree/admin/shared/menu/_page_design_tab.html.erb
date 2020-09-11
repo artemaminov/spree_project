@@ -1,0 +1,5 @@
+<% if can? :admin, Spree::PageSection %>
+  <ul class="nav nav-sidebar">
+    <%= main_menu_tree Spree.t('page_design.title'), url: '#sidebar-page-section', icon: 'home', sub_menu: 'page_design' %>
+  </ul>
+<% end %>

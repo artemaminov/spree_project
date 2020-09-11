@@ -15,7 +15,7 @@
         <div data-hook="admin_product_form_position">
             <%= f.field_container :position, class: ['form-group'] do %>
                 <%= f.label :position, raw(Spree.t(:position) + content_tag(:span, ' *', class: 'required')) %>
-                <%= f.text_field :position, class: 'form-control position' %>
+                <%= f.text_field :position, class: 'form-control title' %>
             <% end %>
         </div>
 

@@ -1,6 +1,10 @@
 module Spree
   Product.class_eval do
     acts_as_list
+
+    self.whitelisted_ransackable_associations = %w[taxons stores variants_including_master master variants]
+
+
   end
 
   module ProductDecorator

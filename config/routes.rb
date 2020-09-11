@@ -32,12 +32,45 @@ Rails.application.routes.draw do
 
       resources :page_sections
 
-      resources :galleries
+      resources :galleries do
+        collection do
+          post :update_images_position
+          post :update_positions
+        end
+      end
+
+
+      resources :products do
+        collection do
+          post :update_positions
+        end
+        resources :product_properties do
+          collection do
+            post :update_positions
+          end
+        end
+        resources :images do
+          collection do
+            post :update_positions
+          end
+        end
+        member do
+          post :clone
+          get :stock
+        end
+        resources :variants do
+          collection do
+            post :update_positions
+          end
+        end
+        resources :variants_including_master, only: [:update]
+      end
 
       delete 'galleries/file_upload', to: 'galleries#file_upload'
       post 'galleries/file_upload', to: 'galleries#file_upload'
 
       resources :sliders
+      resources :slides
     end
 
     resources :news, only: [:index]
@@ -55,6 +88,8 @@ Rails.application.routes.draw do
     get '/confidential_agreement', to: 'agreements#confidential_agreement'
     get '/user_agreement', to: 'agreements#user_agreement'
     get '/oferta', to: 'agreements#oferta'
+
+    get '/taxons_by_filter', to: 'taxons#by_filter'
     post 'send_collection', to: 'products#send_collection'
   end
 end

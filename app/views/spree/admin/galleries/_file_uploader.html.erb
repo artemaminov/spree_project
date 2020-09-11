@@ -4,6 +4,7 @@
     content[:name] ||= ''
     content[:images] ||= []
     content[:image] ||= nil
+    content[:position_url] ||= ''
 
     content
 %>
@@ -26,9 +27,9 @@
 
     <div class="file-uploader__wrapper">
         <% if content[:multiple] %>
-            <div class="file-uploader__image-multi">
+            <div class="file-uploader__image-multi sortable" data-url="<%= content[:position_url] %>">
                 <% if content[:images].any? %>
-                    <% content[:images].each do |image| %>
+                    <% content[:images].order(:position).each do |image| %>
                         <%= render partial: 'spree/admin/galleries/file_item',
                                    locals: {
                                            content: {

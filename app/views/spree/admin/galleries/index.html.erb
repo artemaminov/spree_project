@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  <%= Spree.t('gallery.title') %>
+    <%= Spree.t('gallery.title') %>
 <% end %>
 
 <% content_for :page_actions do %>
@@ -7,52 +7,51 @@
 <% end %>
 
 <% if @galleries.any? %>
-  <table class="table" id="listing_pages" data-hook>
-    <colgroup>
-    <col style="width: 5%">
-    <col style="width: 30%">
-      <col style="width: 30%">
-      <col style="width: 25%">
-      <col style="width: 10%">
-    </colgroup>
-    <thead>
-    <tr data-hook="admin_pages_index_headers">
-        <th><%= Spree::Gallery.human_attribute_name('id') %></th>
-        <th><%= Spree::Gallery.human_attribute_name('position') %></th>
-        <th><%= Spree::Gallery.human_attribute_name('title') %></th>
-        <th><%= Spree::Gallery.human_attribute_name('subtitle') %></th>
-      <th data-hook="admin_pages_index_header_actions" class="actions"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% unless @galleries.blank? %>
-      <% @galleries.each do |gallery| %>
-        <tr data-hook="admin_pages_index_rows" class="<%= cycle('odd', 'even') %>" id="<%= dom_id gallery %>">
-          <td><%= gallery.id %></td>
-            <td><%= gallery.position %></td>
-          <td><%= gallery.title %></td>
-          <td><%= gallery.subtitle %></td>
-          <td class="actions text-right" data-hook="admin_pages_index_row_actions">
-            <%= link_to_edit gallery, no_text: true %>
-            <% if defined?(SpreeGlobalize) %>
-              <%= link_to content_tag(:span, '', class: 'icon icon-translate'),
-                          spree.admin_translations_path('gallery', gallery.id),
-                          class: 'btn btn-primary btn-sm icon-link with-tip',
-                          data: { 'original-title' => Spree.t('i18n.translations') } %>
-            <% end %>
-            <%= link_to_delete gallery, no_text: true %>
-          </td>
+    <table class="table sortable" id="listing_galleries" data-hook data-sortable-link="<%= update_positions_admin_galleries_url(page: params[:page], per_page: params[:per_page]) %>">
+        <thead>
+        <tr data-hook="admin_gallery_index_headers">
+            <th class="no-border"></th>
+            <th><%= Spree::Gallery.human_attribute_name('position') %></th>
+            <th>Изображение</th>
+            <th><%= Spree::Gallery.human_attribute_name('title') %></th>
+            <th><%= Spree::Gallery.human_attribute_name('subtitle') %></th>
+            <th class="actions"></th>
         </tr>
-      <% end %>
-    <% end %>
-    </tbody>
-  </table>
+        </thead>
+        <tbody>
+        <% unless @galleries.blank? %>
+            <% @galleries.each do |gallery| %>
+                <tr data-hook="gallery_row" class="<%= cycle('odd', 'even') %>" id="<%= spree_dom_id gallery %>">
+                    <td class="move-handle text-center">
+                        <span class="icon icon-move handle"></span>
+                    </td>
+                    <td><%= gallery.position %></td>
+                    <td class="image">
+                        <%= image_tag main_app.url_for(resize_to_fill(gallery.slider_image.attachment, { resize: '200x70', crop: '200x70+0+0' })) if gallery.slider_image.present? %>
+                    </td>
+                    <td><%= gallery.title %></td>
+                    <td><%= gallery.subtitle %></td>
+                    <td class="actions text-right">
+                        <%= link_to_edit gallery, no_text: true %>
+                        <% if defined?(SpreeGlobalize) %>
+                            <%= link_to content_tag(:span, '', class: 'icon icon-translate'),
+                                        spree.admin_translations_path('gallery', gallery.id),
+                                        class: 'btn btn-primary btn-sm icon-link with-tip',
+                                        data: { 'original-title' => Spree.t('i18n.translations') } %>
+                        <% end %>
+                        <%= link_to_delete gallery, no_text: true %>
+                    </td>
+                </tr>
+            <% end %>
+        <% end %>
+        </tbody>
+    </table>
 <% else %>
-  <div class="alert alert-warning no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: Spree::Gallery.model_name.human) %>,
-    <%= link_to Spree.t(:add_one), spree.new_admin_gallery_path %>!
-  </div>
+    <div class="alert alert-warning no-objects-found">
+        <%= Spree.t(:no_resource_found, resource: Spree::Gallery.model_name.human) %>,
+        <%= link_to Spree.t(:add_one), spree.new_admin_gallery_path %>!
+    </div>
 <% end %>
 
 
-<%= paginate @galleries %>
+<%#= paginate @galleries %>

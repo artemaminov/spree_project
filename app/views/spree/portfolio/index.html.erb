@@ -1,27 +1,25 @@
-<%= render partial: 'spree/shared/slider' %>
-
 <section class="portfolio-content">
   <div class="container-xl">
-    <%= spree_breadcrumbs(@taxon) %>
+    <%= spree_breadcrumbs('portfolio.crumb') %>
     <!-- конец хлебные крошки-->
     <h1>ПОРТФОЛИО ПРОЕКТОВ</h1>
     <div class="portfolio-list">
     <!--  4 карточки-->
       <div class="row">
         <% @portfolio.each do |item| %>
-          <% next if item.preview_image.attachment.nil? %>
+          <% next unless item.preview_image.present? %>
           <div class="col col-12 col-md-6 col-sm-6">
             <%= link_to portfolio_url(item), class: 'card' do %>
-              <%= image_tag(main_app.url_for(item.preview_image.attachment)) %>
+
+              <%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '812x551', crop: '812x551+0+0' }))) %>
               <div class="title"><%= item.title %></div>
               <div class="description"><%= item.subtitle %></div>
             <% end %>
           </div>
         <% end %>
 
-
       </div>
-        <%= paginate @portfolio %>
+        <%#= paginate @portfolio %>
     </div>
 
   </div>

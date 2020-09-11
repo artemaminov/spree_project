@@ -1,8 +1,8 @@
 <% content_for :page_actions do %>
-  <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::Slider)), spree.admin_sliders_path, icon: 'arrow-left', class: 'btn-primary' %>
+  <%= button_link_to Spree.t(:back_to_resource_list, resource: plural_resource_name(Spree::Slide)), spree.admin_slides_path, icon: 'arrow-left', class: 'btn-primary' %>
 <% end %>
 
 <%= form_for [:admin, resource] do |f| %>
-      <%= render partial: 'spree/admin/slides/form_fields', locals: { f: f, resource: resource } %>
-      <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
+  <%= render partial: 'spree/admin/slides/form_fields', locals: { f: f, resource: resource } %>
+  <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
 <% end %>

@@ -6,6 +6,16 @@ $(document).ready(function () {
 
   const single_wrapper = $('.file-uploader__image');
 
+  $('.sortable').sortable({
+    update: function(e, ui){
+      $.ajax({
+        url: $(this).data("url"),
+        type: 'POST',
+        data: $(this).sortable('serialize'),
+      })
+    }
+  })
+
   body.on('click', '.file-uploader__button', function(e){
     e.preventDefault();
 

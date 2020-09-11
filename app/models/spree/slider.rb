@@ -2,8 +2,6 @@ module Spree
   class Slider < Spree::Base
     has_and_belongs_to_many :slides, :class_name => 'Spree::Slide', join_table: 'spree_sliders_slides'
 
-    accepts_nested_attributes_for :slides
-
     validates_presence_of :page
 
     if defined?(SpreeGlobalize)

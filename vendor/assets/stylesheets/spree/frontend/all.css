@@ -6,9 +6,12 @@
  * require spree/frontend
 
  *= require_self
- *= require_tree .
  *= require spree/frontend/spree_static_content
  *= require spree/frontend/spree_address_book
+ *= require spree/frontend/progress
+ *= require spree/frontend/spinner
  *= require spree/frontend/styles.min
  *= require spree/frontend/agreement_doc
+ *= require spree/frontend/styles
+
 */

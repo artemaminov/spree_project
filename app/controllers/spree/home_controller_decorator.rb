@@ -7,7 +7,7 @@ Spree::HomeController.class_eval do
     @products = @products.includes(:possible_promotions).order(position: :asc) if @products.respond_to?(:includes)
     @retailers = collected_retailers_info
     @regions = collected_regions
-    @standard_news = news_collection
+    @standard_news = news_collection.order(publication_date: :desc).limit(3)
     @latest_news = @standard_news.latest
     @portfolio = Spree::Gallery.all.order(position: :asc)
   end
