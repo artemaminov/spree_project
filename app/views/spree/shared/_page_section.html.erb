@@ -7,7 +7,7 @@
       <% if page_section.button_centered? %>
       <div class="btn-wrap">
       <% end %>
-        <div class="btn <%= page_section.button_style %>"><%= link_to page_section.button_text, page_section.button_url %></a></div>
+      <%= link_to page_section.button_text, page_section.button_url, class: "btn #{page_section.button_style}" %>
       <% if page_section.button_centered? %>
       </div>
       <% end %>
