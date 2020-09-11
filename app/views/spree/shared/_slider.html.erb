@@ -1,7 +1,7 @@
 <div class="section_first-section-catalog" id="first-section">
   <% if @slider %>
     <% @slider.slides.each do |slide| %>
-      <%= image_combine_tag(slide, 'bg-img') %>
+      <%= cropped_image_tag(slide.image, class: 'bg-img') %>
       <div class="wrap"></div>
       <div class="container-xl">
         <h1 class="title"><%= slide.title %></h1>
