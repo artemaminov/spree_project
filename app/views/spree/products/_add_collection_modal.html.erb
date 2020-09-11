@@ -12,7 +12,6 @@
         <div class="size">Размер</div>
         <div class="price">Цена за шт.</div>
         <div class="count">Количество</div>
-        <div class="count-m2"></div>
         <div class="total">Сумма</div>
         <div class="delete"></div>
       </div>
@@ -37,7 +36,7 @@
           <div class="col">
             <div class="input-group">
               <label for="customer_phone">Номер телефона</label>
-              <%= text_field_tag 'customer_phone', nil, placeholder: "+7 (___) ___ __ __", type: 'number' %>
+              <%= text_field_tag 'customer_phone', nil, placeholder: "+7 (___) ___ __ __", type: 'text', inputmode: 'text' %>
             </div>
           </div>
           <div class="col">
