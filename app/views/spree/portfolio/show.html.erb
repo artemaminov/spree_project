@@ -120,8 +120,8 @@
 <!-- следующий проект-->
 <div class="portfolio-single-next-project">
   <picture>
-    <% if @next_portfolio.slider_image.present? %>
-      <%= image_tag main_app.url_for(@next_portfolio.slider_image.attachment), class: "bg-img" %>
+    <% if @portfolio.slider_image.present? %>
+      <%= image_tag main_app.url_for(@portfolio.slider_image.attachment), class: "bg-img" %>
     <% end %>
   </picture>
   <div class="wrapper"></div>
