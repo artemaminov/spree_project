@@ -9,9 +9,9 @@ module Spree
       include SpreeGlobalize::Translatable
     end
 
-    def self.for_page(name, page_id)
+    def self.for_page(controller_name, page_id)
       page_id = [nil, ''] if page_id.blank?
-      where(page: name, page_id: page_id).first
+      where(page: controller_name, page_id: page_id).first
     end
 
   end
