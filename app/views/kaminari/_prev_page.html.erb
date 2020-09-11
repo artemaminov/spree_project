@@ -6,8 +6,10 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<% unless current_page.first? %>
-  <li class="prev">
-    <%= link_to_unless current_page.first?, raw(t 'views.pagination.previous'), url, rel: 'prev', remote: remote %>
-  </li>
-<% end %>
+<li class="page-item">
+    <% unless current_page.first? %>
+        <a class="page-link" href="<%= url %>" aria-label="Previous" rel="next">
+            <%= image_tag 'svg/content/arrow-left-green.svg' %>
+        </a>
+    <% end %>
+</li>
