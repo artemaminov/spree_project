@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_132115) do
+ActiveRecord::Schema.define(version: 2020_09_11_131140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -279,7 +279,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_132115) do
 
   create_table "spree_image_combine_block_positions", force: :cascade do |t|
     t.string "controller_name", null: false
-    t.string "block_id"
+    t.string "block_id", limit: 32
     t.bigint "block_type_id"
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_132115) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2020-08-31 05:56:43"
+    t.datetime "publication_date", default: "2019-07-10 21:19:50"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""
@@ -1232,7 +1232,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_132115) do
 
   create_table "spree_sliders", force: :cascade do |t|
     t.string "page"
-    t.integer "page_id"
+    t.string "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "Слайдер", null: false
