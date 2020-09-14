@@ -1,6 +1,6 @@
 <div class="section_first-section-catalog section_first-section-portfolio-single" id="first-section">
     <% if @portfolio.slider_image.present? %>
-      <%= cropped_image_tag(@portfolio.slider_image, class: "bg-img") %>
+      <%#= cropped_image_tag(@portfolio.slider_image, class: "bg-img") %>
     <% end %>
   <div class="wrap"></div>
   <div class="container-xl">
@@ -107,7 +107,14 @@
       <div class="col col-12 col-md-6 col-sm-6">
         <%= link_to main_app.url_for(image), class: 'img', data: { fancybox: "images" } do %>
           <% unless image.nil? %>
-            <%= image_tag(main_app.url_for(image)) %>
+              <%
+                  dimensions = ActiveStorage::Analyzer::ImageAnalyzer.new(image).metadata
+                  crop_param = dimensions[:height] > dimensions[:width] ?
+                                       '763x1017'
+                                       :
+                                       '763x573'
+              %>
+            <%= image_tag(main_app.url_for(resize_to_fill(image, { resize: crop_param, crop: "#{crop_param}+0+0" }))) %>
           <% end %>
         <% end %>
       </div>
@@ -117,19 +124,22 @@
 </div>
 <!-- конец галерея-->
 <!-- следующий проект-->
-<div class="portfolio-single-next-project">
-  <picture>
-    <% if @portfolio.slider_image.present? %>
-      <%= image_tag main_app.url_for(@portfolio.slider_image.attachment), class: "bg-img" %>
-    <% end %>
-  </picture>
-  <div class="wrapper"></div>
-  <div class="container-xl">
-    <div class="description"><%= @next_portfolio.subtitle %></div>
-    <div class="title"><%= @next_portfolio.title %></div>
-    <%= link_to Spree.t('portfolio.next'), portfolio_url(@next_portfolio), class: "btn" %>
-  </div>
-</div>
+<% if @next_portfolio.present? %>
+    <div class="portfolio-single-next-project">
+        <picture>
+            <% if @next_portfolio&.slider_image&.attached? %>
+                <%= image_tag main_app.url_for(@next_portfolio.slider_image.attachment), class: "bg-img" %>
+            <% end %>
+        </picture>
+        <div class="wrapper"></div>
+        <div class="container-xl">
+            <div class="description"><%= @next_portfolio&.subtitle %></div>
+            <div class="title"><%= @next_portfolio&.title %></div>
+            <%= link_to Spree.t('portfolio.next'), portfolio_url(@next_portfolio), class: "btn" %>
+        </div>
+    </div>
+<% end %>
+
 <!-- конец следующий проект-->
 <!-- панель с кнопками-->
 <div class="container-xl">

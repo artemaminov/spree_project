@@ -279,7 +279,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_131140) do
 
   create_table "spree_image_combine_block_positions", force: :cascade do |t|
     t.string "controller_name", null: false
-    t.string "block_id", limit: 32
+    t.string "block_id"
     t.bigint "block_type_id"
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -368,7 +368,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_131140) do
     t.text "body", default: ""
     t.boolean "show_on_site", default: true
     t.boolean "latest", default: true
-    t.datetime "publication_date", default: "2019-07-10 21:19:50"
+    t.datetime "publication_date", default: "2020-08-31 05:56:43"
     t.string "meta_title", default: ""
     t.string "meta_description", default: ""
     t.string "meta_keywords", default: ""

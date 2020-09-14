@@ -1,0 +1,29 @@
+<div class="section section_portfolio">
+  <div class="container-xl">
+    <div class="title">
+        Портфолио объектов с кирпичом&nbsp;<%= @product.name %>&nbsp;
+    </div>
+    <div class="slider_portfolio" id="slider_portfolio">
+      <ul class="slidee">
+        <% @product.galleries.each do |item| %>
+          <% next if item.preview_image.attachment.nil? %>
+          <li class="item">
+            <%= link_to portfolio_url(item) do %>
+              <div class="img">
+                <%= image_tag(main_app.url_for(resize_to_fill(item.preview_image, { resize: '590x551', crop: '590x551+0+0' }))) %></div>
+              <div class="title"><%= item.title %></div>
+              <div class="description"><%= item.subtitle %></div>
+              <div class="more"><%= Spree.t(:read_more) %></div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="scrollbar">
+      <div class="handle"></div>
+    </div>
+    <div class="count">
+      <%= object_of_counter(Spree.t('projects'), @product.galleries.limit(20).count.to_s, @product.galleries.count.to_s) %>
+    </div>
+  </div>
+</div>
