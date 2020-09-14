@@ -66,7 +66,7 @@
   <div class="container-xl container-xl_header_second"><a class="logo" href="/"><%= image_tag("general/icons/logo-black.svg") %></a>
     <div class="items">
       <div class="navigation">
-        <%= render partial: 'spree/shared/taxonomies', locals: { inside_li_tag: false } %>
+        <%= render partial: 'spree/shared/taxonomies', locals: { inside_li_tag: false, header_second: true } %>
       </div>
       <div class="contacts"><a class="item item_phone" href="tel:+7 922 079 3302"><%= image_tag("general/icons/header/phone.svg") %><span>+7 922 079 3302</span></a><a class="item item_email" href="mailto:kom@zaobkz.ru"><%= image_tag("general/icons/header/email.svg") %><span>kom@zaobkz.ru</span></a></div>
       <div class="burger"><%= image_tag("general/icons/header/burger-green.svg") %></div>

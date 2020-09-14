@@ -2,8 +2,12 @@
   <% if @taxonomies %>
     <% @taxonomies.each do |taxonomy| %>
       <% taxon = taxonomy.taxons.first %>
-      <% link = inside_li_tag ? link_to(taxon.name, seo_url(taxon), class: 'item') : link_to(taxon.name, seo_url(taxon)) %>
-      <%= inside_li_tag ? content_tag(:li, link) : content_tag(:div, link, class: 'item') %>
+      <% if local_assigns[:header_second] %>
+        <%= link_to(taxon.name, seo_url(taxon), class: 'item') %>
+      <% else %>
+        <% link = inside_li_tag ? link_to(taxon.name, seo_url(taxon), class: 'item') : link_to(taxon.name, seo_url(taxon)) %>
+        <%= inside_li_tag ? content_tag(:li, link) : content_tag(:div, link, class: 'item') %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
