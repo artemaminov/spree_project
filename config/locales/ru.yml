@@ -1717,10 +1717,10 @@ ru:
       editing_retailer: "Редактировать розничного продавца"
       back_to_retailers_list: "Назад к списку розничных торговцев"
     news:
-      new_news: "Новая новость"
-      editing_news: "Редактировать новость"
       back_to_news_list: "Назад к списку новостей"
-#    gallery: "Фотогалерея"
+      editing_news: "Редактировать новость"
+      new_news: "Новая новость"
+      title: "Новостей"
     attachments:
       attachments: "Вложения"
       new_attachment: "Новое Вложение"

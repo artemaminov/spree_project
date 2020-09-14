@@ -84,7 +84,7 @@
         <div class="scrollbar">
             <div class="handle"></div>
         </div>
-        <div class="count">Новостей 1 из 5</div>
+        <div class="count"><%= object_of_counter(Spree.t('news.title'), @standard_news.count, Spree::News.visible.count)  %></div>
     </div>
 </div>
 <%= render partial: 'spree/shared/page_section', locals: { page_section: @page_sections.section('partners') } %>
