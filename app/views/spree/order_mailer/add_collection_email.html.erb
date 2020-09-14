@@ -1,0 +1,25 @@
+<span><%= Spree.t('order_mailer.confirm_email.dear_customer') -%> <%= @customer[:name] %></span>
+<span><%= Spree.t('order_mailer.confirm_email.order_summary', number: @variants.count) %>: <%= @category %> <%= @variants.first.product.name %></span>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Формат</th>
+      <th>Размер</th>
+      <th>Цена за шт.</th>
+      <th>В заказе</th>
+      <th>Итого</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'spree/order_mailer/calc_line', collection: @variants %>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td><%= Spree.t('order_mailer.total') %></td>
+    <td colspan="5"><%= @total %> ₽</td>
+  </tr>
+  </tfoot>
+</table>
+
+<%= Spree.t('order_mailer.confirm_email.thanks') %>

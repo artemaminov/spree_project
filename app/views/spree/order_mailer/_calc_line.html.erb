@@ -1,0 +1,8 @@
+<tr>
+  <td><%= calc_line_counter + 1 %>.</td>
+  <td><%= calc_line.option_value('format') %></td>
+  <td><%= @amount[calc_line_counter].to_i / calc_line.pallet_quantity %> поддонов, <%= @amount[calc_line_counter].to_i / calc_line.sqr_meter_amount %> метр &sup2;</td>
+  <td><%= calc_line.price %> ₽</td>
+  <td><%= @amount[calc_line_counter] %> штук</td>
+  <td><%= @amount[calc_line_counter].to_i * calc_line.price %> ₽</td>
+</tr>
