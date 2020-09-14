@@ -90,6 +90,6 @@ Rails.application.routes.draw do
     get '/oferta', to: 'agreements#oferta'
 
     get '/taxons_by_filter', to: 'taxons#by_filter'
-    post 'send_collection', to: 'products#send_collection'
+    post '/send_collection', to: 'products#send_collection'
   end
 end
