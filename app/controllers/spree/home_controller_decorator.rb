@@ -9,7 +9,7 @@ Spree::HomeController.class_eval do
     @regions = collected_regions
     @standard_news = news_collection.order(publication_date: :desc).limit(3)
     @latest_news = @standard_news.latest
-    @portfolio = Spree::Gallery.all.order(position: :asc)
+    @portfolio = Spree::Gallery.all.order(position: :asc).limit(20)
   end
 
   private

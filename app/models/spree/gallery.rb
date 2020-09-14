@@ -15,6 +15,8 @@ module Spree
 
     accepts_nested_attributes_for :slider_image
 
+    scope :active, -> { joins(:preview_image_attachment, :slider_image) }
+
     if defined?(SpreeGlobalize)
       translates :title, :subtitle, :desc, fallbacks_for_empty_translations: true
       # include SpreeGlobalize::Translatable
@@ -34,6 +36,10 @@ module Spree
 
     def previous
       Spree::Gallery.where('id < ?', id).order('id DESC').first || Spree::Gallery.last
+    end
+
+    def no_preview_image
+      preview_image.attachment.nil?
     end
   end
 end
