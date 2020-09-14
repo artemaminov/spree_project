@@ -30,13 +30,13 @@
           <div class="col">
             <div class="input-group">
               <label for="customer_name">Фамилия Имя Отчество</label>
-              <%= text_field_tag 'customer_name', nil, placeholder: "Ивано Иван Иванович" %>
+              <%= text_field_tag 'customer[name]', nil, placeholder: "Иванов Иван Иванович" %>
             </div>
           </div>
           <div class="col">
             <div class="input-group">
               <label for="customer_phone">Номер телефона</label>
-              <%= text_field_tag 'customer_phone', nil, placeholder: "+7 (___) ___ __ __", type: 'text', inputmode: 'text' %>
+              <%= text_field_tag 'customer[phone]', nil, placeholder: "+7 (___) ___ __ __", type: 'text', inputmode: 'text' %>
             </div>
           </div>
           <div class="col">
