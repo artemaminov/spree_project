@@ -40,6 +40,7 @@
             </div>
           </div>
           <div class="col">
+            <%= hidden_field_tag 'taxon', @taxon.id %>
             <%= submit_tag 'Отправить заказ', data: { "disable-with": "Отправка..." }, class: "btn btn_form_send-order" %>
           </div>
         </div>
