@@ -2,7 +2,7 @@
 <div id="product_<%= product.id %>" class="grid-item persent-size" data-info='{"colorTone":"<%= product.property('color-tone') %>"}'>
     <div class="box-card">
         <div class="preview">
-            <% crop_opts = params[:id].include?('righiel') ?
+            <% crop_opts = params[:id].include?('rigiel') ?
                             { resize: '477x638', crop: '477x638+0+0' }
                             :
                             { resize: '538x363', crop: '538x363+0+0' }
@@ -54,10 +54,10 @@
                                 <% if variant.present? && variant&.prices.any? %>
                                     <%= variant.prices.first.amount %> ₽ / <%= variant.prices.first.amount * variant.sqr_meter_amount %> м<sup>2</sup>/₽
                                 <% else %>
-                                    от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> м<sup>2</sup>/₽
+                                    от <%= product.lowest_price_variant.amount %> ₽ / <%= product.lowest_price_variant.amount * product.lowest_price_variant.variant.sqr_meter_amount %> ₽/м<sup>2</sup>
                                 <% end %>
                             <% else %>
-                                от <%= product.lowest_price_variant&.amount.to_f %> ₽ / <%= product.lowest_price_variant&.amount.to_f * product.lowest_price_variant&.variant&.sqr_meter_amount.to_f %> м<sup>2</sup>/₽
+                                от <%= product.lowest_price_variant&.amount.to_f %> ₽ / <%= product.lowest_price_variant&.amount.to_f * product.lowest_price_variant&.variant&.sqr_meter_amount.to_f %> ₽/м<sup>2</sup>
                             <% end %>
                         </div>
                     </div>

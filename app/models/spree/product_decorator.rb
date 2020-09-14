@@ -2,6 +2,10 @@ module Spree
   Product.class_eval do
     acts_as_list
 
+    has_many :gallery_products, class_name: 'Spree::GalleryProduct'
+    has_many :galleries, class_name: 'Spree::Gallery',
+             through: :gallery_products
+
     self.whitelisted_ransackable_associations = %w[taxons stores variants_including_master master variants]
 
 
