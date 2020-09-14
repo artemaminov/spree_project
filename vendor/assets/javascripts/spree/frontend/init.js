@@ -369,8 +369,8 @@ function initHomeSlickSlider() {
     arrows: false,
     dots: true,
     fade: true,
-    autoplay: false,
-    autoplaySpeed: 5000,
+    autoplay: true,
+    autoplaySpeed: 7000,
     appendDots: '.section_first-section .container-xl'
   });
 }
