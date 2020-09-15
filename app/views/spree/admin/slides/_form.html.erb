@@ -3,6 +3,39 @@
 <% end %>
 
 <%= form_for [:admin, resource] do |f| %>
-  <%= render partial: 'spree/admin/slides/form_fields', locals: { f: f, resource: resource } %>
+  <div class="row" data-hook="admin_page_form_fields">
+    <div class="col-lg-6" data-hook="admin_page_form_left">
+      <%= field_container resource, :title, class: ['form-group'] do %>
+        <%= f.label :title %>
+        <%= f.text_area :title, class: 'form-control' %>
+        <%= error_message_on resource, :title %>
+      <% end %>
+
+      <%= field_container resource, :message, class: ['form-group'] do %>
+        <%= f.label :message %>
+        <%= f.text_area :message, class: 'form-control', required: true %>
+        <%= error_message_on resource, :message %>
+      <% end %>
+    </div>
+
+    <div class="col-lg-6" data-hook="admin_page_form_right">
+
+      <div class="form-group">
+        <%= f.label :url %>
+        <%= f.text_field :url, class: 'form-control' %>
+        <%= error_message_on resource, :url %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= render partial: '/spree/admin/shared/cropper_form', locals: { resource: resource.image || resource.build_image, resource_name: :image, f: f } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <%= render "spree/admin/shared/#{resource.new_record? ? 'new' : 'edit'}_resource_links" %>
 <% end %>
