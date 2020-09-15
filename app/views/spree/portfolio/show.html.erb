@@ -1,6 +1,6 @@
 <div class="section_first-section-catalog section_first-section-portfolio-single" id="first-section">
     <% if @portfolio.slider_image.present? %>
-      <%#= cropped_image_tag(@portfolio.slider_image, class: "bg-img") %>
+      <%= cropped_image_tag(@portfolio.slider_image, class: "bg-img") %>
     <% end %>
   <div class="wrap"></div>
   <div class="container-xl">
