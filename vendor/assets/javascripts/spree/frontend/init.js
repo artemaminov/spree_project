@@ -75,7 +75,18 @@ $(document).ready(function () {
   initRemoveBtnDeleteMobile();
   initCountMetrForModal();
   initNewsOnMain();
+  initPoliticsCheckbox();
 });
+
+function initPoliticsCheckbox() {
+  $("#politicsCheckbox").change(function () {
+    isCheckedPoliticsCheckbox(this);
+  });
+}
+
+function isCheckedPoliticsCheckbox(obj) {
+  if ($(obj).prop('checked')) $(".btn_form_send-order").prop("disabled", false);else $(".btn_form_send-order").prop("disabled", true);
+}
 
 function initNewsOnMain() {
   $(".section_news .news").attr("data-count", $(".section_news .news .item").length);

@@ -41,12 +41,12 @@
           </div>
           <div class="col">
             <%= hidden_field_tag 'taxon', @taxon.id %>
-            <%= submit_tag 'Отправить заказ', data: { "disable-with": "Отправка..." }, class: "btn btn_form_send-order" %>
+            <%= submit_tag 'Отправить заказ', data: { "disable-with": "Отправка..." }, class: "btn btn_form_send-order", disabled: true %>
           </div>
         </div>
     </div>
     <div class="politics">
-      <input type="checkbox" name="politics_agreement" id="politicsCheckbox" checked>
+      <input type="checkbox" name="politics_agreement" id="politicsCheckbox">
       <label for="politicsCheckbox">Согласие с настоящей<a href="#">Политикой конфеденциальности и обработке Персональных данных</a></label>
     </div>
   </div>
