@@ -1,8 +1,8 @@
-<% cache [I18n.locale, @taxonomies, inside_li_tag] do %>
+<% cache [I18n.locale, @taxonomies, inside_li_tag, header_second] do %>
   <% if @taxonomies %>
     <% @taxonomies.each do |taxonomy| %>
       <% taxon = taxonomy.taxons.first %>
-      <% if local_assigns[:header_second] %>
+      <% if header_second %>
         <%= link_to(taxon.name, seo_url(taxon), class: 'item') %>
       <% else %>
         <% link = inside_li_tag ? link_to(taxon.name, seo_url(taxon), class: 'item') : link_to(taxon.name, seo_url(taxon)) %>
