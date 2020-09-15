@@ -1,7 +1,11 @@
-<header class="header header_first">
+<header class="header header_first <%= 'header_light' if local_assigns[:header_light] %>">
   <div class="container-xl">
     <div class="row">
-      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-2"><a class="logo" href="/"><%= image_tag("general/icons/logo.svg") %></a></div>
+      <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-2">
+        <a class="logo" href="/">
+        <%= local_assigns[:header_light] ? image_tag("general/icons/logo-header_black.svg") : image_tag("general/icons/logo/logo-light.svg") %>
+        </a>
+      </div>
       <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-10">
         <div class="items items_first_nav">
           <div class="toolbar toolbar_first">
@@ -63,7 +67,7 @@
   </div>
 </header>
 <header class="header header_second">
-  <div class="container-xl container-xl_header_second"><a class="logo" href="/"><%= image_tag("general/icons/logo-black.svg") %></a>
+  <div class="container-xl container-xl_header_second"><a class="logo" href="/"><%= image_tag("general/icons/logo/logo-black.svg") %></a>
     <div class="items">
       <div class="navigation">
         <%= render partial: 'spree/shared/taxonomies', locals: { inside_li_tag: false, header_second: true } %>

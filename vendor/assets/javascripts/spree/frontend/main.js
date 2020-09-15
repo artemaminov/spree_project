@@ -392,12 +392,10 @@ function catalogModalAdaptiveMore1439() {
 
 function headerFirstAdaptive900() {
   if (!$('.navigation .toolbar_first').length) $('.items_first_nav .navigation').prepend($('.toolbar_first'));
-  $('.navigation>.items').hide();
 }
 
 function headerFirstAdaptiveMore900() {
   if (!$('.items_first_nav>.toolbar_first').length) $('.header_first .items_first_nav').prepend($('.navigation>.toolbar'));
-  $('.navigation>.items').show();
 }
 
 function footerAdaptive900() {

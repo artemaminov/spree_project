@@ -32,7 +32,7 @@
 <div class="wrapper">
 
   <% if @use_light_nav_bar %>
-    <%= render partial: 'spree/shared/nav_bar/main_nav_bar_light' %>
+    <%= render partial: 'spree/shared/nav_bar/main_nav_bar', locals: { header_light: true } %>
   <% else %>
     <%= render partial: 'spree/shared/nav_bar/main_nav_bar' %>
   <% end %>
